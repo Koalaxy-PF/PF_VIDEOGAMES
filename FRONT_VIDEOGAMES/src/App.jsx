@@ -6,6 +6,7 @@ function App() {
     <div className="App">
       <h1 class="text-xl font-bold">
         Hello world...
+        Soy Juan
       </h1>
     </div>
   )
