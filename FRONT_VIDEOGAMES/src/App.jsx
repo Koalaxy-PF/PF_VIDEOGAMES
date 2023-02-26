@@ -1,14 +1,18 @@
 import './App.css'
-import NavBar from './components/Navbar/Navbar'
+import Navbar from "./components/Navbar/Navbar"
+import SearchBar from './components/SearchBar/SearchBar'
+import CreateUser from './views/createUser/createUser'
 
 
-function App() {
+function App(){
 
   return (
     <div className="App">
-
-
-     <NavBar/>
+     
+    <div>
+      <Navbar/>
+      <CreateUser/>
+    </div>
 
     </div>
   )
