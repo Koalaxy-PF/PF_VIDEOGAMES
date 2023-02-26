@@ -1,5 +1,5 @@
 import './App.css'
-import CreateUser from './views/createUser/CreateUser'
+import CreateUser from './views/CreateUser/CreateUser'
 import Navbar from "./components/Navbar/Navbar"
 import SearchBar from './components/SearchBar/SearchBar'
 
