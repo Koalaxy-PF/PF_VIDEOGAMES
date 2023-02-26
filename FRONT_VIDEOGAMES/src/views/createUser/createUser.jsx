@@ -85,7 +85,7 @@ export default function CreateUser() {
 
           <div class='my-4'>
             <label>Date: </label>{" "}
-            <input class='border-solid border-2 border-black'
+            <input class='border-solid border-2 border-black rounded-md'
               key="date"
               type="date"
               name="date"
@@ -95,7 +95,7 @@ export default function CreateUser() {
 
           <div class='my-4'>
             <label>Description: </label>{" "}
-            <input class='border-solid border-2 border-black'
+            <input class='border-solid border-2 border-black rounded-md'
               key="description"
               type="text"
               name="description"
@@ -105,7 +105,7 @@ export default function CreateUser() {
 
           <div class='my-4'>
             <label>Genre</label>
-            <select name="genre" required onChange = {
+            <select name="genre" class='border-solid border-2 border-black rounded-md' required onChange = {
               (e) => handleInputChange(e)}>
                 <option value="">Select Genre</option>
                 {
