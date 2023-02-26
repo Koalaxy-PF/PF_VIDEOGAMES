@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import validate from "./validators.jsx";
 
-export default function createUser() {
+export default function CreateUser() {
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -26,6 +26,31 @@ export default function createUser() {
 
     
   }, []);
+
+  function handleInputChange(e){
+    setInput({
+        ...input,
+        [e.target.name]: e.target.value
+    })
+  }
+
+  function handleSubmit(e){
+    e.preventDefault();
+    if(input.username && input.email && input.password && input.image && input.date && input.description && input.genre){
+        dispatch(createUser(input));
+        setInput({
+            username: "",
+            email: "",
+            password: "",
+            image: "",
+            date: "",
+            description: "",
+            genre: [],
+        });
+    }
+  };
+
+  const genre = ['male', 'female']
 
   return (
     <div>
@@ -97,10 +122,26 @@ export default function createUser() {
             ></input>
           </div>
 
+          <div>
+            <label>Genre</label>
+            <select name="genre" required onChange={
+                (e) => handleInputChange(e)}>
+                    <option value="">Select Genre</option>
+                    {
+                        genre.map(genre => (
+                            <option value={genre} key={genre}>{genre}</option>
+                        ))
+                    }
+                </select>
+          </div>
+
+          <div>
+            <button type="submit">Create User</button>
+          </div>
+
         </form>
       </div>
     </div>
   );
-}
-
 };
+
