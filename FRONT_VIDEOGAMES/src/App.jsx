@@ -1,4 +1,6 @@
 import './App.css'
+import Navbar from "./components/Navbar/Navbar"
+import SearchBar from './components/SearchBar/SearchBar'
 
 
 function App() {
@@ -10,7 +12,11 @@ function App() {
         Hello world...
         Soy Juan
         yo Pablo
+       
       </h1>
+    <div>
+      <Navbar/>
+    </div>
     </div>
   )
 }
