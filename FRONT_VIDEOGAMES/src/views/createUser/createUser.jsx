@@ -27,6 +27,18 @@ export default function CreateUser() {
     
   }, []); */
 
+  function handleInputChange(e){
+    setInput({
+      ...input,
+      [e.target.name]: e.target.value
+    });
+  }
+
+
+
+  const genre = ['male', 'female']
+
+
   return (
     <div>
      {/*  <div>
@@ -37,10 +49,10 @@ export default function CreateUser() {
       <div>
         <h1>Create User</h1>
         <form>
-          <div>
+          <div class='my-4'>
             <label>Username: </label>{" "}
-            <input class="bg-grey-300"
-            /*   key="username" */
+            <input onChange={(e) => handleInputChange(e)} class='border-solid border-2 border-black rounded-md'
+              key="username"
               type="text"
               name="username"
               value={input.username}
@@ -49,58 +61,71 @@ export default function CreateUser() {
             </input>
           </div>
 
-          <div>
+          <div class='my-4' >
             <label>Email: </label>{" "}
-            <input
-             key="email" 
+            <input onChange={(e) => handleInputChange(e)} class='border-solid border-2 border-black rounded-md'
+              key="email"
               type="text"
               name="email"
               value={input.email}
             />
           </div>
 
-          <div>
+          <div class='my-4'>
             <label>Password: </label>{" "}
-            <input
-               key="password" 
+            <input onChange={(e) => handleInputChange(e)} class='border-solid border-2 border-black rounded-md'
+              key="password"
               type="password"
               name="password"
               value={input.password}
             />
           </div>
 
-          <div>
+          <div class='my-4'>
             <label>Image: </label>{" "}
-            <input
-              key="image" 
+            <input onChange={(e) => handleInputChange(e)} class='border-solid border-2 border-black rounded-md'
+              key="image"
               type="text"
               name="image"
               value={input.image}
             />
           </div>
 
-          <div>
+          <div class='my-4'>
             <label>Date: </label>{" "}
-            <input
-              key="date" 
+            <input onChange={(e) => handleInputChange(e)} class='border-solid border-2 border-black rounded-md'
+              key="date"
               type="date"
               name="date"
               value={input.date}
             />
           </div>
 
-          <div>
+          <div class='my-4'>
             <label>Description: </label>{" "}
-            <input
-              key="description" 
+            <input onChange={(e) => handleInputChange(e)} class='border-solid border-2 border-black rounded-md'
+              key="description"
               type="text"
               name="description"
               value={input.description}
             />
           </div>
 
+          <div class='my-4'>
+            <label>Genre</label>
+            <select name="genre" class='border-solid border-2 border-black rounded-md' required onChange = {
+              (e) => handleInputChange(e)}>
+                <option value="">Select Genre</option>
+                {
+                  genre.map(genre => (
+                    <option value={genre} key={genre}>{genre}</option>
+                  ))
+                }
+              </select>
+          </div>
         </form>
       </div>
     </div>
   );
-}
+};
+
