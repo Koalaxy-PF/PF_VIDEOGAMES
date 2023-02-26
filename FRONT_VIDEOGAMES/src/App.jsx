@@ -1,5 +1,5 @@
 import './App.css'
-import CreateUser from './views/createUser/createUser'
+import CreateUser from './views/createUser/CreateUser'
 
 function App() {
 

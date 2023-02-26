@@ -45,7 +45,7 @@ export default function CreateUser() {
         <form>
           <div class='my-4'>
             <label>Username: </label>{" "}
-            <input class='border-solid border-2 border-black rounded-md'
+            <input onChange={(e) => handleInputChange(e)} class='border-solid border-2 border-black rounded-md'
               key="username"
               type="text"
               name="username"
@@ -55,7 +55,7 @@ export default function CreateUser() {
 
           <div class='my-4' >
             <label>Email: </label>{" "}
-            <input class='border-solid border-2 border-black rounded-md'
+            <input onChange={(e) => handleInputChange(e)} class='border-solid border-2 border-black rounded-md'
               key="email"
               type="text"
               name="email"
@@ -65,7 +65,7 @@ export default function CreateUser() {
 
           <div class='my-4'>
             <label>Password: </label>{" "}
-            <input class='border-solid border-2 border-black rounded-md'
+            <input onChange={(e) => handleInputChange(e)} class='border-solid border-2 border-black rounded-md'
               key="password"
               type="password"
               name="password"
@@ -75,7 +75,7 @@ export default function CreateUser() {
 
           <div class='my-4'>
             <label>Image: </label>{" "}
-            <input class='border-solid border-2 border-black rounded-md'
+            <input onChange={(e) => handleInputChange(e)} class='border-solid border-2 border-black rounded-md'
               key="image"
               type="text"
               name="image"
@@ -85,7 +85,7 @@ export default function CreateUser() {
 
           <div class='my-4'>
             <label>Date: </label>{" "}
-            <input class='border-solid border-2 border-black rounded-md'
+            <input onChange={(e) => handleInputChange(e)} class='border-solid border-2 border-black rounded-md'
               key="date"
               type="date"
               name="date"
@@ -95,7 +95,7 @@ export default function CreateUser() {
 
           <div class='my-4'>
             <label>Description: </label>{" "}
-            <input class='border-solid border-2 border-black rounded-md'
+            <input onChange={(e) => handleInputChange(e)} class='border-solid border-2 border-black rounded-md'
               key="description"
               type="text"
               name="description"
