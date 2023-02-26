@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import validate from "./validators.jsx";
 
-export default function createUser() {
+export default function CreateUser() {
   const dispatch = useDispatch();
   const history = useHistory();
 
