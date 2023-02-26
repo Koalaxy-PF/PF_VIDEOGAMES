@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Link, useHistory } from "react-router-dom";
-import validate from "./validators.jsx";
+// import { useDispatch} from "react-redux";
+// import { Link, useHistory } from "react-router-dom";
+// import validate from "./validators.jsx";
 
 export default function CreateUser() {
-  const dispatch = useDispatch();
-  const history = useHistory();
-
-  const [errors, setErrors] = useState({});
+  // const dispatch = useDispatch();
+  // const history = useHistory();
+  // const [errors, setErrors] = useState({});
 
   const [input, setInput] = useState({
     username: "",
@@ -29,42 +28,24 @@ export default function CreateUser() {
 
   function handleInputChange(e){
     setInput({
-        ...input,
-        [e.target.name]: e.target.value
-    })
+      ...input,
+      [e.target.name]: e.target.value
+    });
   }
 
-  function handleSubmit(e){
-    e.preventDefault();
-    if(input.username && input.email && input.password && input.image && input.date && input.description && input.genre){
-        dispatch(createUser(input));
-        setInput({
-            username: "",
-            email: "",
-            password: "",
-            image: "",
-            date: "",
-            description: "",
-            genre: [],
-        });
-    }
-  };
+
 
   const genre = ['male', 'female']
+
 
   return (
     <div>
       <div>
-        <Link to="/home">
-          <button>BACKOALA</button>
-        </Link>
-      </div>
-      <div>
         <h1>Create User</h1>
         <form>
-          <div>
+          <div class='my-4'>
             <label>Username: </label>{" "}
-            <input
+            <input class='border-solid border-2 border-black rounded-md'
               key="username"
               type="text"
               name="username"
@@ -72,9 +53,9 @@ export default function CreateUser() {
             ></input>
           </div>
 
-          <div>
+          <div class='my-4' >
             <label>Email: </label>{" "}
-            <input
+            <input class='border-solid border-2 border-black rounded-md'
               key="email"
               type="text"
               name="email"
@@ -82,9 +63,9 @@ export default function CreateUser() {
             ></input>
           </div>
 
-          <div>
+          <div class='my-4'>
             <label>Password: </label>{" "}
-            <input
+            <input class='border-solid border-2 border-black rounded-md'
               key="password"
               type="password"
               name="password"
@@ -92,9 +73,9 @@ export default function CreateUser() {
             ></input>
           </div>
 
-          <div>
+          <div class='my-4'>
             <label>Image: </label>{" "}
-            <input
+            <input class='border-solid border-2 border-black rounded-md'
               key="image"
               type="text"
               name="image"
@@ -102,9 +83,9 @@ export default function CreateUser() {
             ></input>
           </div>
 
-          <div>
+          <div class='my-4'>
             <label>Date: </label>{" "}
-            <input
+            <input class='border-solid border-2 border-black'
               key="date"
               type="date"
               name="date"
@@ -112,9 +93,9 @@ export default function CreateUser() {
             ></input>
           </div>
 
-          <div>
+          <div class='my-4'>
             <label>Description: </label>{" "}
-            <input
+            <input class='border-solid border-2 border-black'
               key="description"
               type="text"
               name="description"
@@ -122,23 +103,18 @@ export default function CreateUser() {
             ></input>
           </div>
 
-          <div>
+          <div class='my-4'>
             <label>Genre</label>
-            <select name="genre" required onChange={
-                (e) => handleInputChange(e)}>
-                    <option value="">Select Genre</option>
-                    {
-                        genre.map(genre => (
-                            <option value={genre} key={genre}>{genre}</option>
-                        ))
-                    }
-                </select>
+            <select name="genre" required onChange = {
+              (e) => handleInputChange(e)}>
+                <option value="">Select Genre</option>
+                {
+                  genre.map(genre => (
+                    <option value={genre} key={genre}>{genre}</option>
+                  ))
+                }
+              </select>
           </div>
-
-          <div>
-            <button type="submit">Create User</button>
-          </div>
-
         </form>
       </div>
     </div>
