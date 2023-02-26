@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from "react";
-// import { useDispatch} from "react-redux";
-// import { Link, useHistory } from "react-router-dom";
-// import validate from "./validators.jsx";
+import React, { useState } from "react";
+//import { useDispatch, useSelector } from "react-redux";
+//import {Link} from "react-router-dom";
+//import validate from "./validators.jsx";
 
 export default function CreateUser() {
-  // const dispatch = useDispatch();
-  // const history = useHistory();
-  // const [errors, setErrors] = useState({});
+ // const dispatch = useDispatch();
+  //const history = useHistory();
+
+  //const [errors, setErrors] = useState({});
 
   const [input, setInput] = useState({
     username: "",
@@ -20,11 +21,11 @@ export default function CreateUser() {
   });
   
   //history.push("/home");
-
+/* 
   useEffect(() => {
 
     
-  }, []);
+  }, []); */
 
   function handleInputChange(e){
     setInput({
@@ -40,6 +41,11 @@ export default function CreateUser() {
 
   return (
     <div>
+     {/*  <div>
+        <Link to="/home">
+          <button>BACKOALA</button>
+        </Link>
+      </div> */}
       <div>
         <h1>Create User</h1>
         <form>
@@ -50,7 +56,9 @@ export default function CreateUser() {
               type="text"
               name="username"
               value={input.username}
-            ></input>
+            >
+
+            </input>
           </div>
 
           <div class='my-4' >
@@ -60,7 +68,7 @@ export default function CreateUser() {
               type="text"
               name="email"
               value={input.email}
-            ></input>
+            />
           </div>
 
           <div class='my-4'>
@@ -70,7 +78,7 @@ export default function CreateUser() {
               type="password"
               name="password"
               value={input.password}
-            ></input>
+            />
           </div>
 
           <div class='my-4'>
@@ -80,7 +88,7 @@ export default function CreateUser() {
               type="text"
               name="image"
               value={input.image}
-            ></input>
+            />
           </div>
 
           <div class='my-4'>
@@ -90,7 +98,7 @@ export default function CreateUser() {
               type="date"
               name="date"
               value={input.date}
-            ></input>
+            />
           </div>
 
           <div class='my-4'>
@@ -100,7 +108,7 @@ export default function CreateUser() {
               type="text"
               name="description"
               value={input.description}
-            ></input>
+            />
           </div>
 
           <div class='my-4'>
