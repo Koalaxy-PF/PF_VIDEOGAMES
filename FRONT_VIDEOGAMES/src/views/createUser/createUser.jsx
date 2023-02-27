@@ -2,6 +2,7 @@ import React, { useState } from "react";
 //import { useDispatch, useSelector } from "react-redux";
 //import {Link} from "react-router-dom";
 //import validate from "./validators.jsx";
+import img from '../../assets/create/ImgForm.jpeg'
 
 export default function CreateUser() {
  // const dispatch = useDispatch();
@@ -12,7 +13,7 @@ export default function CreateUser() {
   const [input, setInput] = useState({
     username: "",
     email: "",
-    banned: "", //ver xq esta como booleano
+    banned: false, //ver xq esta como booleano
     password: "",
     image: "",
     date: "",
@@ -46,9 +47,10 @@ export default function CreateUser() {
           <button>BACKOALA</button>
         </Link>
       </div> */}
-      <div>
-        <h1>Create User</h1>
-        <form>
+      <div class='justify-center border-solid border-2 border-black m-auto text-center bg mx-20' >
+        <h1 class='mb-10'>Create User</h1>
+        <img class='justify-center m-auto relative bottom-8 h-85' src={img} alt="" />
+        <form class='border-solid border-2 border-black w-80 m-auto relative bottom-60'>
           <div class='my-4'>
             <label>Username: </label>{" "}
             <input onChange={(e) => handleInputChange(e)} class='border-solid border-2 border-black rounded-md'
