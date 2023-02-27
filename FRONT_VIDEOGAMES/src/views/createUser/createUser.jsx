@@ -12,7 +12,7 @@ export default function CreateUser() {
   const [input, setInput] = useState({
     username: "",
     email: "",
-    banned: "", //ver xq esta como booleano
+    banned: false, //ver xq esta como booleano
     password: "",
     image: "",
     date: "",
