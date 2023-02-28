@@ -6,6 +6,9 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    fontFamily: {
+      'Tilt Neon': ['cursive'],
+    },
     extend: {},
   },
   plugins: [],
