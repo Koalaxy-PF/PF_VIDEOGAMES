@@ -52,7 +52,7 @@ export default function CreateUser() {
         <img class='justify-center m-auto relative bottom-8 h-85' src={img} alt="" />
         <form class=' relative bottom-60 bg-[#5E9FA3] justify-center w-[525px] m-auto p-[10px] pb-40'>
           <div class='my-4 mr-20 grid grid-cols-2'>
-            <label class='text-slate-900'>Username: </label>{" "}
+            <label class='text-white'>Username: </label>{" "}
             <input onChange={(e) => handleInputChange(e)} class='rounded-md text-right w-[250px]'
               key="username"
               type="text"
@@ -64,7 +64,7 @@ export default function CreateUser() {
           </div>
 
           <div class='my-4  mr-20 grid grid-cols-2' >
-            <label class=''>Email: </label>{" "}
+            <label class='text-white'>Email: </label>{" "}
             <input onChange={(e) => handleInputChange(e)} class='rounded-md text-right w-[250px]'
               key="email"
               type="text"
@@ -74,7 +74,7 @@ export default function CreateUser() {
           </div>
 
           <div class='my-4  mr-20 grid grid-cols-2'>
-            <label>Password: </label>{" "}
+            <label class='text-white'>Password: </label>{" "}
             <input onChange={(e) => handleInputChange(e)} class='rounded-md text-right w-[250px]'
               key="password"
               type="password"
@@ -84,7 +84,7 @@ export default function CreateUser() {
           </div>
 
           <div class='my-4  mr-20 grid grid-cols-2'>
-            <label>Image: </label>{" "}
+            <label class='text-white'>Image: </label>{" "}
             <input onChange={(e) => handleInputChange(e)} class='rounded-md text-right w-[250px]'
               key="image"
               type="text"
@@ -94,7 +94,7 @@ export default function CreateUser() {
           </div>
 
           <div class='my-4  mr-20 grid grid-cols-2'>
-            <label>Date: </label>{" "}
+            <label class='text-white'>Date: </label>{" "}
             <input onChange={(e) => handleInputChange(e)} class='rounded-md w-[250px] text-center'
               key="date"
               type="date"
@@ -104,7 +104,7 @@ export default function CreateUser() {
           </div>
 
           <div class='my-4 mr-20 grid grid-cols-2'>
-            <label>Description: </label>{" "}
+            <label class='text-white'>Description: </label>{" "}
             <input onChange={(e) => handleInputChange(e)} class='rounded-md  w-[250px]'
               key="description"
               type="text"
@@ -114,7 +114,7 @@ export default function CreateUser() {
           </div>
 
           <div class='my-4  mr-20 grid grid-cols-2'>
-            <label>Genre</label>
+            <label class='text-white'>Genre</label>
             <select name="genre" class='rounded-md w-[250px] text-center' required onChange = {
               (e) => handleInputChange(e)}>
                 <option value="">Select Genre</option>
