@@ -50,10 +50,10 @@ export default function CreateUser() {
       <div class='justify-center border-solid border-2 border-black m-auto text-center bg mx-20' >
         <h1 class='mb-10'>Create User</h1>
         <img class='justify-center m-auto relative bottom-8 h-85' src={img} alt="" />
-        <form class='border-solid border-2 border-black w-80 m-auto relative bottom-60'>
-          <div class='my-4'>
-            <label>Username: </label>{" "}
-            <input onChange={(e) => handleInputChange(e)} class='border-solid border-2 border-black rounded-md'
+        <form class=' relative bottom-60 bg-[#5E9FA3] justify-center w-[525px] m-auto p-[10px] pb-40'>
+          <div class='my-4 mr-20 grid grid-cols-2'>
+            <label class='text-white'>Username: </label>{" "}
+            <input onChange={(e) => handleInputChange(e)} class='rounded-md text-right w-[250px]'
               key="username"
               type="text"
               name="username"
@@ -63,9 +63,9 @@ export default function CreateUser() {
             </input>
           </div>
 
-          <div class='my-4' >
-            <label>Email: </label>{" "}
-            <input onChange={(e) => handleInputChange(e)} class='border-solid border-2 border-black rounded-md'
+          <div class='my-4  mr-20 grid grid-cols-2' >
+            <label class='text-white'>Email: </label>{" "}
+            <input onChange={(e) => handleInputChange(e)} class='rounded-md text-right w-[250px]'
               key="email"
               type="text"
               name="email"
@@ -73,9 +73,9 @@ export default function CreateUser() {
             />
           </div>
 
-          <div class='my-4'>
-            <label>Password: </label>{" "}
-            <input onChange={(e) => handleInputChange(e)} class='border-solid border-2 border-black rounded-md'
+          <div class='my-4  mr-20 grid grid-cols-2'>
+            <label class='text-white'>Password: </label>{" "}
+            <input onChange={(e) => handleInputChange(e)} class='rounded-md text-right w-[250px]'
               key="password"
               type="password"
               name="password"
@@ -83,9 +83,9 @@ export default function CreateUser() {
             />
           </div>
 
-          <div class='my-4'>
-            <label>Image: </label>{" "}
-            <input onChange={(e) => handleInputChange(e)} class='border-solid border-2 border-black rounded-md'
+          <div class='my-4  mr-20 grid grid-cols-2'>
+            <label class='text-white'>Image: </label>{" "}
+            <input onChange={(e) => handleInputChange(e)} class='rounded-md text-right w-[250px]'
               key="image"
               type="text"
               name="image"
@@ -93,9 +93,9 @@ export default function CreateUser() {
             />
           </div>
 
-          <div class='my-4'>
-            <label>Date: </label>{" "}
-            <input onChange={(e) => handleInputChange(e)} class='border-solid border-2 border-black rounded-md'
+          <div class='my-4  mr-20 grid grid-cols-2'>
+            <label class='text-white'>Date: </label>{" "}
+            <input onChange={(e) => handleInputChange(e)} class='rounded-md w-[250px] text-center'
               key="date"
               type="date"
               name="date"
@@ -103,9 +103,9 @@ export default function CreateUser() {
             />
           </div>
 
-          <div class='my-4'>
-            <label>Description: </label>{" "}
-            <input onChange={(e) => handleInputChange(e)} class='border-solid border-2 border-black rounded-md'
+          <div class='my-4 mr-20 grid grid-cols-2'>
+            <label class='text-white'>Description: </label>{" "}
+            <input onChange={(e) => handleInputChange(e)} class='rounded-md  w-[250px]'
               key="description"
               type="text"
               name="description"
@@ -113,9 +113,9 @@ export default function CreateUser() {
             />
           </div>
 
-          <div class='my-4'>
-            <label>Genre</label>
-            <select name="genre" class='border-solid border-2 border-black rounded-md' required onChange = {
+          <div class='my-4  mr-20 grid grid-cols-2'>
+            <label class='text-white'>Genre</label>
+            <select name="genre" class='rounded-md w-[250px] text-center' required onChange = {
               (e) => handleInputChange(e)}>
                 <option value="">Select Genre</option>
                 {
