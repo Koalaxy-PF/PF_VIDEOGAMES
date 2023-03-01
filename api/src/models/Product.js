@@ -7,10 +7,7 @@ module.exports = (sequelize) => {
             primaryKey: true,
             autoIncrement: true
         },
-        genre:{
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
+        
         name: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -20,6 +17,10 @@ module.exports = (sequelize) => {
         },
         price: {
             type: DataTypes.FLOAT,
+            allowNull: false,
+        },
+        genre:{
+            type: DataTypes.STRING,
             allowNull: false,
         },
         description:{
@@ -44,9 +45,6 @@ module.exports = (sequelize) => {
         },
         discount:{
             type:DataTypes.INTEGER
-        },
-        gameMode:{
-            type:DataTypes.STRING
         },
         MinRequirements:{
             type:DataTypes.TEXT
