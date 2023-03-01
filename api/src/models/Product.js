@@ -7,6 +7,10 @@ module.exports = (sequelize) => {
             primaryKey: true,
             autoIncrement: true
         },
+        genre:{
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
         name: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -33,7 +37,10 @@ module.exports = (sequelize) => {
         },
         company:{
             type:DataTypes.STRING,
-            allowNull: false,
+
+        },
+        released:{
+            type:DataTypes.STRING,
         },
         discount:{
             type:DataTypes.INTEGER
@@ -47,5 +54,6 @@ module.exports = (sequelize) => {
         RecommendRequirements:{
             type:DataTypes.TEXT
         },
+        
     })
 }
