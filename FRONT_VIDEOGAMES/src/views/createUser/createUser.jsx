@@ -48,7 +48,7 @@ export default function CreateUser() {
         </Link>
       </div> */}
       <div class='justify-center border-solid border-2 border-black m-auto text-center bg mx-20' >
-        <h1 class='text-5xl pt-[50px] bg-[#5E9FA3] mx-[380px] py-[50px] mt-[20px] rounded-lg text-white relative right-[20px] '>Create User</h1>
+        <h1 class='text-5xl pt-[50px] bg-[#5E9FA3] mx-[380px] py-[50px] mt-[20px] rounded-lg text-white relative right-[20px]'>Create User</h1>
         <img class='justify-center m-auto relative bottom-8 h-85 z-10 w-[800px] ' src={img} alt="" />
         <form class=' relative bottom-[220px] right-[17px] bg-[#5E9FA3] justify-center w-[530px] m-auto p-[30px] pb-40 '>
           <div class='my-4 mr-20 grid grid-cols-2'>
