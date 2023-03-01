@@ -16,6 +16,8 @@ export default function App(){
         <Cards/>
         <Footer/>
       </div>
+      
     </div>
   )
 }
+
