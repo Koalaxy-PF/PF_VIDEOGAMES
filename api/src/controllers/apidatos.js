@@ -37,7 +37,8 @@ const getApiInfo = async () => {
                   price: Math.round(Math.random() * (5000.99 - 500.99) + 500.99), 
                   stock: Math.floor(Math.random() * (500 - 0)),
                   discount:Math.floor(Math.random() * (50 - 0)),
-                  description:""
+                  description:"",
+                  company:""
                 }
                 return objInfo;
             })
@@ -65,6 +66,14 @@ const AddDesc = async()=>{
           const minreqfiltro = detailinfo.data.platforms.filter(e => e.platform.id == 4) 
           const minreq = minreqfiltro
           games[i].MinRequirements = minreq[0]?.requirements?.minimum 
+          
+
+          const reqfiltro = detailinfo.data.platforms.filter(e => e.platform.id == 4) 
+          const req = reqfiltro
+          games[i].RecommendRequirements = req[0]?.requirements?.recommended 
+
+          const companyDetail = detailinfo.data.developers[0].name
+          games[i].company = companyDetail
           
         }
         
