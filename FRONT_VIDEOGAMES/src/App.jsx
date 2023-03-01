@@ -14,6 +14,8 @@ export default function App(){
         <CreateUser/>
         <Footer/>
       </div>
+      
     </div>
   )
 }
+
