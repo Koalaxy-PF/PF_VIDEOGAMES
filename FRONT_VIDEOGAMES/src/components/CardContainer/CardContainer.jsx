@@ -20,22 +20,15 @@ export default function Cards() {
 
   return (
     <div>
-        <ul>
+        {/* <ul>
         <SearchBar/> 
-       
-        
-        
         </ul>
      
        <div>
-    
        </div>
           
-      
       {currentProduct?.map((product) => {
         return (
-         
-         
           <Fragment>
         
             <Link to={"/product/" + product.id}>
@@ -50,7 +43,9 @@ export default function Cards() {
             </Link>
           </Fragment>
         );
-      })}
+      })} */}
+
+      <Card/>
      
       
     </div>
