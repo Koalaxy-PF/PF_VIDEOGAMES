@@ -1,19 +1,10 @@
-import CreateUser from './views/CreateUser/CreateUser'
-import Navbar from "./components/Navbar/Navbar"
-import SearchBar from './components/SearchBar/SearchBar'
-import Footer from './components/Footer/Footer'
-import './App.css'
+import { Route, Routes } from 'react-router-dom'
+import Home from './views/Home/Home'
 
-export default function App(){
-
+export default function App() {
   return (
     <div className="App">
-
-      <div>
-        <Navbar/>
-        <CreateUser/>
-        <Footer/>
-      </div>
+      <h1>Prueba!</h1> 
     </div>
   )
 }
