@@ -3,7 +3,7 @@ import icons from '../../assets/footer/icons.js'
 
 export default function Footer() {
   return (
-    <footer className="bg-[#609CA4] mt-2">
+    <footer className="bg-[#609CA4]">
 
 	    <div className="container grid mx-auto gap-x-3 gap-y-8 md:grid-cols-4 xl:grid-cols-4">
 

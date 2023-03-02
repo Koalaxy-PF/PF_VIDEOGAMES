@@ -10,7 +10,9 @@ const {getDetail, getApiInfo, gameInfoFinal,apicompany} = require("./src/control
 
 
 
+
 conn.sync({ force:false}).then(() => {   // si tenes en true, renueva la base de datos
+
 
   app.listen(3000,async() => {
     const dbgame = await Product.findAll()
