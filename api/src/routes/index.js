@@ -18,7 +18,7 @@ router.use("/genres", deleteGenres);
 /* *************************  routes PRODUCTS   **************************************** */
 router.use("/products", getProducts);
 router.use("/products", postProducts);
-router.use("/products", putProducts);
+/* router.use("/products", putProducts); */
 router.use("/products", deleteProducts);
 
 module.exports = router;

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 //import { useDispatch, useSelector } from "react-redux";
 //import {Link} from "react-router-dom";
 //import validate from "./validators.jsx";
-import img from '../../assets/create/ImgForm.jpeg'
+import img from '../../assets/create/ImgForm.png'
 
 export default function CreateUser() {
  // const dispatch = useDispatch();
@@ -48,9 +48,9 @@ export default function CreateUser() {
         </Link>
       </div> */}
       <div class='justify-center border-solid border-2 border-black m-auto text-center bg mx-20' >
-        <h1 class='mb-10'>Create User</h1>
-        <img class='justify-center m-auto relative bottom-8 h-85' src={img} alt="" />
-        <form class=' relative bottom-60 bg-[#5E9FA3] justify-center w-[525px] m-auto p-[10px] pb-40'>
+        <h1 class='mb-10 text-5xl pt-[50px]'>Create User</h1>
+        <img class='justify-center m-auto relative bottom-8 h-85 z-10 ' src={img} alt="" />
+        <form class=' relative bottom-[260px] right-[17px] bg-[#5E9FA3] justify-center w-[530px] m-auto p-[10px] pb-40'>
           <div class='my-4 mr-20 grid grid-cols-2'>
             <label class='text-white'>Username: </label>{" "}
             <input onChange={(e) => handleInputChange(e)} class='rounded-md text-right w-[250px]'

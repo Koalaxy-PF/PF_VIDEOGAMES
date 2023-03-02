@@ -1,12 +1,11 @@
 const { Router } = require("express");
-
-const { getProducts } = require("../../controllers/productsControllers");
+const { Product } = require("../../db");
 
 const router = Router();
 
 router.get("/", async (req, res) => {
   try {
-    const allProducts = await getProducts();
+    const allProducts = await Product.findAll();
     res.send(allProducts);
   } catch (error) {
     console.log(error);

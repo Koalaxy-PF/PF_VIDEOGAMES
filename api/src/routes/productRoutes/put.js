@@ -1,4 +1,4 @@
-const { Router } = require("express");
+/* const { Router } = require("express");
 const { Product } = require("../../db");
 
 const router = Router();
@@ -13,7 +13,7 @@ router.put("/:id", async (req, res, next) => {
     price,
     calification,
     company,
-    genres,
+    genre,
     gameMode,
     minRequirements,
     recommendRequirements,
@@ -32,7 +32,7 @@ router.put("/:id", async (req, res, next) => {
         price,
         calification,
         company,
-        genres,
+        genre,
         gameMode,
         minRequirements,
         recommendRequirements,
@@ -52,4 +52,4 @@ router.put("/:id", async (req, res, next) => {
     res.status(500).send("Error to update product");
   }
 });
-module.exports = router;
+module.exports = router; */

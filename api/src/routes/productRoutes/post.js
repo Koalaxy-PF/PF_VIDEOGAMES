@@ -5,7 +5,6 @@ const router = Router();
 
 router.post("/", async (req, res) => {
   const {
-    id,
     name,
     description,
     stock,
@@ -13,7 +12,7 @@ router.post("/", async (req, res) => {
     price,
     calification,
     company,
-    genres,
+    genre,
     gameMode,
     minRequirements,
     recommendRequirements,
@@ -22,7 +21,6 @@ router.post("/", async (req, res) => {
   } = req.body;
 
   const productCreated = await Product.create({
-    id,
     name,
     description,
     stock,
@@ -30,6 +28,7 @@ router.post("/", async (req, res) => {
     price,
     calification,
     company,
+    genre,
     gameMode,
     minRequirements,
     recommendRequirements,
@@ -37,11 +36,11 @@ router.post("/", async (req, res) => {
     discount,
   });
 
-  let genreDb = await Genre.findAll({
-    where: { name: genres },
-  });
+  /*   let genreDb = await Genre.findAll({
+    where: { name: genre },
+  }); */
 
-  productCreated.addGenre(genreDb);
+  /*   productCreated.addGenre(genreDb); */
 
   res.status(200).send(productCreated);
 });
