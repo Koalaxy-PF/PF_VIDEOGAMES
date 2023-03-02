@@ -26,7 +26,7 @@ const getApiInfo = async () => {
             result.push(
             ...res.results.map((e) => {
                 const objInfo ={
-                  id: e.id,
+/*                   id: e.id, */
                   img: e.background_image,
                   name: e.name,
                   genre: e.genres.map( e => e.name),
