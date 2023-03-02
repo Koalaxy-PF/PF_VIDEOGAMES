@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const { Product, Genre } = require("../../db");
+const { Product } = require("../../db");
 
 const router = Router();
 
@@ -35,12 +35,6 @@ router.post("/", async (req, res) => {
     comments,
     discount,
   });
-
-  /*   let genreDb = await Genre.findAll({
-    where: { name: genre },
-  }); */
-
-  /*   productCreated.addGenre(genreDb); */
 
   res.status(200).send(productCreated);
 });
