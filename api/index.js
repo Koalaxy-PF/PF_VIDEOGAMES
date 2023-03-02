@@ -16,10 +16,10 @@ conn.sync({ force: false }).then(() => {
       console.log("creados");
     }
 
-    if (!dbcompany.length) {
+/*     if (!dbcompany.length) {
       const companies = await apicompany();
       await Company.bulkCreate(companies);
-    }
+    } */
 
     console.log("%s listening at 3000"); // eslint-disable-line no-console
   });
