@@ -1,3 +1,14 @@
+import {
+    GET_GAMES,
+    GET_BY_ID,
+    GET_GENRES,
+    FILTER_GENRES,
+    FILTER_FER_COMPANY,
+    ORDER_BY_NAME ,
+    ORDER_BY_RELEASED,
+    TIDY_PRICE ,
+    CLEAN } from "../actions/actions"
+
 const initialState = {
     Games:[],
     GamesCopy:[],
@@ -8,7 +19,7 @@ const initialState = {
 function rootReducer(state = initialState, action){
 
     switch(action.type){
-        case "GET_GAMES":
+        case GET_GAMES:
         return{
             ...state,
             Games: action.payload,
@@ -16,7 +27,7 @@ function rootReducer(state = initialState, action){
         }
 
 
-        case "GET_GENRES":
+        case GET_GENRES:
         return{
             ...state,
             Genres: action.payload
@@ -25,7 +36,7 @@ function rootReducer(state = initialState, action){
         //reducers de ordenamiento
 
 
-        case 'ORDER_BY_NAME' :
+        case ORDER_BY_NAME :
            let order = action.payload === 'asc' ? 
               state.Games.sort(function(a,b) {
 
@@ -53,7 +64,7 @@ function rootReducer(state = initialState, action){
             Games: order
         }
 
-        case 'ORDER_BY_RELEASED' :
+        case ORDER_BY_RELEASED :
             let orderByReleased = action.payload === 'asc' ? 
                state.Games.sort(function(a,b) {
  
@@ -81,7 +92,7 @@ function rootReducer(state = initialState, action){
              Games: orderByReleased
          }
         
-        case 'TIDY_PRICE':
+        case TIDY_PRICE:
              
             let TidyPrice = action.payload === 'min' ?
     
@@ -112,7 +123,7 @@ function rootReducer(state = initialState, action){
 
         //reduces de filtrados
 
-        case "FILTER_FER_COMPANY":
+        case FILTER_FER_COMPANY:
                 action.payload === 'All' ? state.Games = state.GamesCopy.filter(info => info.company.length) :
                 state.Games = state.GamesCopy.filter(name => name.company.find((element) => element.name?.toLowerCase() === action.payload))
         return {
@@ -120,7 +131,7 @@ function rootReducer(state = initialState, action){
             Games: state.Games
         }
 
-        case "FILTER_FER_GENRES":
+        case FILTER_GENRES:
                 action.payload === 'All' ? state.Games = state.GamesCopy.filter(info => info.genre.length) :
                 state.Games = state.GamesCopy.filter(name => name.genre.find((element) => element.name?.toLowerCase() === action.payload))
         return {
@@ -129,13 +140,13 @@ function rootReducer(state = initialState, action){
         }
         
 
-        case "GET_BY_ID":
+        case GET_BY_ID:
         return{
             ...state,
             details: action.payload
         }
 
-        case "CLEAN":
+        case CLEAN:
             return{
                 ...state,
                 details: action.payload
