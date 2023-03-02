@@ -1,23 +1,15 @@
-import CreateUser from './views/CreateUser/CreateUser'
-import Navbar from "./components/Navbar/Navbar"
-import SearchBar from './components/SearchBar/SearchBar'
-import Footer from './components/Footer/Footer'
-import './App.css'
-import Cards from './components/CardContainer/CardContainer'
+import { Route, Routes } from 'react-router-dom'
+import Home from './views/Home/Home'
+import CreateUser from './views/createUser/createUser'
 
-export default function App(){
-
+export default function App() {
   return (
-    <div className="App">
-
-      <div>
-         <Navbar/>
-        {/* <CreateUser/> */}
-        <Cards/>
-        <Footer/> 
+      <div className="App">
+        <Routes>
+          <Route exact path="/" element={<Home/>}/>
+          <Route exact path="/CreateGame" element={<CreateUser/>}/>
+        </Routes>  
       </div>
-      
-    </div>
   )
 }
 
