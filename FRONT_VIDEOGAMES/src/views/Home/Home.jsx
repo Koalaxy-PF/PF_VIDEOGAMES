@@ -5,6 +5,7 @@ import SearchBar from '../../components/SearchBar/SearchBar'
 import Footer from '../../components/Footer/Footer'
 import Sidebar from '../../components/SideBar/Sidebar'
 import Carrucel_main from '../../components/Carrucel/Carrucel_main'
+import Cards from '../../components/CardContainer/CardContainer'
 
 export default function Home(){
 
@@ -15,9 +16,13 @@ export default function Home(){
         <Navbar/>
       </div>
 
-      <div className='flex w-full'>
+      <div className='flex w-full bg-gray-900 '>
         <Sidebar />
         <Carrucel_main />
+      </div>
+
+      <div class='bg-gray-900'>
+        <Cards/>
       </div>
 
       <div>
