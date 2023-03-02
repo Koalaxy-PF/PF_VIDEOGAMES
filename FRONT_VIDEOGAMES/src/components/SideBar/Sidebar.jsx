@@ -7,8 +7,8 @@ export default function Sidebar(){
     const [open, setOpen] = useState(true);
 
     return (
-    <div className={`bg-gray-900 h-screen p-5 pt-3 relative ${open ? "w-72" : "w-20"} duration-500`}>
-    <BsFillArrowLeftCircleFill className={`bg-gray-500 text-white text-4xl rounded-full absolute -right-4 top-1 border border-[#609CA4] cursor-pointer ${!open && "rotate-180"}`}
+    <div className={`bg-gray-900 h-100vh p-5 pt-2 relative ${open ? "w-72" : "w-20"} duration-500`}>
+    <BsFillArrowLeftCircleFill className={`bg-gray-500 text-white text-4xl rounded-full absolute -right-4 top-2 border border-[#609CA4] cursor-pointer ${!open && "rotate-180"}`}
     onClick={() => setOpen(!open)} />
 
     <div className={`flex items-center mt-2 rounded-md py-2 mr-2 ${!open ? "ml-1" : "px-4 bg-gray-600"}`}>
