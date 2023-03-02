@@ -1,11 +1,7 @@
 const app = require("./src/app.js");
-const { conn, Product, Genre } = require("./src/db.js");
-const axios = require("axios");
-const {
-  getDetail,
-  getApiInfo,
-  AddDesc,
-} = require("./src/controllers/apidatos");
+const { conn, Product } = require("./src/db.js");
+
+const { AddDesc } = require("./src/controllers/apidatos");
 
 conn.sync({ force: false }).then(() => {
   // si tenes en true, renueva la base de datos
