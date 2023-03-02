@@ -3,6 +3,8 @@ import React, { useState } from "react";
 //import {Link} from "react-router-dom";
 //import validate from "./validators.jsx";
 import img from '../../assets/create/ImgForm.png'
+import Footer from "../../components/Footer/Footer";
+import Sidebar from "../../components/SideBar/Sidebar";
 
 export default function CreateUser() {
  // const dispatch = useDispatch();
@@ -42,6 +44,9 @@ export default function CreateUser() {
 
   return (
     <div>
+      <div>
+      <Sidebar/>
+      </div>
      {/*  <div>
         <Link to="/home">
           <button>BACKOALA</button>
@@ -126,6 +131,9 @@ export default function CreateUser() {
               </select>
           </div>
         </form>
+      </div>
+      <div>
+        <Footer/>
       </div>
     </div>
   );

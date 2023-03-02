@@ -11,9 +11,10 @@
    .card2 {
     width: 250px;
     height: 274px;
-    background-color: #1a1a1a;
+    background-color: white;
     border-radius:0;
     transition: all .2s;
+    border-radius: 20px 20px 20px 20px;
    }
    
    .card2:hover {
@@ -25,6 +26,6 @@
     box-shadow: 0px 0px 30px 1px rgba(0, 255, 117, 0.30);
    }
 
-   .card2 img{
+   .forest{
     border-radius: 20px 20px 0 0;
    }

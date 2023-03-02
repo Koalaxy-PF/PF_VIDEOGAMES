@@ -19,7 +19,7 @@ export default function Cards() {
 
 
   return (
-    <div>
+    <div class='bg-gray-200 ml-[243px] overflow-x-hidden'>
         {/* <ul>
         <SearchBar/> 
         </ul>

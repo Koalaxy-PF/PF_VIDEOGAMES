@@ -75,21 +75,52 @@ export default function Card (){
         //     </div>
 
         // </div>
-        <div class='flex h-[500px]'>
-            <div className={style.card}>
+        <div class='flex h-[350px]' >
+<div className={style.card}>
   <div className={style.card2}>
+  <img className={style.forest}  src={forest} alt="" />
+  <ul class='flex relative bottom-[20px] left-[165px]'>
+    <li><img class='w-[15px]' src={starWhite} alt="" /></li>
+    <li><img class='w-[15px]' src={starWhite} alt="" /></li>
+    <li><img class='w-[15px]' src={starWhite} alt="" /></li>
+    <li><img class='w-[15px]' src={starBlue} alt="" /></li>
+    <li><img class='w-[15px]' src={starBlue} alt="" /></li>
+  </ul>
+  <h1 class='px-[20px] text-2xl'>Sons of the forest</h1>
+  <button><img class='w-[50px] relative left-[202px] top-[20px]' src={carrito} alt="" /></button>
+  <h2 class='px-[20px] relative top-[20px]'>$20.000 COP</h2>
   </div>
 </div>
 
 <div className={style.card}>
   <div className={style.card2}>
-  <img  src={forest} alt="" />
+  <img className={style.forest}  src={forest} alt="" />
+  <ul class='flex relative bottom-[20px] left-[165px]'>
+    <li><img class='w-[15px]' src={starWhite} alt="" /></li>
+    <li><img class='w-[15px]' src={starWhite} alt="" /></li>
+    <li><img class='w-[15px]' src={starWhite} alt="" /></li>
+    <li><img class='w-[15px]' src={starBlue} alt="" /></li>
+    <li><img class='w-[15px]' src={starBlue} alt="" /></li>
+  </ul>
+  <h1 class='px-[20px] text-2xl'>Sons of the forest</h1>
+  <button><img class='w-[50px] relative left-[202px] top-[20px]' src={carrito} alt="" /></button>
+  <h2 class='px-[20px] relative top-[20px]'>$20.000 COP</h2>
   </div>
 </div>
 
 <div className={style.card}>
-
   <div className={style.card2}>
+  <img className={style.forest}  src={forest} alt="" />
+  <ul class='flex relative bottom-[20px] left-[165px]'>
+    <li><img class='w-[15px]' src={starWhite} alt="" /></li>
+    <li><img class='w-[15px]' src={starWhite} alt="" /></li>
+    <li><img class='w-[15px]' src={starWhite} alt="" /></li>
+    <li><img class='w-[15px]' src={starBlue} alt="" /></li>
+    <li><img class='w-[15px]' src={starBlue} alt="" /></li>
+  </ul>
+  <h1 class='px-[20px] text-2xl'>Sons of the forest</h1>
+  <button><img class='w-[50px] relative left-[202px] top-[20px]' src={carrito} alt="" /></button>
+  <h2 class='px-[20px] relative top-[20px]'>$20.000 COP</h2>
   </div>
 </div>
         </div>
