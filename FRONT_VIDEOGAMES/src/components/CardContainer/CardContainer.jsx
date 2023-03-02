@@ -19,23 +19,16 @@ export default function Cards() {
 
 
   return (
-    <div>
-        <ul>
+    <div class='bg-gray-200 ml-[243px] overflow-x-hidden'>
+        {/* <ul>
         <SearchBar/> 
-       
-        
-        
         </ul>
      
        <div>
-    
        </div>
           
-      
       {currentProduct?.map((product) => {
         return (
-         
-         
           <Fragment>
         
             <Link to={"/product/" + product.id}>
@@ -50,7 +43,9 @@ export default function Cards() {
             </Link>
           </Fragment>
         );
-      })}
+      })} */}
+
+      <Card/>
      
       
     </div>

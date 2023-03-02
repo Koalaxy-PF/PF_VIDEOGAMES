@@ -3,6 +3,8 @@ import React, { useState } from "react";
 //import {Link} from "react-router-dom";
 //import validate from "./validators.jsx";
 import img from '../../assets/create/ImgForm.png'
+import Footer from "../../components/Footer/Footer";
+import Sidebar from "../../components/SideBar/Sidebar";
 
 export default function CreateUser() {
  // const dispatch = useDispatch();
@@ -42,15 +44,18 @@ export default function CreateUser() {
 
   return (
     <div>
+      <div>
+      <Sidebar/>
+      </div>
      {/*  <div>
         <Link to="/home">
           <button>BACKOALA</button>
         </Link>
       </div> */}
       <div class='justify-center border-solid border-2 border-black m-auto text-center bg mx-20' >
-        <h1 class='mb-10 text-5xl pt-[50px]'>Create User</h1>
-        <img class='justify-center m-auto relative bottom-8 h-85 z-10 ' src={img} alt="" />
-        <form class=' relative bottom-[260px] right-[17px] bg-[#5E9FA3] justify-center w-[530px] m-auto p-[10px] pb-40'>
+        <h1 class='text-5xl pt-[50px] bg-[#5E9FA3] mx-[380px] py-[50px] mt-[20px] rounded-lg text-white relative right-[20px]'>Create User</h1>
+        <img class='justify-center m-auto relative bottom-8 h-85 z-10 w-[800px] ' src={img} alt="" />
+        <form class=' relative bottom-[220px] right-[17px] bg-[#5E9FA3] justify-center w-[530px] m-auto p-[30px] pb-40 '>
           <div class='my-4 mr-20 grid grid-cols-2'>
             <label class='text-white'>Username: </label>{" "}
             <input onChange={(e) => handleInputChange(e)} class='rounded-md text-right w-[250px]'
@@ -126,6 +131,9 @@ export default function CreateUser() {
               </select>
           </div>
         </form>
+      </div>
+      <div>
+        <Footer/>
       </div>
     </div>
   );
