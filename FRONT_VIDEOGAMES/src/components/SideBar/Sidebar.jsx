@@ -20,7 +20,7 @@ export default function Sidebar(){
 
     <div className={`flex mt-4 items-center cursor-pointer rounded-full ${open && "bg-gray-600 pl-4 py-2 gap-x-2"}`}>
       <span>
-        <img src={icons.img3} className={`w-8 items-center text-white text-4xl cursor-pointer`} />
+        <img src={icons.img3} className={`w-8 items-center text-white text-4xl cursor-pointer `} />
       </span>
       
       <span className={`text-base font-medium  flex-1 duration-200 text-slate-100 ${!open && "hidden"}`}>
