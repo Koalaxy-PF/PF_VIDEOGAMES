@@ -1,4 +1,6 @@
 const axios  = require("axios")
+const {Company} = require("../db.js")
+
 
 const getDetail = async(id)=>{
     const detailinfo = await axios.get(`https://api.rawg.io/api/games/${id}?key=15017e1f70774fd391be156691d53fac&page&page`);
@@ -7,6 +9,23 @@ const getDetail = async(id)=>{
     return detail
   }
 
+const apicompany = async()=>{
+  const obj = []
+  
+  const games = await gameInfoFinal();
+  const companies = games.map(e=> e.company)
+  const companiesNotRepet = new Set(companies)
+  
+  const res = [...companiesNotRepet]
+
+  for(let i = 0; i<res.length; i++){
+    const objeto = {name: ""}
+    objeto.name = res[i];
+    obj.push(objeto)
+  }
+  await Company.bulkCreate(obj)
+  console.log("companias creadas")
+}
 
 const getApiInfo = async () => {
     let result = []; //uno por uno con su respectiva info
@@ -52,7 +71,7 @@ const getApiInfo = async () => {
     }
 
 
-const AddDesc = async()=>{
+const gameInfoFinal = async()=>{
         const games = await getApiInfo();
         for(let i =0; i<games.length; i++){
           const id = games[i].id;
@@ -81,4 +100,4 @@ const AddDesc = async()=>{
     }
   
 
-module.exports = {getDetail, getApiInfo, AddDesc}
+module.exports = {getDetail, getApiInfo, gameInfoFinal,apicompany}
