@@ -11,10 +11,10 @@ export default function App(){
     <div className="App">
 
       <div>
-        <Navbar/>
-        <CreateUser/>
+         <Navbar/>
+        {/* <CreateUser/> */}
         <Cards/>
-        <Footer/>
+        <Footer/> 
       </div>
       
     </div>
