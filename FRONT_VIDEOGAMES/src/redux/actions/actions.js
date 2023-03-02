@@ -1,5 +1,16 @@
 import axios from "axios";
 
+export const GET_GAMES = "GET_GAMES"
+export const GET_BY_ID = "GET_BY_ID"
+export const GET_GENRES = "GET_GENRES"
+export const FILTER_GENRES = "FILTER_GENRES"
+export const FILTER_FER_COMPANY = "FILTER_FER_COMPANY"
+export const ORDER_BY_NAME = "ORDER_BY_NAME"
+export const ORDER_BY_RELEASED = "ORDER_BY_RELEASED"
+export const TIDY_PRICE = "TIDY_PRICE"
+export const CLEAN = "CLEAN"
+
+
 
 //action que trae todos los juegos
 export function GetGames(){
@@ -7,7 +18,7 @@ export function GetGames(){
     return async function(dispatch){
         let Json = await axios.get(`http://localhost:3000/products`)
         dispatch({
-            type: "GET_GAMES",
+            type: GET_GAMES,
             payload: Json.data
         })
     }
@@ -19,7 +30,7 @@ export function GetGameById(id){
     return async function(dispatch){
       var json = await axios.get(`http://localhost:3000/products/${id}`)
       return dispatch ({
-        type : "GET_BY_ID",
+        type : GET_BY_ID,
         payload: json.data
       })
     }
@@ -32,7 +43,7 @@ export function GetGenres(){
     return async function(dispatch){
         let Json = await axios.get(`http://localhost:3000/genres`)
         dispatch({
-            type: "GET_GENRES",
+            type: GET_GENRES,
             payload: Json.data
         })
     }
@@ -52,7 +63,7 @@ export function PostGame(payload){
 export function FilterGenres(payload){
 
     return{
-        type: "FILTER_CONTINENTS",
+        type: FILTER_GENRES,
         payload
     }
 
@@ -62,7 +73,7 @@ export function FilterGenres(payload){
 export function FilterCompany(payload){
 
     return{
-        type: "FILTER_FER_GENRES",
+        type: FILTER_FER_COMPANY,
         payload
     }
 
@@ -72,7 +83,7 @@ export function FilterCompany(payload){
 export function TidyAlphabetically(payload){
   
     return {
-        type : "ORDER_BY_NAME",
+        type : ORDER_BY_NAME,
         payload
     }
   
@@ -82,7 +93,7 @@ export function TidyAlphabetically(payload){
 export function TidyReleased(payload){
   
     return {
-        type : "ORDER_BY_RELEASED",
+        type : ORDER_BY_RELEASED,
         payload
     }
   
@@ -92,7 +103,7 @@ export function TidyReleased(payload){
 export function TidyPrice(payload){
 
     return{
-        type: "TIDY_PRICE",
+        type: TIDY_PRICE,
         payload
     }
 }
@@ -101,7 +112,7 @@ export function TidyPrice(payload){
 export function Clean(){
 
     return{
-        type: "CLEAN",
+        type: CLEAN,
         payload: []
     }
 }
