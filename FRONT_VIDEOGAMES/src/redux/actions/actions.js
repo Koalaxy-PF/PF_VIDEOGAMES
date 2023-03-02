@@ -1,5 +1,16 @@
 import axios from "axios";
 
+export const GET_GAMES = "GET_GAMES"
+export const GET_BY_ID = "GET_BY_ID"
+export const GET_GENRES = "GET_GENRES"
+export const FILTER_GENRES = "FILTER_GENRES"
+export const FILTER_FER_COMPANY = "FILTER_FER_COMPANY"
+export const ORDER_BY_NAME = "ORDER_BY_NAME"
+export const ORDER_BY_RELEASED = "ORDER_BY_RELEASED"
+export const TIDY_PRICE = "TIDY_PRICE"
+export const CLEAN = "CLEAN"
+
+
 
 //action que trae todos los juegos
 export function GetGames(){
@@ -52,7 +63,7 @@ export function PostGame(payload){
 export function FilterGenres(payload){
 
     return{
-        type: "FILTER_CONTINENTS",
+        type: "FILTER_GENRES",
         payload
     }
 
@@ -62,7 +73,7 @@ export function FilterGenres(payload){
 export function FilterCompany(payload){
 
     return{
-        type: "FILTER_FER_GENRES",
+        type: "FILTER_FER_COMPANY",
         payload
     }
 
