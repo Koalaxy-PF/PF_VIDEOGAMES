@@ -3,10 +3,9 @@ const { DataTypes } = require("sequelize");
 module.exports = (sequelize) => {
   sequelize.define("product", {
     id: {
-      type: DataTypes.UUID /* UUID genera un numero random e irrepetible ( diferenciar entre dif. bd) */,
-      defaultValue: DataTypes.UUIDV4,
-      allowNull: false,
-      primaryKey: true,
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey: true
     },
 
     name: {
