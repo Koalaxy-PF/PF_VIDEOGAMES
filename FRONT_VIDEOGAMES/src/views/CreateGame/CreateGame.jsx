@@ -2,7 +2,7 @@ import React, { useState } from "react";
 //import { useDispatch, useSelector } from "react-redux";
 //import {Link} from "react-router-dom";
 //import validate from "./validators.jsx";
-import img from '../../assets/create/ImgForm.png'
+import img from '../../assets/create/KoalaForm2.png'
 import Footer from "../../components/Footer/Footer";
 import NavBar from "../../components/Navbar/Navbar";
 import Sidebar from "../../components/SideBar/Sidebar";
@@ -64,11 +64,11 @@ export default function CreateGame() {
       </div> */}
       <div class='justify-center border-solid border-2 border-black m-auto text-center bg mx-20 ml-[100px] relative bottom-[600px]' >
         <h1 class='text-5xl pt-[50px] bg-[#5E9FA3] mx-[380px] py-[50px] mt-[20px] rounded-lg text-white relative right-[20px]'>Create Game</h1>
-        <img class='justify-center m-auto relative bottom-8 h-85 z-10 w-[800px] ' src={img} alt="" />
+        <img class='justify-center m-auto relative bottom-[100px] h-85 z-10 w-[800px] ' src={img} alt="" />
         <form class=' relative bottom-[220px] right-[17px] bg-[#5E9FA3] justify-center w-[530px] m-auto pt-[100px] pb-40 '>
           <div class='my-4 mr-20 grid grid-cols-2'>
-            <label class='text-white'>Name: </label>{" "}
-            <input onChange={(e) => handleInputChange(e)} class='rounded-md text-left w-[250px]'
+            <label class='text-white'><ion-icon name="home-outline"></ion-icon></label>{" "}
+            <input onChange={(e) => handleInputChange(e)} class='rounded-md text-left w-[250px]' placeholder="Name"
               key="name"
               type="text"
               name="name"

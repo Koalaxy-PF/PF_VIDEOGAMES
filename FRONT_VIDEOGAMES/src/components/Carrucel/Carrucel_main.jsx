@@ -2,16 +2,28 @@ import React from 'react'
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
+import icons from '../../assets/carrucel/icons'
 
 export default function Carrucel_main(){
 
+  const SlickArrowLeft = ({ currentSlide, slideCount, style, ...props }) => (
+    <img src={icons.img2} alt="prevArrow" {...props} style={{ ...style, margin: '-10px' }} />
+  );
+
+  const SlickArrowRight = ({ currentSlide, slideCount, style, ...props }) => (
+    <img src={icons.img1} alt="nextArrow" {...props} style={{ ...style, margin: '-10px'}} />
+  );
+  
     const settings = {
         dots: false,
         infinite: true,
         speed: 500,
         slidesToShow: 1,
-        slidesToScroll: 1
+        slidesToScroll: 1,
+        prevArrow: <SlickArrowLeft />,
+        nextArrow: <SlickArrowRight />,
       };
+
       
   return (
     <div className='bg-gray-200 w-full'>

@@ -12,6 +12,7 @@ export default function App() {
     <div className="App">
       <Routes>
         <Route exact path="/" element={<Home />} />
+        <Route exact path="/store" element={<Store />} />
         <Route exact path="/CreateGame" element={<CreateGame />} />
       </Routes>  
     </div>
