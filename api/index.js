@@ -16,7 +16,7 @@ conn.sync({ force: false }).then(() => {
       console.log("creados");
     }
 
-    /*   if (!dbcompany.length) {
+    /*     if (!dbcompany.length) {
       const companies = await apicompany();
       await Company.bulkCreate(companies);
     } */

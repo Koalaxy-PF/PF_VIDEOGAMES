@@ -5,19 +5,28 @@ import SearchBar from '../../components/SearchBar/SearchBar'
 import Footer from '../../components/Footer/Footer'
 import Sidebar from '../../components/SideBar/Sidebar'
 import Carrucel_main from '../../components/Carrucel/Carrucel_main'
-
+import Cards from '../../components/CardContainer/CardContainer'
+import Carrucel from '../../components/Carrucel/Carrucel'
 export default function Home(){
 
   return (
-    <div className="App">
+    <div className="Home">
 
       <div>
         <Navbar/>
       </div>
 
-      <div className='flex w-full'>
+      <div className='flex w-full bg-gray-900 '>
         <Sidebar />
-        <Carrucel_main />
+
+        <div className='flex flex-col w-full'>
+          <Carrucel_main />
+          <Carrucel />
+        </div>
+      </div>
+
+      <div class='bg-gray-900'>
+        <Cards/>
       </div>
 
       <div>
