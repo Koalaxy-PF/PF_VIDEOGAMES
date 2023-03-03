@@ -1,5 +1,5 @@
 const axios = require("axios");
-const { Company } = require("../db.js");
+const { Company, Product } = require("../db.js");
 
 const getDetail = async (id) => {
   const detail = await axios.get(
@@ -13,7 +13,7 @@ const getDetail = async (id) => {
 const apicompany = async () => {
   const obj = [];
 
-  const games = await gameInfoFinal();
+  const games = await Product.findAll();
   const companies = games.map((e) => e.company);
   const companiesNotRepet = new Set(companies);
 
@@ -24,8 +24,9 @@ const apicompany = async () => {
     objeto.name = res[i];
     obj.push(objeto);
   }
-  await Company.bulkCreate(obj);
-  console.log("companias creadas");
+
+  console.log(obj);
+  return obj;
 };
 
 const getApiInfo = async () => {
@@ -36,7 +37,7 @@ const getApiInfo = async () => {
   page.forEach((e) => {
     gets.push(
       axios.get(
-        `https://api.rawg.io/api/games?key=15017e1f70774fd391be156691d53fac&page=${e}`
+        `https://api.rawg.io/api/games?key=4a654b64c98046ea932e3e617b6c47a6&page=${e}`
       )
     );
   });
@@ -49,7 +50,7 @@ const getApiInfo = async () => {
         result.push(
           ...res.results.map((e) => {
             const objInfo = {
-              /*                   id: e.id, */
+              id: e.id,
               img: e.background_image,
               name: e.name,
               genre: e.genres.map((e) => e.name),
@@ -79,7 +80,7 @@ const gameInfoFinal = async () => {
   for (let i = 0; i < games.length; i++) {
     const id = games[i].id;
     const detailinfo = await axios.get(
-      `https://api.rawg.io/api/games/${id}?key=15017e1f70774fd391be156691d53fac&page&page`
+      `https://api.rawg.io/api/games/${id}?key=4a654b64c98046ea932e3e617b6c47a6&page&page`
     );
 
     //agrega la desc
