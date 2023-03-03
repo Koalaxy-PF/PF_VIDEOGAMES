@@ -26,7 +26,6 @@ function rootReducer(state = initialState, action){
             GamesCopy: action.payload,
         }
 
-
         case GET_GENRES:
         return{
             ...state,
@@ -34,7 +33,6 @@ function rootReducer(state = initialState, action){
         }
 
         //reducers de ordenamiento
-
 
         case ORDER_BY_NAME :
            let order = action.payload === 'asc' ? 
