@@ -13,7 +13,6 @@ const validateForm = (input) => {
   const error = {};
   if(!input.name.length) error.name = <h3>Name is required</h3>
   if(!input.price.length) error.price = <h3>Price is required</h3>
-  if(!input.password.length) error.password = <h3>Password is required</h3>
   if(!input.img.length) error.img = <h3>Img is required</h3>
   if(!input.comments.length) error.comments = <h3>Comments are required</h3>
   if(!input.calification.length) error.calification = <h3>Calification is required</h3>
@@ -30,9 +29,22 @@ const validateForm = (input) => {
 export default function CreateGame() {
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(GetGames());
-  },[dispatch])
+  // useEffect(() => {
+  //   dispatch(GetGames());
+  // },[dispatch]);
+
+  const games= useSelector((state) => state.Games);
+
+  function handleSelect(e) {
+    if (input.games.includes(e.target.value)) {
+      alert("The activity already has that country");
+    } else {
+      setInput({
+        ...input,
+        games: [...input.games, e.target.value],
+      });
+    }
+  }
  // const dispatch = useDispatch();
   //const history = useHistory();
 
@@ -42,7 +54,6 @@ export default function CreateGame() {
     name: "",
     stock: "",
     price: "",
-    password: "",
     img: "",
     comments: "",
     calification: "",
@@ -77,10 +88,34 @@ export default function CreateGame() {
     }))
   };
 
+  // function handleSubmit(e) {
+  //   e.preventDefault();
+  //   if (
+  //     !input.name ||
+  //     !input.stock ||
+  //     !input.price ||
+  //     !input.img ||
+  //     !input.genre
+  //   ) {
+  //     console.log("El input", input);
+  //     return alert("Complete all required fields");
+  //   }
+  //   PostGame(input);
+  //   alert("Game created");
+  //   console.log(input);
+  //   setInput({
+  //     name: "",
+  //     stock: 1,
+  //     price: "",
+  //     img: "",
+  //     genre: [],
+  //   });
+  // }
+
 
   function handleSubmit(e){
     e.preventDefault();
-    if(input.genre && input.name && input.price && input.password && input.img && input.comments && input.calification && input.company && input.released && input.minRequeriments && input.recommendRequeriments && input.description){
+    if(input.name && input.price && input.password && input.img && input.comments && input.calification && input.company && input.minRequeriments && input.recommendRequeriments && input.description){
       dispatch(PostGame(input));
       alert("Game created");
       setInput({
