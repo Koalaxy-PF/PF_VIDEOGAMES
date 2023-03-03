@@ -2,7 +2,7 @@ import React from 'react'
 import Cards from '../CardContainer/CardContainer'
 //import Card from '../Card/Card'
 import { useDispatch , useSelector} from "react-redux";
-import { GetGames , TidyAlphabetically , TidyPrice , TidyReleased} from "../../redux/actions/actions";
+import { GetGames , TidyAlphabetically , TidyPrice , TidyReleased, FilterGenres} from "../../redux/actions/actions";
 import { useEffect , useState } from 'react'
 
 export default function Sell() {
@@ -36,6 +36,15 @@ export default function Sell() {
     setCurrentPage(1);
     setOrder(`ordenado ${e.target.value}`)
   }
+
+  function HandlerFilterTypeFerGenres(e){
+    e.preventDefault();
+    dispatch(FilterGenres(e.target.value))
+    setCurrentPage(1);
+    setOrder(`ordenado ${e.target.value}`)
+}
+
+
 
   return (
 
