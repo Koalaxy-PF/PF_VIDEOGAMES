@@ -1,21 +1,24 @@
-import CreateUser from './views/CreateUser/CreateUser'
-import Navbar from "./components/Navbar/Navbar"
-import SearchBar from './components/SearchBar/SearchBar'
-import Footer from './components/Footer/Footer'
-import './App.css'
+import { Route, Routes } from "react-router-dom"
+import { useEffect } from "react"
+import {useDispatch} from "react-redux"
+import Home from "./views/Home/Home"
+import CreateUser from "./views/createUser/createUser"
+import CreateGame from "./views/CreateGame/CreateGame"
+import Store from './views/Store/Store'
+import {GetGames} from "../src/redux/actions/actions"
 
 export default function App(){
 
+
+
   return (
     <div className="App">
-
-      <div>
-        <Navbar/>
-        <CreateUser/>
-        <Footer/>
-      </div>
-      
+      <Routes>
+        <Route exact path="/" element={<Home />} />
+        <Route exact path="/store" element={<Store />} />
+        <Route exact path="/CreateGame" element={<CreateGame />} />
+      </Routes>
     </div>
-  )
+  );
 }
 
