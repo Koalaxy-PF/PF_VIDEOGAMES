@@ -51,7 +51,7 @@ export default function CreateGame() {
     minRequeriments: "",
     recommendRequeriments: "",
     description: "",
-    genre: [],
+    genre: "",
   });
 
   const [error, setError] = useState({});
@@ -80,7 +80,7 @@ export default function CreateGame() {
 
   function handleSubmit(e){
     e.preventDefault();
-    if(input.genre.length>0 && input.name && input.price && input.password && input.img && input.comments && input.calification && input.company && input.released && input.minRequeriments && input.recommendRequeriments && input.description){
+    if(input.genre && input.name && input.price && input.password && input.img && input.comments && input.calification && input.company && input.released && input.minRequeriments && input.recommendRequeriments && input.description){
       dispatch(PostGame(input));
       alert("Game created");
       setInput({
@@ -96,7 +96,7 @@ export default function CreateGame() {
         minRequeriments: "",
         recommendRequeriments: "",
         description: "",
-        genre: [],
+        genre: "",
       });
     }
     else alert("Please complete all fields")
@@ -192,7 +192,7 @@ export default function CreateGame() {
 
           <div class='my-4 mr-20 flex justify-center'>
             <label class='text-white relative right-[3px] left-[30px]'><ion-icon name="star-half-outline"></ion-icon></label>{" "}
-            <input onChange={(e) => handleInputChange(e)} class='rounded-md w-[320px] relative left-[35px]'
+            <input onChange={(e) => handleInputChange(e)} class='rounded-md w-[320px] relative left-[35px]' placeholder="Calification"
               key="calification"
               type="number"
               name="calification"
@@ -202,7 +202,7 @@ export default function CreateGame() {
 
           <div class='my-4 mr-20 flex justify-center'>
             <label class='text-white relative right-[3px] left-[30px]'><ion-icon name="business-outline"></ion-icon></label>{" "}
-            <input onChange={(e) => handleInputChange(e)} class='rounded-md w-[320px] relative left-[35px]'
+            <input onChange={(e) => handleInputChange(e)} class='rounded-md w-[320px] relative left-[35px]' placeholder="Company"
               key="company"
               type="text"
               name="company"
@@ -212,7 +212,7 @@ export default function CreateGame() {
 
           <div class='my-4 mr-20 flex justify-center'>
             <label class='text-white relative right-[3px] left-[30px]'><ion-icon name="calendar-outline"></ion-icon> </label>{" "}
-            <input onChange={(e) => handleInputChange(e)} class='rounded-md w-[320px] relative left-[35px]'
+            <input onChange={(e) => handleInputChange(e)} class='rounded-md w-[320px] relative left-[35px]' placeholder="Released"
               key="released"
               type="date"
               name="released"
@@ -222,7 +222,7 @@ export default function CreateGame() {
 
           <div class='my-4 mr-20 flex justify-center'>
             <label class='text-white relative right-[3px] left-[30px]'><ion-icon name="desktop-outline"></ion-icon></label>{" "}
-            <input onChange={(e) => handleInputChange(e)} class='rounded-md w-[320px] relative left-[35px]'
+            <input onChange={(e) => handleInputChange(e)} class='rounded-md w-[320px] relative left-[35px]' placeholder="Min requeriments"
               key="minRequeriments"
               type="text"
               name="minRequeriments"
@@ -232,7 +232,7 @@ export default function CreateGame() {
 
           <div class='my-4 mr-20 flex justify-center'>
             <label class='text-white relative right-[3px] left-[30px]'><ion-icon name="desktop-outline"></ion-icon> </label>{" "}
-            <input onChange={(e) => handleInputChange(e)} class='rounded-md w-[320px] relative left-[35px]'
+            <input onChange={(e) => handleInputChange(e)} class='rounded-md w-[320px] relative left-[35px]' placeholder="Recommend requeriments"
               key="recommendRequeriments"
               type="text"
               name="recommendRequeriments"
@@ -242,7 +242,7 @@ export default function CreateGame() {
 
           <div class='my-4 mr-20 flex justify-center'>
             <label class='text-white relative right-[3px] left-[30px]'><ion-icon name="reader-outline"></ion-icon></label>{" "}
-            <input onChange={(e) => handleInputChange(e)} class='rounded-md w-[320px] relative left-[35px]'
+            <input onChange={(e) => handleInputChange(e)} class='rounded-md w-[320px] relative left-[35px]' placeholder="Description"
               key="description"
               type="text"
               name="description"
