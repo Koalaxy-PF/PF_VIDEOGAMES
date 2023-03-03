@@ -4,7 +4,7 @@ export const GET_GAMES = "GET_GAMES"
 export const GET_BY_ID = "GET_BY_ID"
 export const GET_GENRES = "GET_GENRES"
 export const FILTER_GENRES = "FILTER_GENRES"
-export const FILTER_FER_COMPANY = "FILTER_FER_COMPANY"
+export const FILTER_PER_COMPANY = "FILTER_PER_COMPANY"
 export const ORDER_BY_NAME = "ORDER_BY_NAME"
 export const ORDER_BY_RELEASED = "ORDER_BY_RELEASED"
 export const TIDY_PRICE = "TIDY_PRICE"
@@ -73,7 +73,7 @@ export function FilterGenres(payload){
 export function FilterCompany(payload){
 
     return{
-        type: FILTER_FER_COMPANY,
+        type: FILTER_PER_COMPANY,
         payload
     }
 
