@@ -2,7 +2,7 @@ const app = require("./src/app.js");
 const { conn, Product, Company } = require("./src/db.js");
 const { gameInfoFinal, apicompany } = require("./src/controllers/apidatos");
 
-conn.sync({ force: true }).then(() => {
+conn.sync({ force: false }).then(() => {
   // si tenes en true, renueva la base de datos
 
   app.listen(3001, async () => {
@@ -15,9 +15,9 @@ conn.sync({ force: true }).then(() => {
       console.log("creados");
     }
 
-    if(!dbcompany.length){
+    if (!dbcompany.length) {
       const companies = await apicompany();
-      await Company.bulkCreate(companies)
+      await Company.bulkCreate(companies);
     }
 
     console.log("%s listening at 3000"); // eslint-disable-line no-console
