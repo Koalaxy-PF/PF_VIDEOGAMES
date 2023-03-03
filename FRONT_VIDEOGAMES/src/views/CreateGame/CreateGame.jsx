@@ -29,9 +29,9 @@ const validateForm = (input) => {
 export default function CreateGame() {
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   dispatch(GetGames());
-  // },[dispatch]);
+  useEffect(() => {
+    dispatch(GetGames());
+  },[dispatch]);
 
   const games= useSelector((state) => state.Games);
 
@@ -143,7 +143,7 @@ export default function CreateGame() {
 
 
   return (
-    <div bg-gray-300>
+    <div class='bg.gray-300'>
         <div>
             <NavBar/>
         </div>
