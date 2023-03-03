@@ -11,7 +11,7 @@ export default function Store() {
             <Navbar/>
         </div>
 
-        <div className='flex w-full h-screen'>
+        <div className='flex w-full h-full'>
             <Sidebar /> 
             <Sell />
         </div>
