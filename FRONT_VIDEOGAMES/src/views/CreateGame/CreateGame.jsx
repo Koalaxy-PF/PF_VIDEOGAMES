@@ -6,6 +6,24 @@ import img from '../../assets/create/KoalaForm2.png'
 import Footer from "../../components/Footer/Footer";
 import NavBar from "../../components/Navbar/Navbar";
 import Sidebar from "../../components/SideBar/Sidebar";
+import validate from "./validators";
+
+const validateForm = (input) => {
+  const error = {};
+  if(!input.name.length) error.name = <h3>Name is required</h3>
+  if(!input.stock.length) error.stock = <h3>Stock is required</h3>
+  if(!input.price.length) error.price = <h3>Price is required</h3>
+  if(!input.password.length) error.password = <h3>Password is required</h3>
+  if(!input.img.length) error.img = <h3>Img is required</h3>
+  if(!input.comments.length) error.comments = <h3>Comments are required</h3>
+  if(!input.calification.length) error.calification = <h3>Calification is required</h3>
+  if(!input.company.length) error.company = <h3>Company is required</h3>
+  if(!input.released.length) error.released = <h3>Released is required</h3>
+  if(!input.minRequeriments.length) error.minRequeriments = <h3>Min requeriments are required</h3>
+  if(!input.recommendRequeriments.length) error.recommendRequeriments = <h3>Recommend requriments are required</h3>
+  if(!input.description.length) error.description = <h3>Description is required</h3>
+  if(!input.genre.length) error.genre = <h3>Genre is required</h3>
+}
 
 export default function CreateGame() {
  // const dispatch = useDispatch();
@@ -68,7 +86,6 @@ export default function CreateGame() {
               name="name"
               value={input.name}
             >
-
             </input>
           </div>
 
