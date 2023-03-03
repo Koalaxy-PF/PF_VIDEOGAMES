@@ -1,6 +1,6 @@
 const { Product } = require("../db");
 
-const validationMiddleware = async (req, res, next) => {
+/* const validationMiddleware = async (req, res, next) => {
   const {
     name,
     description,
@@ -35,4 +35,4 @@ const validationMiddleware = async (req, res, next) => {
   next();
 };
 
-module.exports = { validationMiddleware };
+module.exports = { validationMiddleware }; */
