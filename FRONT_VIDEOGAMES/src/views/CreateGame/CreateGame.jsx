@@ -29,9 +29,9 @@ const validateForm = (input) => {
 export default function CreateGame() {
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   dispatch(GetGames());
-  // },[dispatch]);
+  useEffect(() => {
+    dispatch(GetGames());
+  },[dispatch]);
 
  /*  const games= useSelector((state) => state.Games);
 
