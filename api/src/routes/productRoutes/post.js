@@ -1,10 +1,10 @@
 const { Router } = require("express");
 const { Product } = require("../../db");
-const { validationMiddleware } = require("../../middlewares/postMiddleware");
+// const { validationMiddleware } = require("../../middlewares/postMiddleware");
 
 const router = Router();
 
-router.post("/", validationMiddleware, async (req, res) => {
+router.post("/", async (req, res) => {
   const {
     name,
     description,
