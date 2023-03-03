@@ -1,6 +1,6 @@
 .card {
     width: 250px;
-    height: 274px;
+    height: 294px;
     background-image: linear-gradient(163deg, #00ff75 0%, #3700ff 100%);
     border-radius: 20px;
     transition: all .3s;
@@ -10,11 +10,13 @@
    
    .card2 {
     width: 250px;
-    height: 274px;
+    height: 294px;
     background-color: white;
     border-radius:0;
     transition: all .2s;
     border-radius: 20px 20px 20px 20px;
+    justify-content: center;
+    text-align: center;
    }
    
    .card2:hover {
@@ -28,4 +30,11 @@
 
    .forest{
     border-radius: 20px 20px 0 0;
+   }
+
+   .card2 img{
+    border-radius: 20px 20px 0 0;
+    width: 250px;
+    height: 135px;
+    object-fit: cover;
    }

@@ -21,7 +21,7 @@ const allGames = useSelector((state) => state.Games);
 
 
   return (
-    <div class='bg-gray-200 ml-[243px] overflow-x-hidden'>
+    <div class='bg-gray-200  overflow-x-hidden flex flex-wrap justify-center'>
        
     
           
