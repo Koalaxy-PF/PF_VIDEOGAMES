@@ -88,54 +88,54 @@ export default function CreateGame() {
     }))
   };
 
-  // function handleSubmit(e) {
-  //   e.preventDefault();
-  //   if (
-  //     !input.name ||
-  //     !input.stock ||
-  //     !input.price ||
-  //     !input.img ||
-  //     !input.genre
-  //   ) {
-  //     console.log("El input", input);
-  //     return alert("Complete all required fields");
-  //   }
-  //   PostGame(input);
-  //   alert("Game created");
-  //   console.log(input);
-  //   setInput({
-  //     name: "",
-  //     stock: 1,
-  //     price: "",
-  //     img: "",
-  //     genre: [],
-  //   });
-  // }
-
-
-  function handleSubmit(e){
+  function handleSubmit(e) {
     e.preventDefault();
-    if(input.name && input.price && input.password && input.img && input.comments && input.calification && input.company && input.minRequeriments && input.recommendRequeriments && input.description){
-      dispatch(PostGame(input));
-      alert("Game created");
-      setInput({
-        name: "",
-        stock: "",
-        price: "",
-        password: "",
-        img: "",
-        comments: "",
-        calification: "",
-        company:"",
-        released: "",
-        minRequeriments: "",
-        recommendRequeriments: "",
-        description: "",
-        genre: "",
-      });
+    if (
+      !input.name ||
+      !input.stock ||
+      !input.price ||
+      !input.img ||
+      !input.genre
+    ) {
+      console.log("El input", input);
+      return alert("Complete all required fields");
     }
-    else alert("Please complete all fields")
+    PostGame(input);
+    alert("Game created");
+    console.log(input);
+    setInput({
+      name: "",
+      stock: 1,
+      price: "",
+      img: "",
+      genre: [],
+    });
   }
+
+
+  // function handleSubmit(e){
+  //   e.preventDefault();
+  //   if(input.name && input.price && input.password && input.img && input.comments && input.calification && input.company && input.minRequeriments && input.recommendRequeriments && input.description){
+  //     dispatch(PostGame(input));
+  //     alert("Game created");
+  //     setInput({
+  //       name: "",
+  //       stock: "",
+  //       price: "",
+  //       password: "",
+  //       img: "",
+  //       comments: "",
+  //       calification: "",
+  //       company:"",
+  //       released: "",
+  //       minRequeriments: "",
+  //       recommendRequeriments: "",
+  //       description: "",
+  //       genre: "",
+  //     });
+  //   }
+  //   else alert("Please complete all fields")
+  // }
 
 
 
