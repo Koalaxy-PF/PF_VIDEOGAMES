@@ -8,6 +8,8 @@ import { useEffect , useState } from 'react'
 export default function Sell() {
   const dispatch = useDispatch();
   const[order,setOrder] =useState('') 
+
+  const[currentPage,setCurrentPage] =useState(1) 
    const [setRender] = useState("");
 
   //  const allGames = useSelector((state)=> state.Games)
