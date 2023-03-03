@@ -5,7 +5,7 @@ const { gameInfoFinal, apicompany } = require("./src/controllers/apidatos");
 conn.sync({ force: true }).then(() => {
   // si tenes en true, renueva la base de datos
 
-  app.listen(3000, async () => {
+  app.listen(3001, async () => {
     const dbgame = await Product.findAll();
     const dbcompany = await Company.findAll();
 
@@ -19,8 +19,6 @@ conn.sync({ force: true }).then(() => {
       const companies = await apicompany();
       await Company.bulkCreate(companies)
     }
-  
-   
 
     console.log("%s listening at 3000"); // eslint-disable-line no-console
   });
