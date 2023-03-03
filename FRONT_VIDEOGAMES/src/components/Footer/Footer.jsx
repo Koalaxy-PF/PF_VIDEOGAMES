@@ -1,5 +1,6 @@
 import logo from '../../assets/icons/koalaLogo.png'
 import icons from '../../assets/footer/icons.js'
+import { Link } from 'react-router-dom'
 
 export default function Footer() {
   return (
@@ -15,21 +16,18 @@ export default function Footer() {
 				</a>
 			</div>
 
-		    <div className="pt-6 flex flex-col space-y-4">
+		    <div className="pt-6 flex flex-col space-y-2">
 			    <h2 className="text-slate-100 font-bold">SOPORTE</h2>
 			    <div className="flex flex-col space-y-2 text-md text-slate-600 font-semibold">
-				  <a rel="noopener noreferrer" href="#">Preguntas Frecuentes</a>
-				  <a rel="noopener noreferrer" href="#">¿Quiénes Somos?</a>
-				  <a rel="noopener noreferrer" href="#">Métodos de Pago</a>
-                  <a rel="noopener noreferrer" href="#">Términos y Condiciones</a>
-                  
+					<Link to={"/AboutUs"}>
+				  		<a rel="noopener noreferrer" href="#">¿Quiénes Somos?</a>                  
+					</Link>
 			  </div>
 		  </div>
 
-			<div className="pt-6 flex flex-col space-y-4">
+			<div className="pt-6 flex flex-col space-y-2">
 			<h2 className="text-slate-100 font-bold">SERVICIOS</h2>
-			<div className="flex flex-col space-y-2 text-md text-slate-600 font-semibold">
-				<a rel="noopener noreferrer" href="#">Caja de Recompensa</a>				
+			<div className="flex flex-col space-y-2 text-md text-slate-600 font-semibold">			
 			</div>
 		</div>
 

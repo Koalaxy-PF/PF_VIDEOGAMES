@@ -9,8 +9,10 @@ export default function Sidebar(){
 
     return (
     <div className={`bg-gray-900 h-100vh p-5 pt-2 relative ${open ? "w-72" : "w-20"} duration-500`}>
-    <BsFillArrowLeftCircleFill className={`bg-gray-500 text-white text-4xl rounded-full absolute -right-4 top-2 border border-[#609CA4] cursor-pointer ${!open && "rotate-180"}`}
-    onClick={() => setOpen(!open)} />
+      <BsFillArrowLeftCircleFill className={`bg-gray-500 text-white text-4xl rounded-full absolute -right-4 top-2 border border-[#609CA4] cursor-pointer ${!open && "rotate-180"}`}
+      onClick={() => setOpen(!open)} />
+
+    {/* SEARCH */}
 
     <div className={`flex items-center mt-2 rounded-md py-2 mr-2 ${!open ? "ml-1" : "px-4 bg-gray-600"}`}>
       <img src={icons.img6} className={`flex w-8 items-center text-4xl float-left cursor-pointer ${open && "mr-2"}`}  onClick={() => setOpen(!open)} />
