@@ -9,11 +9,7 @@ import {GetGames} from "../src/redux/actions/actions"
 
 export default function App(){
 
-  const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(GetGames())
-  }, [dispatch])
 
   return (
     <div className="App">

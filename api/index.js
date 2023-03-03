@@ -7,19 +7,18 @@ conn.sync({ force: false }).then(() => {
 
   app.listen(3000, async () => {
     const dbgame = await Product.findAll();
-    /* const dbcompany = await Company.findAll(); */
+    const dbcompany = await Company.findAll();
 
     if (dbgame.length < 1) {
       const apigame = await gameInfoFinal();
       await Product.bulkCreate(apigame);
-      console.log(apigame);
       console.log("creados");
     }
 
-    /*     if (!dbcompany.length) {
+    if (!dbcompany.length) {
       const companies = await apicompany();
       await Company.bulkCreate(companies);
-    } */
+    }
 
     console.log("%s listening at 3000"); // eslint-disable-line no-console
   });

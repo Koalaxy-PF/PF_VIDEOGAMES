@@ -3,7 +3,7 @@ import {
     GET_BY_ID,
     GET_GENRES,
     FILTER_GENRES,
-    FILTER_FER_COMPANY,
+    FILTER_PER_COMPANY,
     ORDER_BY_NAME ,
     ORDER_BY_RELEASED,
     TIDY_PRICE ,
@@ -123,7 +123,7 @@ function rootReducer(state = initialState, action){
 
         //reduces de filtrados
 
-        case FILTER_FER_COMPANY:
+        case FILTER_PER_COMPANY:
                 action.payload === 'All' ? state.Games = state.GamesCopy.filter(info => info.company.length) :
                 state.Games = state.GamesCopy.filter(name => name.company.find((element) => element.name?.toLowerCase() === action.payload))
         return {
