@@ -10,7 +10,7 @@ import Carrucel from '../../components/Carrucel/Carrucel'
 export default function Home(){
 
   return (
-    <div className="App">
+    <div className="Home">
 
       <div>
         <Navbar/>

@@ -1,6 +1,7 @@
-import {useState} from 'react'
+import { useState } from 'react'
 import icons from '../../assets/icons colores/icons.js'
 import { BsFillArrowLeftCircleFill } from "react-icons/bs"
+import { Link } from "react-router-dom";
 
 export default function Sidebar(){
 
@@ -18,6 +19,8 @@ export default function Sidebar(){
 
     <hr class="h-px my-2.5 border-0 bg-gray-500" />
 
+    {/* INICIO */}
+
     <div className={`flex mt-4 items-center cursor-pointer rounded-full ${open && "bg-gray-600 pl-4 py-2 gap-x-2"}`}>
       <span>
         <img src={icons.img3} className={`w-8 items-center text-white text-4xl cursor-pointer`} />
@@ -28,25 +31,33 @@ export default function Sidebar(){
       </span>
     </div>
 
-    <div className={`flex mt-4 items-center cursor-pointer rounded-full ${open && "bg-gray-600 pl-4 py-2 gap-x-2"}`}>
-      <span>
-        <img src={icons.img4} className="block w-8 items-center" />              
-      </span>
-
-      <span className={`text-base font-medium  flex-1 duration-200 text-slate-100 ${!open && "hidden"}`}>
-        <h1>Tienda</h1>
-      </span>
-    </div>
+    {/* TIENDA */}
 
     <div className={`flex mt-4 items-center cursor-pointer rounded-full ${open && "bg-gray-600 pl-4 py-2 gap-x-2"}`}>
-      <span>
-        <img src={icons.img1} className='block w-8 items-center text-white text-4xl cursor-pointer' />               
-      </span>
-
-      <span className={`text-base font-medium  flex-1 duration-200 text-slate-100 ${!open && "hidden"}`}>
-        <h1>Biblioteca</h1>
-      </span>
+      <Link to="/Store">
+        <div className='flex flex-row'>
+          <img src={icons.img4} className="w-8 items-center" />              
+          <span className={`font-medium ml-3 text-md mt-1 flex-1 duration-200 text-slate-100 ${!open && "hidden"}`}>
+            <h1>Tienda</h1>
+          </span>
+        </div>
+      </Link>
     </div>
+
+    {/* BIBLIOTECA */}
+
+    <div className={`flex mt-4 items-center cursor-pointer rounded-full ${open && "bg-gray-600 pl-4 py-2 gap-x-2"}`}>
+      <Link to="/Store">
+        <div className='flex flex-row'>
+          <img src={icons.img1} className="w-8 items-center" />              
+          <span className={`font-medium ml-3 text-md mt-1 flex-1 duration-200 text-slate-100 ${!open && "hidden"}`}>
+            <h1>Biblioteca</h1>
+          </span>
+        </div>
+      </Link>
+    </div>
+
+
 
     <div className={`flex mt-4 items-center cursor-pointer rounded-full ${open && "bg-gray-600 pl-4 py-2 gap-x-2"}`}>
       <span>
