@@ -1,13 +1,50 @@
-import React, { useState } from "react";
-//import { useDispatch, useSelector } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 //import {Link} from "react-router-dom";
 //import validate from "./validators.jsx";
 import img from '../../assets/create/KoalaForm2.png'
 import Footer from "../../components/Footer/Footer";
 import NavBar from "../../components/Navbar/Navbar";
 import Sidebar from "../../components/SideBar/Sidebar";
+import { GetGames, PostGame } from "../../redux/actions/actions";
+import validate from "./validators";
+
+const validateForm = (input) => {
+  const error = {};
+  if(!input.name.length) error.name = <h3>Name is required</h3>
+  if(!input.price.length) error.price = <h3>Price is required</h3>
+  if(!input.img.length) error.img = <h3>Img is required</h3>
+  if(!input.comments.length) error.comments = <h3>Comments are required</h3>
+  if(!input.calification.length) error.calification = <h3>Calification is required</h3>
+  if(!input.company.length) error.company = <h3>Company is required</h3>
+  if(!input.released.length) error.released = <h3>Released is required</h3>
+  if(!input.minRequeriments.length) error.minRequeriments = <h3>Min requeriments are required</h3>
+  if(!input.recommendRequeriments.length) error.recommendRequeriments = <h3>Recommend requriments are required</h3>
+  if(!input.description.length) error.description = <h3>Description is required</h3>
+  if(!input.genre.length) error.genre = <h3>Genre is required</h3>
+
+  return error;
+}
 
 export default function CreateGame() {
+  const dispatch = useDispatch();
+
+  // useEffect(() => {
+  //   dispatch(GetGames());
+  // },[dispatch]);
+
+  const games= useSelector((state) => state.Games);
+
+  function handleSelect(e) {
+    if (input.games.includes(e.target.value)) {
+      alert("The activity already has that country");
+    } else {
+      setInput({
+        ...input,
+        games: [...input.games, e.target.value],
+      });
+    }
+  }
  // const dispatch = useDispatch();
   //const history = useHistory();
 
@@ -17,7 +54,6 @@ export default function CreateGame() {
     name: "",
     stock: "",
     price: "",
-    password: "",
     img: "",
     comments: "",
     calification: "",
@@ -26,8 +62,12 @@ export default function CreateGame() {
     minRequeriments: "",
     recommendRequeriments: "",
     description: "",
-    genre: [],
+    genre: "",
   });
+
+  const [error, setError] = useState({});
+
+
   
   //history.push("/home");
 /* 
@@ -41,7 +81,61 @@ export default function CreateGame() {
       ...input,
       [e.target.name]: e.target.value
     });
+
+    setError(validateForm({
+      ...input,
+      [e.target.name]: e.target.value
+    }))
+  };
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    if (
+      !input.name ||
+      !input.stock ||
+      !input.price ||
+      !input.img ||
+      !input.genre
+    ) {
+      console.log("El input", input);
+      return alert("Complete all required fields");
+    }
+    PostGame(input);
+    alert("Game created");
+    console.log(input);
+    setInput({
+      name: "",
+      stock: 1,
+      price: "",
+      img: "",
+      genre: [],
+    });
   }
+
+
+  // function handleSubmit(e){
+  //   e.preventDefault();
+  //   if(input.name && input.price && input.password && input.img && input.comments && input.calification && input.company && input.minRequeriments && input.recommendRequeriments && input.description){
+  //     dispatch(PostGame(input));
+  //     alert("Game created");
+  //     setInput({
+  //       name: "",
+  //       stock: "",
+  //       price: "",
+  //       password: "",
+  //       img: "",
+  //       comments: "",
+  //       calification: "",
+  //       company:"",
+  //       released: "",
+  //       minRequeriments: "",
+  //       recommendRequeriments: "",
+  //       description: "",
+  //       genre: "",
+  //     });
+  //   }
+  //   else alert("Please complete all fields")
+  // }
 
 
 
@@ -49,58 +143,67 @@ export default function CreateGame() {
 
 
   return (
-    <div>
+    <div bg-gray-300>
         <div>
             <NavBar/>
         </div>
 
-        <div>
+        <div class='bg-gray-300 flex'>
             <Sidebar/>
-        </div>
-     {/*  <div>
-        <Link to="/home">
-          <button>BACKOALA</button>
-        </Link>
-      </div> */}
-      <div class='justify-center border-solid border-2 border-black m-auto text-center bg mx-20 ml-[100px] relative bottom-[600px]' >
-        <h1 class='text-5xl pt-[50px] bg-[#5E9FA3] mx-[380px] py-[50px] mt-[20px] rounded-lg text-white relative right-[20px]'>Create Game</h1>
-        <img class='justify-center m-auto relative bottom-[100px] h-85 z-10 w-[800px] ' src={img} alt="" />
-        <form class=' relative bottom-[220px] right-[17px] bg-[#5E9FA3] justify-center w-[530px] m-auto pt-[100px] pb-40 '>
-          <div class='my-4 mr-20 grid grid-cols-2'>
-            <label class='text-white'><ion-icon name="home-outline"></ion-icon></label>{" "}
-            <input onChange={(e) => handleInputChange(e)} class='rounded-md text-left w-[250px]' placeholder="Name"
+            <div class='justify-center relative bg-gray-300 ml-[50px] '>
+        {/* <h1 class='text-5xl pt-[50px] bg-[#5E9FA3] mx-[380px] py-[50px] mt-[20px] rounded-lg text-white relative right-[20px]'>Create Game</h1> */}
+        <img class='justify-center m-auto relative h-85 z-10 w-[800px] left-[70px] top-[20px] ' src={img} alt="" />
+        <form onSubmit={(e) => handleSubmit(e)} class=' relative bottom-[60px] right-[17px] bg-[#5E9FA3] justify-center w-[530px] m-auto pt-[55px] pb-20 left-[70px] '>
+          <div>
+          <div class='my-4 mr-20 flex justify-center'>
+            <label class='text-white relative right-[3px] left-[30px]'><ion-icon name="clipboard-outline"></ion-icon></label>{" "}
+            <input onChange={(e) => handleInputChange(e)} class='rounded-md w-[320px] relative left-[35px]' placeholder="Name"
               key="name"
               type="text"
               name="name"
               value={input.name}
             >
-
             </input>
           </div>
 
-          <div class='my-4  mr-20 grid grid-cols-2' >
-            <label class='text-white'>Price: </label>{" "}
-            <input onChange={(e) => handleInputChange(e)} class='rounded-md text-left w-[250px]'
+          <div class='flex justify-center'>
+          {error.name && <span >{error.name}</span>}
+          </div>
+
+
+
+          <div class='my-4  flex justify-center' >
+            <div class='mr-[10px]'>
+            <label class='text-white'><ion-icon name="cash-outline"></ion-icon></label>{" "}
+            <input onChange={(e) => handleInputChange(e)} class='rounded-md text-left w-[150px]' placeholder="Price"
               key="price"
               type="text"
               name="price"
               value={input.price}
             />
-          </div>
+            </div>
 
-          <div class='my-4  mr-20 grid grid-cols-2'>
-            <label class='text-white'>Stock: </label>{" "}
-            <input onChange={(e) => handleInputChange(e)} class='rounded-md text-left w-[250px]'
+            <div>
+            <label class='text-white'><ion-icon name="grid-outline"></ion-icon></label>{" "}
+            <input onChange={(e) => handleInputChange(e)} class='rounded-md text-left w-[150px]' placeholder="Stock"
               key="stock"
               type="number"
               name="stock"
               value={input.stock}
             />
+            </div>
+
+
           </div>
 
-          <div class='my-4  mr-20 grid grid-cols-2'>
-            <label class='text-white'>Img: </label>{" "}
-            <input onChange={(e) => handleInputChange(e)} class='rounded-md text-left w-[250px]'
+          
+          <div class='flex justify-center'>
+          {error.price && <span >{error.price}</span>}
+          </div>
+
+          <div class='my-4 mr-20 flex justify-center'>
+            <label class='text-white relative right-[3px] left-[30px]'><ion-icon name="image-outline"></ion-icon> </label>{" "}
+            <input onChange={(e) => handleInputChange(e)} class='rounded-md w-[320px] relative left-[35px]' placeholder="Img"
               key="img"
               type="text"
               name="img"
@@ -108,9 +211,13 @@ export default function CreateGame() {
             />
           </div>
 
-          <div class='my-4  mr-20 grid grid-cols-2'>
-            <label class='text-white'>Comments: </label>{" "}
-            <input onChange={(e) => handleInputChange(e)} class='rounded-md text-left w-[250px]'
+          <div class='flex justify-center'>
+          {error.img && <span >{error.img}</span>}
+          </div>
+
+          <div class='my-4 mr-20 flex justify-center'>
+            <label class='text-white relative right-[3px] left-[30px]'><ion-icon name="chatbubbles-outline"></ion-icon> </label>{" "}
+            <input onChange={(e) => handleInputChange(e)} class='rounded-md w-[320px] relative left-[35px]' placeholder="Comments"
               key="comments"
               type="text"
               name="comments"
@@ -118,9 +225,9 @@ export default function CreateGame() {
             />
           </div>
 
-          <div class='my-4  mr-20 grid grid-cols-2'>
-            <label class='text-white'>Calification: </label>{" "}
-            <input onChange={(e) => handleInputChange(e)} class='rounded-md text-left w-[250px]'
+          <div class='my-4 mr-20 flex justify-center'>
+            <label class='text-white relative right-[3px] left-[30px]'><ion-icon name="star-half-outline"></ion-icon></label>{" "}
+            <input onChange={(e) => handleInputChange(e)} class='rounded-md w-[320px] relative left-[35px]' placeholder="Calification"
               key="calification"
               type="number"
               name="calification"
@@ -128,9 +235,9 @@ export default function CreateGame() {
             />
           </div>
 
-          <div class='my-4  mr-20 grid grid-cols-2'>
-            <label class='text-white'>Company: </label>{" "}
-            <input onChange={(e) => handleInputChange(e)} class='rounded-md text-left w-[250px]'
+          <div class='my-4 mr-20 flex justify-center'>
+            <label class='text-white relative right-[3px] left-[30px]'><ion-icon name="business-outline"></ion-icon></label>{" "}
+            <input onChange={(e) => handleInputChange(e)} class='rounded-md w-[320px] relative left-[35px]' placeholder="Company"
               key="company"
               type="text"
               name="company"
@@ -138,9 +245,9 @@ export default function CreateGame() {
             />
           </div>
 
-          <div class='my-4  mr-20 grid grid-cols-2'>
-            <label class='text-white'>Released: </label>{" "}
-            <input onChange={(e) => handleInputChange(e)} class='rounded-md w-[250px] text-center'
+          <div class='my-4 mr-20 flex justify-center'>
+            <label class='text-white relative right-[3px] left-[30px]'><ion-icon name="calendar-outline"></ion-icon> </label>{" "}
+            <input onChange={(e) => handleInputChange(e)} class='rounded-md w-[320px] relative left-[35px]' placeholder="Released"
               key="released"
               type="date"
               name="released"
@@ -148,9 +255,9 @@ export default function CreateGame() {
             />
           </div>
 
-          <div class='my-4  mr-20 grid grid-cols-2'>
-            <label class='text-white'>Min Requeriments: </label>{" "}
-            <input onChange={(e) => handleInputChange(e)} class='rounded-md text-left w-[250px]'
+          <div class='my-4 mr-20 flex justify-center'>
+            <label class='text-white relative right-[3px] left-[30px]'><ion-icon name="desktop-outline"></ion-icon></label>{" "}
+            <input onChange={(e) => handleInputChange(e)} class='rounded-md w-[320px] relative left-[35px]' placeholder="Min requeriments"
               key="minRequeriments"
               type="text"
               name="minRequeriments"
@@ -158,9 +265,9 @@ export default function CreateGame() {
             />
           </div>
 
-          <div class='my-4  mr-20 grid grid-cols-2'>
-            <label class='text-white'>Recomment Requeriments: </label>{" "}
-            <input onChange={(e) => handleInputChange(e)} class='rounded-md text-left w-[250px]'
+          <div class='my-4 mr-20 flex justify-center'>
+            <label class='text-white relative right-[3px] left-[30px]'><ion-icon name="desktop-outline"></ion-icon> </label>{" "}
+            <input onChange={(e) => handleInputChange(e)} class='rounded-md w-[320px] relative left-[35px]' placeholder="Recommend requeriments"
               key="recommendRequeriments"
               type="text"
               name="recommendRequeriments"
@@ -168,9 +275,9 @@ export default function CreateGame() {
             />
           </div>
 
-          <div class='my-4 mr-20 grid grid-cols-2'>
-            <label class='text-white'>Description: </label>{" "}
-            <input onChange={(e) => handleInputChange(e)} class='rounded-md  w-[250px]'
+          <div class='my-4 mr-20 flex justify-center'>
+            <label class='text-white relative right-[3px] left-[30px]'><ion-icon name="reader-outline"></ion-icon></label>{" "}
+            <input onChange={(e) => handleInputChange(e)} class='rounded-md w-[320px] relative left-[35px]' placeholder="Description"
               key="description"
               type="text"
               name="description"
@@ -178,9 +285,9 @@ export default function CreateGame() {
             />
           </div>
 
-          <div class='my-4  mr-20 grid grid-cols-2'>
-            <label class='text-white'>Genre</label>
-            <select name="genre" class='rounded-md w-[250px] text-center' required onChange = {
+          <div class='my-4 mr-20 flex justify-center'>
+            <label class='text-white relative right-[3px] left-[30px]'><ion-icon name="trophy-outline"></ion-icon></label>
+            <select name="genre" class='rounded-md w-[320px] relative left-[35px]' required onChange = {
               (e) => handleInputChange(e)}>
                 <option value="">Select Genre</option>
                 {
@@ -190,9 +297,24 @@ export default function CreateGame() {
                 }
               </select>
           </div>
+
+          <div class='justify-center text-center'>
+            <button class='text-white relative top-[40px] hover:text-blue border border-white border-solid p-[10px]' type="submit">Create Game</button>
+          </div>
+          </div>
+
         </form>
       </div>
-      <div>
+        </div>
+     {/*  <div>
+        <Link to="/home">
+          <button>BACKOALA</button>
+        </Link>
+      </div> */}
+
+
+
+      <div class='z-10'>
         <Footer/>
       </div>
     </div>

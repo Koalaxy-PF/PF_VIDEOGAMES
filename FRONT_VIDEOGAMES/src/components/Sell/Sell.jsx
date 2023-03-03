@@ -15,25 +15,23 @@ export default function Sell() {
   //  const allGames = useSelector((state)=> state.Games)
   useEffect(() => {
     dispatch(GetGames());
-    setOrder(`ordenado`)
-  }, [dispatch, ]);  
+  }, [dispatch]);  
 
   
-  function handleFilterTidy(e) {
+  const handleFilterTidy = (e) => {
+    e.preventDefault();
     dispatch(TidyAlphabetically(e.target.value))
-    setCurrentPage(1);
     setOrder(`ordenado ${e.target.value}`)
   }
 
-  function handleFilterTidyPrice(e) {
+  const handleFilterTidyPrice = (e) => {
+    e.preventDefault();
     dispatch(TidyPrice(e.target.value))
-    setCurrentPage(1);
     setOrder(`ordenado ${e.target.value}`)
   }
 
-  function handleFilterTidyReleased(e) {
+  const handleFilterTidyReleased = (e) => {
     dispatch(TidyReleased(e.target.value))
-    setCurrentPage(1);
     setOrder(`ordenado ${e.target.value}`)
   }
 

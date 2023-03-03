@@ -25,9 +25,7 @@ export default function Home(){
         </div>
       </div>
 
-      <div class='bg-gray-900'>
-        <Cards/>
-      </div>
+      
 
       <div>
         <Footer/>
