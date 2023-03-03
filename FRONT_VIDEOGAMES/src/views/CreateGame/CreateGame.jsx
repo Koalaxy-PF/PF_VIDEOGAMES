@@ -33,7 +33,7 @@ export default function CreateGame() {
   //   dispatch(GetGames());
   // },[dispatch]);
 
-  const games= useSelector((state) => state.Games);
+ /*  const games= useSelector((state) => state.Games);
 
   function handleSelect(e) {
     if (input.games.includes(e.target.value)) {
@@ -44,7 +44,7 @@ export default function CreateGame() {
         games: [...input.games, e.target.value],
       });
     }
-  }
+  } */
  // const dispatch = useDispatch();
   //const history = useHistory();
 
@@ -143,7 +143,7 @@ export default function CreateGame() {
 
 
   return (
-    <div bg-gray-300>
+    <div className="bg-gray-300">
         <div>
             <NavBar/>
         </div>
