@@ -8,7 +8,9 @@ import {
     ORDER_BY_NAME ,
     ORDER_BY_RELEASED,
     TIDY_PRICE ,
-    CLEAN } from "../actions/actions"
+    CLEAN,
+    CLEAN_GAMES
+} from "../actions/actions"
 
 const initialState = {
     Games:[],
@@ -155,6 +157,12 @@ function rootReducer(state = initialState, action){
                 ...state,
                 details: action.payload
         }
+
+        case CLEAN_GAMES:
+            return{
+                ...state,
+                Games: action.payload
+            }
 
 
         default:{

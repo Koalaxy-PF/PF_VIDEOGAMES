@@ -1,22 +1,32 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Cards from '../CardContainer/CardContainer'
 //import Card from '../Card/Card'
 import { useDispatch , useSelector} from "react-redux";
-import { GetGames , TidyAlphabetically , TidyPrice , TidyReleased, FilterGenres, FilterCompany} from "../../redux/actions/actions";
-import { useEffect , useState } from 'react'
-import { Link } from 'react-router-dom';
+import { GetGames , TidyAlphabetically , TidyPrice , TidyReleased, FilterGenres} from "../../redux/actions/actions";
+import { useEffect } from 'react'
 
 export default function Sell() {
+
+  const allGames = useSelector((state) => state.Games)
   const dispatch = useDispatch();
   const[order,setOrder] =useState('') 
+  const [setRender] = useState("");
 
-  const[currentPage,setCurrentPage] =useState(1) 
-   const [setRender] = useState("");
 
   //  const allGames = useSelector((state)=> state.Games)
   useEffect(() => {
     dispatch(GetGames());
   }, [dispatch]);  
+  
+  // const pagination = pagesNumber => {
+  //   setCurrentPage(pagesNumber)
+  // };
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    dispatch(CleanGames(dispatch))
+    dispatch(GetGames())
+  }
 
   
   const handleFilterTidy = (e) => {
@@ -171,13 +181,16 @@ export default function Sell() {
                   <option value="descendente"> oldest</option>
           </select>
         </div>
+        <button onClick={e => {handleClick(e)}}>Clear Filters</button>
       </div>
+
+
 
       {/* <h1 className='flex  ml-8 font-bold mt-0'>STORE</h1> */}
 
-     <div class='flex'>
-     <Cards/>
-     </div>
+    <div class='flex'>
+      <Cards />
+    </div>
 
 
     </div>
