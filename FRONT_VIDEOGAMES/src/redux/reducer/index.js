@@ -8,7 +8,9 @@ import {
     ORDER_BY_NAME ,
     ORDER_BY_RELEASED,
     TIDY_PRICE ,
-    CLEAN } from "../actions/actions"
+    CLEAN,
+    CLEAN_GAMES
+} from "../actions/actions"
 
 const initialState = {
     Games:[],
@@ -128,16 +130,16 @@ function rootReducer(state = initialState, action){
         //reduces de filtrados
 
         case FILTER_PER_COMPANY:
-                action.payload === 'All' ? state.Games = state.GamesCopy.filter(info => info.company.length) :
-                state.Games = state.GamesCopy.filter(name => name.company.find((element) => element.name?.toLowerCase() === action.payload))
+            const AllCom = state.GamesCopy
+            const TypeCompanyFilter = action.payload === "all"? AllCom : AllCom?.filter((t)=>t.company.includes(action.payload))
         return {
             ...state,
-            Games: state.Games
+            Games: TypeCompanyFilter
         }
 
         case FILTER_GENRES:
-            const AllCon = state.GamesCopy
-            const TypeGamesFilter = action.payload === "all"? AllCon : AllCon?.filter((t)=>t.genre.includes(action.payload))
+            const AllGen = state.GamesCopy
+            const TypeGamesFilter = action.payload === "all"? AllGen : AllGen?.filter((t)=>t.genre.includes(action.payload))
         return {
             ...state,
             Games: TypeGamesFilter
@@ -155,6 +157,12 @@ function rootReducer(state = initialState, action){
                 ...state,
                 details: action.payload
         }
+
+        case CLEAN_GAMES:
+            return{
+                ...state,
+                Games: action.payload
+            }
 
 
         default:{

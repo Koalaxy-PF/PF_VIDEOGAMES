@@ -14,14 +14,14 @@ export default function ReturnLandingPage(){
     return(
         <div className="bg-gray-300 flex flex-col">
             <div>
-                <div class="flex item-center justify-between flex-wrap bg-white p-4 sticky">
+                <div class="flex item-center justify-between flex-wrap bg-white p-4 sticky ">
                         <div class="flex item-center flex-shrink-0 text-black mr-6 sticky ">
                             <img  class= " z-10 inset-y-0 my-auto h-12  sticky "src = {koala}/>
                             <span class="font-semibold text-5xl tracking-tight sticky "> Koalaxy </span>
                         </div>
 
                         <div w-full flex-grow lg:flex lg:items-center lg:w-auto text-center>
-                            <Link to="/home"><button class="block mt-4 lg:inline-block lg:mt-0 mr-4 font-semibold text-5xl tracking-tight sticky"> Enter </button></Link>
+                            <Link to="/home"><span class="block mt-4 lg:inline-block lg:mt-0 mr-4 font-semibold text-5xl tracking-tight sticky"> Enter </span></Link>
                         </div> 
                 </div>
             </div>
