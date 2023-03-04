@@ -7,7 +7,6 @@ import CreateUser from "./views/createUser/createUser"
 import CreateGame from "./views/CreateGame/CreateGame"
 import Store from './views/Store/Store'
 import AboutUs from "./components/AboutUs/AboutUs"
-import {GetGames} from "../src/redux/actions/actions"
 import ReturnLandingPage from "./views/LandingPage/LandingPage"
 
 
