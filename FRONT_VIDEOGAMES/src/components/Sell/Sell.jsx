@@ -3,7 +3,7 @@ import Cards from '../CardContainer/CardContainer'
 //import Card from '../Card/Card'
 import { useDispatch , useSelector} from "react-redux";
 import { GetGames , TidyAlphabetically , TidyPrice , TidyReleased, FilterGenres} from "../../redux/actions/actions";
-import { useEffect , useState } from 'react'
+import { useEffect } from 'react'
 
 export default function Sell() {
 
@@ -23,6 +23,7 @@ export default function Sell() {
   // };
 
   const handleClick = (e) => {
+    e.preventDefault();
     dispatch(CleanGames(dispatch))
     dispatch(GetGames())
   }
@@ -180,7 +181,10 @@ export default function Sell() {
                   <option value="descendente"> oldest</option>
           </select>
         </div>
+        <button onClick={e => {handleClick(e)}}>Clear Filters</button>
       </div>
+
+
 
       {/* <h1 className='flex  ml-8 font-bold mt-0'>STORE</h1> */}
 

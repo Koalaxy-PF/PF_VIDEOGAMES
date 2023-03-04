@@ -120,9 +120,9 @@ export function Clean(){
 }
 
 //action que limpia el estado games
-export const CleanGames = (dispatch) => {
-    return dispatch({
+export function CleanGames(){
+    return{
         type: CLEAN_GAMES,
         payload: []
-    })
+    }
 }
