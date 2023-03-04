@@ -99,9 +99,11 @@ export default function Sell() {
         </div>
       </div>
 
-      <h1 className='flex  ml-8 font-bold mt-0'>STORE</h1>
+      {/* <h1 className='flex  ml-8 font-bold mt-0'>STORE</h1> */}
 
-      <Cards/>
+     <div class='flex'>
+     <Cards/>
+     </div>
 
 
     </div>
