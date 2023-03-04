@@ -68,8 +68,8 @@ export default function Sell() {
         <div class="block mt-4 lg:inline-block lg:mt-0 mr-4">
             <select className='px-3 bg-[#1cecf4] text-white py-3  rounded-xl border-2 border-white text-xl text-center hover:bg-transparent hover:text-black' onChange={e => handleFilterTidyPrice(e)} >
                   <option selected hidden>Price</option>
-                  <option value="min"> Minor Price </option>
-                  <option value="Maximo">Major Price</option>
+                  <option value="min"> Minor to Major Price </option>
+                  <option value="Maximo">Major to Minor Price</option>
             </select>
         </div>
 

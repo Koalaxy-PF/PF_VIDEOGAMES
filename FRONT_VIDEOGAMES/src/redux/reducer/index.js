@@ -1,5 +1,6 @@
 import {
     GET_GAMES,
+    POST_GAME,
     GET_BY_ID,
     GET_GENRES,
     FILTER_GENRES,
@@ -31,6 +32,11 @@ function rootReducer(state = initialState, action){
             ...state,
             Genres: action.payload
         }
+
+        case POST_GAME:
+        return {
+        ...state,
+        };
 
         //reducers de ordenamiento
 

@@ -9,6 +9,7 @@ export const ORDER_BY_NAME = "ORDER_BY_NAME"
 export const ORDER_BY_RELEASED = "ORDER_BY_RELEASED"
 export const TIDY_PRICE = "TIDY_PRICE"
 export const CLEAN = "CLEAN"
+export const POST_GAME = "POST_GAME"
 
 
 
@@ -53,11 +54,11 @@ export function GetGenres(){
 //action PostGame sirve para el crear un juego
 export function PostGame(payload){
 
-    return async function(dispatch){
+    
         var json = axios.post(`http://localhost:3000/products`,payload)
-       return json
+        return { type: POST_GAME, payload: json };
    } 
-}
+
 
 //action que filtra por genero...
 export function FilterGenres(payload){
