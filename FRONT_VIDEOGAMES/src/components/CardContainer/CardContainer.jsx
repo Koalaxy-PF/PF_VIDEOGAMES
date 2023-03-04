@@ -11,6 +11,7 @@ import SearchBar from "../SearchBar/SearchBar";
 export default function Cards() {
 //const dispatch = useDispatch();
 const allGames = useSelector((state) => state.Games);
+
   
  
 /*   
@@ -37,6 +38,7 @@ const allGames = useSelector((state) => state.Games);
                 calification={product.calification}
                 price={product.price}
                 stock={product.stock}
+                genre={product.genre} 
               />
               </div>
             </Link>

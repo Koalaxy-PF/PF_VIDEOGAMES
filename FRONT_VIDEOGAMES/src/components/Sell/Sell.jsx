@@ -59,8 +59,8 @@ export default function Sell() {
         <div class="block mt-4 lg:inline-block lg:mt-0 mr-4">
             <select onChange={e => handleFilterTidyPrice(e)} >
                   <option selected hidden>Price</option>
-                  <option value="min"> Minor to Major Price </option>
-                  <option value="Maximo">Major to Minor Price</option>
+                  <option value="min">Minor to Major</option>
+                  <option value="Maximo">Major to Minor</option>
             </select>
         </div>
 

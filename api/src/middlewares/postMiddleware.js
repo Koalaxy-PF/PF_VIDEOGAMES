@@ -1,18 +1,18 @@
   // const { Product } = require("../db");
 
-  // const validationMiddleware = async (req, res, next) => {
-  //   const {
-  //     name,
-  //     description,
-  //     img,
-  //     price,
-  //     company,
-  //     genre,
-  //     gameMode,
-  //     MinRequirements,
-  //     RecommendRequirements,
-  //     released,
-  //   } = req.body;
+/* const validationMiddleware = async (req, res, next) => {
+  const {
+    name,
+    description,
+    img,
+    price,
+    company,
+    genre,
+    gameMode,
+    MinRequirements,
+    RecommendRequirements,
+    released,
+  } = req.body; */
 
   //   if (!name) return res.status(404).json({ error: "Missing name" });
   //   if (!description)
@@ -35,4 +35,4 @@
   //   next();
   // };
 
-  // module.exports = { validationMiddleware };
+//module.exports = { validationMiddleware };
