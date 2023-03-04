@@ -12,7 +12,7 @@ export default function Home(){
   return (
     <div className="Home">
 
-      <div>
+      <div className='sticky top-0'> 
         <Navbar/>
       </div>
 
