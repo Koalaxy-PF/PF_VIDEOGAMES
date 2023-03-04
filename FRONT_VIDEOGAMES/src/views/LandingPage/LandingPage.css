@@ -1,0 +1,65 @@
+.animation{
+    height: 450px;
+    background-image: url("https://static0.gamerantimages.com/wordpress/wp-content/uploads/2021/04/ps5-games-4k-60-fps-featured-image.jpg");
+    /* box-shadow: 1px 1px 10px 5px rgb(255, 159, 15); */
+     background-size: 1800px 650px; 
+    /* background-repeat: no-repeat; /
+    / background-size: cover; */
+    background-position: center center; 
+    margin: 0 8px;
+    border-radius: 8px;
+    margin-bottom: 32px;
+    animation-name: animation;
+    animation-duration: 16s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes animation {
+    0% {
+      /* box-shadow: 1px 1px 10px 5px rgb(2, 10, 255); */
+      background-image: url("https://images.hdqwalls.com/wallpapers/5k-playerunknowns-battlegrounds-z6.jpg");
+    }
+
+    25% {
+      /* box-shadow: 1px 1px 10px 5px rgb(255, 1, 14); */
+      background-image: url("https://wallpapers.com/images/hd/anthem-online-multiplayer-action-video-game-m7mqqtf8gzz9zkre.jpg");
+    }
+
+    50% {
+      /* box-shadow: 1px 1px 10px 6px rgb(255, 255, 1); */
+      background-image: url("https://www.pixel4k.com/wp-content/uploads/2021/03/assassins-creed-valhalla-eivor-and-jomsviking-4k_1616875448.jpg");
+    }
+
+    75% {
+      /* box-shadow: 1px 1px 10px 5px rgb(130, 20, 255); */
+      background-image: url("https://static0.gamerantimages.com/wordpress/wp-content/uploads/2021/04/ps5-games-4k-60-fps-featured-image.jpg");
+    }
+
+  }
+
+  .button{
+    
+    background-size: 50% 50%;
+     border-radius: 50%;
+    background-image: linear-gradient(to left, #830d0de0, #25c6b0);
+    cursor: pointer;
+    border-radius: 10%;
+    font-style:  menu;
+   
+    background-size: 50% 50%;
+    background-image: none;
+    background-size: cover;
+
+    color:rgb(255, 254, 254); 
+
+
+   width: auto;
+
+    font-size: 30px;
+    font-weight:bolder;
+    padding: 9px 29px 9px 29px;
+    /* box-shadow: 3px 3px 13px rgb(42, 41, 38); */
+    position: relative;
+
+
+}
