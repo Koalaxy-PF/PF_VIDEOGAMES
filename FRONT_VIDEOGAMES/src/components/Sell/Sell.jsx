@@ -1,12 +1,9 @@
 import React, { useState } from 'react'
 import Cards from '../CardContainer/CardContainer'
 //import Card from '../Card/Card'
-import { useDispatch, useSelector} from "react-redux";
-import { GetGames } from "../../redux/actions/actions";
-import { useEffect } from 'react'
 import { useDispatch , useSelector} from "react-redux";
 import { GetGames , TidyAlphabetically , TidyPrice , TidyReleased} from "../../redux/actions/actions";
-import { useEffect , useState } from 'react'
+import { useEffect } from 'react'
 
 export default function Sell() {
 
