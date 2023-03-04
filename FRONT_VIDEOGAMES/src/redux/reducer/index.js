@@ -1,5 +1,6 @@
 import {
     GET_GAMES,
+    POST_GAME,
     GET_BY_ID,
     GET_GENRES,
     FILTER_GENRES,
@@ -31,6 +32,11 @@ function rootReducer(state = initialState, action){
             ...state,
             Genres: action.payload
         }
+
+        case POST_GAME:
+        return {
+        ...state,
+        };
 
         //reducers de ordenamiento
 
@@ -130,11 +136,11 @@ function rootReducer(state = initialState, action){
         }
 
         case FILTER_GENRES:
-                action.payload === 'All' ? state.Games = state.GamesCopy.filter(info => info.genre.length) :
-                state.Games = state.GamesCopy.filter(name => name.genre.find((element) => element.name?.toLowerCase() === action.payload))
+            const AllCon = state.GamesCopy
+            const TypeGamesFilter = action.payload === "all"? AllCon : AllCon?.filter((t)=>t.genre.includes(action.payload))
         return {
             ...state,
-            Games: state.Games
+            Games: TypeGamesFilter
         }
         
 
