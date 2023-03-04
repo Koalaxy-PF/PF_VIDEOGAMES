@@ -8,7 +8,8 @@ import starBlue from "../../assets/card/starBlue.png";
 import style from "./card.module.css";
 
 
- export default function Card({name, img, calification, price, stock}) {
+
+ export default function Card({name, img, calification, price, stock, genre}) {
   return (
     <div class="flex h-[350px] mx-[20px]">
       <div className={style.card}>
@@ -21,6 +22,9 @@ import style from "./card.module.css";
        <div class='flex flex-wrap ml-[10px] mt-[5px]'>
        <p class='w-full text-left'>Calification: <strong>{calification}/5 <span class='text-[#00E1D8] relative top-[1px] left-[2px]'><ion-icon name="star"></ion-icon></span> </strong></p>
             <p class='w-full text-left'>Stock: <strong>{stock}</strong></p>
+             <p class='w-full text-left'>Genre: {genre}</p>  
+
+
        </div>
 
        <div class='text-right'> 

@@ -1,6 +1,6 @@
 const { Router } = require("express");
 const { Product } = require("../../db");
-// const { validationMiddleware } = require("../../middlewares/postMiddleware");
+//const { validationMiddleware } = require("../../middlewares/postMiddleware");
 
 const router = Router();
 
