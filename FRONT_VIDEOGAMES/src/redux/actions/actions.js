@@ -10,6 +10,7 @@ export const ORDER_BY_RELEASED = "ORDER_BY_RELEASED"
 export const TIDY_PRICE = "TIDY_PRICE"
 export const CLEAN = "CLEAN"
 export const POST_GAME = "POST_GAME"
+export const CLEAN_GAMES = "CLEAN_GAMES"
 
 
 
@@ -116,4 +117,12 @@ export function Clean(){
         type: CLEAN,
         payload: []
     }
+}
+
+//action que limpia el estado games
+export const CleanGames = (dispatch) => {
+    return dispatch({
+        type: CLEAN_GAMES,
+        payload: []
+    })
 }

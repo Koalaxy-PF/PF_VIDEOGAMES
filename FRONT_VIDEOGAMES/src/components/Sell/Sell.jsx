@@ -2,37 +2,31 @@ import React, { useState } from 'react'
 import Cards from '../CardContainer/CardContainer'
 //import Card from '../Card/Card'
 import { useDispatch , useSelector} from "react-redux";
-import { GetGames , TidyAlphabetically , TidyPrice , TidyReleased} from "../../redux/actions/actions";
+import { CleanGames, GetGames , TidyAlphabetically , TidyPrice , TidyReleased} from "../../redux/actions/actions";
 import { useEffect } from 'react'
+import Pagination from '../Pagination/Pagination'
 
 export default function Sell() {
 
   const allGames = useSelector((state) => state.Games)
-  const [currentPage, setCurrentPage] = useState(1);
-  const [gamesPerPage, setGamesPerPage] = useState(9);
-
-  const indexLastGame = currentPage * gamesPerPage;
-  const indexFirstGame = indexLastGame - gamesPerPage;
-  const currentGames = allGames.slice(indexFirstGame, indexLastGame)
-
-  const pagination = pagesNumber => {
-    setCurrentPage(pagesNumber)
-  };
-
-  const handleClick = (e) => {
-    dispatch()
-  }
-
   const dispatch = useDispatch();
   const[order,setOrder] =useState('') 
+  const [setRender] = useState("");
 
-  const[currentPage,setCurrentPage] =useState(1) 
-   const [setRender] = useState("");
 
   //  const allGames = useSelector((state)=> state.Games)
   useEffect(() => {
     dispatch(GetGames());
   }, [dispatch]);  
+  
+  // const pagination = pagesNumber => {
+  //   setCurrentPage(pagesNumber)
+  // };
+
+  const handleClick = (e) => {
+    dispatch(CleanGames(dispatch))
+    dispatch(GetGames())
+  }
 
   
   const handleFilterTidy = (e) => {
@@ -118,9 +112,9 @@ export default function Sell() {
 
       {/* <h1 className='flex  ml-8 font-bold mt-0'>STORE</h1> */}
 
-     <div class='flex'>
-     <Cards/>
-     </div>
+    <div class='flex'>
+      <Cards />
+    </div>
 
 
     </div>
