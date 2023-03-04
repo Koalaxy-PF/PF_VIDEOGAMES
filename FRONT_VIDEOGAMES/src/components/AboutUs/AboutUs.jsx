@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from '../Navbar/Navbar'
 import Sidebar from '../SideBar/Sidebar'
 import Footer from '../Footer/Footer'
+import photos from '../../assets/about/photos'
 
 export default function AboutUs(){
   return (
@@ -19,23 +20,20 @@ export default function AboutUs(){
             <section className="py-1 bg-gray-100 text-gray-100 w-full">
 	            <div className="container p-4 mx-auto space-y-16 sm:p-10">
 		<div className="space-y-4">
-            <h1 className="font-bold leading-none sm:text-5xl text-transparent text-6xl bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">Conoce a Nuestro Equipo</h1>
+            <h1 className="p-2  font-bold leading-none text-center uppercase text-4xl text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-600">Equipo de Trabajo</h1>
+		<h1 className="text-4xl font-bold leading-none text-center sm:text-5xl text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-600">Las personas talentosas detrás de escena</h1>
+            
 			
 		</div>
 
 		<div className="grid w-full grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
 
 			<div className="space-y-4">
-				<img alt="img1" className="object-cover h-56 w-52 shadow-md shadow-slate-500 mx-auto mb-4 bg-center rounded-sm bg-gray-500" src="https://media.licdn.com/dms/image/D4E03AQEYKEJeLmTpcQ/profile-displayphoto-shrink_800_800/0/1673860462675?e=1683158400&v=beta&t=-wIG79F8JwJxr9yUFOCThXZA6KLRf_8UiVXw5qlT6e4" />
+				<img alt="img1" className="object-cover h-56 w-52 shadow-xl shadow-slate-500 mx-auto mb-4 bg-center rounded-sm bg-gray-500" src="https://media.licdn.com/dms/image/D4E03AQEYKEJeLmTpcQ/profile-displayphoto-shrink_800_800/0/1673860462675?e=1683158400&v=beta&t=-wIG79F8JwJxr9yUFOCThXZA6KLRf_8UiVXw5qlT6e4" />
 				<div className="flex flex-col items-center">
 					<h4 className="text-xl font-semibold text-gray-600">Victor Pestana</h4>
 					<p className="text-sm text-gray-400">Full Stack Developer</p>
 					<div className="flex mt-2 space-x-2">
-						<a rel="noopener noreferrer" href="#" title="Twitter" className="text-gray-400">
-							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" fill="currentColor" className="w-4 h-4">
-								<path d="M 50.0625 10.4375 C 48.214844 11.257813 46.234375 11.808594 44.152344 12.058594 C 46.277344 10.785156 47.910156 8.769531 48.675781 6.371094 C 46.691406 7.546875 44.484375 8.402344 42.144531 8.863281 C 40.269531 6.863281 37.597656 5.617188 34.640625 5.617188 C 28.960938 5.617188 24.355469 10.21875 24.355469 15.898438 C 24.355469 16.703125 24.449219 17.488281 24.625 18.242188 C 16.078125 17.8125 8.503906 13.71875 3.429688 7.496094 C 2.542969 9.019531 2.039063 10.785156 2.039063 12.667969 C 2.039063 16.234375 3.851563 19.382813 6.613281 21.230469 C 4.925781 21.175781 3.339844 20.710938 1.953125 19.941406 C 1.953125 19.984375 1.953125 20.027344 1.953125 20.070313 C 1.953125 25.054688 5.5 29.207031 10.199219 30.15625 C 9.339844 30.390625 8.429688 30.515625 7.492188 30.515625 C 6.828125 30.515625 6.183594 30.453125 5.554688 30.328125 C 6.867188 34.410156 10.664063 37.390625 15.160156 37.472656 C 11.644531 40.230469 7.210938 41.871094 2.390625 41.871094 C 1.558594 41.871094 0.742188 41.824219 -0.0585938 41.726563 C 4.488281 44.648438 9.894531 46.347656 15.703125 46.347656 C 34.617188 46.347656 44.960938 30.679688 44.960938 17.09375 C 44.960938 16.648438 44.949219 16.199219 44.933594 15.761719 C 46.941406 14.3125 48.683594 12.5 50.0625 10.4375 Z"></path>
-							</svg>
-						</a>
 						<a rel="noopener noreferrer" href="#" title="LinkedIn" className="text-gray-400">
 							<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 32 32" className="w-4 h-4">
 								<path d="M8.268 28h-5.805v-18.694h5.805zM5.362 6.756c-1.856 0-3.362-1.538-3.362-3.394s1.505-3.362 3.362-3.362 3.362 1.505 3.362 3.362c0 1.856-1.506 3.394-3.362 3.394zM29.994 28h-5.792v-9.1c0-2.169-0.044-4.95-3.018-4.95-3.018 0-3.481 2.356-3.481 4.794v9.256h-5.799v-18.694h5.567v2.55h0.081c0.775-1.469 2.668-3.019 5.492-3.019 5.875 0 6.955 3.869 6.955 8.894v10.269z"></path>
@@ -51,16 +49,11 @@ export default function AboutUs(){
 			</div>
 
 			<div className="space-y-4">
-				<img alt="img2" className="object-cover h-56 w-52 shadow-md shadow-slate-500 mx-auto mb-4 bg-center rounded-sm bg-gray-500" src="https://pps.whatsapp.net/v/t61.24694-24/170099136_166642085987698_8363378926414441737_n.jpg?ccb=11-4&oh=01_AdQoG-vls0onHM1tT136DpM6Y1jlsh2U7l9s111jrVY3Jg&oe=640F62AE" />
+				<img alt="img2" className="object-cover h-56 w-52 shadow-xl shadow-slate-500 mx-auto mb-4 bg-center rounded-sm bg-gray-500" src="https://pps.whatsapp.net/v/t61.24694-24/170099136_166642085987698_8363378926414441737_n.jpg?ccb=11-4&oh=01_AdQoG-vls0onHM1tT136DpM6Y1jlsh2U7l9s111jrVY3Jg&oe=640F62AE" />
 				<div className="flex flex-col items-center">
 					<h4 className="text-xl font-semibold text-gray-600">Facundo Maciel</h4>
 					<p className="text-sm text-gray-400">Full Stack Developer</p>
 					<div className="flex mt-2 space-x-2">
-						<a rel="noopener noreferrer" href="#" title="Twitter" className="text-gray-400">
-							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" fill="currentColor" className="w-4 h-4">
-								<path d="M 50.0625 10.4375 C 48.214844 11.257813 46.234375 11.808594 44.152344 12.058594 C 46.277344 10.785156 47.910156 8.769531 48.675781 6.371094 C 46.691406 7.546875 44.484375 8.402344 42.144531 8.863281 C 40.269531 6.863281 37.597656 5.617188 34.640625 5.617188 C 28.960938 5.617188 24.355469 10.21875 24.355469 15.898438 C 24.355469 16.703125 24.449219 17.488281 24.625 18.242188 C 16.078125 17.8125 8.503906 13.71875 3.429688 7.496094 C 2.542969 9.019531 2.039063 10.785156 2.039063 12.667969 C 2.039063 16.234375 3.851563 19.382813 6.613281 21.230469 C 4.925781 21.175781 3.339844 20.710938 1.953125 19.941406 C 1.953125 19.984375 1.953125 20.027344 1.953125 20.070313 C 1.953125 25.054688 5.5 29.207031 10.199219 30.15625 C 9.339844 30.390625 8.429688 30.515625 7.492188 30.515625 C 6.828125 30.515625 6.183594 30.453125 5.554688 30.328125 C 6.867188 34.410156 10.664063 37.390625 15.160156 37.472656 C 11.644531 40.230469 7.210938 41.871094 2.390625 41.871094 C 1.558594 41.871094 0.742188 41.824219 -0.0585938 41.726563 C 4.488281 44.648438 9.894531 46.347656 15.703125 46.347656 C 34.617188 46.347656 44.960938 30.679688 44.960938 17.09375 C 44.960938 16.648438 44.949219 16.199219 44.933594 15.761719 C 46.941406 14.3125 48.683594 12.5 50.0625 10.4375 Z"></path>
-							</svg>
-						</a>
 						<a rel="noopener noreferrer" href="#" title="LinkedIn" className="text-gray-400">
 							<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 32 32" className="w-4 h-4">
 								<path d="M8.268 28h-5.805v-18.694h5.805zM5.362 6.756c-1.856 0-3.362-1.538-3.362-3.394s1.505-3.362 3.362-3.362 3.362 1.505 3.362 3.362c0 1.856-1.506 3.394-3.362 3.394zM29.994 28h-5.792v-9.1c0-2.169-0.044-4.95-3.018-4.95-3.018 0-3.481 2.356-3.481 4.794v9.256h-5.799v-18.694h5.567v2.55h0.081c0.775-1.469 2.668-3.019 5.492-3.019 5.875 0 6.955 3.869 6.955 8.894v10.269z"></path>
@@ -76,16 +69,11 @@ export default function AboutUs(){
 			</div>
 
 			<div className="space-y-4">
-				<img alt="" className="object-cover h-56 w-52 shadow-md shadow-slate-500 mx-auto mb-4 bg-center rounded-sm bg-gray-500" src="https://pps.whatsapp.net/v/t61.24694-24/259938107_1270697920005479_1546345309944693083_n.jpg?ccb=11-4&oh=01_AdS3EXAvo7_zFQdp6KYIkShBuL9_wzoOND_je8ei2LHwiQ&oe=640F5A56" />
+				<img alt="" className="object-cover h-56 w-52 shadow-xl shadow-slate-500 mx-auto mb-4 bg-center rounded-sm bg-gray-500" src="https://pps.whatsapp.net/v/t61.24694-24/259938107_1270697920005479_1546345309944693083_n.jpg?ccb=11-4&oh=01_AdS3EXAvo7_zFQdp6KYIkShBuL9_wzoOND_je8ei2LHwiQ&oe=640F5A56" />
 				<div className="flex flex-col items-center">
 					<h4 className="text-xl font-semibold text-gray-600">Davinson Valorant</h4>
 					<p className="text-sm text-gray-400">Full Stack Developer</p>
 					<div className="flex mt-2 space-x-2">
-						<a rel="noopener noreferrer" href="#" title="Twitter" className="text-gray-400">
-							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" fill="currentColor" className="w-4 h-4">
-								<path d="M 50.0625 10.4375 C 48.214844 11.257813 46.234375 11.808594 44.152344 12.058594 C 46.277344 10.785156 47.910156 8.769531 48.675781 6.371094 C 46.691406 7.546875 44.484375 8.402344 42.144531 8.863281 C 40.269531 6.863281 37.597656 5.617188 34.640625 5.617188 C 28.960938 5.617188 24.355469 10.21875 24.355469 15.898438 C 24.355469 16.703125 24.449219 17.488281 24.625 18.242188 C 16.078125 17.8125 8.503906 13.71875 3.429688 7.496094 C 2.542969 9.019531 2.039063 10.785156 2.039063 12.667969 C 2.039063 16.234375 3.851563 19.382813 6.613281 21.230469 C 4.925781 21.175781 3.339844 20.710938 1.953125 19.941406 C 1.953125 19.984375 1.953125 20.027344 1.953125 20.070313 C 1.953125 25.054688 5.5 29.207031 10.199219 30.15625 C 9.339844 30.390625 8.429688 30.515625 7.492188 30.515625 C 6.828125 30.515625 6.183594 30.453125 5.554688 30.328125 C 6.867188 34.410156 10.664063 37.390625 15.160156 37.472656 C 11.644531 40.230469 7.210938 41.871094 2.390625 41.871094 C 1.558594 41.871094 0.742188 41.824219 -0.0585938 41.726563 C 4.488281 44.648438 9.894531 46.347656 15.703125 46.347656 C 34.617188 46.347656 44.960938 30.679688 44.960938 17.09375 C 44.960938 16.648438 44.949219 16.199219 44.933594 15.761719 C 46.941406 14.3125 48.683594 12.5 50.0625 10.4375 Z"></path>
-							</svg>
-						</a>
 						<a rel="noopener noreferrer" href="#" title="LinkedIn" className="text-gray-400">
 							<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 32 32" className="w-4 h-4">
 								<path d="M8.268 28h-5.805v-18.694h5.805zM5.362 6.756c-1.856 0-3.362-1.538-3.362-3.394s1.505-3.362 3.362-3.362 3.362 1.505 3.362 3.362c0 1.856-1.506 3.394-3.362 3.394zM29.994 28h-5.792v-9.1c0-2.169-0.044-4.95-3.018-4.95-3.018 0-3.481 2.356-3.481 4.794v9.256h-5.799v-18.694h5.567v2.55h0.081c0.775-1.469 2.668-3.019 5.492-3.019 5.875 0 6.955 3.869 6.955 8.894v10.269z"></path>
@@ -100,16 +88,11 @@ export default function AboutUs(){
 				</div>
 			</div>
 			<div className="space-y-4">
-				<img alt="" className="object-cover h-56 w-52 shadow-md shadow-slate-500 mx-auto mb-4 bg-center rounded-sm bg-gray-500" src="https://pps.whatsapp.net/v/t61.24694-24/231041696_473715167685795_9021063308508925197_n.jpg?ccb=11-4&oh=01_AdS-WoiJfjwrEZixKif3KgwWF7PrGWMJ9aU8NU0bzBr7zg&oe=640F62C7" />
+				<img alt="" className="object-cover h-56 w-52 shadow-xl shadow-slate-500 mx-auto mb-4 bg-center rounded-sm bg-gray-500" src="https://pps.whatsapp.net/v/t61.24694-24/231041696_473715167685795_9021063308508925197_n.jpg?ccb=11-4&oh=01_AdS-WoiJfjwrEZixKif3KgwWF7PrGWMJ9aU8NU0bzBr7zg&oe=640F62C7" />
 				<div className="flex flex-col items-center">
 					<h4 className="text-xl font-semibold text-gray-600">Agustin Corcico</h4>
 					<p className="text-sm text-gray-400">Full Stack Developer</p>
 					<div className="flex mt-2 space-x-2">
-						<a rel="noopener noreferrer" href="#" title="Twitter" className="text-gray-400">
-							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" fill="currentColor" className="w-4 h-4">
-								<path d="M 50.0625 10.4375 C 48.214844 11.257813 46.234375 11.808594 44.152344 12.058594 C 46.277344 10.785156 47.910156 8.769531 48.675781 6.371094 C 46.691406 7.546875 44.484375 8.402344 42.144531 8.863281 C 40.269531 6.863281 37.597656 5.617188 34.640625 5.617188 C 28.960938 5.617188 24.355469 10.21875 24.355469 15.898438 C 24.355469 16.703125 24.449219 17.488281 24.625 18.242188 C 16.078125 17.8125 8.503906 13.71875 3.429688 7.496094 C 2.542969 9.019531 2.039063 10.785156 2.039063 12.667969 C 2.039063 16.234375 3.851563 19.382813 6.613281 21.230469 C 4.925781 21.175781 3.339844 20.710938 1.953125 19.941406 C 1.953125 19.984375 1.953125 20.027344 1.953125 20.070313 C 1.953125 25.054688 5.5 29.207031 10.199219 30.15625 C 9.339844 30.390625 8.429688 30.515625 7.492188 30.515625 C 6.828125 30.515625 6.183594 30.453125 5.554688 30.328125 C 6.867188 34.410156 10.664063 37.390625 15.160156 37.472656 C 11.644531 40.230469 7.210938 41.871094 2.390625 41.871094 C 1.558594 41.871094 0.742188 41.824219 -0.0585938 41.726563 C 4.488281 44.648438 9.894531 46.347656 15.703125 46.347656 C 34.617188 46.347656 44.960938 30.679688 44.960938 17.09375 C 44.960938 16.648438 44.949219 16.199219 44.933594 15.761719 C 46.941406 14.3125 48.683594 12.5 50.0625 10.4375 Z"></path>
-							</svg>
-						</a>
 						<a rel="noopener noreferrer" href="#" title="LinkedIn" className="text-gray-400">
 							<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 32 32" className="w-4 h-4">
 								<path d="M8.268 28h-5.805v-18.694h5.805zM5.362 6.756c-1.856 0-3.362-1.538-3.362-3.394s1.505-3.362 3.362-3.362 3.362 1.505 3.362 3.362c0 1.856-1.506 3.394-3.362 3.394zM29.994 28h-5.792v-9.1c0-2.169-0.044-4.95-3.018-4.95-3.018 0-3.481 2.356-3.481 4.794v9.256h-5.799v-18.694h5.567v2.55h0.081c0.775-1.469 2.668-3.019 5.492-3.019 5.875 0 6.955 3.869 6.955 8.894v10.269z"></path>
@@ -124,16 +107,11 @@ export default function AboutUs(){
 				</div>
 			</div>
 			<div className="space-y-4">
-				<img alt="" className="object-cover h-56 w-52 shadow-md shadow-slate-500 mx-auto mb-4 bg-center rounded-sm bg-gray-500" src="https://pps.whatsapp.net/v/t61.24694-24/315788517_174238525287540_4493235192327953928_n.jpg?ccb=11-4&oh=01_AdQ5lC7IsryZJLLYLSVNpxLuELW2j4LN6tA8k1s-IiBnSw&oe=640F61C1" />
+				<img alt="" className="object-cover h-56 w-52 shadow-xl shadow-slate-500 mx-auto mb-4 bg-center rounded-sm bg-gray-500" src="https://pps.whatsapp.net/v/t61.24694-24/315788517_174238525287540_4493235192327953928_n.jpg?ccb=11-4&oh=01_AdQ5lC7IsryZJLLYLSVNpxLuELW2j4LN6tA8k1s-IiBnSw&oe=640F61C1" />
 				<div className="flex flex-col items-center">
 					<h4 className="text-xl font-semibold text-slate-600">Agustina Ávalos</h4>
-					<p className="text-sm text-gray-400">Web developer</p>
+					<p className="text-sm text-gray-400">Full Stack Developer</p>
 					<div className="flex mt-2 space-x-2">
-						<a rel="noopener noreferrer" href="#" title="Twitter" className="text-gray-400">
-							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" fill="currentColor" className="w-4 h-4">
-								<path d="M 50.0625 10.4375 C 48.214844 11.257813 46.234375 11.808594 44.152344 12.058594 C 46.277344 10.785156 47.910156 8.769531 48.675781 6.371094 C 46.691406 7.546875 44.484375 8.402344 42.144531 8.863281 C 40.269531 6.863281 37.597656 5.617188 34.640625 5.617188 C 28.960938 5.617188 24.355469 10.21875 24.355469 15.898438 C 24.355469 16.703125 24.449219 17.488281 24.625 18.242188 C 16.078125 17.8125 8.503906 13.71875 3.429688 7.496094 C 2.542969 9.019531 2.039063 10.785156 2.039063 12.667969 C 2.039063 16.234375 3.851563 19.382813 6.613281 21.230469 C 4.925781 21.175781 3.339844 20.710938 1.953125 19.941406 C 1.953125 19.984375 1.953125 20.027344 1.953125 20.070313 C 1.953125 25.054688 5.5 29.207031 10.199219 30.15625 C 9.339844 30.390625 8.429688 30.515625 7.492188 30.515625 C 6.828125 30.515625 6.183594 30.453125 5.554688 30.328125 C 6.867188 34.410156 10.664063 37.390625 15.160156 37.472656 C 11.644531 40.230469 7.210938 41.871094 2.390625 41.871094 C 1.558594 41.871094 0.742188 41.824219 -0.0585938 41.726563 C 4.488281 44.648438 9.894531 46.347656 15.703125 46.347656 C 34.617188 46.347656 44.960938 30.679688 44.960938 17.09375 C 44.960938 16.648438 44.949219 16.199219 44.933594 15.761719 C 46.941406 14.3125 48.683594 12.5 50.0625 10.4375 Z"></path>
-							</svg>
-						</a>
 						<a rel="noopener noreferrer" href="#" title="LinkedIn" className="text-gray-400">
 							<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 32 32" className="w-4 h-4">
 								<path d="M8.268 28h-5.805v-18.694h5.805zM5.362 6.756c-1.856 0-3.362-1.538-3.362-3.394s1.505-3.362 3.362-3.362 3.362 1.505 3.362 3.362c0 1.856-1.506 3.394-3.362 3.394zM29.994 28h-5.792v-9.1c0-2.169-0.044-4.95-3.018-4.95-3.018 0-3.481 2.356-3.481 4.794v9.256h-5.799v-18.694h5.567v2.55h0.081c0.775-1.469 2.668-3.019 5.492-3.019 5.875 0 6.955 3.869 6.955 8.894v10.269z"></path>
@@ -148,16 +126,11 @@ export default function AboutUs(){
 				</div>
 			</div>
 			<div className="space-y-4">
-				<img alt="" className="object-cover h-56 w-52 shadow-md shadow-slate-500 mx-auto mb-4 bg-center rounded-sm bg-gray-500" src="https://pps.whatsapp.net/v/t61.24694-24/322322927_921925912152705_1338568007507626667_n.jpg?ccb=11-4&oh=01_AdRHmU5R_p-H6j6uQeBbGugC7yUB0CzpndzfmpvckdQ5bw&oe=640F7610" />
+				<img alt="" className="object-cover h-56 w-52 shadow-xl shadow-slate-500 mx-auto mb-4 bg-center rounded-sm bg-gray-500" src={photos.img2} />
 				<div className="flex flex-col items-center">
-					<h4 className="text-xl font-semibold text-gray-600">Marina</h4>
-					<p className="text-sm text-gray-400">Web developer</p>
+					<h4 className="text-xl font-semibold text-gray-600">Marina López</h4>
+					<p className="text-sm text-gray-400">Full Stack Developer</p>
 					<div className="flex mt-2 space-x-2">
-						<a rel="noopener noreferrer" href="#" title="Twitter" className="text-gray-400">
-							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" fill="currentColor" className="w-4 h-4">
-								<path d="M 50.0625 10.4375 C 48.214844 11.257813 46.234375 11.808594 44.152344 12.058594 C 46.277344 10.785156 47.910156 8.769531 48.675781 6.371094 C 46.691406 7.546875 44.484375 8.402344 42.144531 8.863281 C 40.269531 6.863281 37.597656 5.617188 34.640625 5.617188 C 28.960938 5.617188 24.355469 10.21875 24.355469 15.898438 C 24.355469 16.703125 24.449219 17.488281 24.625 18.242188 C 16.078125 17.8125 8.503906 13.71875 3.429688 7.496094 C 2.542969 9.019531 2.039063 10.785156 2.039063 12.667969 C 2.039063 16.234375 3.851563 19.382813 6.613281 21.230469 C 4.925781 21.175781 3.339844 20.710938 1.953125 19.941406 C 1.953125 19.984375 1.953125 20.027344 1.953125 20.070313 C 1.953125 25.054688 5.5 29.207031 10.199219 30.15625 C 9.339844 30.390625 8.429688 30.515625 7.492188 30.515625 C 6.828125 30.515625 6.183594 30.453125 5.554688 30.328125 C 6.867188 34.410156 10.664063 37.390625 15.160156 37.472656 C 11.644531 40.230469 7.210938 41.871094 2.390625 41.871094 C 1.558594 41.871094 0.742188 41.824219 -0.0585938 41.726563 C 4.488281 44.648438 9.894531 46.347656 15.703125 46.347656 C 34.617188 46.347656 44.960938 30.679688 44.960938 17.09375 C 44.960938 16.648438 44.949219 16.199219 44.933594 15.761719 C 46.941406 14.3125 48.683594 12.5 50.0625 10.4375 Z"></path>
-							</svg>
-						</a>
 						<a rel="noopener noreferrer" href="#" title="LinkedIn" className="text-gray-400">
 							<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 32 32" className="w-4 h-4">
 								<path d="M8.268 28h-5.805v-18.694h5.805zM5.362 6.756c-1.856 0-3.362-1.538-3.362-3.394s1.505-3.362 3.362-3.362 3.362 1.505 3.362 3.362c0 1.856-1.506 3.394-3.362 3.394zM29.994 28h-5.792v-9.1c0-2.169-0.044-4.95-3.018-4.95-3.018 0-3.481 2.356-3.481 4.794v9.256h-5.799v-18.694h5.567v2.55h0.081c0.775-1.469 2.668-3.019 5.492-3.019 5.875 0 6.955 3.869 6.955 8.894v10.269z"></path>
@@ -172,16 +145,11 @@ export default function AboutUs(){
 				</div>
 			</div>
 			<div className="space-y-4">
-				<img alt="" className="object-cover h-56 w-52 shadow-md text-slate-500 mx-auto mb-4 bg-center rounded-sm bg-gray-500" src="https://pps.whatsapp.net/v/t61.24694-24/315337337_881719422850590_812716075264196042_n.jpg?ccb=11-4&oh=01_AdQEgr5t_iJH0j7uTPEG18L98dudCLWAnlPPyctpmmhBhA&oe=640F5A36" />
+				<img alt="" className="object-cover h-56 w-52 shadow-xl shadow-slate-500 mx-auto mb-4 bg-center rounded-sm bg-gray-500" src={photos.img1} />
 				<div className="flex flex-col items-center">
 					<h4 className="text-xl font-semibold text-slate-600">Juan David</h4>
-					<p className="text-sm text-gray-400">Web developer</p>
+					<p className="text-sm text-gray-400">Full Stack Developer</p>
 					<div className="flex mt-2 space-x-2">
-						<a rel="noopener noreferrer" href="#" title="Twitter" className="text-gray-400">
-							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" fill="currentColor" className="w-4 h-4">
-								<path d="M 50.0625 10.4375 C 48.214844 11.257813 46.234375 11.808594 44.152344 12.058594 C 46.277344 10.785156 47.910156 8.769531 48.675781 6.371094 C 46.691406 7.546875 44.484375 8.402344 42.144531 8.863281 C 40.269531 6.863281 37.597656 5.617188 34.640625 5.617188 C 28.960938 5.617188 24.355469 10.21875 24.355469 15.898438 C 24.355469 16.703125 24.449219 17.488281 24.625 18.242188 C 16.078125 17.8125 8.503906 13.71875 3.429688 7.496094 C 2.542969 9.019531 2.039063 10.785156 2.039063 12.667969 C 2.039063 16.234375 3.851563 19.382813 6.613281 21.230469 C 4.925781 21.175781 3.339844 20.710938 1.953125 19.941406 C 1.953125 19.984375 1.953125 20.027344 1.953125 20.070313 C 1.953125 25.054688 5.5 29.207031 10.199219 30.15625 C 9.339844 30.390625 8.429688 30.515625 7.492188 30.515625 C 6.828125 30.515625 6.183594 30.453125 5.554688 30.328125 C 6.867188 34.410156 10.664063 37.390625 15.160156 37.472656 C 11.644531 40.230469 7.210938 41.871094 2.390625 41.871094 C 1.558594 41.871094 0.742188 41.824219 -0.0585938 41.726563 C 4.488281 44.648438 9.894531 46.347656 15.703125 46.347656 C 34.617188 46.347656 44.960938 30.679688 44.960938 17.09375 C 44.960938 16.648438 44.949219 16.199219 44.933594 15.761719 C 46.941406 14.3125 48.683594 12.5 50.0625 10.4375 Z"></path>
-							</svg>
-						</a>
 						<a rel="noopener noreferrer" href="#" title="LinkedIn" className="text-gray-400">
 							<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 32 32" className="w-4 h-4">
 								<path d="M8.268 28h-5.805v-18.694h5.805zM5.362 6.756c-1.856 0-3.362-1.538-3.362-3.394s1.505-3.362 3.362-3.362 3.362 1.505 3.362 3.362c0 1.856-1.506 3.394-3.362 3.394zM29.994 28h-5.792v-9.1c0-2.169-0.044-4.95-3.018-4.95-3.018 0-3.481 2.356-3.481 4.794v9.256h-5.799v-18.694h5.567v2.55h0.081c0.775-1.469 2.668-3.019 5.492-3.019 5.875 0 6.955 3.869 6.955 8.894v10.269z"></path>
@@ -196,16 +164,11 @@ export default function AboutUs(){
 				</div>
 			</div>
 			<div className="space-y-4">
-				<img alt="" className="object-cover h-56 w-52 shadow-md text-slate-500 mx-auto mb-4 bg-center rounded-sm bg-gray-500" src="https://tableredarauco.com/wp-content/uploads/2020/04/Negro-thegem-blog-timeline-large.jpg" />
+				<img alt="" className="object-cover h-56 w-52 shadow-xl shadow-slate-500 mx-auto mb-4 bg-center rounded-sm bg-gray-500" src={photos.img3} />
 				<div className="flex flex-col items-center">
-					<h4 className="text-xl font-semibold text-slate-600">Lautaro</h4>
-					<p className="text-sm text-gray-400">Web developer</p>
+					<h4 className="text-xl font-semibold text-slate-600">Lautaro Gazalo</h4>
+					<p className="text-sm text-gray-400">Full Stack Developer</p>
 					<div className="flex mt-2 space-x-2">
-						<a rel="noopener noreferrer" href="#" title="Twitter" className="text-gray-400">
-							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" fill="currentColor" className="w-4 h-4">
-								<path d="M 50.0625 10.4375 C 48.214844 11.257813 46.234375 11.808594 44.152344 12.058594 C 46.277344 10.785156 47.910156 8.769531 48.675781 6.371094 C 46.691406 7.546875 44.484375 8.402344 42.144531 8.863281 C 40.269531 6.863281 37.597656 5.617188 34.640625 5.617188 C 28.960938 5.617188 24.355469 10.21875 24.355469 15.898438 C 24.355469 16.703125 24.449219 17.488281 24.625 18.242188 C 16.078125 17.8125 8.503906 13.71875 3.429688 7.496094 C 2.542969 9.019531 2.039063 10.785156 2.039063 12.667969 C 2.039063 16.234375 3.851563 19.382813 6.613281 21.230469 C 4.925781 21.175781 3.339844 20.710938 1.953125 19.941406 C 1.953125 19.984375 1.953125 20.027344 1.953125 20.070313 C 1.953125 25.054688 5.5 29.207031 10.199219 30.15625 C 9.339844 30.390625 8.429688 30.515625 7.492188 30.515625 C 6.828125 30.515625 6.183594 30.453125 5.554688 30.328125 C 6.867188 34.410156 10.664063 37.390625 15.160156 37.472656 C 11.644531 40.230469 7.210938 41.871094 2.390625 41.871094 C 1.558594 41.871094 0.742188 41.824219 -0.0585938 41.726563 C 4.488281 44.648438 9.894531 46.347656 15.703125 46.347656 C 34.617188 46.347656 44.960938 30.679688 44.960938 17.09375 C 44.960938 16.648438 44.949219 16.199219 44.933594 15.761719 C 46.941406 14.3125 48.683594 12.5 50.0625 10.4375 Z"></path>
-							</svg>
-						</a>
 						<a rel="noopener noreferrer" href="#" title="LinkedIn" className="text-gray-400">
 							<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 32 32" className="w-4 h-4">
 								<path d="M8.268 28h-5.805v-18.694h5.805zM5.362 6.756c-1.856 0-3.362-1.538-3.362-3.394s1.505-3.362 3.362-3.362 3.362 1.505 3.362 3.362c0 1.856-1.506 3.394-3.362 3.394zM29.994 28h-5.792v-9.1c0-2.169-0.044-4.95-3.018-4.95-3.018 0-3.481 2.356-3.481 4.794v9.256h-5.799v-18.694h5.567v2.55h0.081c0.775-1.469 2.668-3.019 5.492-3.019 5.875 0 6.955 3.869 6.955 8.894v10.269z"></path>

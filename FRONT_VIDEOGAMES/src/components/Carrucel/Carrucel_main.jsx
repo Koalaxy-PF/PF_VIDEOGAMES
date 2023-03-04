@@ -30,27 +30,27 @@ export default function Carrucel_main(){
 
     <div>
       <h1 className='text-3xl font-lg font-bold ml-6 mt-6 text-slate-700'>Nuevos Lanzamientos</h1>
-      <hr className='mx-5 mt-2 border-slate-700'/>
-    <div className='w-[900px] h-[500px] mx-auto mt-5 shadow-2xl'>
+
+    <div className='w-[950px] h-[500px] mx-auto mt-5'>
 
       <Slider {...settings}>
-        <div>
-          <img src="https://cdn1.epicgames.com/catnip/offer/BL3Wide_2560x1440-2560x1440-462318f36bee20de4412e111ef72dc62.jpg" alt=""/>
+        <div className=''>
+          <img className='shadow-md shadow-slate-600' src="https://cdn1.epicgames.com/catnip/offer/BL3Wide_2560x1440-2560x1440-462318f36bee20de4412e111ef72dc62.jpg" alt=""/>
         </div>
 
         <div>
-          <img src="https://cdn1.epicgames.com/400347196e674de89c23cc2a7f2121db/offer/AC%20KINGDOM%20PREORDER_STANDARD%20EDITION_EPIC_Key_Art_Wide_3840x2160-3840x2160-485fe17203671386c71bde8110886c7d.jpg"
+          <img className='shadow-md shadow-slate-600' src="https://cdn1.epicgames.com/400347196e674de89c23cc2a7f2121db/offer/AC%20KINGDOM%20PREORDER_STANDARD%20EDITION_EPIC_Key_Art_Wide_3840x2160-3840x2160-485fe17203671386c71bde8110886c7d.jpg"
            alt="" />
         </div>
 
         <div>
-          <img src="https://cdn1.epicgames.com/offer/f5deacee017b4b109476933f7dd2edbd/EGS_EASPORTSFIFA23StandardEdition_EACanada_S1_2560x1440-aaf9c5273c27a485f2cce8cb7e804f5c" alt="" />
+          <img className='shadow-md shadow-slate-600' src="https://cdn1.epicgames.com/offer/f5deacee017b4b109476933f7dd2edbd/EGS_EASPORTSFIFA23StandardEdition_EACanada_S1_2560x1440-aaf9c5273c27a485f2cce8cb7e804f5c" alt="" />
         </div>
       </Slider>
     </div>
 
 
-      <h1 className='text-3xl font-lg font-bold ml-6 mt-10 text-slate-700'>Juegos más Vendidos</h1>
+      <h1 className='text-3xl font-lg font-bold ml-6 mt-16 text-slate-700'>Juegos más Vendidos</h1>
       <hr className='mx-5 mt-2 border-slate-700'/>
 
     </div>
