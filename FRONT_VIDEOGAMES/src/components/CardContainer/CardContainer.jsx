@@ -58,7 +58,7 @@ const handleClick = (e) => {
                 name={product.name}
                 calification={product.calification}
                 price={product.price}
-                stock={product.stock}
+                /* stock={product.stock} */
                 genre={product.genre} 
               />
               </div>

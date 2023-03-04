@@ -9,7 +9,7 @@ import style from "./card.module.css";
 
 
 
- export default function Card({name, img, calification, price, stock, genre}) {
+ export default function Card({name, img, calification, price, genre}) {
   return (
     <div class="flex h-[350px] mx-[20px]">
       <div className={style.card}>
@@ -20,15 +20,15 @@ import style from "./card.module.css";
        </div>
 
        <div class='flex flex-wrap ml-[10px] mt-[5px]'>
-       <p class='w-full text-left'>Calification: <strong>{calification}/5 <span class='text-[#00E1D8] relative top-[1px] left-[2px]'><ion-icon name="star"></ion-icon></span> </strong></p>
-            <p class='w-full text-left'>Stock: <strong>{stock}</strong></p>
-             <p class='w-full text-left'>Genre: {genre}</p>  
+       <p class='w-full text-left'><strong>{calification}/5 <span class='text-[#00E1D8] relative top-[1px] left-[2px]'><ion-icon name="star"></ion-icon></span> </strong></p>
+           {/*  <p class='w-full text-left'>Stock: <strong>{stock}</strong></p> */}
+             <p class='w-full text-left'>{genre}</p>  
 
 
        </div>
 
        <div class='text-right'> 
-       <h5 class='text-right text-whit'><span class='bg-gray-300 px-[10px] py-[2px] rounded-l reounde-t'>$ {price}</span></h5>
+       <h5 class='text-right text-whit'><span class='bg-gray-300 px-[10px] py-[4px] rounded-l reounde-t'>$ {price}</span></h5>
        </div>
 
          </div>
