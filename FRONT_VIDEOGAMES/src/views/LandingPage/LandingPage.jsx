@@ -13,7 +13,7 @@ export default function ReturnLandingPage(){
 
     return(
         <div className="bg-gray-300 flex flex-col">
-            <div>
+            {/* <div>
                 <div class="flex item-center justify-between flex-wrap bg-white p-4 sticky ">
                         <div class="flex item-center flex-shrink-0 text-black mr-6 sticky ">
                             <img  class= " z-10 inset-y-0 my-auto h-12  sticky "src = {koala}/>
@@ -24,9 +24,13 @@ export default function ReturnLandingPage(){
                             <Link to="/home"><span class="block mt-4 lg:inline-block lg:mt-0 mr-4 font-semibold text-5xl tracking-tight sticky"> Enter </span></Link>
                         </div> 
                 </div>
-            </div>
+            </div> */}
             
-            <div className="animation">
+            <div className="animation justify-center flex justify-center items-center">
+
+                
+                    <Link to="/home"><span class="px-4 bg-none text-white py-4  rounded-xl border-4 border-white text-xl text-center hover:bg-transparent hover:text-black"> Enter </span></Link>
+                
 
             </div>
 

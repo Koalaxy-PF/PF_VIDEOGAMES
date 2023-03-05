@@ -67,7 +67,7 @@ function rootReducer(state = initialState, action){
               })
         return{
             ...state,
-            Games: order
+            GamesCopy: order
         }
 
         case ORDER_BY_RELEASED :
@@ -95,7 +95,7 @@ function rootReducer(state = initialState, action){
                })
          return{
              ...state,
-             Games: orderByReleased
+             GamesCopy: orderByReleased
          }
         
         case TIDY_PRICE:
@@ -124,7 +124,7 @@ function rootReducer(state = initialState, action){
              })
         return{
             ...state,
-            Games: TidyPrice
+            GamesCopy: TidyPrice
         }
 
         //reduces de filtrados
@@ -134,7 +134,7 @@ function rootReducer(state = initialState, action){
             const TypeCompanyFilter = action.payload === "all"? AllCom : AllCom?.filter((t)=>t.company.includes(action.payload))
         return {
             ...state,
-            Games: TypeCompanyFilter
+            GamesCopy: TypeCompanyFilter
         }
 
         case FILTER_GENRES:
@@ -142,7 +142,7 @@ function rootReducer(state = initialState, action){
             const TypeGamesFilter = action.payload === "all"? AllGen : AllGen?.filter((t)=>t.genre.includes(action.payload))
         return {
             ...state,
-            Games: TypeGamesFilter
+            GamesCopy: TypeGamesFilter
         }
         
 
@@ -161,7 +161,7 @@ function rootReducer(state = initialState, action){
         case CLEAN_GAMES:
             return{
                 ...state,
-                Games: action.payload
+                GamesCopy: action.payload
             }
 
 
