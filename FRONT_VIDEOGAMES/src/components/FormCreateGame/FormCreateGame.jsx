@@ -6,7 +6,7 @@ import img from '../../assets/create/KoalaForm2.png'
 import Footer from "../../components/Footer/Footer";
 import NavBar from "../../components/Navbar/Navbar";
 import Sidebar from "../../components/SideBar/Sidebar";
-import { GetGames, PostGame } from "../../redux/actions/actions";
+import { GetGames, PostGame, GetGenres } from "../../redux/actions/actions";
 import validate from "./validators";
 
 const validateForm = (input) => {
@@ -21,16 +21,18 @@ const validateForm = (input) => {
   if(!input.minRequeriments.length) error.minRequeriments = <h3>Min requeriments are required</h3>
   if(!input.recommendRequeriments.length) error.recommendRequeriments = <h3>Recommend requriments are required</h3>
   if(!input.description.length) error.description = <h3>Description is required</h3>
-  if(!input.genre.length) error.genre = <h3>Genre is required</h3>
+  if(!input.genres.length) error.genre = <h3>Genre is required</h3>
 
   return error;
 }
 
 export default function CreateGame() {
   const dispatch = useDispatch();
+  const genre = useSelector((state) => state.Genres);
 
   useEffect(() => {
     dispatch(GetGames());
+    dispatch(GetGenres())
   },[dispatch]);
 
  /*  const games= useSelector((state) => state.Games);
@@ -139,7 +141,7 @@ export default function CreateGame() {
 
 
 
-  const genre = ['action', 'adventure', 'shooter']
+  //const genre = ['action', 'adventure', 'shooter']
 
 
   return (
