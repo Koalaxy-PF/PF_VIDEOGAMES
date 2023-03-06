@@ -19,7 +19,7 @@ export default function Footer() {
           <div className="flex justify-center space-x-4">
             <a
               rel="noopener noreferrer"
-              href="#"
+              href="https://api.whatsapp.com/message/XRV2T4B3QFT5P1?autoload=1&app_absent=0"
               title="Instagram"
               className="flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-violet-400 text-gray-900"
             >

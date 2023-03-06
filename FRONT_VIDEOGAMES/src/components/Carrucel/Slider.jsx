@@ -10,8 +10,8 @@ export default function Slider2({data, tittle}){
         speeed: 500,
         slidesToShow: 4,
         slidesToScroll: 1,
-        //autoplay: true,
-        //autoplaySpped: 2000,
+        autoplay: true,
+        autoplaySpped: 2000,
         pauseOnHover: false,
         responsive: [
             {
@@ -44,7 +44,7 @@ export default function Slider2({data, tittle}){
             <h1 className="text-2xl ml-4 mb-2 mt-8 font-extrabold leading-none text-left  text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-500">{tittle}</h1>
       
             <Slider {...settings}>
-                {data.map((el,index) => <Card key={index} img={el.img} />)}
+                {data.map((el,index) => <Card key={index} img={el.img} name={el.name} />)}
             </Slider>
          </div>
 
