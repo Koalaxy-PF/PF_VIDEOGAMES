@@ -1,6 +1,9 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import Footer from "../../components/Footer/Footer";
+import NavBar from "../../components/Navbar/Navbar";
+import Sidebar from "../../components/SideBar/Sidebar";
 import { Clean, GetGameById } from "../../redux/actions/actions";
 const Details = () => {
     
@@ -20,6 +23,12 @@ const Details = () => {
 
     return(
         <div>
+            <div>
+                <NavBar />
+            </div>
+            
+            <div className='flex w-full h-full'>
+                <Sidebar />
             {
                 
                 vgDetail ? 
@@ -36,10 +45,10 @@ const Details = () => {
                                         vgDetail.genre?.map((e) => {
                                             return(
                                                 <p> {e} </p>
-                                            )
-                                        })
-                                    }
-                                </a> */}
+                                                )
+                                            })
+                                        }
+                                    </a> */}
                                 <a> {vgDetail.genre} </a>
                                 <h1>Company: {vgDetail.company} </h1>
                                 <h1>Release date: {vgDetail.released} </h1>
@@ -69,6 +78,10 @@ const Details = () => {
                         <h1>Loading</h1>
                     </div>
             }
+            </div>
+            <div>
+                <Footer />
+            </div>
         </div>
     )
 
