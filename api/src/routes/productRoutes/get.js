@@ -15,7 +15,6 @@ router.get("/", async (req, res) => {
         where: {
           name: {
             [Op.iLike]: `%${name}%`,
-            // Si escribo "orta", me va a traer "Portal". Para eso son los %
           },
         },
       });

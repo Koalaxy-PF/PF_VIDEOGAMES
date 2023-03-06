@@ -1,5 +1,6 @@
 const { Router } = require("express");
 const { Product } = require("../../db");
+//const { validationMiddleware } = require("../../middlewares/postMiddleware");
 
 const router = Router();
 
@@ -14,10 +15,11 @@ router.post("/", async (req, res) => {
     company,
     genre,
     gameMode,
-    minRequirements,
-    recommendRequirements,
+    MinRequirements,
+    RecommendRequirements,
     comments,
     discount,
+    released,
   } = req.body;
 
   const productCreated = await Product.create({
@@ -30,10 +32,11 @@ router.post("/", async (req, res) => {
     company,
     genre,
     gameMode,
-    minRequirements,
-    recommendRequirements,
+    MinRequirements,
+    RecommendRequirements,
     comments,
     discount,
+    released,
   });
 
   res.status(200).send(productCreated);

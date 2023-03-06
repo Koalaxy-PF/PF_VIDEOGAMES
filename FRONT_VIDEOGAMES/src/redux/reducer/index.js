@@ -1,13 +1,17 @@
 import {
     GET_GAMES,
+    POST_GAME,
     GET_BY_ID,
     GET_GENRES,
     FILTER_GENRES,
-    FILTER_FER_COMPANY,
+    FILTER_PER_COMPANY,
     ORDER_BY_NAME ,
     ORDER_BY_RELEASED,
     TIDY_PRICE ,
-    CLEAN } from "../actions/actions"
+    CLEAN,
+    CLEAN_GAMES,
+    GET_GAME,
+} from "../actions/actions"
 
 const initialState = {
     Games:[],
@@ -26,6 +30,12 @@ function rootReducer(state = initialState, action){
             GamesCopy: action.payload,
         }
 
+        case GET_GAME:
+            console.log(action.payload);
+            return {
+                ...state,
+                Games: action.payload,
+        }
 
         case GET_GENRES:
         return{
@@ -33,8 +43,12 @@ function rootReducer(state = initialState, action){
             Genres: action.payload
         }
 
-        //reducers de ordenamiento
+        case POST_GAME:
+        return {
+        ...state,
+        };
 
+        //reducers de ordenamiento
 
         case ORDER_BY_NAME :
            let order = action.payload === 'asc' ? 
@@ -61,7 +75,7 @@ function rootReducer(state = initialState, action){
               })
         return{
             ...state,
-            Games: order
+            GamesCopy: order
         }
 
         case ORDER_BY_RELEASED :
@@ -89,7 +103,7 @@ function rootReducer(state = initialState, action){
                })
          return{
              ...state,
-             Games: orderByReleased
+             GamesCopy: orderByReleased
          }
         
         case TIDY_PRICE:
@@ -118,25 +132,25 @@ function rootReducer(state = initialState, action){
              })
         return{
             ...state,
-            Games: TidyPrice
+            GamesCopy: TidyPrice
         }
 
         //reduces de filtrados
 
-        case FILTER_FER_COMPANY:
-                action.payload === 'All' ? state.Games = state.GamesCopy.filter(info => info.company.length) :
-                state.Games = state.GamesCopy.filter(name => name.company.find((element) => element.name?.toLowerCase() === action.payload))
+        case FILTER_PER_COMPANY:
+            const AllCom = state.GamesCopy
+            const TypeCompanyFilter = action.payload === "all"? AllCom : AllCom?.filter((t)=>t.company.includes(action.payload))
         return {
             ...state,
-            Games: state.Games
+            GamesCopy: TypeCompanyFilter
         }
 
         case FILTER_GENRES:
-                action.payload === 'All' ? state.Games = state.GamesCopy.filter(info => info.genre.length) :
-                state.Games = state.GamesCopy.filter(name => name.genre.find((element) => element.name?.toLowerCase() === action.payload))
+            const AllGen = state.GamesCopy
+            const TypeGamesFilter = action.payload === "all"? AllGen : AllGen?.filter((t)=>t.genre.includes(action.payload))
         return {
             ...state,
-            Games: state.Games
+            GamesCopy: TypeGamesFilter
         }
         
 
@@ -151,6 +165,12 @@ function rootReducer(state = initialState, action){
                 ...state,
                 details: action.payload
         }
+
+        case CLEAN_GAMES:
+            return{
+                ...state,
+                GamesCopy: action.payload
+            }
 
 
         default:{
