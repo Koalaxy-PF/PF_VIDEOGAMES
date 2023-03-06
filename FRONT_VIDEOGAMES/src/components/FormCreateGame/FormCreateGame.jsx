@@ -21,7 +21,7 @@ const validateForm = (input) => {
   if(!input.minRequeriments.length) error.minRequeriments = <h3>Min requeriments are required</h3>
   if(!input.recommendRequeriments.length) error.recommendRequeriments = <h3>Recommend requriments are required</h3>
   if(!input.description.length) error.description = <h3>Description is required</h3>
-  if(!input.genres.length) error.genre = <h3>Genre is required</h3>
+  if(!input.genre.length) error.genre = <h3>Genre is required</h3>
 
   return error;
 }
