@@ -4,17 +4,10 @@ import { Link } from 'react-router-dom'
 
 export default function Footer() {
   return (
-    <footer className="bg-[#609CA4]">
+    <footer className="bg-indigo-500">
 
-	    <div className="container grid mx-auto gap-x-3 gap-y-8 md:grid-cols-4 xl:grid-cols-4">
+	    <div className="container grid mx-auto gap-x-3 gap-y-8 md:grid-cols-3 xl:grid-cols-3">
 
-			<div className="flex flex-col mr-7 space-y-4 sm:hidden md:flex">
-				<a rel="noopener noreferrer" href="#" className="flex justify-center space-x-3 md:justify-start">
-					<div className="flex items-center justify-center w-40 h-40 mt-8 rounded-full ">
-						<img src={logo} />
-					</div>
-				</a>
-			</div>
 
 		    <div className="pt-6 flex flex-col space-y-2">
 			    <h2 className="text-slate-100 font-bold">SOPORTE</h2>

@@ -20,8 +20,8 @@ export default function AboutUs(){
             <section className="py-1 bg-gray-100 text-gray-100 w-full">
 	            <div className="container p-4 mx-auto space-y-16 sm:p-10">
 		<div className="space-y-4">
-            <h1 className="p-2  font-bold leading-none text-center uppercase text-4xl text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-600">Equipo de Trabajo</h1>
-		<h1 className="text-4xl font-bold leading-none text-center sm:text-5xl text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-600">Las personas talentosas detrás de escena</h1>
+			<h1 className="p-2  font-bold leading-none text-center uppercase text-4xl text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-500">Equipo de Trabajo</h1>
+			<h1 className="text-4xl font-bold leading-none text-center sm:text-5xl text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-500">Las personas talentosas detrás de escena</h1>
             
 			
 		</div>
