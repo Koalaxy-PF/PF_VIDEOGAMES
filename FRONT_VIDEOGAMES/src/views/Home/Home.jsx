@@ -25,6 +25,7 @@ export default function Home(){
          
 
             <div className='px-[20px] w-[100%]'>
+              <Carrucel_main />
               <Slider2 />
             </div>
         </div>

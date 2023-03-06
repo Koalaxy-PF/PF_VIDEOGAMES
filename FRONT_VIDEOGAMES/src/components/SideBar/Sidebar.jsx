@@ -17,7 +17,7 @@ export default function Sidebar(){
     {/* SEARCH */}
 
     <div>
-      <SearchBar open={open} />
+      <SearchBar open={open} setOpen={setOpen} />
     </div>
 
     <hr class="h-px my-2.5 border-0 bg-gray-500" />
