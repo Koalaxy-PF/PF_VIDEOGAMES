@@ -80,7 +80,7 @@ const  HandlerFilterTypeFerCompany = (e) =>{
   return (
     <div class='bg-gray-200  overflow-x-hidden flex flex-wrap justify-center'>
 
-              <div class="flex item-center justify-between flex-wrap bg-gray-200">
+              <div class="flex item-center justify-between flex-wrap bg-gray-200 w-full">
 
                 {/* <Filter/> */}
 
@@ -163,13 +163,6 @@ const  HandlerFilterTypeFerCompany = (e) =>{
               <button className='px-3 bg-[#1cecf4] text-white py-3 rounded-xl border-2 border-white text-xl text-center hover:bg-transparent hover:text-black'onClick={e => {handleClick(e)}}>Clear Filters</button>
               </div>
 
-       <div className="flex flex-nowrap justify-center w-full flex-row">
-        <Pagination 
-          gamesPerPage={gamesPerPage}
-          allGames={allGames.length}
-          pagination={pagination}
-        />
-       </div>
     
           
       {currentGames?.map((product) => {
@@ -191,6 +184,13 @@ const  HandlerFilterTypeFerCompany = (e) =>{
           </Fragment>
         );
       })} 
+       <div className="flex flex-nowrap justify-center w-full flex-row my-3">
+        <Pagination 
+          gamesPerPage={gamesPerPage}
+          allGames={allGames.length}
+          pagination={pagination}
+        />
+       </div>
     </div>
   );
 }
