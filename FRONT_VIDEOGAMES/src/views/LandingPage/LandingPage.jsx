@@ -29,7 +29,7 @@ export default function ReturnLandingPage(){
             <div className="animation justify-center flex justify-center items-center">
 
                 
-                    <Link to="/home"><span class="px-4 bg-none text-white py-4  rounded-xl border-4 border-white text-xl text-center hover:bg-transparent hover:text-black"> Enter </span></Link>
+                    <Link to="/home"><span class="px-4 bg-none text-white py-4  rounded-xl border-4 border-white text-2xl text-center hover:bg-transparent hover:text-3xl"> Enter </span></Link>
                 
 
             </div>
