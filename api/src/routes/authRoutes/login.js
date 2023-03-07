@@ -9,7 +9,7 @@ router.post('/login', async(req,res)=>{
     try {
 
         const user = await User.findOne({
-            where: { email }
+            where: { email: email }
         })
 
         !user && res.send('Incorrect username. Are you registered?');
@@ -19,13 +19,12 @@ router.post('/login', async(req,res)=>{
         originalPassword !== password && res.send('Incorrect password o username.');
 
         const accessToken = jwt.sign(
-            {id: user.id},
+            {id: user.id, is_admin: user.is_admin},
             process.env.SECRET_KEY_CRYPTO,
             {expiresIn:86400}
         );
 
-        res.send({user, accessToken});
-
+            res.send({user, accessToken})
         /* TENGO QUE ENCONTRAR EL SEMEJANTE DE ._DOC DE MONGO EN SQL 
         const {password, ...info} = user._doc  //para que el response no tenga la contraseña
         res.send({...info, accessToken});

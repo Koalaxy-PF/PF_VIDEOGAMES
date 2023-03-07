@@ -45,7 +45,7 @@ module.exports = (sequelize) => {
             defaultValue:"https://w7.pngwing.com/pngs/741/68/png-transparent-user-computer-icons-user-miscellaneous-cdr-rectangle-thumbnail.png"
         },
         date: {
-            type: DataTypes.INT,
+            type: DataTypes.STRING,
             allowNull: false,
         },
         description: {
@@ -57,6 +57,13 @@ module.exports = (sequelize) => {
         is_banned:{
             type:DataTypes.BOOLEAN,
             defaultValue: false
+        },
+        is_admin:{
+            type:DataTypes.BOOLEAN,
+            defaultValue: false
         }
+    },
+    {
+        paranoid: true,
     });
 };
