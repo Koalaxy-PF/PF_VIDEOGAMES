@@ -6,7 +6,7 @@ import SearchBar from '../SearchBar/SearchBar.jsx';
 
 export default function Sidebar(){
 
-    const [open, setOpen] = useState(true);
+    const [open, setOpen] = useState(false);
 
     return (
     <div className={`bg-gray-900 h-100vh p-5 pt-2 relative ${open ? "w-60" : "w-20"} duration-500`}>
@@ -17,7 +17,7 @@ export default function Sidebar(){
     {/* SEARCH */}
 
     <div>
-      <SearchBar open={open} />
+      <SearchBar open={open} setOpen={setOpen} />
     </div>
 
     <hr class="h-px my-2.5 border-0 bg-gray-500" />

@@ -7,11 +7,11 @@ import icons from '../../assets/carrucel/icons'
 export default function Carrucel_main(){
 
   const SlickArrowLeft = ({ currentSlide, slideCount, style, ...props }) => (
-    <img src={icons.img2} alt="prevArrow" {...props} style={{ ...style, margin: '-10px' }} />
+    <img src={icons.img2} alt="prevArrow" {...props} style={{ ...style, margin: '-15px' }} />
   );
 
   const SlickArrowRight = ({ currentSlide, slideCount, style, ...props }) => (
-    <img src={icons.img1} alt="nextArrow" {...props} style={{ ...style, margin: '-22px'}} />
+    <img src={icons.img1} alt="nextArrow" {...props} style={{ ...style, margin: '-30px'}} />
   );
   
     const settings = {
@@ -29,7 +29,7 @@ export default function Carrucel_main(){
     <div className='w-screen'>
 
     <div>
-    <div className='w-[900px] ml-40 mb-10 mt-5 shadow-2xl shadow-slate-400'>
+    <div className='w-[70%] ml-10 mb-10 mt-5'>
 
       <Slider {...settings}>
         <div>

@@ -3,17 +3,14 @@
 @tailwind utilities;
 
 body{
-    overflow-x: hidden;
+  overflow-x: hidden;
 }
 
 .slick-slide>div {
-    margin: 0 10px;
+   
 }
 
 .slick-slide>div:nth-child(1){
-    margin-left: 0;
-}
-
-.slick-list{
-    margin-right: -30px;
+    margin-left: 15px;
+    margin-right: 15px;
 }
