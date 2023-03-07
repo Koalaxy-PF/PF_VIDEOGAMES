@@ -9,6 +9,7 @@ import {
   ORDER_BY_RELEASED,
   TIDY_PRICE,
   CLEAN,
+  CLEAN_GAMES,
 } from "../actions/actions";
 
 const initialState = {
@@ -63,7 +64,7 @@ function rootReducer(state = initialState, action) {
             });
       return {
         ...state,
-        Games: order,
+        GamesCopy: order,
       };
 
     case ORDER_BY_RELEASED:
@@ -89,7 +90,7 @@ function rootReducer(state = initialState, action) {
             });
       return {
         ...state,
-        Games: orderByReleased,
+        GamesCopy: orderByReleased,
       };
 
     case TIDY_PRICE:
@@ -115,7 +116,7 @@ function rootReducer(state = initialState, action) {
             });
       return {
         ...state,
-        Games: TidyPrice,
+        GamesCopy: TidyPrice,
       };
 
     //reduces de filtrados
@@ -152,6 +153,18 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         details: action.payload,
+      };
+
+    case CLEAN_GAMES:
+      return {
+        ...state,
+        GamesCopy: action.payload,
+      };
+
+    case CLEAN_GAMES:
+      return {
+        ...state,
+        GamesCopy: action.payload,
       };
 
     default: {

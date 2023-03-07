@@ -11,7 +11,7 @@ export default function Carrucel_main(){
   );
 
   const SlickArrowRight = ({ currentSlide, slideCount, style, ...props }) => (
-    <img src={icons.img1} alt="nextArrow" {...props} style={{ ...style, margin: '-10px'}} />
+    <img src={icons.img1} alt="nextArrow" {...props} style={{ ...style, margin: '-22px'}} />
   );
   
     const settings = {
@@ -26,12 +26,10 @@ export default function Carrucel_main(){
 
       
   return (
-    <div className='bg-gray-200 w-full'>
+    <div className='w-screen'>
 
     <div>
-      <h1 className='text-3xl font-lg font-bold ml-6 mt-6 text-slate-700'>Nuevos Lanzamientos</h1>
-      <hr className='mx-5 mt-2 border-slate-700'/>
-    <div className='w-[900px] h-[500px] mx-auto mt-5 shadow-2xl'>
+    <div className='w-[900px] ml-40 mb-10 mt-5 shadow-2xl shadow-slate-400'>
 
       <Slider {...settings}>
         <div>
@@ -48,10 +46,6 @@ export default function Carrucel_main(){
         </div>
       </Slider>
     </div>
-
-
-      <h1 className='text-3xl font-lg font-bold ml-6 mt-10 text-slate-700'>Juegos más Vendidos</h1>
-      <hr className='mx-5 mt-2 border-slate-700'/>
 
     </div>
   </div>

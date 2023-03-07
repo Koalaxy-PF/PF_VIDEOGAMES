@@ -6,7 +6,7 @@ import img from '../../assets/create/KoalaForm2.png'
 import Footer from "../../components/Footer/Footer";
 import NavBar from "../../components/Navbar/Navbar";
 import Sidebar from "../../components/SideBar/Sidebar";
-import { GetGames, PostGame } from "../../redux/actions/actions";
+import { GetGames, PostGame, GetGenres } from "../../redux/actions/actions";
 import validate from "./validators";
 
 const validateForm = (input) => {
@@ -28,9 +28,11 @@ const validateForm = (input) => {
 
 export default function CreateGame() {
   const dispatch = useDispatch();
+  const genre = useSelector((state) => state.Genres);
 
   useEffect(() => {
     dispatch(GetGames());
+    dispatch(GetGenres())
   },[dispatch]);
 
  /*  const games= useSelector((state) => state.Games);
@@ -139,7 +141,7 @@ export default function CreateGame() {
 
 
 
-  const genre = ['action', 'adventure', 'shooter']
+  //const genre = ['action', 'adventure', 'shooter']
 
 
   return (
