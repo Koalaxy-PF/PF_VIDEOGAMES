@@ -5,18 +5,18 @@ import Sell from "../../components/Sell/Sell"
 
 export default function Store() {
   return (
-    <div className="Store">
+    <div className="h-full">
 
         <div>
             <Navbar/>
         </div>
 
-        <div className='flex w-full h-screen'>
+        <div className='flex min-h-[calc(100vh-5rem)]'>
             <Sidebar /> 
             <Sell />
         </div>
 
-        <div>
+        <div className="block">
             <Footer />
         </div>
 

@@ -9,8 +9,9 @@ export const ORDER_BY_NAME = "ORDER_BY_NAME"
 export const ORDER_BY_RELEASED = "ORDER_BY_RELEASED"
 export const TIDY_PRICE = "TIDY_PRICE"
 export const CLEAN = "CLEAN"
-
-
+export const POST_GAME = "POST_GAME"
+export const CLEAN_GAMES = "CLEAN_GAMES"
+export const GET_GAME = "GET_GAME"
 
 //action que trae todos los juegos
 export function GetGames(){
@@ -20,6 +21,19 @@ export function GetGames(){
         dispatch({
             type: GET_GAMES,
             payload: Json.data
+        })
+    }
+}
+
+//action que busca un juego en específico (searchbar)
+
+export function GetGame(name){
+
+    return async function(dispatch){
+        let json = await axios.get("http://localhost:3000/products?name=" + name);
+        dispatch({
+            type: GET_GAMES,
+            payload: json.data,
         })
     }
 }
@@ -53,11 +67,11 @@ export function GetGenres(){
 //action PostGame sirve para el crear un juego
 export function PostGame(payload){
 
-    return async function(dispatch){
+    
         var json = axios.post(`http://localhost:3000/products`,payload)
-       return json
+        return { type: POST_GAME, payload: json };
    } 
-}
+
 
 //action que filtra por genero...
 export function FilterGenres(payload){
@@ -113,6 +127,14 @@ export function Clean(){
 
     return{
         type: CLEAN,
+        payload: []
+    }
+}
+
+//action que limpia el estado games
+export function CleanGames(){
+    return{
+        type: CLEAN_GAMES,
         payload: []
     }
 }
