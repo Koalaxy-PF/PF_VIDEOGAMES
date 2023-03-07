@@ -22,14 +22,14 @@ export default function NavBar(){
                     </div>
 
 
-                    {/* <div w-full flex-grow lg:flex lg:items-center lg:w-auto text-center>
+                    <div w-full flex-grow lg:flex lg:items-center lg:w-auto text-center>
 
                         <a class="block mt-4 lg:inline-block lg:mt-0 mr-4"> <img  class= " z-10 inset-y-0 my-auto h-9 bg-gray-300 rounded-full p-1"src = {trolley}/> </a>
                         <a class="block mt-4 lg:inline-block lg:mt-0 mr-4"> <img  class= " z-10 inset-y-0 my-auto h-9 bg-gray-300 rounded-full p-1"src = {heart}/> </a>
                         <a class="block mt-4 lg:inline-block lg:mt-0 mr-4">  <img  class= " z-10 inset-y-0 my-auto h-9 bg-gray-300 rounded-full p-1"src = {user}/> </a>
                         <a class="block mt-4 lg:inline-block lg:mt-0 mr-4"><img  class= " z-10 inset-y-0 my-auto h-9 bg-gray-300 rounded-full p-1"src = {darkMode}/> </a>
 
-                    </div> */}
+                    </div>
 
 
                     </div>
