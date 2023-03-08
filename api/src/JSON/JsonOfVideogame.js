@@ -2,7 +2,6 @@ const jsonGames = [
 
     /*
     {
-        "id": "3498",
         "img":"https://media.rawg.io/media/games/456/456dea5e1c7e3cd07060c14e96612001.jpg",
         "name": "Grand Theft Auto V",
         "genre": ["Acción","Aventura",],
@@ -106,7 +105,7 @@ const jsonGames = [
         "calification":"4.09",
         "MinRequirements": "Minimum:\nOS: Windows® 7 32/64-bit / Vista 32/64 / XP\nProcessor: Pentium 4 3.0GHz\nMemory: 2 GB RAM\nGraphics: Video card with 128 MB, Shader model 2.0. ATI X800, NVidia 6600 or better\nDirectX: Version 9.0c\nStorage: 13 GB available space\nSound Card: DirectX 9.0c compatible sound card",
         "RecommendRequirements":"Recommended:\nOS: Windows® 7 32/64-bit / Vista 32/64 / XP\nProcessor: Intel core 2 duo 2.4GHz\nMemory: 2 GB RAM\nGraphics: Video Card Shader model 3.0. NVidia 7600, ATI X1600 or better\nDirectX: Version 9.0c\nStorage: 13 GB available space\nSound Card: DirectX 9.0c compatible sound card",
-        "company":"Turtle Rock Studios",
+        "company":"Valve Software",
         "genre": ["Action","Shooter"],
         "price": Math.round(Math.random() * (5000.99 - 500.99) + 500.99), 
         "stock": Math.floor(Math.random() * (500 - 0)),
@@ -202,7 +201,7 @@ const jsonGames = [
         "calification":"4.5",
         "MinRequirements": "",
         "RecommendRequirements":"",
-        "company":"NVIDIA Lightspeed Studios",
+        "company":"Valve Software",
         "genre": ["Shooter","Action"],
         "price": Math.round(Math.random() * (5000.99 - 500.99) + 500.99), 
         "stock": Math.floor(Math.random() * (500 - 0)),
@@ -277,6 +276,7 @@ const jsonGames = [
         "discount": Math.floor(Math.random() * (50 - 0)),  
     },
 
+<<<<<<< HEAD
     {
         "id": "3070",
         "name": "Fallout 4",
@@ -326,6 +326,8 @@ const jsonGames = [
     },
 
     */
+=======
+>>>>>>> f1930ab7482e5f087616bd14acc1238ed688fbba
 
     {
         "name": "ATOMIC HEART",
@@ -454,4 +456,4 @@ const jsonGames = [
     },
 ]
 
-module.exports = { jsonGames};
+module.exports = { jsonGames }
