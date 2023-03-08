@@ -9,7 +9,10 @@ import CreateGame from "./views/CreateGame/CreateGame"
 import Store from './views/Store/Store'
 import AboutUs from "./components/AboutUs/AboutUs"
 import ReturnLandingPage from "./views/LandingPage/LandingPage"
+import QA from "./components/QA/QA"
 
+import Login from "./views/Login/Login"
+import Register from "./views/Register/Register"
 
 export default function App(){
 
@@ -21,7 +24,11 @@ export default function App(){
         <Route exact path="/store" element={<Store />} />
         <Route exact path="/CreateGame" element={<CreateGame />} />
         <Route exact path="/AboutUs" element={<AboutUs />} />
-        <Route exact path="/products/:id" element={<Details/>} /> 
+        <Route exact path="/QA" element={<QA />} />
+        <Route exact path="/products/:id" element={<Details/>} />
+
+        <Route exact path="/Register" element={<Register/>} />
+        <Route exact path="/Login" element={<Login/>} />
       </Routes>
     </div>
   );
