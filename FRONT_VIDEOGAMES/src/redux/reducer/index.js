@@ -10,6 +10,7 @@ import {
   TIDY_PRICE,
   CLEAN,
   CLEAN_GAMES,
+  GET_GAME,
 } from "../actions/actions";
 
 const initialState = {
@@ -26,6 +27,13 @@ function rootReducer(state = initialState, action) {
         ...state,
         Games: action.payload,
         GamesCopy: action.payload,
+      };
+
+    case GET_GAME:
+      console.log(action.payload);
+      return {
+        ...state,
+        Games: action.payload,
       };
 
     case GET_GENRES:
