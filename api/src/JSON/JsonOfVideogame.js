@@ -1,6 +1,5 @@
 const jsonGames = [
     {
-        "id": "3498",
         "img":"https://media.rawg.io/media/games/456/456dea5e1c7e3cd07060c14e96612001.jpg",
         "name": "Grand Theft Auto V",
         "genre": ["Acción","Aventura",],
@@ -104,7 +103,7 @@ const jsonGames = [
         "calification":"4.09",
         "MinRequirements": "Minimum:\nOS: Windows® 7 32/64-bit / Vista 32/64 / XP\nProcessor: Pentium 4 3.0GHz\nMemory: 2 GB RAM\nGraphics: Video card with 128 MB, Shader model 2.0. ATI X800, NVidia 6600 or better\nDirectX: Version 9.0c\nStorage: 13 GB available space\nSound Card: DirectX 9.0c compatible sound card",
         "RecommendRequirements":"Recommended:\nOS: Windows® 7 32/64-bit / Vista 32/64 / XP\nProcessor: Intel core 2 duo 2.4GHz\nMemory: 2 GB RAM\nGraphics: Video Card Shader model 3.0. NVidia 7600, ATI X1600 or better\nDirectX: Version 9.0c\nStorage: 13 GB available space\nSound Card: DirectX 9.0c compatible sound card",
-        "company":"Turtle Rock Studios",
+        "company":"Valve Software",
         "genre": ["Action","Shooter"],
         "price": Math.round(Math.random() * (5000.99 - 500.99) + 500.99), 
         "stock": Math.floor(Math.random() * (500 - 0)),
@@ -200,7 +199,7 @@ const jsonGames = [
         "calification":"4.5",
         "MinRequirements": "",
         "RecommendRequirements":"",
-        "company":"NVIDIA Lightspeed Studios",
+        "company":"Valve Software",
         "genre": ["Shooter","Action"],
         "price": Math.round(Math.random() * (5000.99 - 500.99) + 500.99), 
         "stock": Math.floor(Math.random() * (500 - 0)),
@@ -275,56 +274,7 @@ const jsonGames = [
         "discount": Math.floor(Math.random() * (50 - 0)),  
     },
 
-    {
-        "id": "3070",
-        "name": "Fallout 4",
-        "description":"<p>The fourth game in the post-apocalyptic action RPG series from Bethesda studious brings players back to the retro-future. After customizing the facial features of the character, players will be admitted to the Vault 111 with their family, and tricked into entering the cryogenic capsule. After the rude awakening after the unknown amount of time has passed, the child is separated from the parents and the loving partner is killed in front of them – the main quest is settled. Now there’s only the giant open world to explore. Fallout 4 introduces the mechanics of settlement building, where players can build their own little town. Gathering material for crafting and building brings more “survival” elements into the old formula. Within their own settlements, players will be able to build all needed utilities, from storage spaces to power armor stations. Visual upgrade from the previous game brings life to what used to be brown wastelands, now filled with details and color.</p>",
-        "released":"2015-11-09",
-        "img":"https://media.rawg.io/media/games/d82/d82990b9c67ba0d2d09d4e6fa88885a7.jpg",
-        "calification":"3.8",
-        "MinRequirements": "Minimum:\nOS: Windows 7/8/10 (64-bit OS required)\nProcessor: Intel Core i5-2300 2.8 GHz/AMD Phenom II X4 945 3.0 GHz or equivalent\nMemory: 8 GB RAM\nGraphics: NVIDIA GTX 550 Ti 2GB/AMD Radeon HD 7870 2GB or equivalent\nStorage: 30 GB available space",
-        "RecommendRequirements":"Recommended:\nOS: Windows 7/8/10 (64-bit OS required)\nProcessor: Intel Core i7 4790 3.6 GHz/AMD FX-9590 4.7 GHz or equivalent\nMemory: 8 GB RAM\nGraphics: NVIDIA GTX 780 3GB/AMD Radeon R9 290X 4GB or equivalent\nStorage: 30 GB available space",
-        "company":"Bethesda Game Studios",
-        "genre": ["Action","RPG"],
-        "price": Math.round(Math.random() * (5000.99 - 500.99) + 500.99), 
-        "stock": Math.floor(Math.random() * (500 - 0)),
-        "discount": Math.floor(Math.random() * (50 - 0)),  
-    },
-
-    {
-        "id": "32",
-        "name": "Destiny 2",
-        "description":"<p>Destiny 2 is an online multiplayer first-person shooter. You take on the role of a Guardian that needs to protect the last city on Earth from alien invaders. The game follows its predecessor, Destiny. The goal of the game is to return the Light that was stolen from the Guardians by the aliens.<br />\nDestiny 2 features two main activity types: player versus environment and player versus player. PvE is focused on exploration, story missions interaction with NPCs and side quests. PvP features 4v4 team matches in different modes. The game also allows taking part in group missions, such as three-player strikes and six-player raids.<br />\nDestiny 2 has a strong RPG aspect that includes character customization and development. There are three classes in the game - Warlock, Hunter, and Titan; they provide different playstyles depending on their specialization and unique abilities. To develop the character you can gain experience points completing the story and side missions.</p>",
-        "released":"2017-09-06",
-        "img":"https://media.rawg.io/media/games/34b/34b1f1850a1c06fd971bc6ab3ac0ce0e.jpg",
-        "calification":"3.56",
-        "MinRequirements": "",
-        "RecommendRequirements":"",
-        "company":"Vicarious Visions",
-        "genre": ["Action","Shooter","Adventure","Massively Multiplayer"],
-        "price": Math.round(Math.random() * (5000.99 - 500.99) + 500.99), 
-        "stock": Math.floor(Math.random() * (500 - 0)),
-        "discount": Math.floor(Math.random() * (50 - 0)),  
-    },
-
-    {
-        "id": "11859",
-        "name": "Team Fortress 2",
-        "description":"<p>TF2 is an objective based arena shooter with unique characters, representing different classes, acting as a staple of casual and competitive gaming for Steam. Dozens of different maps and game modes are trying to keep this game alive, after all the years it was available. Each character has a vast arsenal that can be accessed through completing in-game achievements, randomly receiving them from loot-boxes within the game, crafting them or just buying and trading items on the Steam Market. <br />\nFor players, that&#39;s not into the direct clash with players from the enemy team, Team Fortress 2 introduced a PvE mode, which is wave defense from the mirrored robotic opponents that have qualities of some of the playable classes. <br />\nEvery update and introduction, made over years, provided a lot of entertainment In the form of comic books an short animated videos, creating and explaining a story behind endless clashes for resources, briefcases or pure domination.</p>",
-        "released":"2007-10-10",
-        "img":"https://media.rawg.io/media/games/46d/46d98e6910fbc0706e2948a7cc9b10c5.jpg",
-        "calification":"3.67",
-        "MinRequirements": "Minimum:\nOS: Windows® 7 (32/64-bit)/Vista/XP\nProcessor: 1.7 GHz Processor or better\nMemory: 512 MB RAM\nDirectX: Version 8.1\nNetwork: Broadband Internet connection\nStorage: 15 GB available space",
-        "RecommendRequirements":"Recommended:\nOS: Windows® 7 (32/64-bit)\nProcessor: Pentium 4 processor (3.0GHz, or better)\nMemory: 1 GB RAM\nDirectX: Version 9.0c\nNetwork: Broadband Internet connection\nStorage: 15 GB available space",
-        "company":"Valve Software",
-        "genre": ["Action","Shooter"],
-        "price": Math.round(Math.random() * (5000.99 - 500.99) + 500.99), 
-        "stock": Math.floor(Math.random() * (500 - 0)),
-        "discount": Math.floor(Math.random() * (50 - 0)),  
-    },
-
-    
 
 ]
 
-module.exports = { jsonGames};
+module.exports = { jsonGames }
