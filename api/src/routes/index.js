@@ -11,6 +11,8 @@ const postProducts = require("./productRoutes/post");
 const putProducts = require("./productRoutes/put");
 const deleteProducts = require("./productRoutes/delete");
 
+const registerUser = require("./authRoutes/register");
+const loginUser = require("./authRoutes/login");
 
 /* *************************  routes GENRES   **************************************** */
 router.use("/genres", getGenres);
@@ -33,10 +35,5 @@ router.use("/auth", loginUser);
 /* router.use("/users", getUsers);
 router.use("/users", updateUser);
 router.use("/users", deleteUser); */
-
-
-
-
-
 
 module.exports = router;
