@@ -26,9 +26,6 @@ router.post('/login', async(req,res)=>{
 
         res.send({user, accessToken})
 
-        const {password, ...info} = user.describe()
-
-        res.send({...info, accessToken});
 
     } catch (err) {
         console.log(err)

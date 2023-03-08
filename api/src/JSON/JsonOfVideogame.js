@@ -12,7 +12,7 @@ const jsonGames = [
         "stock": Math.floor(Math.random() * (500 - 0)),
         "discount": Math.floor(Math.random() * (50 - 0)),
         "description":"<p>Rockstar Games went bigger, since their previous installment of the series. You get the complicated and realistic world-building from Liberty City of GTA4 in the setting of lively and diverse Los Santos, from an old fan favorite GTA San Andreas. 561 different vehicles (including every transport you can operate) and the amount is rising with every update. <br />\nSimultaneous storytelling from three unique perspectives: <br />\nFollow Michael, ex-criminal living his life of leisure away from the past, Franklin, a kid that seeks the better future, and Trevor, the exact past Michael is trying to run away from. <br />\nGTA Online will provide a lot of additional challenge even for the experienced players, coming fresh from the story mode. Now you will have other players around that can help you just as likely as ruin your mission. Every GTA mechanic up to date can be experienced by players through the unique customizable character, and community content paired with the leveling system tends to keep everyone busy and engaged.</p>",
-        "company":["Rockstar North","Rockstar Games"]
+        "company":"Rockstar North"
     },
     {
         "id": "3328",
@@ -27,7 +27,7 @@ const jsonGames = [
         "stock": Math.floor(Math.random() * (500 - 0)),
         "discount": Math.floor(Math.random() * (50 - 0)),
         "description":"The third game in a series, it holds nothing back from the player. Open world adventures of the renowned monster slayer Geralt of Rivia are now even on a larger scale. Following the source material more accurately, this time Geralt is trying to find the child of the prophecy, Ciri while making a quick coin from various contracts on the side. Great attention to the world building above all creates an immersive story, where your decisions will shape the world around you.</p>\n<p>CD Project Red are infamous for the amount of work they put into their games, and it shows, because aside from classic third-person action RPG base game they provided 2 massive DLCs with unique questlines and 16 smaller DLCs, containing extra quests and items.</p>\n<p>Players praise the game for its atmosphere and a wide open world that finds the balance between fantasy elements and realistic and believable mechanics, and the game deserved numerous awards for every aspect of the game, from music to direction.</p>",
-        "company":["CD PROJEKT RED"]
+        "company":"CD PROJEKT RED"
     },
     {
         "id": "4200",
@@ -42,7 +42,7 @@ const jsonGames = [
         "stock": Math.floor(Math.random() * (500 - 0)),
         "discount": Math.floor(Math.random() * (50 - 0)),
         "description":"<p>Portal 2 is a first-person puzzle game developed by Valve Corporation and released on April 19, 2011 on Steam, PS3 and Xbox 360. It was published by Valve Corporation in digital form and by Electronic Arts in physical form. </p>\n<p>Its plot directly follows the first game&#39;s, taking place in the Half-Life universe. You play as Chell, a test subject in a research facility formerly ran by the company Aperture Science, but taken over by an evil AI that turned upon its creators, GladOS. After defeating GladOS at the end of the first game but failing to escape the facility, Chell is woken up from a stasis chamber by an AI personality core, Wheatley, as the unkempt complex is falling apart. As the two attempt to navigate through the ruins and escape, they stumble upon GladOS, and accidentally re-activate her...</p>\n<p>Portal 2&#39;s core mechanics are very similar to the first game&#39;s ; the player must make their way through several test chambers which involve puzzles. For this purpose, they possess a Portal Gun, a weapon capable of creating teleportation portals on white surfaces. This seemingly simple mechanic and its subtleties coupled with the many different puzzle elements that can appear in puzzles allows the game to be easy to start playing, yet still feature profound gameplay. The sequel adds several new puzzle elements, such as gel that can render surfaces bouncy or allow you to accelerate when running on them.</p>\n<p>The game is often praised for its gameplay, its memorable dialogue and writing and its aesthetic. Both games in the series are responsible for inspiring most puzzle games succeeding them, particularly first-person puzzle games. The series, its characters and even its items such as the portal gun and the companion cube have become a cultural icon within gaming communities.</p>\n<p>Portal 2 also features a co-op mode where two players take on the roles of robots being led through tests by GladOS, as well as an in-depth level editor.</p>",
-        "company":["Valve Software"]
+        "company":"Valve Software"
     },
 
     {
@@ -58,7 +58,7 @@ const jsonGames = [
         "stock": Math.floor(Math.random() * (500 - 0)),
         "discount": Math.floor(Math.random() * (50 - 0)),
         "description":"<p>A cinematic revival of the series in its action third person form, Tomb Rider follows Lara in her least experience period of life – her youth. Heavily influenced by Naughty Dog’s “Uncharted”, the game is a mix of everything, from stealth and survival to combat and QTE action scenes.<br />\nYoung Lara Croft arrives on the Yamatai, lost island near Japan, as the leader of the expedition in search of the Yamatai Kingdom, with a diverse team of specialists. But shipwreck postponed the successful arrival and seemingly forgotten island is heavily populated with hostile inhabitants, cultists of Solarii Brotherhood.<br />\nThe game will be graphic at times, especially after failed QTE’s during some of the survival scenes, but overall players will enjoy classic action adventure, reminiscent of the beginning of the series. This game is not a direct sequel or continuation of existing sub-series within the franchise, but a reboot, setting up Tomb Raider to represent modern gaming experience.<br />\nThe game has RPG elements and has a world, which you can explore during the story campaign and after the completion. As well as multiplayer mode, where 2 teams (4 scavengers and 4 survivors) are clashing in 3 game modes while using weapons and environments from the single-player campaign.</p>",
-        "company":["Crystal Dynamics"]
+        "company":"Crystal Dynamics"
     },
 
 
@@ -75,7 +75,7 @@ const jsonGames = [
         "stock": Math.floor(Math.random() * (500 - 0)),
         "discount": Math.floor(Math.random() * (50 - 0)),
         "description":"<p>Counter-Strike is a multiplayer phenomenon in its simplicity. No complicated narratives to explain the source of the conflict, no futuristic and alien threats, but counter-terrorists against terrorists. Arena shooter at its core, CS:GO provides you with various methods of disposing enemies and reliant on cooperation within the team. During the round of the classical clash mode, you will gradually receive currency to purchase different equipment. Each player can carry a primary weapon, secondary pistol, knife and a set of grenades, which all can change the battle if wielded by the skilled player. <br />\nObjectives are clear and vary from map to map, from game mode to game mode. Stop the terrorists from planting explosives, stop the counter-terrorist from retrieving the hostages, kill everyone who isn’t you and just perform the best with.<br />\nCS:GO is one of the major cybersport discipline, which makes playing it more exciting to some players. Aside from purchasing the game, CS:GO is infamous for its loot case system, that requires players to purchase keys, in order to open said cases. Customization items consist of weapon skins, weapon stickers, and sprays that do not affect gameplay and have purely visual value to the player.</p>",
-        "company":["Valve Software","Hidden Path Entertainment"]
+        "company":"Valve Software"
     },
 
     {
@@ -87,7 +87,7 @@ const jsonGames = [
         "calification":"4.51",
         "MinRequirements": "Minimum: 1.7 GHz Processor, 512MB RAM, DirectX&reg; 8.1 level Graphics Card (Requires support for SSE), Windows&reg; 7 (32/64-bit)/Vista/XP, Mouse, Keyboard, Internet Connection\r\nRecommended: Pentium 4 processor (3.0GHz, or better), 1GB RAM, DirectX&reg; 9 level Graphics Card, Windows&reg; 7 (32/64-bit)/Vista/XP, Mouse, Keyboard, Internet Connection",
         "RecommendRequirements":"",
-        "company":["Valve Software","NVIDIA Lightspeed Studios"],
+        "company":"Valve Software",
         "genre": ["Adventure","Puzzle"],
         "price": Math.round(Math.random() * (5000.99 - 500.99) + 500.99), 
         "stock": Math.floor(Math.random() * (500 - 0)),
@@ -104,7 +104,7 @@ const jsonGames = [
         "calification":"4.09",
         "MinRequirements": "Minimum:\nOS: Windows® 7 32/64-bit / Vista 32/64 / XP\nProcessor: Pentium 4 3.0GHz\nMemory: 2 GB RAM\nGraphics: Video card with 128 MB, Shader model 2.0. ATI X800, NVidia 6600 or better\nDirectX: Version 9.0c\nStorage: 13 GB available space\nSound Card: DirectX 9.0c compatible sound card",
         "RecommendRequirements":"Recommended:\nOS: Windows® 7 32/64-bit / Vista 32/64 / XP\nProcessor: Intel core 2 duo 2.4GHz\nMemory: 2 GB RAM\nGraphics: Video Card Shader model 3.0. NVidia 7600, ATI X1600 or better\nDirectX: Version 9.0c\nStorage: 13 GB available space\nSound Card: DirectX 9.0c compatible sound card",
-        "company":["Valve Software","Turtle Rock Studios"],
+        "company":"Valve Software",
         "genre": ["Action","Shooter"],
         "price": Math.round(Math.random() * (5000.99 - 500.99) + 500.99), 
         "stock": Math.floor(Math.random() * (500 - 0)),
@@ -120,7 +120,7 @@ const jsonGames = [
         "calification":"4.42",
         "MinRequirements": "Minimum:\nOS: Windows 7/Vista/XP PC (32 or 64 bit)\nProcessor: Dual Core 2.0GHz or equivalent processor\nMemory: 2GB System RAM\nHard Disk Space: 6GB free HDD Space\nVideo Card: Direct X 9.0c compliant video card with 512 MB of RAM\nSound: DirectX compatible sound card\n",
         "RecommendRequirements":"Recommended:\nProcessor: Quad-core Intel or AMD CPU\nMemory: 4GB System RAM\nVideo Card: DirectX 9.0c compatible NVIDIA or AMD ATI video card with 1GB of RAM (Nvidia GeForce GTX 260 or higher; ATI Radeon 4890 or higher)\n",
-        "company":["Bethesda Softworks","Bethesda Game Studios"],
+        "company":"Bethesda Softworks",
         "genre": ["Action","RPG"],
         "price": Math.round(Math.random() * (5000.99 - 500.99) + 500.99), 
         "stock": Math.floor(Math.random() * (500 - 0)),
@@ -137,7 +137,7 @@ const jsonGames = [
         "calification":"4.39",
         "MinRequirements": "Minimum:\nOS: Windows Vista Service Pack 2 32-bit\nProcessor: Intel Core 2 DUO 2.4 GHz / AMD Athlon X2 2.7 GHz\nMemory: 2GB\nHard Disk Space: 20 GB free\nVideo Card: DirectX10 Compatible ATI Radeon HD 3870 / NVIDIA 8800 GT / Intel HD 3000 Integrated Graphics\nVideo Card Memory: 512 MB\nSound: DirectX Compatible",
         "RecommendRequirements":"Recommended:\nOS: Windows 7 Service Pack 1 64-bit\nProcessor: Quad Core Processor\nMemory: 4GB\nHard Disk Space: 30 GB free\nVideo Card: DirectX11 Compatible, AMD Radeon HD 6950 / NVIDIA GeForce GTX 560\nVideo Card Memory: 1024 MB\nSound: DirectX Compatible",
-        "company":["Aspyr Media","Bethesda Game Studios"],
+        "company":"Aspyr Media",
         "genre": ["Action","Shooter"],
         "price": Math.round(Math.random() * (5000.99 - 500.99) + 500.99), 
         "stock": Math.floor(Math.random() * (500 - 0)),
@@ -152,7 +152,7 @@ const jsonGames = [
         "calification":"4.59",
         "MinRequirements": "Minimum:\nRequires a 64-bit processor and operating system\nOS: Windows 7 - Service Pack 1 (6.1.7601)\nProcessor: Intel® Core™ i5-2500K / AMD FX-6300\nMemory: 8 GB RAM\nGraphics: Nvidia GeForce GTX 770 2GB / AMD Radeon R9 280 3GB\nNetwork: Broadband Internet connection\nStorage: 150 GB available space\nSound Card: Direct X Compatible",
         "RecommendRequirements":"Recommended:\nRequires a 64-bit processor and operating system\nOS: Windows 10 - April 2018 Update (v1803)\nProcessor: Intel® Core™ i7-4770K / AMD Ryzen 5 1500X\nMemory: 12 GB RAM\nGraphics: Nvidia GeForce GTX 1060 6GB / AMD Radeon RX 480 4GB\nNetwork: Broadband Internet connection\nStorage: 150 GB available space\nSound Card: Direct X Compatible",
-        "company":["Rockstar Games"],
+        "company":"Rockstar Games",
         "genre": ["Action","Adventure"],
         "price": Math.round(Math.random() * (5000.99 - 500.99) + 500.99), 
         "stock": Math.floor(Math.random() * (500 - 0)),
@@ -168,7 +168,7 @@ const jsonGames = [
         "calification":"4.02",
         "MinRequirements": "Minimum:\nOS: Windows XP SP3\nProcessor: 2.4 GHz Dual Core Processor\nMemory: 2 GB(XP)/ 2 GB(Vista)\nHard Disk Space: 13 GB free\nVideo Memory: 256 MB\nVideo Card: NVIDIA GeForce 8500 /ATI Radeon HD 2600\nSound: DirectX 9.0c Compatible\nOther Requirements:Initial installation requires one-time internet connection for Steam authentication; software installations required (included with the game) include Steam Client, DirectX 9, Microsoft .NET 4 Framework, Visual C++ Redistributable 2005, Visual C++ Redistributable 2008, Visual C++ Redistributable 2010, and AMD CPU Drivers (XP Only/AMD Only)Minimum:\nOS: Windows XP SP3\nProcessor: 2.4 GHz Dual Core Processor\nMemory: 2 GB(XP)/ 2 GB(Vista)\nHard Disk Space: 13 GB free\nVideo Memory: 256 MB\nVideo Card: NVIDIA GeForce 8500 /ATI Radeon HD 2600\nSound: DirectX 9.0c Compatible\nOther Requirements:Initial installation requires one-time internet connection for Steam authentication; software installations required (included with the game) include Steam Client, DirectX 9, Microsoft .NET 4 Framework, Visual C++ Redistributable 2005, Visual C++ Redistributable 2008, Visual C++ Redistributable 2010, and AMD CPU Drivers (XP Only/AMD Only)",
         "RecommendRequirements":"Recommended:\nOS: Windows XP SP3/Vista/Win 7\nProcessor: 2.3 GHz Quad Core processor\nMemory: 2 GB\nHard Disk Space: 20 GB free\nVideo Memory: 512MB\nVideo Card: NVIDIA GeForce GTX 560 / ATI Radeon HD 5850\nSound: DirectX 9.0c Compatible\nOther Requirements:Initial installation requires one-time internet connection for Steam authentication; software installations required (included with the game) include Steam Client, DirectX 9, Microsoft .NET 4 Framework, Visual C++ Redistributable 2005, Visual C++ Redistributable 2008, Visual C++ Redistributable 2010, and AMD CPU Drivers (XP Only/AMD Only)",
-        "company":["Aspyr Media","2K","Gearbox Software","Sony Computer Entertainment America"],
+        "company":"Aspyr Media",
         "genre": ["Action","Shooter","RPG"],
         "price": Math.round(Math.random() * (5000.99 - 500.99) + 500.99), 
         "stock": Math.floor(Math.random() * (500 - 0)),
@@ -184,7 +184,7 @@ const jsonGames = [
         "calification":"4.11",
         "MinRequirements": "",
         "RecommendRequirements":"",
-        "company":["DONTNOD Entertainment"],
+        "company":"DONTNOD Entertainment",
         "genre": ["Adventure"],
         "price": Math.round(Math.random() * (5000.99 - 500.99) + 500.99), 
         "stock": Math.floor(Math.random() * (500 - 0)),
@@ -200,7 +200,7 @@ const jsonGames = [
         "calification":"4.5",
         "MinRequirements": "",
         "RecommendRequirements":"",
-        "company":["Valve Software","NVIDIA Lightspeed Studios"],
+        "company":"Valve Software",
         "genre": ["Shooter","Action"],
         "price": Math.round(Math.random() * (5000.99 - 500.99) + 500.99), 
         "stock": Math.floor(Math.random() * (500 - 0)),
@@ -217,7 +217,7 @@ const jsonGames = [
         "calification":"4.37",
         "MinRequirements": "Minimum: Operating System: Windows XP (with Service Pack 2) or Windows Vista\nCPU: Intel single-core Pentium 4 processor at 2.4GHz\nRAM: 1 GB\nVideo Card: Direct X 9.0c compliant video card with 128MB RAM and Pixel Shader 3.0 (NVIDIA 6600 or better/ATI X1300 or better, excluding ATI X1550)\nSound Card: 100% direct X 9.0c compatible sound card\nHard Drive Space: 8GB\nGame requires Internet connection for activation",
         "RecommendRequirements":"Recommended: CPU: Intel Core 2 Duo processor\nRAM: 2GB\nVideo Card: DX 9 - Direct X 9.0c compliant video card with 512 MB RAM and Pixel Shader 3.0 (NVIDIA GeForce 7900 GT or better), DX 10 - NVIDIA GeForce 8600 or better\nSound Card: SoundBlaster(r) X-Fi(tm) series (optimized foruse with Creative Labs EAX ADVANCED HD 4.0 or EAX ADVANCED HD 5.0 compatible sound cards)",
-        "company":["Digital Extremes","2K Australia","2K Marin","2K China","Irrational Games"],
+        "company":"Digital Extremes",
         "genre": ["Shooter","Action"],
         "price": Math.round(Math.random() * (5000.99 - 500.99) + 500.99), 
         "stock": Math.floor(Math.random() * (500 - 0)),
@@ -235,7 +235,7 @@ const jsonGames = [
         "calification":"4.15",
         "MinRequirements": "OS: Windows XP, Vista, 7\nProcessor: 2 GHz\nMemory: 512MB\nHard Disk Space: 150MB\nVideo Card: 5 years or younger. Integrated graphics and very low budget cards may not work. Shader Model 3.0 required\nDirectX®: 9.0c\n",
         "RecommendRequirements":"",
-        "company":["Double Eleven","Playdead"],
+        "company":"Double Eleven",
         "genre": ["Adventure","Indie","Puzzle","Platformer"],
         "price": Math.round(Math.random() * (5000.99 - 500.99) + 500.99), 
         "stock": Math.floor(Math.random() * (500 - 0)),
@@ -251,7 +251,7 @@ const jsonGames = [
         "calification":"4.38",
         "MinRequirements": "Minimum:\nOS: Windows7,Windows8,Windows10\nProcessor: Intel cpu i3\nMemory: 4 GB RAM\nGraphics: GTX 650\nStorage: 2 GB available space\nSound Card: Realtek",
         "RecommendRequirements":"Recommended:\nOS: Windows7,Windows8,Windows10\nProcessor: Intel cpu i5\nMemory: 8 GB RAM\nGraphics: GTX 770\nStorage: 4 GB available space\nSound Card: Realtek",
-        "company":["Bethesda Softworks","id Software","Panic Button","Tango Gameworks","Escalation Studios","Certain Affinity","Digital Domain","BattleCry Studios"],
+        "company":"Bethesda Softworks",
         "genre": ["Action","Shooter"],
         "price": Math.round(Math.random() * (5000.99 - 500.99) + 500.99), 
         "stock": Math.floor(Math.random() * (500 - 0)),
@@ -268,7 +268,7 @@ const jsonGames = [
         "calification":"4.59",
         "MinRequirements": "Minimum:\nRequires a 64-bit processor and operating system\nOS: Windows 10 64-bit\nProcessor: Intel i5-2500k (4 core 3.3 GHz) or AMD Ryzen 3 1200 (4 core 3.1 GHz)\nMemory: 8 GB RAM\nGraphics: NVIDIA GTX 960 (4 GB) or AMD R9 290X (4 GB)\nDirectX: Version 11\nStorage: 70 GB available space\nAdditional Notes: DirectX feature level 11_1 required",
         "RecommendRequirements":"Recommended:\nRequires a 64-bit processor and operating system\nOS: Windows 10 64-bit\nProcessor: Intel i5-6600k (4 core 3.5 GHz) or AMD Ryzen 5 2400 G (4 core 3.6 GHz)\nMemory: 8 GB RAM\nGraphics: NVIDIA GTX 1060 (6 GB) or AMD RX 570 (4 GB)\nDirectX: Version 11\nStorage: 70 GB available space\nAdditional Notes: DirectX feature level 11_1 required",
-        "company":["Santa Monica Studio","CE Santa Monica Studio"],
+        "company":"Santa Monica Studio",
         "genre": ["Adventure","Action","RPG"],
         "price": Math.round(Math.random() * (5000.99 - 500.99) + 500.99), 
         "stock": Math.floor(Math.random() * (500 - 0)),
@@ -276,7 +276,6 @@ const jsonGames = [
     },
 
 
-
-    
-
 ]
+
+module.exports = { jsonGames }
