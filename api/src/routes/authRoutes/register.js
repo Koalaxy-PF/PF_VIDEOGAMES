@@ -18,11 +18,12 @@ router.post('/register', async(req,res)=>{
             genre
         })
 
-
-        res.send(newUser)
+        //res.send(newUser)
+        res.status(200).send(message: "USUARIO REGISTRADO CORRECTAMENTE")
 
     } catch (err) {
         console.log(err)
+        res.status(500).send(err);
     }
 })
 

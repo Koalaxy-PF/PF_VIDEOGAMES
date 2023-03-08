@@ -326,8 +326,6 @@ const jsonGames = [
     },
 
     */
-=======
->>>>>>> f1930ab7482e5f087616bd14acc1238ed688fbba
 
     {
         "name": "ATOMIC HEART",

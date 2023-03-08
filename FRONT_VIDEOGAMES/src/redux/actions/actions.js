@@ -1,4 +1,5 @@
 import axios from "axios";
+import AuthService from '../../services/Auth.service'
 
 export const GET_GAMES = "GET_GAMES"
 export const GET_BY_ID = "GET_BY_ID"
@@ -12,6 +13,40 @@ export const CLEAN = "CLEAN"
 export const POST_GAME = "POST_GAME"
 export const CLEAN_GAMES = "CLEAN_GAMES"
 export const GET_GAME = "GET_GAME"
+
+// - - - ACCIONES PARA LA AUTENTICACIÓN - - -
+
+export const Register = (username, email, password) => (dispatch) => {
+    return AuthService.Register(username, email, password).then(
+        (response) => {
+            dispatch({
+                type: REGISTER_SUCESS,
+            })
+
+            dispatch({
+
+            })
+        }
+
+
+    )
+}
+
+export const Login = (email, password) => (dispatch) => {
+    return AuthService.Login(email, password).then(
+        (data) => {
+            dispatch({
+                type: LOGIN_SUCCESS,
+                payload: {user: data}
+            })
+
+            return Promise.resolve()
+            
+        }, (error) => {
+            const message = 
+        }
+    )
+}
 
 //action que trae todos los juegos
 export function GetGames(){
