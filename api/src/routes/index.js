@@ -30,9 +30,9 @@ router.use("/products", deleteProducts);
 /* *************************  routes USER   **************************************** */
 router.use("/auth", registerUser);
 router.use("/auth", loginUser);
-/* router.use("/users", getUsers);
+router.use("/users", getUsers);
 router.use("/users", updateUser);
-router.use("/users", deleteUser); */
+router.use("/users", deleteUser);
 
 
 
