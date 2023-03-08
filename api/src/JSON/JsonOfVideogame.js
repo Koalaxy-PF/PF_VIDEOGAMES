@@ -1,6 +1,5 @@
 const jsonGames = [
     {
-        "id": "3498",
         "img":"https://media.rawg.io/media/games/456/456dea5e1c7e3cd07060c14e96612001.jpg",
         "name": "Grand Theft Auto V",
         "genre": ["Acción","Aventura",],
