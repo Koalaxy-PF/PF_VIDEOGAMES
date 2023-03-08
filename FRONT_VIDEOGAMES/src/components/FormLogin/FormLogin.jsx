@@ -1,73 +1,43 @@
 import React, {useEffect, useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import logo from '../../assets/icons/koalaLogo.png';
+import {useForm} from 'react-hook-form'
 
-const validateForm = (input) => {
-    const error = {};
-    if(!input.email.length) error.email = <h3>Please enter an email</h3>
-    if(!input.password.length) error.password = <h3>Please enter your password</h3>
-
-    return error;
-};
 
 export default function LoginForm() {
-    const dispatch = useDispatch();
-    
-    const [input, setInput] = useState({
-        email: '',
-        password: ''
-    });
 
-    const [error, setError] = useState({});
+    const {register, formState:{errors}, handleSubmit}= useForm();
 
-    function handleInputChange (e) {
-        setInput({
-            ...input,
-            [e.target.name]: e.target.value
-        });
-        setError(validateForm({
-            ...input,
-            [e.target.name]: e.target.value
-        }))
-    };
-
-    function handleSubmit (e) {
-        e.preventDefault();
-        if(!input.email || !input.password){
-            return alert ('Please complete all the fields to login')
-        }
-
-    };
+    const onSubmit = (data) => {
+        console.log(data)
+    }
 
     return(
         <div>
-            <img src={logo} alt="" />
-            <form onSubmit={(e) => handleSubmit(e)}>
+            <form onSubmit={handleSubmit(onSubmit)}>
                 <div>
-                <label>Email</label>
-                <input onChange={(e) => handleInputChange(e)} key= 'email' type="text" name='email' value={input.email} />
+                    <label htmlFor="">Email</label>
+                    <input type="text" {...register('email', {
+                        required: true,
+                        minLength: 3,
+                        pattern:  /\S+@\S+\.\S+/
+                    })} />
+                    {errors.email?.type === 'required' && <p>Please enter an email</p>}
+                    {errors.email?.type === 'minLength' && <p>The email must have at least 3 characters</p>}
+                    {errors.email?.type === 'pattern' && <p>Please enter a correct email format </p>}
                 </div>
 
                 <div>
-                    {error.email && <span>{error.email}</span>}
+                    <label htmlFor="">Password</label>
+                    <input type="password"{...register('password' , {
+                        required: true,
+                        minLength: 6
+                    })} />
+                    {errors.password?.type === 'minLength' && <p>The password must have at least 3 characters</p>}
+                    {errors.email?.type === 'required' && <p>Please enter a password</p>}
                 </div>
 
-                <div>
-                    <label >Password</label>
-                    <input onChange={(e) => handleInputChange(e)} key='password' type="password" name='password' value={input.password} />
-                </div>
-
-                <div>
-                    {error.password && <span>{error.password}</span>}
-                </div>
-
-                <div>
-                    <button>Login</button>
-                </div>
-
-
-
-
+                <button type='submit'>Login</button>
             </form>
         </div>
     )
