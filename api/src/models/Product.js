@@ -50,5 +50,8 @@ module.exports = (sequelize) => {
     RecommendRequirements: {
       type: DataTypes.TEXT,
     },
+  },
+  {
+    paranoid: true,
   });
 };
