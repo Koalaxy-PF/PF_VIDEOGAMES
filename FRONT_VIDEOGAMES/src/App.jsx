@@ -11,7 +11,6 @@ import AboutUs from "./components/AboutUs/AboutUs"
 import ReturnLandingPage from "./views/LandingPage/LandingPage"
 
 
-
 export default function App(){
 
   return (
@@ -23,6 +22,7 @@ export default function App(){
         <Route exact path="/CreateGame" element={<CreateGame />} />
         <Route exact path="/AboutUs" element={<AboutUs />} />
         <Route exact path="/products/:id" element={<Details/>} /> 
+        <Route exact path="/login" element={<Login/>} /> 
         <Route exact path="/CreateUser" element={<CreateUser/>} /> 
       </Routes>
     </div>
