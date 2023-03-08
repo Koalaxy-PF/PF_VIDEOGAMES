@@ -1,4 +1,6 @@
 const jsonGames = [
+
+    /*
     {
         "id": "3498",
         "img":"https://media.rawg.io/media/games/456/456dea5e1c7e3cd07060c14e96612001.jpg",
@@ -323,8 +325,133 @@ const jsonGames = [
         "discount": Math.floor(Math.random() * (50 - 0)),  
     },
 
-    
+    */
 
+    {
+        "name": "ATOMIC HEART",
+        "description": "Ten encuentros explosivos en un delirante y sublime mundo utópico. Adapta tu estilo de combate a cada rival, aprovecha el entorno y mejora el equipamiento para cumplir la misión. El precio de averiguar la verdad tendrás que pagarlo con sangre.",
+        "released": "2023-02-20",
+        "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/668580/capsule_616x353.jpg?t=1676995676",
+        "calification": "4.60",
+        "MinRequeriments": "Tener PC",
+        "RecommendRequeriments": "Tener DJDSJSDKJDSKSD",
+        "company": ["Mundfish"],
+        "genre": ["Action", "Adventure", "Rol"],
+        "price": 60,
+        "discount": 0,
+    },
+
+    {
+        "name": "OCTOPATH TRAVELER II",
+        "description": "Un juego nuevo de rol de la saga OCTOPATH TRAVELER, cuya primera entrega se publicó en 2018 y vendió más de tres millones de copias en todo el mundo.",
+        "released": "2023-02-24",
+        "img": "https://cdn.akamai.steamstatic.com/steam/apps/1971650/capsule_616x353.jpg?t=1677885098",
+        "calification": "4.3",
+        "MinRequeriments": "Tener PC",
+        "RecommendRequeriments": "Tener DJDSJSDKJDSKSD",
+        "company": ["Square Enix", "ACQUIRE Corp"],
+        "genre": ["Rol"],
+        "price": 60,
+        "discount": 0,
+    },
+
+    {
+        "name": "WO LONG: FALLEN DYNASTY",
+        "description": "Un juego nuevo de rol de la saga OCTOPATH TRAVELER, cuya primera entrega se publicó en 2018 y vendió más de tres millones de copias en todo el mundo.",
+        "released": "2023-03-03",
+        "img": "https://cdn.akamai.steamstatic.com/steam/apps/1448440/header.jpg?t=1677836173",
+        "calification": "4.3",
+        "MinRequeriments": "Tener PC",
+        "RecommendRequeriments": "Tener DJDSJSDKJDSKSD",
+        "company": ["KOEI TECMO GAMES CO., LTD"],
+        "genre": ["Action", "Adventure", "Rol"],
+        "price": 60,
+        "discount": 0,
+    },
+
+    {
+        "name": "LIKE A DRAGON: ISHIN!",
+        "description": "En 1860 Kioto está plagado de desigualdades y un samurái cambiará el curso de la historia en su búsqueda de la justicia. Desenvaina tu espada y únete a la revolución en esta aventura histórica. Reserva ahora para añadir tres armas exclusivas a tu arsenal.",
+        "released": "2023-02-21",
+        "img": "https://cdn.akamai.steamstatic.com/steam/apps/1805480/header.jpg",
+        "calification": "4.3",
+        "MinRequeriments": "Tener PC",
+        "RecommendRequeriments": "Tener DJDSJSDKJDSKSD",
+        "company": ["Ryu Ga Gotoku Studio"],
+        "genre": ["Action", "Adventure"],
+        "price": 60,
+        "discount": 0,
+    },
+
+    {
+        "name": "HI-FI RUSH",
+        "description": "Siente el ritmo mientras el aspirante a estrella Chai y su variopinto equipo luchan con una megacorporación en atronadores combates de ritmo. De la mano de Tango Gameworks, llega Hi-Fi RUSH, un juego de acción en el que el mundo se sincroniza con la música.",
+        "released": "2023-01-25",
+        "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/1817230/header.jpg?t=1675874328",
+        "calification": "4.3",
+        "MinRequeriments": "Tener PC",
+        "RecommendRequeriments": "Tener DJDSJSDKJDSKSD",
+        "company": ["Tango Gameworks"],
+        "genre": ["Action"],
+        "price": 30,
+        "discount": 0,
+    },
+
+    {
+        "name": "LIKE A DRAGON: ISHIN!",
+        "description": "En 1860 Kioto está plagado de desigualdades y un samurái cambiará el curso de la historia en su búsqueda de la justicia. Desenvaina tu espada y únete a la revolución en esta aventura histórica. Reserva ahora para añadir tres armas exclusivas a tu arsenal.",
+        "released": "2023-01-25",
+        "img": "https://cdn.akamai.steamstatic.com/steam/apps/1971650/capsule_616x353.jpg?t=1677885098",
+        "calification": "4.3",
+        "MinRequeriments": "Tener PC",
+        "RecommendRequeriments": "Tener DJDSJSDKJDSKSD",
+        "company": ["Ryu Ga Gotoku Studio"],
+        "genre": ["Action", "Adventure"],
+        "price": 60,
+        "discount": 0,
+    },
+
+    {
+        "name": "SONS OF THE FOREST",
+        "description": "Enviado a buscar a un multimillonario desaparecido en una isla remota, te encuentras en un infierno infestado de caníbales. Crea, construye y lucha para sobrevivir, solo o con amigos, en este nuevo y aterrador simulador de horror y supervivencia de mundo abierto.",
+        "released": "2023-02-23",
+        "img": "https://cdn.akamai.steamstatic.com/steam/apps/1971650/capsule_616x353.jpg?t=1677885098",
+        "calification": "4.3",
+        "MinRequeriments": "Tener PC",
+        "RecommendRequeriments": "Tener DJDSJSDKJDSKSD",
+        "company": ["Endnight Games"],
+        "genre": ["Action", "Adventure", "Indie"],
+        "price": 30,
+        "discount": 0,
+    },
+
+    {
+        "name": "HOGWARTS LEGACY",
+        "description": "Hogwarts Legacy es un RPG inmersivo de acción en mundo abierto. Ahora puedes tomar el control de la acción y ser el centro de tu propia aventura en el mundo mágico.",
+        "released": "2023-02-10",
+        "img": "https://cdn.akamai.steamstatic.com/steam/apps/1971650/capsule_616x353.jpg?t=1677885098",
+        "calification": "4.3",
+        "MinRequeriments": "Tener PC",
+        "RecommendRequeriments": "Tener DJDSJSDKJDSKSD",
+        "company": ["Avalanche Software"],
+        "genre": ["Action", "Adventure", "Rol"],
+        "price": 60,
+        "discount": 0,
+    },
+
+    {
+        "name": "FIFA 23",
+        "description": "FIFA 23 nos acerca a The World's Game con la tecnología HyperMotion2, la FIFA World Cup™ masculina y femenina disponibles durante la temporada, clubes femeninos, función de juego cruzado* y mucho más.",
+        "released": "2022-09-30",
+        "img": "https://cdn.akamai.steamstatic.com/steam/apps/1971650/capsule_616x353.jpg?t=1677885098",
+        "calification": "4.3",
+        "MinRequeriments": "Tener PC",
+        "RecommendRequeriments": "Tener DJDSJSDKJDSKSD",
+        "company": ["EA Canada & EA Romania"],
+        "genre": ["Simulation", "Sports"],
+        "price": 60,
+        "discount": 0,
+    },
 ]
 
 module.exports = { jsonGames};
