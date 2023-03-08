@@ -9,6 +9,7 @@ import CreateGame from "./views/CreateGame/CreateGame"
 import Store from './views/Store/Store'
 import AboutUs from "./components/AboutUs/AboutUs"
 import ReturnLandingPage from "./views/LandingPage/LandingPage"
+import Login from "./views/Login/Login"
 
 
 export default function App(){
