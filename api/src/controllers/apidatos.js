@@ -1,5 +1,5 @@
 const axios = require("axios");
-const { Company,Product } = require("../db.js");
+const { Company, Product } = require("../db.js");
 
 const getDetail = async (id) => {
   const detail = await axios.get(
@@ -24,7 +24,7 @@ const apicompany = async () => {
     objeto.name = res[i];
     obj.push(objeto);
   }
-  
+
   console.log(obj);
   return obj;
 };

@@ -15,7 +15,6 @@ router.get("/", async (req, res) => {
         where: {
           name: {
             [Op.iLike]: `%${name}%`,
-            // Si escribo "orta", me va a traer "Portal". Para eso son los %
           },
         },
       });
@@ -25,7 +24,7 @@ router.get("/", async (req, res) => {
         return {
           img: product.img,
           name: product.name,
-          genre: product.genre,
+          genre:  product.genre,
           MinRequirements: product.MinRequirements,
           RecommendRequirements: product.RecommendRequirements,
           calification: product.calification,
