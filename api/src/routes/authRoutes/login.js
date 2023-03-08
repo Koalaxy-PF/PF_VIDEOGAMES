@@ -19,16 +19,13 @@ router.post('/login', async(req,res)=>{
         originalPassword !== password && res.send('Incorrect password o username.');
 
         const accessToken = jwt.sign(
-            {id: user.id, is_admin: user.is_admin},
+            {id: user.id, is_admin: user.is_admin}, //credenciales
             process.env.SECRET_KEY_CRYPTO,
             {expiresIn:86400}
         );
 
-            res.send({user, accessToken})
-        /* TENGO QUE ENCONTRAR EL SEMEJANTE DE ._DOC DE MONGO EN SQL 
-        const {password, ...info} = user._doc  //para que el response no tenga la contraseña
-        res.send({...info, accessToken});
-         */
+        res.send({user, accessToken})
+
 
     } catch (err) {
         console.log(err)

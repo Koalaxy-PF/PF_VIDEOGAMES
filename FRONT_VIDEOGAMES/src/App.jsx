@@ -9,6 +9,7 @@ import CreateGame from "./views/CreateGame/CreateGame"
 import Store from './views/Store/Store'
 import AboutUs from "./components/AboutUs/AboutUs"
 import ReturnLandingPage from "./views/LandingPage/LandingPage"
+import CreateUser from "./views/createUser/createUser"
 
 
 export default function App(){
@@ -22,6 +23,7 @@ export default function App(){
         <Route exact path="/CreateGame" element={<CreateGame />} />
         <Route exact path="/AboutUs" element={<AboutUs />} />
         <Route exact path="/products/:id" element={<Details/>} /> 
+        <Route exact path="/CreateUser" element={<CreateUser/>} /> 
       </Routes>
     </div>
   );
