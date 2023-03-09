@@ -35,7 +35,7 @@ export default function CreateUser() {
   const { register, formState: { errors }, watch, handleSubmit } = useForm({
     defaultValues: {
         img: 'https://w7.pngwing.com/pngs/741/68/png-transparent-user-computer-icons-user-miscellaneous-cdr-rectangle-thumbnail.png',
-  
+        is_banned: false
     }
 });
   // const [input, setInput] = useState({
@@ -124,16 +124,16 @@ export default function CreateUser() {
               <form onSubmit={handleSubmit(onSubmit)} class=' relative bottom-[60px] bg-[#5E9FA3] justify-center w-[530px] m-auto pt-[55px] pb-20 text-center border-gray-400 '>
                  <h1 class='text-[30px] mb-[50px] text-white'>Create User</h1>
                 <div class='my-4 mr-20 grid grid-cols-2 justify-center'>
-                  <label class='text-white '>Username: </label>
+                  <label class='text-black '>Username: </label>
                   <input  class='rounded-md w-[250px] relative '    
                     type="text" {...register('username' , {
                     required: true,
                     maxLength: 50,
                     minLength: 3
                     })} />
-                      {errors.username?.type === 'required' && <p class='text-red'> the user name is required</p>}
-                      {errors.username?.type === 'maxLength' && <p >the maximum capacity of characters allowed is 50</p>}
-                      {errors.username?.type === 'minLength' && <p >the minimum capacity of characters allowed is 3</p>}
+                      {errors.username?.type === 'required' && <p class='text-red-600'> the user name is required</p>}
+                      {errors.username?.type === 'maxLength' && <p class='text-red-600'>the maximum capacity of characters allowed is 50</p>}
+                      {errors.username?.type === 'minLength' && <p class='text-red-600'>the minimum capacity of characters allowed is 3</p>}
                 </div>
 
                 {/* <div class='flex justify-center'>
@@ -141,17 +141,17 @@ export default function CreateUser() {
                 </div> */}
 
                 <div class='my-4  mr-20 grid grid-cols-2' >
-                <label class='text-white '>Email</label>
+                <label class='text-black '>Email</label>
                       <input type="text" {...register('email', {
                           pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/i,
                           required: true,
                           maxLength: 50,
                           minLength: 3
                       })} />
-                      {errors.email?.type === 'pattern' && <p >The email format is incorrect</p>}
-                      {errors.email?.type === 'required' && <p class='text-red'> the email is required</p>}
-                      {errors.email?.type === 'maxLength' && <p >the maximum capacity of characters allowed is 50</p>}
-                      {errors.email?.type === 'minLength' && <p >wrong email</p>}
+                      {errors.email?.type === 'pattern' && <p class='text-red-600'>The email format is incorrect</p>}
+                      {errors.email?.type === 'required' && <p class='text-red-600'> the email is required</p>}
+                      {errors.email?.type === 'maxLength' && <p class='text-red-600'>the maximum capacity of characters allowed is 50</p>}
+                      {errors.email?.type === 'minLength' && <p class='text-red-600'>wrong email</p>}
                 </div>
 
                 {/* <div class='flex justify-center'>
@@ -159,11 +159,10 @@ export default function CreateUser() {
                 </div> */}
 
                 <div class='my-4  mr-20 grid grid-cols-2'>
-                <label class='text-white '>Name</label>
+                <label class='text-black '>Name</label>
                       <input type="text" {...register('nombre', {
                           required: true
                       })} />
-                      {errors.nombre?.type === 'required' && <p>the name is required</p>}
                 </div>
 
                 {/* <div class='flex justify-center'>
@@ -171,13 +170,13 @@ export default function CreateUser() {
                 </div> */}
 
                 <div class='my-4  mr-20 grid grid-cols-2'>
-                  <label class='text-white'> Last name: </label>
+                  <label class='text-black'> Last name: </label>
                   <input  class='rounded-md w-[250px] relative'
                 
                     type="text"  {...register('last_name', {
                       required: true,
                   })} />
-                  {errors.last_name?.type === 'required' && <p>the last name is required</p>}
+                  {errors.last_name?.type === 'required' && <p class='text-red-600' >the last name is required</p>}
                 </div>
       {/* 
                 <div class='flex justify-center'>
@@ -185,13 +184,13 @@ export default function CreateUser() {
                 </div> */}
 
                 <div class='my-4  mr-20 grid grid-cols-2'>
-                  <label class='text-white'>Password: </label>
+                  <label class='text-black'>Password: </label>
                   <input  class='rounded-md w-[250px] relative'
               
                   type="password" {...register('password', {
                     required: true,
                 })} />
-                {errors.password?.type === 'required' && <p>the passaword is required</p>}
+                {errors.password?.type === 'required' && <p class='text-red-600'>the passaword is required</p>}
                 </div>
 
                 {/* <div class='flex justify-center'>
@@ -200,7 +199,7 @@ export default function CreateUser() {
 
 
                 <div class='my-4  mr-20 grid grid-cols-2'>
-                  <label class='text-white'>Image: </label>
+                  <label class='text-black'>Image: </label>
                   <input  class='rounded-md w-[250px] relative'
                 
                     type="text"
@@ -209,13 +208,13 @@ export default function CreateUser() {
                 </div>
 
                 <div class='my-4  mr-20 grid grid-cols-2'>
-                  <label class='text-white'>Date: </label>
+                  <label class='text-black'>Date: </label>
                   <input  class='rounded-md w-[250px] relative'
                 
                     type="date" {...register('date', {
                       required: true,
                   })} />
-                  {errors.date?.type === 'required' && <p>the date is required</p>}
+                  {errors.date?.type === 'required' && <p class='text-red-600'> the date is required</p>}
                 </div>
 
                 {/* <div class='flex justify-center'>
@@ -223,7 +222,7 @@ export default function CreateUser() {
                 </div> */}
 
                 <div class='my-4 mr-20 grid grid-cols-2'>
-                  <label class='text-white'>Description: </label>
+                  <label class='text-black'>Description: </label>
                   <input  class='rounded-md w-[250px] relative'
               
                     type="text" 
@@ -232,7 +231,7 @@ export default function CreateUser() {
                 </div>
 
                 <div class='my-4  mr-20 grid grid-cols-2'>
-                  <label class='text-white'>Genre</label>
+                  <label class='text-black'>Genre</label>
                   <select name="genre" class='rounded-md w-[250px] relative' >
                       <option value="">Select Genre</option>
                       {
