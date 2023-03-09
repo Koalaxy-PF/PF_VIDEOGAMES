@@ -11,7 +11,6 @@ import ReturnLandingPage from "./views/LandingPage/LandingPage"
 import QA from "./components/QA/QA"
 import CreateUser from "./views/createUser/createUser"
 import Login from "./views/Login/Login"
-import Register from "./views/Register/Register"
 
 export default function App(){
 

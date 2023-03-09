@@ -5,6 +5,9 @@ import { useForm } from "react-hook-form";
 //import validate from "./validators.jsx";
 import img from '../../assets/login/koala_login.jpg'
 import Footer from "../../components/Footer/Footer";
+import { Register } from "../../redux/actions/actions";
+import { useNavigate } from "react-router-dom";
+import Swal from 'sweetalert2'
 
 
 // const validateForm = (input) => {
@@ -24,11 +27,10 @@ import Footer from "../../components/Footer/Footer";
 //   return error;
 // }
 
+export default function CreateUser(){
 
-
-export default function CreateUser() {
- const dispatch = useDispatch();
-  //const history = useHistory();
+  const dispatch = useDispatch()
+  const navigate = useNavigate();
 
   const [error, setErrors] = useState({});
 
@@ -101,9 +103,26 @@ export default function CreateUser() {
   const genre = ['male', 'female']
 
   const onSubmit = (data) => {
-    console.log(data);
-}
-
+    dispatch(Register(data)).then((response) => {
+      Swal.fire({
+        title: '¡Buen trabajo!',
+        text: response.data.message,
+        icon: 'success',
+        confirmButtonColor: '#3085d6',
+        confirmButtonText: 'Continuar'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate("/Login");
+      }})})
+      .catch((err) => {
+        Swal.fire({
+          tittle: '¡Ops! Hay un problema',
+          text: err.response.data.message,
+          icon: "error",
+          confirmButtonText: "Continuar"
+        })
+      })
+    }
 
   return (
     <div >
@@ -160,7 +179,7 @@ export default function CreateUser() {
 
                 <div class='my-4  mr-20 grid grid-cols-2'>
                 <label class='text-black '>Name</label>
-                      <input type="text" {...register('nombre', {
+                      <input type="text" {...register('name', {
                           required: true
                       })} />
                 </div>

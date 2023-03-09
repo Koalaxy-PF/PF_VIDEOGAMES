@@ -26,27 +26,16 @@ export const SET_MESSAGE = "SET_MESSAGE"
 
 // - - - ACCIONES PARA LA AUTENTICACIÓN - - -
 
-export const Register = (username, email, password) => (dispatch) => {
-    return AuthService.Register(username, email, password).then(
-        (response) => {
-            dispatch({
-                type: REGISTER_SUCESS,
-            })
-
-            dispatch({
-
-            })
-        }
-
-    )
+export const Register = (data) => (dispatch) => {
+    return AuthService.Register(data);
 }
 
-export const Login = (email, password) => (dispatch) => {
-    return AuthService.Login(email, password).then(
-        (data) => {
+export const Login = (data) => (dispatch) => {
+    return AuthService.Login(data).then(
+        (info) => {
             dispatch({
-                type: LOGIN_SUCCESS,
-                payload: {user: data}
+                type: LOGIN_SUCESS,
+                payload: {user: info}
             })
 
             return Promise.resolve()

@@ -13,7 +13,7 @@ export default function LoginForm(){
 
     const onSubmit = (data) => {
         dispatch(Login(data)).then(() => {
-            navigate('/home');
+            navigate("/Store");
         })
     }
 

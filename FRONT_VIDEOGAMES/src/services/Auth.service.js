@@ -4,13 +4,13 @@ const API_URL = "http://localhost:3000/auth/"
 
 class AuthService{
     
-    Register(username, name, last_name, email, password, img, date, description, genre){
-      return axios.post(API_URL + "register", {username, name, last_name, email, password, img, date, description, genre})
+    Register(data){
+      return axios.post(API_URL + "register", data);
     }
 
-    Login(email, password){
+    Login(data){
       return axios
-        .post(API_URL + "login", { email, password })
+        .post(API_URL + "login", data)
         .then((response) => {
           if (response.data.accessToken) {
             localStorage.setItem("user", JSON.stringify(response.data));

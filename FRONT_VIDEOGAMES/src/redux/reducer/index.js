@@ -22,7 +22,7 @@ const initialState = {
     GamesCopy:[],
     Genres:[],
     details:[],
-    user:{},
+    user:{}
 }
 
 function rootReducer(state = initialState, action){
@@ -34,8 +34,14 @@ function rootReducer(state = initialState, action){
         case LOGIN_SUCESS:
             return{
                 ...state,
-                user: payload.user,
+                user: action.payload.user,
         }
+
+        case LOGIN_FAIL:
+            return{
+                ...state,
+
+            }
 
         case GET_GAMES:
             return{
