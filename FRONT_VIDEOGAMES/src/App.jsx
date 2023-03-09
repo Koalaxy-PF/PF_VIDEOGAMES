@@ -24,6 +24,7 @@ export default function App(){
         <Route exact path="/AboutUs" element={<AboutUs />} />
         <Route exact path="/products/:id" element={<Details/>} /> 
         <Route exact path="/login" element={<Login/>} /> 
+        <Route exact path="/CreateUser" element={<CreateUser/>} /> 
       </Routes>
     </div>
   );
