@@ -67,13 +67,13 @@ const deleteProductCart = async (req, res) => {
         where: { id: productCardId }
     });
     if(!productCart){
-        res.send("no se puede eliminar un producto que no agregaste tonto ")
+        res.status(404).send("no se puede eliminar un producto que no agregaste tonto ")
     }
     await productCart.destroy();
 
     const cart = await Cart.findOne({ where: { id: productCart.cartId} });
     updateTotalValue(cart); 
-    res.send('Product has been removed');
+    res.status(200).send('Product has been removed');
     } catch (error) {
         console.log(error)
     }
