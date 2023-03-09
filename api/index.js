@@ -3,7 +3,7 @@ const { conn, Product, Company } = require("./src/db.js");
 const { gameInfoFinal, apicompany } = require("./src/controllers/apidatos");
 const {jsonGames} = require("./src/JSON/JsonOfVideogame")
 
-conn.sync({ force: true }).then(() => {
+conn.sync({ force: false }).then(() => {
   // si tenes en true, renueva la base de datos
 
   app.listen(3000, async () => {
