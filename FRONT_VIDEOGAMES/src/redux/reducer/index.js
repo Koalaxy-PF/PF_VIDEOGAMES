@@ -11,23 +11,37 @@ import {
     CLEAN,
     CLEAN_GAMES,
     GET_GAME,
+    LOGIN_SUCESS,
+    LOGIN_FAIL,
 } from "../actions/actions"
+
+const user = JSON.parse(localStorage.getItem("user"));
 
 const initialState = {
     Games:[],
     GamesCopy:[],
     Genres:[],
-    details:[]
+    details:[],
+    user:{},
 }
 
 function rootReducer(state = initialState, action){
-
+    
     switch(action.type){
+
+        // - - - AUTENTICACIÓN - - -
+
+        case LOGIN_SUCESS:
+            return{
+                ...state,
+                user: payload.user,
+        }
+
         case GET_GAMES:
-        return{
-            ...state,
-            Games: action.payload,
-            GamesCopy: action.payload,
+            return{
+                ...state,
+                Games: action.payload,
+                GamesCopy: action.payload,
         }
 
         case GET_GAME:

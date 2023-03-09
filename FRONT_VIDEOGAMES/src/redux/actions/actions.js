@@ -14,6 +14,16 @@ export const POST_GAME = "POST_GAME"
 export const CLEAN_GAMES = "CLEAN_GAMES"
 export const GET_GAME = "GET_GAME"
 
+// RUTAS PARA LA AUTENTICACIÓN
+
+export const REGISTER_SUCESS = "REGISTER_SUCESS"
+export const REGISTER_FAIL = "REGISTER_FAIL"
+export const LOGIN_SUCESS = "LOGIN_SUCESS"
+export const LOGIN_FAIL = "LOGIN_FAIL"
+export const LOGOUT = "LOGOUT"
+export const SET_MESSAGE = "SET_MESSAGE"
+
+
 // - - - ACCIONES PARA LA AUTENTICACIÓN - - -
 
 export const Register = (username, email, password) => (dispatch) => {
@@ -27,7 +37,6 @@ export const Register = (username, email, password) => (dispatch) => {
 
             })
         }
-
 
     )
 }
@@ -43,7 +52,7 @@ export const Login = (email, password) => (dispatch) => {
             return Promise.resolve()
             
         }, (error) => {
-            const message = 
+           
         }
     )
 }

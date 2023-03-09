@@ -3,7 +3,7 @@ const router = Router();
 const { User, Role } = require('../../db');
 const CryptoJS = require("crypto-js");
 
-router.post('/register', async(req,res)=>{
+router.post('/register', async(req,res)=> {
     const { username, name, last_name, email, password, img, date, description, genre } = req.body;
     try {
         const newUser = await User.create({
@@ -18,8 +18,7 @@ router.post('/register', async(req,res)=>{
             genre
         })
 
-        //res.send(newUser)
-        res.status(200).send(message: "USUARIO REGISTRADO CORRECTAMENTE")
+        res.status(200).send({message: 'USUARIO REGISTRADO CORRECTAMENTE'})
 
     } catch (err) {
         console.log(err)
