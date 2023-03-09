@@ -18,6 +18,10 @@ const getUsers = require('./userRoutes/get');
 const updateUser = require('./userRoutes/put');
 const deleteUser = require('./userRoutes/delete');
 
+const getCart = require('./cartsRoutes/get')
+const addProduct = require('./cartsRoutes/post')
+const deleteCart = require('./cartsRoutes/delete')
+
 
 /* *************************  routes GENRES   **************************************** */
 router.use("/genres", getGenres);
@@ -43,6 +47,11 @@ router.use("/users", deleteUser);
 
 
 
+
+/* *************************  routes CARRITO   **************************************** */
+router.use("/cart",getCart);
+router.use("/cart/addProduct",addProduct);
+router.use("/cart/delete",deleteCart);
 
 
 
