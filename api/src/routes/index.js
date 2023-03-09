@@ -4,6 +4,7 @@ const router = Router();
 const getGenres = require("./genreRoutes/get");
 const postGenres = require("./genreRoutes/post");
 const deleteGenres = require("./genreRoutes/delete");
+
 const getCompany = require("./companyRoutes/get");
 
 const getProducts = require("./productRoutes/get");
@@ -13,13 +14,13 @@ const deleteProducts = require("./productRoutes/delete");
 
 const registerUser = require("./authRoutes/register");
 const loginUser = require("./authRoutes/login");
+const getUsers = require("./userRoutes/get");
+const updateUser = require("./userRoutes/put");
+const deleteUser = require("./userRoutes/delete");
 
-const registerUser = require('./authRoutes/register');
-const loginUser = require('./authRoutes/login');
-const getUsers = require('./userRoutes/get');
-const updateUser = require('./userRoutes/put');
-const deleteUser = require('./userRoutes/delete');
-
+const order = require("./paypal/order");
+const payOrder = require("./paypal/payOrder");
+const cancelPayment = require("./paypal/cancelPayment");
 
 /* *************************  routes GENRES   **************************************** */
 router.use("/genres", getGenres);
@@ -42,5 +43,11 @@ router.use("/auth", loginUser);
 router.use("/users", getUsers);
 router.use("/users", updateUser);
 router.use("/users", deleteUser);
+
+/* *************************  routes PAYPAL   **************************************** */
+
+router.use("/order", order);
+router.use("/pay-order", payOrder);
+router.use("/cancel-payment", cancelPayment);
 
 module.exports = router;
