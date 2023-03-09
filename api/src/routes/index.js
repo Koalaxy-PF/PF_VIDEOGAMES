@@ -18,6 +18,10 @@ const getUsers = require("./userRoutes/get");
 const updateUser = require("./userRoutes/put");
 const deleteUser = require("./userRoutes/delete");
 
+const getCart = require("./cartsRoutes/get");
+const addProduct = require("./cartsRoutes/post");
+const deleteCart = require("./cartsRoutes/delete");
+
 const order = require("./paypal/order");
 const payOrder = require("./paypal/payOrder");
 const cancelPayment = require("./paypal/cancelPayment");
@@ -49,5 +53,10 @@ router.use("/users", deleteUser);
 router.use("/order", order);
 router.use("/pay-order", payOrder);
 router.use("/cancel-payment", cancelPayment);
+
+/* *************************  routes CARRITO   **************************************** */
+router.use("/cart", getCart);
+router.use("/cart/addProduct", addProduct);
+router.use("/cart/delete", deleteCart);
 
 module.exports = router;

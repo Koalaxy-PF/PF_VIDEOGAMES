@@ -104,23 +104,23 @@ const  HandlerFilterTypeFerCompany = (e) =>{
                         <select className='px-3 bg-[#1cecf4] text-white py-3 rounded-xl border-2 border-white text-center text-xl hover:bg-transparent hover:text-black' onChange={e => HandlerFilterTypeFerCompany(e)}  >
                                 <option value="all"> companies </option>
                                 <option value="Rockstar North">Rockstar North</option>
-                                <option value="CD PROJEKT RED">CD PROJEKT RED</option>
+                                {/* <option value="CD PROJEKT RED">CD PROJEKT RED</option> */}
                                 <option value="Valve Software">Valve Software</option>
-                                <option value="Crystal Dynamics">Crystal Dynamics</option>
+                                {/* <option value="Crystal Dynamics">Crystal Dynamics</option> */}
                                 <option value="Bethesda Softworks">Bethesda Softworks</option>
-                                <option value="Aspyr Media">Aspyr Media</option>
+                                {/* <option value="Aspyr Media">Aspyr Media</option> */}
                                 <option value="Rockstar Games">Rockstar Games</option>
-                                <option value="DONTNOD Entertainment">DONTNOD Entertainment</option>
-                                <option value="Digital Extremes">Digital Extremes</option>
-                                <option value="Double Eleven">Double Eleven</option>
+                                {/* <option value="DONTNOD Entertainment">DONTNOD Entertainment</option> */}
+                                {/* <option value="Digital Extremes">Digital Extremes</option> */}
+                                {/* <option value="Double Eleven">Double Eleven</option> */}
                                 <option value="Santa Monica Studio">Santa Monica Studio</option>
-                                <option value="Bethesda Game Studios">Bethesda Game Studios</option>
-                                <option value="Vicarious Visions">Vicarious Visions</option>
-                                <option value="505 Games">505 Games</option>
-                                <option value="Guerrilla Games">Guerrilla Games</option>
-                                <option value="Psyonix">Psyonix</option>
-                                <option value="Engine Software">Engine Software</option>
-                                <option value="4A Games">4A Games</option>
+                                {/* <option value="Bethesda Game Studios">Bethesda Game Studios</option> */}
+                                {/* <option value="Vicarious Visions">Vicarious Visions</option>
+                                <option value="505 Games">505 Games</option> */}
+                                {/* <option value="Guerrilla Games">Guerrilla Games</option>
+                                <option value="Psyonix">Psyonix</option> */}
+                                {/* <option value="Engine Software">Engine Software</option>
+                                <option value="4A Games">4A Games</option> */}
 
 
                         </select>

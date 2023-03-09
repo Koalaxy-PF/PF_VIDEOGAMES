@@ -1,6 +1,5 @@
 const jsonGames = [
   {
-    id: "3498",
     img: "https://media.rawg.io/media/games/456/456dea5e1c7e3cd07060c14e96612001.jpg",
     name: "Grand Theft Auto V",
     genre: ["Acción", "Aventura"],
@@ -10,7 +9,7 @@ const jsonGames = [
       "Recommended:OS: Windows 10 64 Bit, Windows 8.1 64 Bit, Windows 8 64 Bit, Windows 7 64 Bit Service Pack 1Processor: Intel Core i5 3470 @ 3.2GHz (4 CPUs) / AMD X8 FX-8350 @ 4GHz (8 CPUs)Memory: 8 GB RAMGraphics: NVIDIA GTX 660 2GB / AMD HD 7870 2GBStorage: 72 GB available spaceSound Card: 100% DirectX 10 compatibleAdditional Notes:",
     calification: "4.47",
     released: "2013-09-17",
-    price: Math.round(Math.random() * (5000.99 - 500.99) + 500.99),
+    price: Math.round(Math.random() * (100.99 - 1.99) + 1.99),
     stock: Math.floor(Math.random() * (500 - 0)),
     discount: Math.floor(Math.random() * (50 - 0)),
     description:
@@ -18,7 +17,6 @@ const jsonGames = [
     company: "Rockstar North",
   },
   {
-    id: "3328",
     img: "https://media.rawg.io/media/games/618/618c2031a07bbff6b4f611f10b6bcdbc.jpg",
     name: "The Witcher 3: Wild Hunt",
     genre: ["Action", "Aventura", "RPG"],
@@ -26,7 +24,7 @@ const jsonGames = [
     RecommendRequirements: "",
     calification: "4.66",
     released: "2015-05-18",
-    price: Math.round(Math.random() * (5000.99 - 500.99) + 500.99),
+    price: Math.round(Math.random() * (100.99 - 1.99) + 1.99),
     stock: Math.floor(Math.random() * (500 - 0)),
     discount: Math.floor(Math.random() * (50 - 0)),
     description:
@@ -34,7 +32,6 @@ const jsonGames = [
     company: "CD PROJEKT RED",
   },
   {
-    id: "4200",
     img: "https://media.rawg.io/media/games/328/3283617cb7d75d67257fc58339188742.jpg",
     name: "Portal 2",
     genre: ["Shooter", "Puzzle"],
@@ -42,7 +39,7 @@ const jsonGames = [
     RecommendRequirements: "",
     calification: "4.62",
     released: "2011-04-18",
-    price: Math.round(Math.random() * (5000.99 - 500.99) + 500.99),
+    price: Math.round(Math.random() * (100.99 - 1.99) + 1.99),
     stock: Math.floor(Math.random() * (500 - 0)),
     discount: Math.floor(Math.random() * (50 - 0)),
     description:
@@ -51,7 +48,6 @@ const jsonGames = [
   },
 
   {
-    id: "5286",
     img: "https://media.rawg.io/media/games/021/021c4e21a1824d2526f925eff6324653.jpg",
     name: "Tomb Raider (2013)",
     genre: ["Action", "Adventure"],
@@ -65,11 +61,10 @@ const jsonGames = [
     discount: Math.floor(Math.random() * (50 - 0)),
     description:
       "<p>A cinematic revival of the series in its action third person form, Tomb Rider follows Lara in her least experience period of life – her youth. Heavily influenced by Naughty Dog’s “Uncharted”, the game is a mix of everything, from stealth and survival to combat and QTE action scenes.<br />\nYoung Lara Croft arrives on the Yamatai, lost island near Japan, as the leader of the expedition in search of the Yamatai Kingdom, with a diverse team of specialists. But shipwreck postponed the successful arrival and seemingly forgotten island is heavily populated with hostile inhabitants, cultists of Solarii Brotherhood.<br />\nThe game will be graphic at times, especially after failed QTE’s during some of the survival scenes, but overall players will enjoy classic action adventure, reminiscent of the beginning of the series. This game is not a direct sequel or continuation of existing sub-series within the franchise, but a reboot, setting up Tomb Raider to represent modern gaming experience.<br />\nThe game has RPG elements and has a world, which you can explore during the story campaign and after the completion. As well as multiplayer mode, where 2 teams (4 scavengers and 4 survivors) are clashing in 3 game modes while using weapons and environments from the single-player campaign.</p>",
-    company: ["Crystal Dynamics"],
+    company: "Crystal Dynamics",
   },
 
   {
-    id: "4291",
     img: "https://media.rawg.io/media/games/736/73619bd336c894d6941d926bfd563946.jpg",
     name: "Counter-Strike: Global Offensive",
     genre: ["Action", "Shooter"],
@@ -78,7 +73,7 @@ const jsonGames = [
     RecommendRequirements: "",
     calification: "3.56",
     released: "2012-08-21",
-    price: Math.round(Math.random() * (5000.99 - 500.99) + 500.99),
+    price: Math.round(Math.random() * (100.99 - 1.99) + 1.99),
     stock: Math.floor(Math.random() * (500 - 0)),
     discount: Math.floor(Math.random() * (50 - 0)),
     description:
@@ -87,7 +82,6 @@ const jsonGames = [
   },
 
   {
-    id: "13536",
     name: "Portal",
     description:
       "<p>Counter-Strike is a multiplayer phenomenon in its simplicity. No complicated narratives to explain the source of the conflict, no futuristic and alien threats, but counter-terrorists against terrorists. Arena shooter at its core, CS:GO provides you with various methods of disposing enemies and reliant on cooperation within the team. During the round of the classical clash mode, you will gradually receive currency to purchase different equipment. Each player can carry a primary weapon, secondary pistol, knife and a set of grenades, which all can change the battle if wielded by the skilled player. <br />\nObjectives are clear and vary from map to map, from game mode to game mode. Stop the terrorists from planting explosives, stop the counter-terrorist from retrieving the hostages, kill everyone who isn’t you and just perform the best with.<br />\nCS:GO is one of the major cybersport discipline, which makes playing it more exciting to some players. Aside from purchasing the game, CS:GO is infamous for its loot case system, that requires players to purchase keys, in order to open said cases. Customization items consist of weapon skins, weapon stickers, and sprays that do not affect gameplay and have purely visual value to the player.</p>",
@@ -99,13 +93,12 @@ const jsonGames = [
     RecommendRequirements: "",
     company: "Valve Software",
     genre: ["Adventure", "Puzzle"],
-    price: Math.round(Math.random() * (5000.99 - 500.99) + 500.99),
+    price: Math.round(Math.random() * (100.99 - 1.99) + 1.99),
     stock: Math.floor(Math.random() * (500 - 0)),
     discount: Math.floor(Math.random() * (50 - 0)),
   },
 
   {
-    id: "12020",
     name: "Left 4 Dead 2",
     description:
       "<p>Cooperative survival continues with a different set of characters. New survivors are making their way through 5 campaigns with an added ability to play through the story of the first game as well, using not only expanded arsenal of 20 ranged and 10 melee weapons but improved AI Director. Your surroundings and weather will change; enemy and item placement will differ from map to map, from difficulty to difficulty. New unique special zombies, placed in the unlucky for the player spot, can end your run.<br />\nHigh compatibility with community mods will allow you not only to add user-created maps but player models, enemy models, and even in-game music, which will help any player to create the unique experience on top of solid game mechanics.<br />\nCompetitive multiplayer mods from arena survival to a head-on competition with another team of survivors are addictive and, in addition to the campaign, will provide you with hundreds of hours of game content.</p>",
@@ -116,15 +109,14 @@ const jsonGames = [
       "Minimum:\nOS: Windows® 7 32/64-bit / Vista 32/64 / XP\nProcessor: Pentium 4 3.0GHz\nMemory: 2 GB RAM\nGraphics: Video card with 128 MB, Shader model 2.0. ATI X800, NVidia 6600 or better\nDirectX: Version 9.0c\nStorage: 13 GB available space\nSound Card: DirectX 9.0c compatible sound card",
     RecommendRequirements:
       "Recommended:\nOS: Windows® 7 32/64-bit / Vista 32/64 / XP\nProcessor: Intel core 2 duo 2.4GHz\nMemory: 2 GB RAM\nGraphics: Video Card Shader model 3.0. NVidia 7600, ATI X1600 or better\nDirectX: Version 9.0c\nStorage: 13 GB available space\nSound Card: DirectX 9.0c compatible sound card",
-    company: "Turtle Rock Studios",
+    company: "Valve Software",
     genre: ["Action", "Shooter"],
-    price: Math.round(Math.random() * (5000.99 - 500.99) + 500.99),
+    price: Math.round(Math.random() * (100.99 - 1.99) + 1.99),
     stock: Math.floor(Math.random() * (500 - 0)),
     discount: Math.floor(Math.random() * (50 - 0)),
   },
 
   {
-    id: "5679",
     name: "The Elder Scrolls V: Skyrim",
     description:
       "<p>The fifth game in the series, Skyrim takes us on a journey through the coldest region of Cyrodiil. Once again player can traverse the open world RPG armed with various medieval weapons and magic, to become a hero of Nordic legends –Dovahkiin, the Dragonborn. After mandatory character creation players will have to escape not only imprisonment but a fire-breathing dragon. Something Skyrim hasn’t seen in centuries.<br />\nAfter Oblivion, the magic system was reworked, in order to show players more aggressive and direct combat. As a Dragonborn, your character will be able to use the powerful magic of dragon shouts, powered, upgraded and researched with the souls of the dragons that will be randomly encountered by players, while traveling. Hundreds of sidequests will invite players to discover every part of the newly introduced land. Aside from already filled with guilds, Daedra and steampunk Dwemer ruins, Skyrim has additional DLC content that not only brings Solstheim island and vampire conclave but gives players the ability to build their own homes, instead of buying pre-made ones.</p>",
@@ -137,13 +129,12 @@ const jsonGames = [
       "Recommended:\nProcessor: Quad-core Intel or AMD CPU\nMemory: 4GB System RAM\nVideo Card: DirectX 9.0c compatible NVIDIA or AMD ATI video card with 1GB of RAM (Nvidia GeForce GTX 260 or higher; ATI Radeon 4890 or higher)\n",
     company: "Bethesda Softworks",
     genre: ["Action", "RPG"],
-    price: Math.round(Math.random() * (5000.99 - 500.99) + 500.99),
+    price: Math.round(Math.random() * (100.99 - 1.99) + 1.99),
     stock: Math.floor(Math.random() * (500 - 0)),
     discount: Math.floor(Math.random() * (50 - 0)),
   },
 
   {
-    id: "4062",
     name: "BioShock Infinite",
     description:
       "<p>The fifth game in the series, Skyrim takes us on a journey through the coldest region of Cyrodiil. Once again player can traverse the open world RPG armed with various medieval weapons and magic, to become a hero of Nordic legends –Dovahkiin, the Dragonborn. After mandatory character creation players will have to escape not only imprisonment but a fire-breathing dragon. Something Skyrim hasn’t seen in centuries.<br />\nAfter Oblivion, the magic system was reworked, in order to show players more aggressive and direct combat. As a Dragonborn, your character will be able to use the powerful magic of dragon shouts, powered, upgraded and researched with the souls of the dragons that will be randomly encountered by players, while traveling. Hundreds of sidequests will invite players to discover every part of the newly introduced land. Aside from already filled with guilds, Daedra and steampunk Dwemer ruins, Skyrim has additional DLC content that not only brings Solstheim island and vampire conclave but gives players the ability to build their own homes, instead of buying pre-made ones.</p>",
@@ -156,12 +147,11 @@ const jsonGames = [
       "Recommended:\nOS: Windows 7 Service Pack 1 64-bit\nProcessor: Quad Core Processor\nMemory: 4GB\nHard Disk Space: 30 GB free\nVideo Card: DirectX11 Compatible, AMD Radeon HD 6950 / NVIDIA GeForce GTX 560\nVideo Card Memory: 1024 MB\nSound: DirectX Compatible",
     company: "Aspyr Media",
     genre: ["Action", "Shooter"],
-    price: Math.round(Math.random() * (5000.99 - 500.99) + 500.99),
+    price: Math.round(Math.random() * (100.99 - 1.99) + 1.99),
     stock: Math.floor(Math.random() * (500 - 0)),
     discount: Math.floor(Math.random() * (50 - 0)),
   },
   {
-    id: "28",
     name: "Red Dead Redemption 2",
     description:
       "<p>America, 1899. The end of the wild west era has begun as lawmen hunt down the last remaining outlaw gangs. Those who will not surrender or succumb are killed. </p>\n<p>After a robbery goes badly wrong in the western town of Blackwater, Arthur Morgan and the Van der Linde gang are forced to flee. With federal agents and the best bounty hunters in the nation massing on their heels, the gang must rob, steal and fight their way across the rugged heartland of America in order to survive. As deepening internal divisions threaten to tear the gang apart, Arthur must make a choice between his own ideals and loyalty to the gang who raised him.</p>\n<p>From the creators of Grand Theft Auto V and Red Dead Redemption, Red Dead Redemption 2 is an epic tale of life in America at the dawn of the modern age.</p>",
@@ -174,13 +164,12 @@ const jsonGames = [
       "Recommended:\nRequires a 64-bit processor and operating system\nOS: Windows 10 - April 2018 Update (v1803)\nProcessor: Intel® Core™ i7-4770K / AMD Ryzen 5 1500X\nMemory: 12 GB RAM\nGraphics: Nvidia GeForce GTX 1060 6GB / AMD Radeon RX 480 4GB\nNetwork: Broadband Internet connection\nStorage: 150 GB available space\nSound Card: Direct X Compatible",
     company: "Rockstar Games",
     genre: ["Action", "Adventure"],
-    price: Math.round(Math.random() * (5000.99 - 500.99) + 500.99),
+    price: Math.round(Math.random() * (100.99 - 1.99) + 1.99),
     stock: Math.floor(Math.random() * (500 - 0)),
     discount: Math.floor(Math.random() * (50 - 0)),
   },
 
   {
-    id: "802",
     name: "Borderlands 2",
     description:
       "<p>Sequel to the 4-player cooperative FPS RPG Borderlands, where the new team of Vault Hunters arrives on the infamous planet Pandora in order to get the riches, hidden inside the Vault, and help to free the planet from the Handsome Jack, President of Hyperion. Clear out the endless waves and groups and marauders with various weapon types and character abilities.<br />\nUnlike the first game, Borderlands 2 provided DLC not only expanding the world of Pandora with stand-alone story campaigns but adding 2 more characters. Now the main cast consists of Gunzerker Salvador(dual-wields guns at command), Siren Maya (holds and paralyzes the enemy), Commando Axton (summons turrets) and Zer0 the Assasin (invisible sniper ninja). But with the DLC players can try out summoning giant flying robots with Gaige the Mechromancer and Krieg the Psycho. <br />\nMost of the game charm and popularity of Borderlands 2 comes from the supporting cast and the personalities of the NPC, making this fast-paced shooter with optional cover stand out.</p>",
@@ -193,13 +182,12 @@ const jsonGames = [
       "Recommended:\nOS: Windows XP SP3/Vista/Win 7\nProcessor: 2.3 GHz Quad Core processor\nMemory: 2 GB\nHard Disk Space: 20 GB free\nVideo Memory: 512MB\nVideo Card: NVIDIA GeForce GTX 560 / ATI Radeon HD 5850\nSound: DirectX 9.0c Compatible\nOther Requirements:Initial installation requires one-time internet connection for Steam authentication; software installations required (included with the game) include Steam Client, DirectX 9, Microsoft .NET 4 Framework, Visual C++ Redistributable 2005, Visual C++ Redistributable 2008, Visual C++ Redistributable 2010, and AMD CPU Drivers (XP Only/AMD Only)",
     company: "Aspyr Media",
     genre: ["Action", "Shooter", "RPG"],
-    price: Math.round(Math.random() * (5000.99 - 500.99) + 500.99),
+    price: Math.round(Math.random() * (100.99 - 1.99) + 1.99),
     stock: Math.floor(Math.random() * (500 - 0)),
     discount: Math.floor(Math.random() * (50 - 0)),
   },
 
   {
-    id: "3439",
     name: "Life is Strange",
     description:
       "<p>Interactive storytelling and plot-heavy games gained popularity, and “Life is Strange” arrived as teen mystery adventure. The plot will go through the life of Maxine, a teenager in possession of curious power, allowing her to stop and rewind time, in order to manipulate her surroundings. Max, after the reunion with her friend Chloe, is on the path to uncovering the secrets of Arcadia Bay. Players will have to deal with puzzle solving through the fetch quests, in order to change the world around them. <br />\nThe game puts players in situations, where they’re forced to make a moral choice, going through the decision which may have short-term or long-term consequences. Every choice made by the player will trigger the butterfly effect, surrounding the first playthrough of the game with a lot of emotional struggle, thoughtfully crafted by the developers at Dontnod Entertainment. Life is Strange is third person adventure game, where players might seem just as an observer of the stories, unfolding in front of them.</p>",
@@ -210,13 +198,12 @@ const jsonGames = [
     RecommendRequirements: "",
     company: "DONTNOD Entertainment",
     genre: ["Adventure"],
-    price: Math.round(Math.random() * (5000.99 - 500.99) + 500.99),
+    price: Math.round(Math.random() * (100.99 - 1.99) + 1.99),
     stock: Math.floor(Math.random() * (500 - 0)),
     discount: Math.floor(Math.random() * (50 - 0)),
   },
 
   {
-    id: "13537",
     name: "Half-Life 2",
     description:
       "<p>Gordon Freeman became the most popular nameless and voiceless protagonist in gaming history. He is painted as the most famous scientist and a hero within the world of Half-Life, and for a good reason. In the first game he saved the planet from alien invasion, this time, when the invasion is already begun, the world needs his help one more time. And you, as a player, will help this world to survive. This time Gordon arrives in City 17, ravaged and occupied by Combines, where he meets his old Black Mesa friends. <br />\nWhat is different, aside from the overall design quality, is the use of Valve’s Source engine that not only expands on the fluidity of character model animations and movement but allows players to interact with a myriad of objects with the advanced and realistic (to an extent) physics. Classic Headcrab Zombies are revamped and have new variants that provide players with different threats. For a story-driven FPS, Half-Life 2 is unique in its plot delivery, and making in-game mechanics feel natural, be it platforming or driving.</p>",
@@ -225,15 +212,14 @@ const jsonGames = [
     calification: "4.5",
     MinRequirements: "",
     RecommendRequirements: "",
-    company: "NVIDIA Lightspeed Studios",
+    company: "Valve Software",
     genre: ["Shooter", "Action"],
-    price: Math.round(Math.random() * (5000.99 - 500.99) + 500.99),
+    price: Math.round(Math.random() * (100.99 - 1.99) + 1.99),
     stock: Math.floor(Math.random() * (500 - 0)),
     discount: Math.floor(Math.random() * (50 - 0)),
   },
 
   {
-    id: "4286",
     name: "BioShock",
     description:
       "<p>FPS with RPG elements, Bioshock invites players to experience horrors of underwater isolation in the city of Rapture, the failed project of the better future. After surviving the plane crash, the protagonist has only one way to go – to the giant lighthouse that opens a way to the underwater utopia. Players will have to unravel the complicated history of Rapture, relying only on themselves, their guns and Plasmids, a mystical substance, that allows it’s user to obtain near magical abilities.<br />\nThe atmosphere of isolation and threat is conveyed through the environmental sounds, subtle electrical buzzing and audio logs, telling the story of societal decay and despair. Players will shape the story, making moral choices along their way, saving Little Sisters or extracting ADAM, the mystical fuel for your abilities. While exploring the underwater city, players will complete missions for the last sane inhabitants of Rapture, while fending off the less fortunate ones.</p>",
@@ -252,25 +238,24 @@ const jsonGames = [
   },
 
   {
-    id: "1030",
-    name: "Limbo",
+    name: "BioShock",
     description:
-      "<p>This popular 2D puzzle-platformer creates the atmosphere of isolation, where the player alone can guide the nameless protagonist to his destination. Hostile environments and one-hit deaths may seem difficult, but the game implements a fair amount of checkpoints. The monochrome color palette showcases cartoony proportions of every living thing while making lack of details threatening. Limbo shows you exactly what you encounter, but never how it looks.</p>\n<p>Limbo uses the atmosphere and sound design of the horror genre while avoiding tropes of the modern horror games. The overarching theme and unique style compensated for the rather short game with an abrupt ending, making Limbo one of the most impactful games for the genre.</p>\n<p>The simple controls and easy-to-pick-up mechanics help to make a clear distinction, which part of the stage players can interact with, and which part can lead to the quick death. Even though the game is in black and white, this separation is intuitive and natural, so the player would know exactly where to go or what to do.</p>",
-    released: "2004-11-16",
-    img: "https://media.rawg.io/media/games/942/9424d6bb763dc38d9378b488603c87fa.jpg",
-    calification: "4.15",
+      "<p>FPS with RPG elements, Bioshock invites players to experience horrors of underwater isolation in the city of Rapture, the failed project of the better future. After surviving the plane crash, the protagonist has only one way to go – to the giant lighthouse that opens a way to the underwater utopia. Players will have to unravel the complicated history of Rapture, relying only on themselves, their guns and Plasmids, a mystical substance, that allows it’s user to obtain near magical abilities.<br />\nThe atmosphere of isolation and threat is conveyed through the environmental sounds, subtle electrical buzzing and audio logs, telling the story of societal decay and despair. Players will shape the story, making moral choices along their way, saving Little Sisters or extracting ADAM, the mystical fuel for your abilities. While exploring the underwater city, players will complete missions for the last sane inhabitants of Rapture, while fending off the less fortunate ones.</p>",
+    released: "2007-08-21",
+    img: "https://media.rawg.io/media/games/bc0/bc06a29ceac58652b684deefe7d56099.jpg",
+    calification: "4.37",
     MinRequirements:
-      "OS: Windows XP, Vista, 7\nProcessor: 2 GHz\nMemory: 512MB\nHard Disk Space: 150MB\nVideo Card: 5 years or younger. Integrated graphics and very low budget cards may not work. Shader Model 3.0 required\nDirectX®: 9.0c\n",
-    RecommendRequirements: "",
-    company: "Double Eleven",
-    genre: ["Adventure", "Indie", "Puzzle", "Platformer"],
-    price: Math.round(Math.random() * (5000.99 - 500.99) + 500.99),
+      "Minimum: Operating System: Windows XP (with Service Pack 2) or Windows Vista\nCPU: Intel single-core Pentium 4 processor at 2.4GHz\nRAM: 1 GB\nVideo Card: Direct X 9.0c compliant video card with 128MB RAM and Pixel Shader 3.0 (NVIDIA 6600 or better/ATI X1300 or better, excluding ATI X1550)\nSound Card: 100% direct X 9.0c compatible sound card\nHard Drive Space: 8GB\nGame requires Internet connection for activation",
+    RecommendRequirements:
+      "Recommended: CPU: Intel Core 2 Duo processor\nRAM: 2GB\nVideo Card: DX 9 - Direct X 9.0c compliant video card with 512 MB RAM and Pixel Shader 3.0 (NVIDIA GeForce 7900 GT or better), DX 10 - NVIDIA GeForce 8600 or better\nSound Card: SoundBlaster(r) X-Fi(tm) series (optimized foruse with Creative Labs EAX ADVANCED HD 4.0 or EAX ADVANCED HD 5.0 compatible sound cards)",
+    company: "Digital Extremes",
+    genre: ["Shooter", "Action"],
+    price: Math.round(Math.random() * (100.99 - 1.99) + 1.99),
     stock: Math.floor(Math.random() * (500 - 0)),
     discount: Math.floor(Math.random() * (50 - 0)),
   },
 
   {
-    id: "2454",
     name: "DOOM (2016)",
     description:
       "<p>Return of the classic FPS, Doom (2016) acts as a reboot of the series and brings back the Doomslayer, protagonist of the original Doom games. In order to solve the energy crisis, humanity learned to harvest the energy from Hell, and when something went wrong and a demon invasion has started, it’s up to the player to control the Doomslayer and destroy the evil.</p>\n<p>Doom is a fast-paced game that restores the concept of instant health packs and leaves the player against armies of Hell with no cover, no health regeneration, or help from anyone. After damaging monsters enough, they will start glowing, which will allow players to perform glory kills to restore some health. While exploring the levels, players will come across secrets, collectible items, or upgrade points for the weapons and armor. The single-player campaign silent protagonist has a noticeable personality. He gets visibly annoyed and angry in his actions during expository cutscenes and forces his way through the game. Multiplayer maps gather players in Deathmatch/”king-of-the-hill” type game modes, with all the weapons from the single-player campaign.</p>",
@@ -289,7 +274,41 @@ const jsonGames = [
   },
 
   {
-    id: "58175",
+    name: "Limbo",
+    description:
+      "<p>This popular 2D puzzle-platformer creates the atmosphere of isolation, where the player alone can guide the nameless protagonist to his destination. Hostile environments and one-hit deaths may seem difficult, but the game implements a fair amount of checkpoints. The monochrome color palette showcases cartoony proportions of every living thing while making lack of details threatening. Limbo shows you exactly what you encounter, but never how it looks.</p>\n<p>Limbo uses the atmosphere and sound design of the horror genre while avoiding tropes of the modern horror games. The overarching theme and unique style compensated for the rather short game with an abrupt ending, making Limbo one of the most impactful games for the genre.</p>\n<p>The simple controls and easy-to-pick-up mechanics help to make a clear distinction, which part of the stage players can interact with, and which part can lead to the quick death. Even though the game is in black and white, this separation is intuitive and natural, so the player would know exactly where to go or what to do.</p>",
+    released: "2004-11-16",
+    img: "https://media.rawg.io/media/games/942/9424d6bb763dc38d9378b488603c87fa.jpg",
+    calification: "4.15",
+    MinRequirements:
+      "OS: Windows XP, Vista, 7\nProcessor: 2 GHz\nMemory: 512MB\nHard Disk Space: 150MB\nVideo Card: 5 years or younger. Integrated graphics and very low budget cards may not work. Shader Model 3.0 required\nDirectX®: 9.0c\n",
+    RecommendRequirements: "",
+    company: "Double Eleven",
+    genre: ["Adventure", "Indie", "Puzzle", "Platformer"],
+    price: Math.round(Math.random() * (100.99 - 1.99) + 1.99),
+    stock: Math.floor(Math.random() * (500 - 0)),
+    discount: Math.floor(Math.random() * (50 - 0)),
+  },
+
+  {
+    name: "DOOM (2016)",
+    description:
+      "<p>Return of the classic FPS, Doom (2016) acts as a reboot of the series and brings back the Doomslayer, protagonist of the original Doom games. In order to solve the energy crisis, humanity learned to harvest the energy from Hell, and when something went wrong and a demon invasion has started, it’s up to the player to control the Doomslayer and destroy the evil.</p>\n<p>Doom is a fast-paced game that restores the concept of instant health packs and leaves the player against armies of Hell with no cover, no health regeneration, or help from anyone. After damaging monsters enough, they will start glowing, which will allow players to perform glory kills to restore some health. While exploring the levels, players will come across secrets, collectible items, or upgrade points for the weapons and armor. The single-player campaign silent protagonist has a noticeable personality. He gets visibly annoyed and angry in his actions during expository cutscenes and forces his way through the game. Multiplayer maps gather players in Deathmatch/”king-of-the-hill” type game modes, with all the weapons from the single-player campaign.</p>",
+    released: "2016-05-13",
+    img: "https://media.rawg.io/media/games/c4b/c4b0cab189e73432de3a250d8cf1c84e.jpg",
+    calification: "4.38",
+    MinRequirements:
+      "Minimum:\nOS: Windows7,Windows8,Windows10\nProcessor: Intel cpu i3\nMemory: 4 GB RAM\nGraphics: GTX 650\nStorage: 2 GB available space\nSound Card: Realtek",
+    RecommendRequirements:
+      "Recommended:\nOS: Windows7,Windows8,Windows10\nProcessor: Intel cpu i5\nMemory: 8 GB RAM\nGraphics: GTX 770\nStorage: 4 GB available space\nSound Card: Realtek",
+    company: "Bethesda Softworks",
+    genre: ["Action", "Shooter"],
+    price: Math.round(Math.random() * (5000.99 - 500.99) + 500.99),
+    stock: Math.floor(Math.random() * (500 - 0)),
+    discount: Math.floor(Math.random() * (50 - 0)),
+  },
+
+  {
     name: "God of War (2018)",
     description:
       "<p>It is a new beginning for Kratos. Living as a man outside the shadow of the gods, he ventures into the brutal Norse wilds with his son Atreus, fighting to fulfill a deeply personal quest. </p>\n<p>His vengeance against the Gods of Olympus years behind him, Kratos now lives as a man in the realm of Norse Gods and monsters. It is in this harsh, unforgiving world that he must fight to survive… And teach his son to do the same. This startling reimagining of God of War deconstructs the core elements that defined the series—satisfying combat; breathtaking scale; and a powerful narrative—and fuses them anew. </p>\n<p>Kratos is a father again. As mentor and protector to Atreus, a son determined to earn his respect, he is forced to deal with and control the rage that has long defined him while out in a very dangerous world with his son. </p>\n<p>From the marble and columns of ornate Olympus to the gritty forests, mountains, and caves of Pre-Viking Norse lore, this is a distinctly new realm with its own pantheon of creatures, monsters, and gods. With an added emphasis on discovery and exploration, the world will draw players in to explore every inch of God of War’s breathtakingly threatening landscape—by far the largest in the franchise. </p>\n<p>With an over the shoulder free camera that brings the player closer to the action than ever before, fights in God of War mirror the pantheon of Norse creatures Kratos will face: grand, gritty, and grueling. A new main weapon and new abilities retain the defining spirit of God of War while presenting a vision of violent conflict that forges new ground in the genre</p>",
@@ -306,61 +325,5 @@ const jsonGames = [
     stock: Math.floor(Math.random() * (500 - 0)),
     discount: Math.floor(Math.random() * (50 - 0)),
   },
-
-  {
-    id: "3070",
-    name: "Fallout 4",
-    description:
-      "<p>The fourth game in the post-apocalyptic action RPG series from Bethesda studious brings players back to the retro-future. After customizing the facial features of the character, players will be admitted to the Vault 111 with their family, and tricked into entering the cryogenic capsule. After the rude awakening after the unknown amount of time has passed, the child is separated from the parents and the loving partner is killed in front of them – the main quest is settled. Now there’s only the giant open world to explore. Fallout 4 introduces the mechanics of settlement building, where players can build their own little town. Gathering material for crafting and building brings more “survival” elements into the old formula. Within their own settlements, players will be able to build all needed utilities, from storage spaces to power armor stations. Visual upgrade from the previous game brings life to what used to be brown wastelands, now filled with details and color.</p>",
-    released: "2015-11-09",
-    img: "https://media.rawg.io/media/games/d82/d82990b9c67ba0d2d09d4e6fa88885a7.jpg",
-    calification: "3.8",
-    MinRequirements:
-      "Minimum:\nOS: Windows 7/8/10 (64-bit OS required)\nProcessor: Intel Core i5-2300 2.8 GHz/AMD Phenom II X4 945 3.0 GHz or equivalent\nMemory: 8 GB RAM\nGraphics: NVIDIA GTX 550 Ti 2GB/AMD Radeon HD 7870 2GB or equivalent\nStorage: 30 GB available space",
-    RecommendRequirements:
-      "Recommended:\nOS: Windows 7/8/10 (64-bit OS required)\nProcessor: Intel Core i7 4790 3.6 GHz/AMD FX-9590 4.7 GHz or equivalent\nMemory: 8 GB RAM\nGraphics: NVIDIA GTX 780 3GB/AMD Radeon R9 290X 4GB or equivalent\nStorage: 30 GB available space",
-    company: "Bethesda Game Studios",
-    genre: ["Action", "RPG"],
-    price: Math.round(Math.random() * (5000.99 - 500.99) + 500.99),
-    stock: Math.floor(Math.random() * (500 - 0)),
-    discount: Math.floor(Math.random() * (50 - 0)),
-  },
-
-  {
-    id: "32",
-    name: "Destiny 2",
-    description:
-      "<p>Destiny 2 is an online multiplayer first-person shooter. You take on the role of a Guardian that needs to protect the last city on Earth from alien invaders. The game follows its predecessor, Destiny. The goal of the game is to return the Light that was stolen from the Guardians by the aliens.<br />\nDestiny 2 features two main activity types: player versus environment and player versus player. PvE is focused on exploration, story missions interaction with NPCs and side quests. PvP features 4v4 team matches in different modes. The game also allows taking part in group missions, such as three-player strikes and six-player raids.<br />\nDestiny 2 has a strong RPG aspect that includes character customization and development. There are three classes in the game - Warlock, Hunter, and Titan; they provide different playstyles depending on their specialization and unique abilities. To develop the character you can gain experience points completing the story and side missions.</p>",
-    released: "2017-09-06",
-    img: "https://media.rawg.io/media/games/34b/34b1f1850a1c06fd971bc6ab3ac0ce0e.jpg",
-    calification: "3.56",
-    MinRequirements: "",
-    RecommendRequirements: "",
-    company: "Vicarious Visions",
-    genre: ["Action", "Shooter", "Adventure", "Massively Multiplayer"],
-    price: Math.round(Math.random() * (5000.99 - 500.99) + 500.99),
-    stock: Math.floor(Math.random() * (500 - 0)),
-    discount: Math.floor(Math.random() * (50 - 0)),
-  },
-
-  {
-    id: "11859",
-    name: "Team Fortress 2",
-    description:
-      "<p>TF2 is an objective based arena shooter with unique characters, representing different classes, acting as a staple of casual and competitive gaming for Steam. Dozens of different maps and game modes are trying to keep this game alive, after all the years it was available. Each character has a vast arsenal that can be accessed through completing in-game achievements, randomly receiving them from loot-boxes within the game, crafting them or just buying and trading items on the Steam Market. <br />\nFor players, that&#39;s not into the direct clash with players from the enemy team, Team Fortress 2 introduced a PvE mode, which is wave defense from the mirrored robotic opponents that have qualities of some of the playable classes. <br />\nEvery update and introduction, made over years, provided a lot of entertainment In the form of comic books an short animated videos, creating and explaining a story behind endless clashes for resources, briefcases or pure domination.</p>",
-    released: "2007-10-10",
-    img: "https://media.rawg.io/media/games/46d/46d98e6910fbc0706e2948a7cc9b10c5.jpg",
-    calification: "3.67",
-    MinRequirements:
-      "Minimum:\nOS: Windows® 7 (32/64-bit)/Vista/XP\nProcessor: 1.7 GHz Processor or better\nMemory: 512 MB RAM\nDirectX: Version 8.1\nNetwork: Broadband Internet connection\nStorage: 15 GB available space",
-    RecommendRequirements:
-      "Recommended:\nOS: Windows® 7 (32/64-bit)\nProcessor: Pentium 4 processor (3.0GHz, or better)\nMemory: 1 GB RAM\nDirectX: Version 9.0c\nNetwork: Broadband Internet connection\nStorage: 15 GB available space",
-    company: "Valve Software",
-    genre: ["Action", "Shooter"],
-    price: Math.round(Math.random() * (5000.99 - 500.99) + 500.99),
-    stock: Math.floor(Math.random() * (500 - 0)),
-    discount: Math.floor(Math.random() * (50 - 0)),
-  },
 ];
-
 module.exports = { jsonGames };

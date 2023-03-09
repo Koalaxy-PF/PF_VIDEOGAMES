@@ -7,8 +7,10 @@ const {
 } = require("../../configPaypal");
 const router = Router();
 
-router.post("/", async (req, res) => {
-  /*  const {price} = req.body */
+router.post("/:id", async (req, res) => {
+  const { id } = req.params;
+  const response = await axios.get(`http://localhost:3000/cart/${id}`);
+  const price = response.data.total;
   try {
     const order = {
       intent: "CAPTURE",
@@ -16,7 +18,7 @@ router.post("/", async (req, res) => {
         {
           amount: {
             currency_code: "USD",
-            value: "43.70", // Modificar con el valor del producto que viene del body, esto es un test
+            value: price,
           },
           description: "Digital product",
         },
@@ -26,7 +28,7 @@ router.post("/", async (req, res) => {
         landing_page: "NO_PREFERENCE",
         user_action: "PAY_NOW",
         return_url: `http://localhost:3000/pay-order`,
-        cancel_url: `http://localhost:3000/cancel-payment`,
+        cancel_url: `http://localhost:3000/cart/${id}`,
       },
     };
 
@@ -63,7 +65,7 @@ router.post("/", async (req, res) => {
     /*  console.log(response.data); */
     res.json(response.data);
   } catch (error) {
-    console.log(error);
+    console.log(error.message);
     return res.status(500).json("algo salio mal");
   }
 });

@@ -21,9 +21,9 @@ router.get("/", async (req, res) => {
         },
       }
     );
-    console.log(response.data); // Datos del cliente por consola, para manipular desde el front
+    /*  console.log(response.data);  */
 
-    res.send("Thanks for your order");
+    res.send(response.data); // Datos del cliente, para manipular desde el front
   } catch (error) {
     console.log(error);
     res.status(505).send("error");
