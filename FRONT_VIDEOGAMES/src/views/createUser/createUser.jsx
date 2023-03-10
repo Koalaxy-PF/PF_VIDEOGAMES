@@ -2,9 +2,13 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 //import {Link} from "react-router-dom";
-//import validate from "./validators.jsx";
+import { edadValidator } from "./validators";
 import img from '../../assets/login/koala_login.jpg'
+import logo from '../../assets/icons/koalaLogo.png';
 import Footer from "../../components/Footer/Footer";
+import { Register } from "../../redux/actions/actions";
+import { useNavigate } from "react-router-dom";
+import Swal from 'sweetalert2'
 
 
 // const validateForm = (input) => {
@@ -24,11 +28,10 @@ import Footer from "../../components/Footer/Footer";
 //   return error;
 // }
 
+export default function CreateUser(){
 
-
-export default function CreateUser() {
- const dispatch = useDispatch();
-  //const history = useHistory();
+  const dispatch = useDispatch()
+  const navigate = useNavigate();
 
   const [error, setErrors] = useState({});
 
@@ -101,151 +104,188 @@ export default function CreateUser() {
   const genre = ['male', 'female']
 
   const onSubmit = (data) => {
-    console.log(data);
-}
-
+    dispatch(Register(data)).then((response) => {
+      Swal.fire({
+        title: '¡Buen trabajo!',
+        text: response.data.message,
+        icon: 'success',
+        confirmButtonColor: '#3085d6',
+        confirmButtonText: 'Continuar'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate("/Login");
+      }})})
+      .catch((err) => {
+        Swal.fire({
+          tittle: '¡Ops! Hay un problema',
+          text: err.response.data.message,
+          icon: "error",
+          confirmButtonText: "Continuar"
+        })
+      })
+    }
 
   return (
     <div >
 
-        <div className="flex">
-            <div>
+        <div className="flex min-height-full">
+
+            <div className="hidden lg:block relative h-full flex-1">
               <img class='w-[750px] ' src={img} alt="" /> 
             </div>
 
-          {/*  <div>
-              <Link to="/home">
-                <button>BACKOALA</button>
-              </Link>
-            </div> */}
-            <div className="justify-center text-center m-auto" >
-              
-            
-              <form onSubmit={handleSubmit(onSubmit)} class=' relative bottom-[60px] bg-[#5E9FA3] justify-center w-[530px] m-auto pt-[55px] pb-20 text-center border-gray-400 '>
-                 <h1 class='text-[30px] mb-[50px] text-white'>Create User</h1>
-                <div class='my-4 mr-20 grid grid-cols-2 justify-center'>
-                  <label class='text-black '>Username: </label>
-                  <input  class='rounded-md w-[250px] relative '    
-                    type="text" {...register('username' , {
-                    required: true,
-                    maxLength: 50,
-                    minLength: 3
-                    })} />
-                      {errors.username?.type === 'required' && <p class='text-red-600'> the user name is required</p>}
-                      {errors.username?.type === 'maxLength' && <p class='text-red-600'>the maximum capacity of characters allowed is 50</p>}
-                      {errors.username?.type === 'minLength' && <p class='text-red-600'>the minimum capacity of characters allowed is 3</p>}
+            <div className="justify-center flex-1 flex flex-col py-12 px-4 sm:px-6 lg:px-20 xl:px-24" >
+
+                <div class='text-center lg:text-left'>
+                  <img class='h-12 w-auto m-auto lg:m-0' src={logo} alt="" />
+                  <h2 class='mt-6 text-3xl font-extrabold text-gray-900'>Create User</h2>
                 </div>
+              
+                <div class='mt-6'>
+                <form onSubmit={handleSubmit(onSubmit)} class='space-y-1'>
 
-                {/* <div class='flex justify-center'>
-                {error.username && <span >{error.username}</span>}
-                </div> */}
+                  <div class='grid grid-cols-1 lg:grid-cols-2 lg:gap-3'>
 
-                <div class='my-4  mr-20 grid grid-cols-2' >
-                <label class='text-black '>Email</label>
-                      <input type="text" {...register('email', {
-                          pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/i,
+
+
+                      <div >
+                        <label class='block text-sm font-medium text-gray-600 mt-2 lg:mt-0'>Username: </label>
+                        <input  class='mt-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'  placeholder='Username'  
+                          type="text" {...register('username' , {
                           required: true,
                           maxLength: 50,
                           minLength: 3
+                          })} />
+                            {errors.username?.type === 'required' && <p class='text-red-600'> the user name is required</p>}
+                            {errors.username?.type === 'maxLength' && <p class='text-red-600'>the maximum capacity of characters allowed is 50</p>}
+                            {errors.username?.type === 'minLength' && <p class='text-red-600'>the minimum capacity of characters allowed is 3</p>}
+                      </div>
+
+                      {/* <div class='flex justify-center'>
+                      {error.username && <span >{error.username}</span>}
+                      </div> */}
+
+                      <div >
+                      <label class='block text-sm font-medium text-gray-600 mt-2 lg:mt-0'>Email</label>
+                            <input type="text" class='mt-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'  placeholder='Email'  {...register('email', {
+                                pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/i,
+                                required: true,
+                                maxLength: 50,
+                                minLength: 3
+                            })} />
+                            {errors.email?.type === 'pattern' && <p class='text-red-600'>The email format is incorrect</p>}
+                            {errors.email?.type === 'required' && <p class='text-red-600'> the email is required</p>}
+                            {errors.email?.type === 'maxLength' && <p class='text-red-600'>the maximum capacity of characters allowed is 50</p>}
+                            {errors.email?.type === 'minLength' && <p class='text-red-600'>wrong email</p>}
+                      </div>
+
+                      {/* <div class='flex justify-center'>
+                      {error.email && <span >{error.email}</span>}
+                      </div> */}
+
+                      <div >
+                      <label class='text-black '>Name</label>
+                            <input type="text" class='mt-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' placeholder='Name' {...register('name', {
+                                required: true
+                            })} />
+                      </div>
+
+                      {/* <div class='flex justify-center'>
+                      {error.name && <span >{error.name}</span>}
+                      </div> */}
+
+                      <div>
+                        <label class='block text-sm font-medium text-gray-600 mt-2 lg:mt-0'> Last name: </label>
+                        <input  class='mt-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' placeholder='Last name'
+                      
+                          type="text"  {...register('last_name', {
+                            required: true,
+                        })} />
+                        {errors.last_name?.type === 'required' && <p class='text-red-600' >the last name is required</p>}
+                      </div>
+                  {/* 
+                      <div class='flex justify-center'>
+                      {error.last_name && <span >{error.last_name}</span>}
+                      </div> */}
+
+                      <div >
+                        <label class='block text-sm font-medium text-gray-600 mt-2 lg:mt-0'>Password: </label>
+                        <input  class='mt-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' placeholder='Password'
+                    
+                        type="password" {...register('password', {
+                          pattern: /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/ ,
+                          required: true,
+                          maxLength: 16,
+                          minLength: 8
                       })} />
-                      {errors.email?.type === 'pattern' && <p class='text-red-600'>The email format is incorrect</p>}
-                      {errors.email?.type === 'required' && <p class='text-red-600'> the email is required</p>}
-                      {errors.email?.type === 'maxLength' && <p class='text-red-600'>the maximum capacity of characters allowed is 50</p>}
-                      {errors.email?.type === 'minLength' && <p class='text-red-600'>wrong email</p>}
+                      {errors.password?.type === 'required' && <p class='text-red-600'>the passaword is required</p>}
+                      {errors.password?.type === 'pattern' && <p class='text-red-600'>the password at least one digit, at least one lower case and at least one upper case.</p>}
+                      {errors.password?.type === 'maxLength' && <p class='text-red-600'>must have a maximum of 16 characters</p>}
+                      {errors.password?.type === 'minLength' && <p class='text-red-600'>must contain at least 8 characters</p>}
+
+                      </div>
+
+                      {/* <div class='flex justify-center'>
+                      {error.password && <span >{error.password}</span>}
+                      </div> */}
+
+
+                      <div >
+                        <label class='block text-sm font-medium text-gray-600 mt-2 lg:mt-0'>Image: </label>
+                        <input  class='mt-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' placeholder='img'
+                      
+                          type="text"
+
+                        />
+                      </div>
+
+                      <div >
+                        <label class='block text-sm font-medium text-gray-600 mt-2 lg:mt-0'>Date: </label>
+                        <input  class='mt-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' placeholder='date'
+                      
+                          type="date" {...register('date', {
+                            required: true,
+                            validate: edadValidator
+                        })} />
+                        {errors.date?.type === 'required' && <p class='text-red-600'> the date is required</p>}
+                        {errors.date && <p>La edad minima es de 14</p>}
+                      </div>
+
+                      {/* <div class='flex justify-center'>
+                      {error.date && <span >{error.date}</span>}
+                      </div> */}
+
+                      <div >
+                        <label class='block text-sm font-medium text-gray-600 mt-2 lg:mt-0'>Description: </label>
+                        <input  class='mt-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' placeholder='Description'
+                    
+                          type="text" 
+
+                        />
+                      </div>
+
+                      <div >
+                        <label class='block text-sm font-medium text-gray-600 mt-2 lg:mt-0'>Genre</label>
+                        <select name="genre" class='rounded-md w-[250px] relative' >
+                            <option value="">Select Genre</option>
+                            {
+                              genre.map(genre => (
+                                <option value={genre} key={genre}>{genre}</option>
+                              ))
+                            }
+                          </select>
+                      </div>
+
+                      </div>
+
+                      <div>
+                          <button class='mt-4 w-full py-3 bg-gray-900 text-white' type='submit'>Register</button>
+                      </div>
+
+                  </form>
                 </div>
-
-                {/* <div class='flex justify-center'>
-                {error.email && <span >{error.email}</span>}
-                </div> */}
-
-                <div class='my-4  mr-20 grid grid-cols-2'>
-                <label class='text-black '>Name</label>
-                      <input type="text" {...register('nombre', {
-                          required: true
-                      })} />
-                </div>
-
-                {/* <div class='flex justify-center'>
-                {error.name && <span >{error.name}</span>}
-                </div> */}
-
-                <div class='my-4  mr-20 grid grid-cols-2'>
-                  <label class='text-black'> Last name: </label>
-                  <input  class='rounded-md w-[250px] relative'
-                
-                    type="text"  {...register('last_name', {
-                      required: true,
-                  })} />
-                  {errors.last_name?.type === 'required' && <p class='text-red-600' >the last name is required</p>}
-                </div>
-      {/* 
-                <div class='flex justify-center'>
-                {error.last_name && <span >{error.last_name}</span>}
-                </div> */}
-
-                <div class='my-4  mr-20 grid grid-cols-2'>
-                  <label class='text-black'>Password: </label>
-                  <input  class='rounded-md w-[250px] relative'
-              
-                  type="password" {...register('password', {
-                    required: true,
-                })} />
-                {errors.password?.type === 'required' && <p class='text-red-600'>the passaword is required</p>}
-                </div>
-
-                {/* <div class='flex justify-center'>
-                {error.password && <span >{error.password}</span>}
-                </div> */}
-
-
-                <div class='my-4  mr-20 grid grid-cols-2'>
-                  <label class='text-black'>Image: </label>
-                  <input  class='rounded-md w-[250px] relative'
-                
-                    type="text"
             
-                  />
-                </div>
-
-                <div class='my-4  mr-20 grid grid-cols-2'>
-                  <label class='text-black'>Date: </label>
-                  <input  class='rounded-md w-[250px] relative'
-                
-                    type="date" {...register('date', {
-                      required: true,
-                  })} />
-                  {errors.date?.type === 'required' && <p class='text-red-600'> the date is required</p>}
-                </div>
-
-                {/* <div class='flex justify-center'>
-                {error.date && <span >{error.date}</span>}
-                </div> */}
-
-                <div class='my-4 mr-20 grid grid-cols-2'>
-                  <label class='text-black'>Description: </label>
-                  <input  class='rounded-md w-[250px] relative'
               
-                    type="text" 
-
-                  />
-                </div>
-
-                <div class='my-4  mr-20 grid grid-cols-2'>
-                  <label class='text-black'>Genre</label>
-                  <select name="genre" class='rounded-md w-[250px] relative' >
-                      <option value="">Select Genre</option>
-                      {
-                        genre.map(genre => (
-                          <option value={genre} key={genre}>{genre}</option>
-                        ))
-                      }
-                    </select>
-                </div>
-
-                <div class='justify-center text-center'>
-                <button class='text-white relative top-[40px] hover:text-blue border border-white border-solid p-[10px]' type="submit">Create User</button>
-                </div>
-              </form>
             </div>
         </div>
       <div>
