@@ -66,141 +66,160 @@ function rootReducer(state = initialState, action){
         case POST_GAME:
         return {
         ...state,
-        };
+        Games: action.payload,
+        GamesCopy: action.payload,
+      };
 
-        //reducers de ordenamiento
+    case GET_GAME:
+      console.log(action.payload);
+      return {
+        ...state,
+        Games: action.payload,
+      };
 
-        case ORDER_BY_NAME :
-           let order = action.payload === 'asc' ? 
-              state.Games.sort(function(a,b) {
+    case GET_GENRES:
+      return {
+        ...state,
+        Genres: action.payload,
+      };
 
-                if(a.name.toLowerCase() > b.name.toLowerCase()) {
+    case POST_GAME:
+      return {
+        ...state,
+      };
 
-                    return 1
-                }
-                if( b.name.toLowerCase() > a.name.toLowerCase()){
-                    return -1
-                 }
-                return 0
-              }) : 
-              state.Games.sort(function(a,b) {
+    //reducers de ordenamiento
 
-                  if(a.name.toLowerCase() > b.name.toLowerCase()) {
-                    return -1
-                  }
-                  if( b.name.toLowerCase() > a.name.toLowerCase()){
-                    return 1
-                  }
-                return 0
-              })
-        return{
-            ...state,
-            GamesCopy: order
-        }
+    case ORDER_BY_NAME:
+      let order =
+        action.payload === "asc"
+          ? state.Games.sort(function (a, b) {
+              if (a.name.toLowerCase() > b.name.toLowerCase()) {
+                return 1;
+              }
+              if (b.name.toLowerCase() > a.name.toLowerCase()) {
+                return -1;
+              }
+              return 0;
+            })
+          : state.Games.sort(function (a, b) {
+              if (a.name.toLowerCase() > b.name.toLowerCase()) {
+                return -1;
+              }
+              if (b.name.toLowerCase() > a.name.toLowerCase()) {
+                return 1;
+              }
+              return 0;
+            });
+      return {
+        ...state,
+        GamesCopy: order,
+      };
 
-        case ORDER_BY_RELEASED :
-            let orderByReleased = action.payload === 'asc' ? 
-               state.Games.sort(function(a,b) {
- 
-                 if(a.released.toLowerCase() > b.released.toLowerCase()) {
- 
-                     return 1
-                 }
-                 if( b.released.toLowerCase() > a.released.toLowerCase()){
-                     return -1
-                  }
-                 return 0
-               }) : 
-               state.Games.sort(function(a,b) {
- 
-                   if(a.released.toLowerCase() > b.released.toLowerCase()) {
-                     return -1
-                   }
-                   if( b.released.toLowerCase() > a.released.toLowerCase()){
-                     return 1
-                   }
-                 return 0
-               })
-         return{
-             ...state,
-             GamesCopy: orderByReleased
-         }
-        
-        case TIDY_PRICE:
-             
-            let TidyPrice = action.payload === 'min' ?
-    
-            state.Games.sort(function(a,b) {
-                      
-                if(a.price > b.price) {
-                  
-                    return 1
-                }
-                if( b.price > a.price){
-                    return -1
-                }
-                return 0
-            }) : 
-            state.Games.sort(function(a,b) {
-                if(a.price > b.price) {
-                    return -1
-                }
-                if( b.price > a.price){
-                    return 1
-                }
-                return 0
-             })
-        return{
-            ...state,
-            GamesCopy: TidyPrice
-        }
+    case ORDER_BY_RELEASED:
+      let orderByReleased =
+        action.payload === "asc"
+          ? state.Games.sort(function (a, b) {
+              if (a.released.toLowerCase() > b.released.toLowerCase()) {
+                return 1;
+              }
+              if (b.released.toLowerCase() > a.released.toLowerCase()) {
+                return -1;
+              }
+              return 0;
+            })
+          : state.Games.sort(function (a, b) {
+              if (a.released.toLowerCase() > b.released.toLowerCase()) {
+                return -1;
+              }
+              if (b.released.toLowerCase() > a.released.toLowerCase()) {
+                return 1;
+              }
+              return 0;
+            });
+      return {
+        ...state,
+        GamesCopy: orderByReleased,
+      };
 
-        //reduces de filtrados
+    case TIDY_PRICE:
+      let TidyPrice =
+        action.payload === "min"
+          ? state.Games.sort(function (a, b) {
+              if (a.price > b.price) {
+                return 1;
+              }
+              if (b.price > a.price) {
+                return -1;
+              }
+              return 0;
+            })
+          : state.Games.sort(function (a, b) {
+              if (a.price > b.price) {
+                return -1;
+              }
+              if (b.price > a.price) {
+                return 1;
+              }
+              return 0;
+            });
+      return {
+        ...state,
+        GamesCopy: TidyPrice,
+      };
 
-        case FILTER_PER_COMPANY:
-            const AllCom = state.GamesCopy
-            const TypeCompanyFilter = action.payload === "all"? AllCom : AllCom?.filter((t)=>t.company.includes(action.payload))
-        return {
-            ...state,
-            GamesCopy: TypeCompanyFilter
-        }
+    //reduces de filtrados
 
-        case FILTER_GENRES:
-            const AllGen = state.GamesCopy
-            const TypeGamesFilter = action.payload === "all"? AllGen : AllGen?.filter((t)=>t.genre.includes(action.payload))
-        return {
-            ...state,
-            GamesCopy: TypeGamesFilter
-        }
-        
+    case FILTER_PER_COMPANY:
+      const AllCom = state.GamesCopy;
+      const TypeCompanyFilter =
+        action.payload === "all"
+          ? AllCom
+          : AllCom?.filter((t) => t.company.includes(action.payload));
+      return {
+        ...state,
+        Games: TypeCompanyFilter,
+      };
 
-        case GET_BY_ID:
-        return{
-            ...state,
-            details: action.payload
-        }
+    case FILTER_GENRES:
+      const AllGen = state.GamesCopy;
+      const TypeGamesFilter =
+        action.payload === "all"
+          ? AllGen
+          : AllGen?.filter((t) => t.genre.includes(action.payload));
+      return {
+        ...state,
+        Games: TypeGamesFilter,
+      };
 
-        case CLEAN:
-            return{
-                ...state,
-                details: action.payload
-        }
+    case GET_BY_ID:
+      return {
+        ...state,
+        details: action.payload,
+      };
 
-        case CLEAN_GAMES:
-            return{
-                ...state,
-                GamesCopy: action.payload
-            }
+    case CLEAN:
+      return {
+        ...state,
+        details: action.payload,
+      };
 
+    case CLEAN_GAMES:
+      return {
+        ...state,
+        GamesCopy: action.payload,
+      };
 
-        default:{
-            return state
-        }
+    case CLEAN_GAMES:
+      return {
+        ...state,
+        GamesCopy: action.payload,
+      };
 
+    default: {
+      return state;
     }
-
-
-
+  }
 }
 
-export default rootReducer
+export default rootReducer;

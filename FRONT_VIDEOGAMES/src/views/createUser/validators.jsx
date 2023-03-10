@@ -1,23 +1,30 @@
 
-// export default function validate(input) {
+const edadValidator = (value) => {
+    const fechaActual = new Date();
+    const anoActual = parseInt(fechaActual.getFullYear());
+    const mesActual = parseInt(fechaActual.getMonth()) + 1;
+    const diaActual = parseInt(fechaActual.getDate());
 
-//   let errors = {};
-//   if (!input.username) {
-//     errors.username = "Username is required";
-//   } else if (!/^[a-zA-Z]+$/.test(input.username)) {
-//     errors.username = "Invalid Username. The Username must contain letters";
-//   }
-//   if (!input.email) {
-//     errors.email = "Email is required";
-//   } else if (
-//     !/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(input.email)
-//   ) {
-//     // } else if (/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i.test(input.email)) {
-//     errors.email = "Enter a valid email";
-//   }
-//   if (input.password.length === 0) {
-//     errors.password = "Enter a valid password";
-//   }
+   
+    const diaNacimiento = parseInt(String(value).substring(0, 2));
+    const mesNacimiento = parseInt(String(value).substring(3, 5));
+    const anoNacimiento = parseInt(String(value).substring(6, 10));
 
-//   return errors;
-// }
+    let edad = anoActual - anoNacimiento;
+    if (mesActual < mesNacimiento) {
+        edad--;
+    } else if (mesActual === mesNacimiento) {
+        if (diaActual < diaNacimiento) {
+            edad--;
+        }
+    }
+
+    if(edad >= 14){
+        return true
+    }{
+        return false
+    }
+};
+
+export { edadValidator }
+

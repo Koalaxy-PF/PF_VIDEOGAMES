@@ -32,7 +32,7 @@ export default function LoginForm(){
                         <h2 class='mt-6 text-3xl font-extrabold text-gray-900'>Login with your account</h2>
                         <p class='mt-2 text-sm text-gray-600'>
                             No tienes cuenta ?
-                            <Link to='/register' class='font-medium text-sky-600 hover:text-sky-200 pl-[5px]'>Regístrate ahora</Link>
+                            <Link to='/CreateUser' class='font-medium text-sky-600 hover:text-sky-200 pl-[5px]'>Regístrate ahora</Link>
                         </p>
                     </div>
 
