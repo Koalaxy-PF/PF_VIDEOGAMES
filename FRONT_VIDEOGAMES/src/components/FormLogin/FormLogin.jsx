@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {useForm} from 'react-hook-form';
+import logo from '../../assets/icons/koalaLogo.png';
 import koala from '../../assets/login/koala_login.jpg'
 import { Login } from '../../redux/actions/actions'
 import { useNavigate } from 'react-router-dom'
-import koala from '../../assets/login/koala_login.jpg';
 import {Link} from 'react-router-dom'
 
 
@@ -15,8 +15,8 @@ export default function LoginForm(){
     const navigate = useNavigate();
 
     const onSubmit = (data) => {
-        dispatch(Login(data)).then(() => {
-            navigate("/Store");
+        dispatch(Login(data)).then((response) => {
+            
         })
     }
 
