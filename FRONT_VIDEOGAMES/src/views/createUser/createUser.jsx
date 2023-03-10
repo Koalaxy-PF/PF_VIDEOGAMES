@@ -185,7 +185,7 @@ export default function CreateUser(){
 
                       <div >
                       <label class='text-black '>Name</label>
-                            <input type="text" class='mt-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' placeholder='Name' {...register('nombre', {
+                            <input type="text" class='mt-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' placeholder='Name' {...register('name', {
                                 required: true
                             })} />
                       </div>
@@ -284,57 +284,7 @@ export default function CreateUser(){
 
                   </form>
                 </div>
-
-                {/* <div class='flex justify-center'>
-                {error.email && <span >{error.email}</span>}
-                </div> */}
-
-                <div class='my-4  mr-20 grid grid-cols-2'>
-                <label class='text-black '>Name</label>
-                      <input type="text" {...register('name', {
-                          required: true
-                      })} />
-                </div>
-
-                {/* <div class='flex justify-center'>
-                {error.name && <span >{error.name}</span>}
-                </div> */}
-
-                <div class='my-4  mr-20 grid grid-cols-2'>
-                  <label class='text-black'> Last name: </label>
-                  <input  class='rounded-md w-[250px] relative'
-                
-                    type="text"  {...register('last_name', {
-                      required: true,
-                  })} />
-                  {errors.last_name?.type === 'required' && <p class='text-red-600' >the last name is required</p>}
-                </div>
-      {/* 
-                <div class='flex justify-center'>
-                {error.last_name && <span >{error.last_name}</span>}
-                </div> */}
-
-                <div class='my-4  mr-20 grid grid-cols-2'>
-                  <label class='text-black'>Password: </label>
-                  <input  class='rounded-md w-[250px] relative'
-              
-                  type="password" {...register('password', {
-                    required: true,
-                })} />
-                {errors.password?.type === 'required' && <p class='text-red-600'>the passaword is required</p>}
-                </div>
-
-                {/* <div class='flex justify-center'>
-                {error.password && <span >{error.password}</span>}
-                </div> */}
-
-
-                <div class='my-4  mr-20 grid grid-cols-2'>
-                  <label class='text-black'>Image: </label>
-                  <input  class='rounded-md w-[250px] relative'
-                
-                
-                type="text" />
+            
               
             </div>
         </div>

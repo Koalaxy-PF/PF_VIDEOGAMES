@@ -31,19 +31,16 @@ export const Register = (data) => (dispatch) => {
 }
 
 export const Login = (data) => (dispatch) => {
-    return AuthService.Login(data).then(
-        (info) => {
-            dispatch({
-                type: LOGIN_SUCESS,
-                payload: {user: info}
-            })
+    return AuthService.Login(data);
+}
 
-            return Promise.resolve()
-            
-        }, (error) => {
-           
-        }
-    )
+export const Login_OK = (data) =>{
+    return async function(dispatch){
+        dispatch({
+            type: "LOGIN_SUCESS",
+            payload: data,
+        })
+    }
 }
 
 //action que trae todos los juegos

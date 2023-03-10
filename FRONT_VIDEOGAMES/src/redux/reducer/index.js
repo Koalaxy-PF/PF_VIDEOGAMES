@@ -15,8 +15,6 @@ import {
     LOGIN_FAIL,
 } from "../actions/actions"
 
-const user = JSON.parse(localStorage.getItem("user"));
-
 const initialState = {
     Games:[],
     GamesCopy:[],
@@ -32,6 +30,8 @@ function rootReducer(state = initialState, action){
         // - - - AUTENTICACIÓN - - -
 
         case LOGIN_SUCESS:
+
+        console.log(action.payload)
             return{
                 ...state,
                 user: action.payload.user,
