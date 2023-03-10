@@ -14,11 +14,9 @@ export default function Cards() {
 //const dispatch = useDispatch();
 const pageNumberLimit = 5;
 const allGames = useSelector((state) => state.GamesCopy);
-const [gamesPerPage, setGamesPerPage] = useState(10);
+const [gamesPerPage] = useState(10);
 const dispatch = useDispatch();
 const[currentPage,setCurrentPage] =useState(1) 
-const [maxPageLimit, setMaxPageLimit] = useState(5);
-const [minPageLimit, setMinPageLimit] = useState(0);
 
 const[order,setOrder] =useState('') 
 const [setRender] = useState("");
@@ -30,21 +28,6 @@ const currentGames = allGames.slice(indexFirstGame, indexLastGame)
 const onPageChange= (pageNumber)=>{
   setCurrentPage(pageNumber);
 }
-const onPrevClick = ()=>{
-    if((currentPage-1) % pageNumberLimit === 0){
-        setMaxPageLimit(maxPageLimit - pageNumberLimit);
-        setMinPageLimit(minPageLimit - pageNumberLimit);
-    }
-    setCurrentPage(prev=> prev-1);
- }
-
-const onNextClick = ()=>{
-     if(currentPage+1 > maxPageLimit){
-         setMaxPageLimit(maxPageLimit + pageNumberLimit);
-         setMinPageLimit(minPageLimit + pageNumberLimit);
-     }
-     setCurrentPage(prev=>prev+1);
-  }
 
 useEffect(() => {
   dispatch(GetGames());
@@ -207,9 +190,10 @@ const  HandlerFilterTypeFerCompany = (e) =>{
       })} 
        <div className="flex flex-nowrap justify-center w-full flex-row my-3">
         <Pagination 
+          allGames={allGames}
           gamesPerPage={gamesPerPage}
-          allGames={allGames.length}
-          pagination={pagination}
+          setCurrentPage={setCurrentPage}
+          currentPage={currentPage}
         />
        </div>
     </div>
