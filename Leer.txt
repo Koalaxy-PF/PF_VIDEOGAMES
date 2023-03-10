@@ -1,0 +1,15 @@
+Ruta:
+Metodo Post, "http://localhost:3000/order/:id" ---> para generar el pago, devuelve un objeto con links.
+Deben seleccionar el que tiene la key "ref" con el value "approve". Copien y peguenlo en el navegador para probarlo.
+Deben pasar el id del usuario al que quieren cobrar el pago.
+Esta es la unica ruta que se va a necesitar. La logica del pago en el archivo "payOrder", se encarga de redirigir
+al usuario dependiendo si acepta o rechaza el pago.
+
+Tienen que iniciar sesion, aca estan las credenciales del "cliente"(cuenta de desarrollo) --->
+usuario: henrysanchez12@gmail.com
+password: Henry123
+(Para el 3º sprint si nos piden que se pueda acceder desde cuentas reales, solamente hay que configurar unas cosas)
+
+En esta url https://www.sandbox.paypal.com/ar/home, pueden loguearse con esta cuenta de prueba y comprobar que el
+pago esta registrado, y los datos. Esto sirve por si nos preguntan si el pago se ejecuta.
+
