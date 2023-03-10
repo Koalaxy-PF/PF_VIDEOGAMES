@@ -15,12 +15,12 @@ router.post('/', async(req,res) => {
         })
         let wishlist = null;
 
-        if(!user.wishListId){
+        if(!user.wishlistId){
             wishlist = await Wishlist.create();
-            await user.update({ wishListId: wishlist.id });
+            await user.update({wishlistId : wishlist.id });
         }else{
             wishlist = await Wishlist.findOne({
-                where: { id: user.wishListId },
+                where: { id: user.wishlistId},
                 include: { model: Productwish } 
             });
         }
@@ -30,7 +30,7 @@ router.post('/', async(req,res) => {
             return res.send('Product already exists in the list')
         }else{
             await Productwish.create({
-                wishListId: wishlist.id,
+                wishlistId: wishlist.id,
                 productId: product.id,
                 img: product.img,
                 name: product.name,
