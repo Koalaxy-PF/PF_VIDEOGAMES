@@ -1,39 +1,29 @@
-import React from "react";
+import React, {useState} from "react";
 
 export default function Pagination({allGames, gamesPerPage, setCurrentPage, currentPage}){
     
     const [pageNumberLimit] = useState(5)
     const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(5)
-    const [minPageNumberLImit, setMinNumberLimit] = useState(0)
+    const [minPageNumberLimit, setMinNumberLimit] = useState(0)
     
     const pages = [];
     for (let i = 1; i < Math.ceil(allGames.length/gamesPerPage); i++) {
-        pages.push(i+1);
+        pages.push(i);
     }
-
-    const pageNumbers = pages.map(page => {
-        if(page <= maxPageLimit && page > minPageLimit) {
-            return(
-                <li key={page} id={page} onClick={handlePageClick} className={currentPage === page ? 'active' : null} >
-                    {page}
-                </li>
-            );
-        } else {
-            return null;
-        }
-    })
 
     const handleClick = (e) => {
         setCurrentPage(Number(e.target.id))
         window.scrollTo(0,0);
     }
 
+    
+
     const handleNextbtn = () => {
         setCurrentPage(currentPage + 1);
 
         if(currentPage + 1 > maxPageNumberLimit){
             setMaxPageNumberLimit(maxPageNumberLimit + pageNumberLimit);
-            setMinNumberLimit(minPageNumberLImit + pageNumberLimit);
+            setMinNumberLimit(minPageNumberLimit + pageNumberLimit);
         }
     };
 
@@ -42,7 +32,7 @@ export default function Pagination({allGames, gamesPerPage, setCurrentPage, curr
 
         if((currentPage - 1) % pageNumberLimit === 0){
             setMaxPageNumberLimit(maxPageNumberLimit - pageNumberLimit);
-            setMinNumberLimit(minPageNumberLImit - pageNumberLimit);
+            setMinNumberLimit(minPageNumberLimit - pageNumberLimit);
         }
     }
 
@@ -53,19 +43,25 @@ export default function Pagination({allGames, gamesPerPage, setCurrentPage, curr
     }
 
     let pageDecrementBtn = null;
-    if(minPageLimit >= 1){
+    if(minPageNumberLimit >= 1){
         pageDecrementBtn = <li onClick={handlePrevBtn}>&hellip;</li>
     }
 
     const renderPageNumbers = pages.map((number) => {
-        if(number < maxPageNumberLimit + 1 && number > minPageNumberLImit){
+        if(number < maxPageNumberLimit + 1 && number > minPageNumberLimit){
             return(
-                <li 
-                key={number}
-                id={number}
-                onClick={(e) => handleClick(e)}
-                >
-                    {number}
+                <li>
+                    {
+                        currentPage === number ? 
+                        <button disabled className="rounded-md bg-cyan-500 w-10 h-10 text-center border-cyan-900 text-white border-2">{number} </button> 
+                        : <button key={number}
+                        id={number}
+                        onClick={(e) => handleClick(e)} 
+                        className="rounded-md bg-[#1cecf4] border-2 border-white w-10 h-10 text-center hover:bg-cyan-500 hover:border-cyan-900 hover:text-white">
+                        {number}
+                        </button>
+                    }
+                    
                 </li>
             )
         } else {
@@ -76,18 +72,19 @@ export default function Pagination({allGames, gamesPerPage, setCurrentPage, curr
 
     return(
         <div>
-            <ul>
+            <ul className="flex justify-around gap-x-1">
                 <li>
-                    <button disabled={currentPage === pages[0] ? true : false} onClick={handlePrevBtn} >
-                    </button>
+                    {currentPage === pages[0] ? <button className="w-10 h-10 display-hidden"></button>  : <button className="rounded-md bg-[#1cecf4] border-2 border-white w-10 h-10 text-center justify-items-center hover:bg-cyan-500 hover:border-cyan-900 hover:text-white" onClick={handlePrevBtn} ><ion-icon name="chevron-back-outline"></ion-icon>
+                    </button>}
                 </li>
                 {pageDecrementBtn}
                 {renderPageNumbers}
                 {pageIncrementBtn}
                 <li>
-                    <button disabled={currentPage === pages[pages.length - 1] ? true: false} onClick={handleNextbtn} >
-
-                    </button>
+                    {currentPage === pages[pages.length - 1] ? <button className="w-10 h-10 display-hidden"></button> : <button className="rounded-md bg-[#1cecf4] border-2 border-white w-10 h-10 text-center justify-items-center hover:bg-cyan-500 hover:border-cyan-900 hover:text-white" onClick={handleNextbtn} >
+                        <ion-icon name="chevron-forward-outline"></ion-icon>
+                    </button>}
+                    
                 </li>
             </ul>
         </div>

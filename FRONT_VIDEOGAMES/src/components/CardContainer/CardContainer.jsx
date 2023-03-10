@@ -12,9 +12,8 @@ import Filter from "../Filter/Filter";
 
 export default function Cards() {
 //const dispatch = useDispatch();
-const pageNumberLimit = 5;
 const allGames = useSelector((state) => state.GamesCopy);
-const [gamesPerPage] = useState(10);
+const [gamesPerPage] = useState(5);
 const dispatch = useDispatch();
 const[currentPage,setCurrentPage] =useState(1) 
 
@@ -25,17 +24,12 @@ const indexLastGame = currentPage * gamesPerPage;
 const indexFirstGame = indexLastGame - gamesPerPage;
 const currentGames = allGames.slice(indexFirstGame, indexLastGame)
 
-const onPageChange= (pageNumber)=>{
-  setCurrentPage(pageNumber);
-}
+
 
 useEffect(() => {
   dispatch(GetGames());
 }, [dispatch]);  
 
-const pagination = pagesNumber => {
-  setCurrentPage(pagesNumber)
-};
 
 const handleClick = (e) => {
   e.preventDefault();
