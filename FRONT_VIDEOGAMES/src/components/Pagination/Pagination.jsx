@@ -1,9 +1,9 @@
 import React, {useState} from "react";
 
-export default function Pagination({allGames, gamesPerPage, setCurrentPage, currentPage}){
+export default function Pagination({allGames, gamesPerPage, pagination, currentPage}){
     
-    const [pageNumberLimit] = useState(5)
-    const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(5)
+    const [pageNumberLimit] = useState(3)
+    const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(3)
     const [minPageNumberLimit, setMinNumberLimit] = useState(0)
     
     const pages = [];
@@ -11,15 +11,9 @@ export default function Pagination({allGames, gamesPerPage, setCurrentPage, curr
         pages.push(i);
     }
 
-    const handleClick = (e) => {
-        setCurrentPage(Number(e.target.id))
-        window.scrollTo(0,0);
-    }
-
-    
 
     const handleNextbtn = () => {
-        setCurrentPage(currentPage + 1);
+        pagination(currentPage + 1);
 
         if(currentPage + 1 > maxPageNumberLimit){
             setMaxPageNumberLimit(maxPageNumberLimit + pageNumberLimit);
@@ -28,7 +22,7 @@ export default function Pagination({allGames, gamesPerPage, setCurrentPage, curr
     };
 
     const handlePrevBtn = () => {
-        setCurrentPage(currentPage-1);
+        pagination(currentPage-1);
 
         if((currentPage - 1) % pageNumberLimit === 0){
             setMaxPageNumberLimit(maxPageNumberLimit - pageNumberLimit);
@@ -39,12 +33,12 @@ export default function Pagination({allGames, gamesPerPage, setCurrentPage, curr
 
     let pageIncrementBtn = null;
     if(pages.length > maxPageNumberLimit){
-        pageIncrementBtn = <li onClick={handleNextbtn}>&hellip;</li>
+        pageIncrementBtn = <li className="rounded-md bg-[#1cecf4] border-2 border-white w-10 h-10 text-center justify-items-center hover:bg-cyan-500 hover:border-cyan-900 hover:text-white" onClick={handleNextbtn}>&hellip;</li>
     }
 
     let pageDecrementBtn = null;
     if(minPageNumberLimit >= 1){
-        pageDecrementBtn = <li onClick={handlePrevBtn}>&hellip;</li>
+        pageDecrementBtn = <li className="rounded-md bg-[#1cecf4] border-2 border-white w-10 h-10 text-center justify-items-center hover:bg-cyan-500 hover:border-cyan-900 hover:text-white" onClick={handlePrevBtn}>&hellip;</li>
     }
 
     const renderPageNumbers = pages.map((number) => {
@@ -56,7 +50,7 @@ export default function Pagination({allGames, gamesPerPage, setCurrentPage, curr
                         <button disabled className="rounded-md bg-cyan-500 w-10 h-10 text-center border-cyan-900 text-white border-2">{number} </button> 
                         : <button key={number}
                         id={number}
-                        onClick={(e) => handleClick(e)} 
+                        onClick={() => pagination(number)} 
                         className="rounded-md bg-[#1cecf4] border-2 border-white w-10 h-10 text-center hover:bg-cyan-500 hover:border-cyan-900 hover:text-white">
                         {number}
                         </button>
