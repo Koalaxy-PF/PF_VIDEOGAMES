@@ -6,6 +6,7 @@ import { edadValidator } from "./validators";
 import img from '../../assets/login/koala_login.jpg'
 import logo from '../../assets/icons/koalaLogo.png';
 import Footer from "../../components/Footer/Footer";
+import seePassaword from "../../assets/icons/seePassword.png";
 
 
 // const validateForm = (input) => {
@@ -32,6 +33,8 @@ export default function CreateUser() {
   //const history = useHistory();
 
   const [error, setErrors] = useState({});
+
+  const [showPwd, setShowPwd] = useState(false)
 
   const { register, formState: { errors }, watch, handleSubmit } = useForm({
     defaultValues: {
@@ -191,19 +194,22 @@ export default function CreateUser() {
 
                       <div >
                         <label class='block text-sm font-medium text-gray-600 mt-2 lg:mt-0'>Password: </label>
-                        <input  class='mt-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' placeholder='Password'
-                    
-                        type="password" {...register('password', {
-                          pattern: /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/ ,
-                          required: true,
-                          maxLength: 16,
-                          minLength: 8
-                      })} />
-                      {errors.password?.type === 'required' && <p class='text-red-600'>the passaword is required</p>}
-                      {errors.password?.type === 'pattern' && <p class='text-red-600'>the password at least one digit, at least one lower case and at least one upper case.</p>}
-                      {errors.password?.type === 'maxLength' && <p class='text-red-600'>must have a maximum of 16 characters</p>}
-                      {errors.password?.type === 'minLength' && <p class='text-red-600'>must contain at least 8 characters</p>}
 
+                          <div className="flex mt-2 shadow appearance-none  rounded w-full py-2 px-3 text-gray-700 leading-tight  focus:shadow-outline flex item-center justify-between flex-wrap bg-white p-4 ">
+                              <input  placeholder='Password ' className="focus:outline-none"
+                        
+                        type={showPwd ? "text" : "password"} {...register('password', {
+                            pattern: /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/ ,
+                            required: true,
+                            maxLength: 16,
+                            minLength: 8
+                        })} />
+                        {errors.password?.type === 'required' && <p class='text-red-600'>the passaword is required</p>}
+                        {errors.password?.type === 'pattern' && <p class='text-red-600'>the password at least one digit, at least one lower case and at least one upper case.</p>}
+                        {errors.password?.type === 'maxLength' && <p class='text-red-600'>must have a maximum of 16 characters</p>}
+                        {errors.password?.type === 'minLength' && <p class='text-red-600'>must contain at least 8 characters</p>}
+                        <a class="block lg:inline-block lg:mt-0 " onClick={() => setShowPwd(!showPwd)}> <img  class= " z-6 inset-y-0 my-auto h-6 active:bg-gray-600 active:rounded-full  hover:h-7"src = {seePassaword}/> </a>
+                          </div>
                       </div>
 
                       {/* <div class='flex justify-center'>
