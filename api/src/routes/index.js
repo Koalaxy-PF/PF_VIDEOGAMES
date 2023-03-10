@@ -22,6 +22,11 @@ const getCart = require('./cartsRoutes/get')
 const addProduct = require('./cartsRoutes/post')
 const deleteCart = require('./cartsRoutes/delete')
 
+const postWishList = require('./wishlistRoutes/post');
+const deleteWishProduct = require('./wishlistRoutes/delete');
+const getWishlist = require('./wishlistRoutes/get');
+
+
 
 /* *************************  routes GENRES   **************************************** */
 router.use("/genres", getGenres);
@@ -46,13 +51,15 @@ router.use("/users", updateUser);
 router.use("/users", deleteUser);
 
 
-
-
 /* *************************  routes CARRITO   **************************************** */
 router.use("/cart",getCart);
 router.use("/cart/addProduct",addProduct);
 router.use("/cart/delete",deleteCart);
 
+/* *************************  routes WISHLIST   **************************************** */
+router.use("/wishlist",postWishList);
+router.use("/wishlist/delete",deleteWishProduct);
+router.use("/wishlist",getWishlist);
 
 
 module.exports = router;
