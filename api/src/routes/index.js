@@ -4,6 +4,7 @@ const router = Router();
 const getGenres = require("./genreRoutes/get");
 const postGenres = require("./genreRoutes/post");
 const deleteGenres = require("./genreRoutes/delete");
+
 const getCompany = require("./companyRoutes/get");
 
 const getProducts = require("./productRoutes/get");
@@ -11,21 +12,24 @@ const postProducts = require("./productRoutes/post");
 const putProducts = require("./productRoutes/put");
 const deleteProducts = require("./productRoutes/delete");
 
+const registerUser = require("./authRoutes/register");
+const loginUser = require("./authRoutes/login");
+const getUsers = require("./userRoutes/get");
+const updateUser = require("./userRoutes/put");
+const deleteUser = require("./userRoutes/delete");
 
-const registerUser = require('./authRoutes/register');
-const loginUser = require('./authRoutes/login');
-const getUsers = require('./userRoutes/get');
-const updateUser = require('./userRoutes/put');
-const deleteUser = require('./userRoutes/delete');
+const getCart = require("./cartsRoutes/get");
+const addProduct = require("./cartsRoutes/post");
+const deleteCart = require("./cartsRoutes/delete");
 
-const getCart = require('./cartsRoutes/get')
-const addProduct = require('./cartsRoutes/post')
-const deleteCart = require('./cartsRoutes/delete')
 
 const postWishList = require('./wishlistRoutes/post');
 const deleteWishProduct = require('./wishlistRoutes/delete');
 const getWishlist = require('./wishlistRoutes/get');
 
+const order = require("./paypal/order");
+const payOrder = require("./paypal/payOrder");
+const cancelPayment = require("./paypal/cancelPayment");
 
 
 /* *************************  routes GENRES   **************************************** */
@@ -50,16 +54,20 @@ router.use("/users", getUsers);
 router.use("/users", updateUser);
 router.use("/users", deleteUser);
 
-
-/* *************************  routes CARRITO   **************************************** */
-router.use("/cart",getCart);
-router.use("/cart/addProduct",addProduct);
-router.use("/cart/delete",deleteCart);
+/* *************************  routes PAYPAL   **************************************** */
+router.use("/order", order);
+router.use("/pay-order", payOrder);
+router.use("/cancel-payment", cancelPayment);
 
 /* *************************  routes WISHLIST   **************************************** */
 router.use("/wishlist",postWishList);
 router.use("/wishlist/delete",deleteWishProduct);
 router.use("/wishlist",getWishlist);
+
+/* *************************  routes CARRITO   **************************************** */
+router.use("/cart", getCart);
+router.use("/cart/addProduct", addProduct);
+router.use("/cart/delete", deleteCart);
 
 
 module.exports = router;
