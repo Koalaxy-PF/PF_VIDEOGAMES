@@ -1,29 +1,70 @@
 import {
-  GET_GAMES,
-  POST_GAME,
-  GET_BY_ID,
-  GET_GENRES,
-  FILTER_GENRES,
-  FILTER_PER_COMPANY,
-  ORDER_BY_NAME,
-  ORDER_BY_RELEASED,
-  TIDY_PRICE,
-  CLEAN,
-  CLEAN_GAMES,
-  GET_GAME,
-} from "../actions/actions";
+    GET_GAMES,
+    POST_GAME,
+    GET_BY_ID,
+    GET_GENRES,
+    FILTER_GENRES,
+    FILTER_PER_COMPANY,
+    ORDER_BY_NAME ,
+    ORDER_BY_RELEASED,
+    TIDY_PRICE ,
+    CLEAN,
+    CLEAN_GAMES,
+    GET_GAME,
+    LOGIN_SUCESS,
+    LOGIN_FAIL,
+} from "../actions/actions"
 
 const initialState = {
-  Games: [],
-  GamesCopy: [],
-  Genres: [],
-  details: [],
-};
+    Games:[],
+    GamesCopy:[],
+    Genres:[],
+    details:[],
+    user:{}
+}
 
-function rootReducer(state = initialState, action) {
-  switch (action.type) {
-    case GET_GAMES:
-      return {
+function rootReducer(state = initialState, action){
+    
+    switch(action.type){
+
+        // - - - AUTENTICACIÓN - - -
+
+        case LOGIN_SUCESS:
+
+        console.log(action.payload)
+            return{
+                ...state,
+                user: action.payload.user,
+        }
+
+        case LOGIN_FAIL:
+            return{
+                ...state,
+
+            }
+
+        case GET_GAMES:
+            return{
+                ...state,
+                Games: action.payload,
+                GamesCopy: action.payload,
+        }
+
+        case GET_GAME:
+            console.log(action.payload);
+            return {
+                ...state,
+                Games: action.payload,
+        }
+
+        case GET_GENRES:
+        return{
+            ...state,
+            Genres: action.payload
+        }
+
+        case POST_GAME:
+        return {
         ...state,
         Games: action.payload,
         GamesCopy: action.payload,

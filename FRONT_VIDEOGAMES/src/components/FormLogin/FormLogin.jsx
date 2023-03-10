@@ -1,19 +1,46 @@
 import React, {useEffect, useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import logo from '../../assets/icons/koalaLogo.png';
 import {useForm} from 'react-hook-form';
-import koala from '../../assets/login/koala_login.jpg';
+import logo from '../../assets/icons/koalaLogo.png';
+import koala from '../../assets/login/koala_login.jpg'
+import { Login, Login_OK} from '../../redux/actions/actions'
+import { useNavigate } from 'react-router-dom'
 import {Link} from 'react-router-dom'
+import Swal from 'sweetalert2'
 
 
 
-export default function LoginForm() {
+export default function LoginForm(){
 
     const {register, formState:{errors}, handleSubmit}= useForm();
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const onSubmit = (data) => {
-        console.log(data)
+        dispatch(Login(data)).then((response) => {
+            dispatch(Login_OK(response.data)).then(() => {
+                Swal.fire({
+                    title: '¡Bienvenido!',
+                    text: 'Usuario validado correctamente',
+                    icon: 'success',
+                    confirmButtonColor: '#3085d6',
+                    confirmButtonText: 'Continuar'
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                      navigate("/home");
+                      console.log(response)
+                      info
+                    }})})
+            }).catch((err) => {
+                Swal.fire({
+                  tittle: '¡Ops! Hay un problema',
+                  text: err.response.data.message,
+                  icon: "error",
+                  confirmButtonText: "Continuar"
+                })
+              })
     }
+        
 
     return(
         <div class='min-height-full flex'>
