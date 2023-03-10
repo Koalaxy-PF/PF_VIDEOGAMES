@@ -26,6 +26,8 @@ const order = require("./paypal/order");
 const payOrder = require("./paypal/payOrder");
 const cancelPayment = require("./paypal/cancelPayment");
 
+const payment = require("./mercadopago/payment");
+
 /* *************************  routes GENRES   **************************************** */
 router.use("/genres", getGenres);
 router.use("/genres", postGenres);
@@ -53,6 +55,9 @@ router.use("/users", deleteUser);
 router.use("/order", order);
 router.use("/pay-order", payOrder);
 router.use("/cancel-payment", cancelPayment);
+
+/* *************************  routes MERCADOPAGO   **************************************** */
+router.use("/payment", payment);
 
 /* *************************  routes CARRITO   **************************************** */
 router.use("/cart", getCart);

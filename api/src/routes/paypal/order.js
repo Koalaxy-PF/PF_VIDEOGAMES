@@ -11,6 +11,8 @@ router.post("/:id", async (req, res) => {
   const { id } = req.params;
   const response = await axios.get(`http://localhost:3000/cart/${id}`);
   const price = response.data.total;
+  /*  const price = req.body.total */
+  // cuando se cree el front para correr este http, cambiar para que lleguen los datos desde el body.
   try {
     const order = {
       intent: "CAPTURE",
