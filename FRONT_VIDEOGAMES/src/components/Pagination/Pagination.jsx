@@ -38,17 +38,34 @@ export default function Pagination({props}){
     //     )
     // }
 
+    const handlePrevClick = () => {
+        props.onPrevClick();
+    }
+
+    const handleNextClick = () => {
+        props.onNextClick();
+    }
+
+    const handlePageClick = (e) => {
+        props.onPageChange(Number(e.target.id))
+    }
+
     return(
-        <nav className="flex flex-row text-center">
-            <ul className="flex content-center align-center gap-1.5 ">
-                {
-                    pagesNumber?.map(n => (
-                        <li key={n} className='justify-center flex-nowrap list-none rounded-xl border-2 border-solid border-sky-900 w-7 h-7 bg-sky-400 text-sky-900 text-center active:border-sky-400 active:bg-sky-900 active:text-sky-400 focus:border-sky-400 focus:bg-sky-900 focus:text-sky-400'>
-                            <button onClick={() => pagination(n)} > {n} </button>
-                        </li>
-                    ))
-                }
+        <div className="main">
+            <div className="mainData">
+              {renderData(data)}
+            </div>
+            <ul className="pageNumbers"> 
+               <li>
+                   <button onClick={handlePrevClick} disabled={currentPage === pages[0]}>Prev</button>
+               </li>
+               {pageDecremenEllipses}
+                {pageNumbers}
+               {pageIncrementEllipses}
+                <li>
+                   <button onClick={handleNextClick} disabled={currentPage === pages[pages.length-1]}>&gt;Next</button>
+               </li>
             </ul>
-        </nav>
+        </div>
     )
 }
