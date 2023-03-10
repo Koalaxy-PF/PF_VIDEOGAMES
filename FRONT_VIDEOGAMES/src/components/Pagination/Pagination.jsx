@@ -1,22 +1,92 @@
-import React from "react";
+import React, {useState} from "react";
 
-export default function Pagination({gamesPerPage, allGames, pagination}){
-    const pagesNumber = [];
-    for(let i = 1; i <= Math.ceil(allGames/gamesPerPage); i++){
-        pagesNumber.push(i)
+export default function Pagination({allGames, gamesPerPage, setCurrentPage, currentPage}){
+    
+    const [pageNumberLimit] = useState(5)
+    const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(5)
+    const [minPageNumberLimit, setMinNumberLimit] = useState(0)
+    
+    const pages = [];
+    for (let i = 1; i < Math.ceil(allGames.length/gamesPerPage); i++) {
+        pages.push(i);
+    }
+
+    const handleClick = (e) => {
+        setCurrentPage(Number(e.target.id))
+        window.scrollTo(0,0);
+    }
+
+    
+
+    const handleNextbtn = () => {
+        setCurrentPage(currentPage + 1);
+
+        if(currentPage + 1 > maxPageNumberLimit){
+            setMaxPageNumberLimit(maxPageNumberLimit + pageNumberLimit);
+            setMinNumberLimit(minPageNumberLimit + pageNumberLimit);
+        }
     };
 
+    const handlePrevBtn = () => {
+        setCurrentPage(currentPage-1);
+
+        if((currentPage - 1) % pageNumberLimit === 0){
+            setMaxPageNumberLimit(maxPageNumberLimit - pageNumberLimit);
+            setMinNumberLimit(minPageNumberLimit - pageNumberLimit);
+        }
+    }
+
+
+    let pageIncrementBtn = null;
+    if(pages.length > maxPageNumberLimit){
+        pageIncrementBtn = <li onClick={handleNextbtn}>&hellip;</li>
+    }
+
+    let pageDecrementBtn = null;
+    if(minPageNumberLimit >= 1){
+        pageDecrementBtn = <li onClick={handlePrevBtn}>&hellip;</li>
+    }
+
+    const renderPageNumbers = pages.map((number) => {
+        if(number < maxPageNumberLimit + 1 && number > minPageNumberLimit){
+            return(
+                <li>
+                    {
+                        currentPage === number ? 
+                        <button disabled className="rounded-md bg-cyan-500 w-10 h-10 text-center border-cyan-900 text-white border-2">{number} </button> 
+                        : <button key={number}
+                        id={number}
+                        onClick={(e) => handleClick(e)} 
+                        className="rounded-md bg-[#1cecf4] border-2 border-white w-10 h-10 text-center hover:bg-cyan-500 hover:border-cyan-900 hover:text-white">
+                        {number}
+                        </button>
+                    }
+                    
+                </li>
+            )
+        } else {
+            return null;
+        }
+    })
+
+
     return(
-        <nav className="flex flex-row text-center">
-            <ul className="flex content-center align-center gap-1.5 ">
-                {
-                    pagesNumber?.map(n => (
-                        <li key={n} className='justify-center flex-nowrap list-none rounded-xl border-2 border-solid border-sky-900 w-7 h-7 bg-sky-400 text-sky-900 text-center active:border-sky-400 active:bg-sky-900 active:text-sky-400 focus:border-sky-400 focus:bg-sky-900 focus:text-sky-400'>
-                            <button onClick={() => pagination(n)} > {n} </button>
-                        </li>
-                    ))
-                }
+        <div>
+            <ul className="flex justify-around gap-x-1">
+                <li>
+                    {currentPage === pages[0] ? <button className="w-10 h-10 display-hidden"></button>  : <button className="rounded-md bg-[#1cecf4] border-2 border-white w-10 h-10 text-center justify-items-center hover:bg-cyan-500 hover:border-cyan-900 hover:text-white" onClick={handlePrevBtn} ><ion-icon name="chevron-back-outline"></ion-icon>
+                    </button>}
+                </li>
+                {pageDecrementBtn}
+                {renderPageNumbers}
+                {pageIncrementBtn}
+                <li>
+                    {currentPage === pages[pages.length - 1] ? <button className="w-10 h-10 display-hidden"></button> : <button className="rounded-md bg-[#1cecf4] border-2 border-white w-10 h-10 text-center justify-items-center hover:bg-cyan-500 hover:border-cyan-900 hover:text-white" onClick={handleNextbtn} >
+                        <ion-icon name="chevron-forward-outline"></ion-icon>
+                    </button>}
+                    
+                </li>
             </ul>
-        </nav>
+        </div>
     )
 }

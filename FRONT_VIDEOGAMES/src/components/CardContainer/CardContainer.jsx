@@ -13,8 +13,7 @@ import Filter from "../Filter/Filter";
 export default function Cards() {
 //const dispatch = useDispatch();
 const allGames = useSelector((state) => state.GamesCopy);
-const [gamesPerPage, setGamesPerPage] = useState(10);
-
+const [gamesPerPage] = useState(5);
 const dispatch = useDispatch();
 const[currentPage,setCurrentPage] =useState(1) 
 
@@ -25,13 +24,12 @@ const indexLastGame = currentPage * gamesPerPage;
 const indexFirstGame = indexLastGame - gamesPerPage;
 const currentGames = allGames.slice(indexFirstGame, indexLastGame)
 
+
+
 useEffect(() => {
   dispatch(GetGames());
 }, [dispatch]);  
 
-const pagination = pagesNumber => {
-  setCurrentPage(pagesNumber)
-};
 
 const handleClick = (e) => {
   e.preventDefault();
@@ -186,9 +184,10 @@ const  HandlerFilterTypeFerCompany = (e) =>{
       })} 
        <div className="flex flex-nowrap justify-center w-full flex-row my-3">
         <Pagination 
+          allGames={allGames}
           gamesPerPage={gamesPerPage}
-          allGames={allGames.length}
-          pagination={pagination}
+          setCurrentPage={setCurrentPage}
+          currentPage={currentPage}
         />
        </div>
     </div>

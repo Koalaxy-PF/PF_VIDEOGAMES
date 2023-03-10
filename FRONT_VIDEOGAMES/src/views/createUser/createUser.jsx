@@ -6,6 +6,9 @@ import { edadValidator } from "./validators";
 import img from '../../assets/login/koala_login.jpg'
 import logo from '../../assets/icons/koalaLogo.png';
 import Footer from "../../components/Footer/Footer";
+import { Register } from "../../redux/actions/actions";
+import { useNavigate } from "react-router-dom";
+import Swal from 'sweetalert2'
 import seePassaword from "../../assets/icons/seePassword.png";
 
 
@@ -26,11 +29,10 @@ import seePassaword from "../../assets/icons/seePassword.png";
 //   return error;
 // }
 
+export default function CreateUser(){
 
-
-export default function CreateUser() {
- const dispatch = useDispatch();
-  //const history = useHistory();
+  const dispatch = useDispatch()
+  const navigate = useNavigate();
 
   const [error, setErrors] = useState({});
 
@@ -105,9 +107,26 @@ export default function CreateUser() {
   const genre = ['male', 'female']
 
   const onSubmit = (data) => {
-    console.log(data);
-}
-
+    dispatch(Register(data)).then((response) => {
+      Swal.fire({
+        title: '¡Buen trabajo!',
+        text: response.data.message,
+        icon: 'success',
+        confirmButtonColor: '#3085d6',
+        confirmButtonText: 'Continuar'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate("/Login");
+      }})})
+      .catch((err) => {
+        Swal.fire({
+          tittle: '¡Ops! Hay un problema',
+          text: err.response.data.message,
+          icon: "error",
+          confirmButtonText: "Continuar"
+        })
+      })
+    }
 
   return (
     <div >
@@ -169,7 +188,7 @@ export default function CreateUser() {
 
                       <div >
                       <label class='text-black '>Name</label>
-                            <input type="text" class='mt-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' placeholder='Name' {...register('nombre', {
+                            <input type="text" class='mt-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' placeholder='Name' {...register('name', {
                                 required: true
                             })} />
                       </div>
