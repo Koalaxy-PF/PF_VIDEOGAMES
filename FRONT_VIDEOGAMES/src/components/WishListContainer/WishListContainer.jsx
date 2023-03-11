@@ -62,9 +62,6 @@ console.log(currentGames);
               />
               </div>
             </Link>
-            <div>
-                <button onClick={(e => addWishList(id))}>Add to cart</button>
-            </div>
           </Fragment>
         );
       })} 

@@ -3,21 +3,21 @@ import React from "react";
 export default function WishListCard ({name, img, calification, price, genre}) {
     return(
         <div>
-            <div>
-                <div class='flex'>
-                    <img class='w-[400px]' src={img} alt="" />
-                    <div class='flex'>
-                        <h1 class='px-[20px]'>{name}</h1>
+                <div class='grid grid-cols-3 m-auto'>
+                    <div class='mx-[20px]'>
+                    <img class='w-[400px] h-[250px] object-cover rounded' src={img} alt="" />
                     </div>
-                    <div>
+                    <div class='justify-center text-center'>
+                        <h1 class='text-[25px] relative top-[10px]'>{name}</h1>
+                    </div>
+                    <div class='block items-center my-[80px] ml-[200px]'>
                         <p>{calification}</p>
                         <p>{genre}</p>
-                    </div>
-                    <div>
                         <h5>{price}</h5>
                     </div>
+                    <div>
 
-                </div>
+                    </div>
             </div>
         </div>
     );
