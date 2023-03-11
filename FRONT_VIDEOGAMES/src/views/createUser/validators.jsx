@@ -8,9 +8,9 @@ const edadValidator = (value) => {
     const mesActual = parseInt(fechaActual.getMonth()) + 1;
     const diaActual = parseInt(fechaActual.getDate());
    
-    const diaNacimiento = parseInt(String(value).substring(0, 2));
-    const mesNacimiento = parseInt(String(value).substring(3, 5));
-    const anoNacimiento = parseInt(String(value).substring(6, 10));
+    const anoNacimiento = parseInt(String(value).substring(0, 4));
+    const mesNacimiento = parseInt(String(value).substring(5, 7));
+    const diaNacimiento = parseInt(String(value).substring(8, 10));
 
     let edad = anoActual - anoNacimiento;
 
@@ -22,6 +22,8 @@ const edadValidator = (value) => {
             edad--;
         }
     }
+
+    console.log(edad)
 
     if(edad >= 14){
         return true
