@@ -22,9 +22,15 @@ const getCart = require("./cartsRoutes/get");
 const addProduct = require("./cartsRoutes/post");
 const deleteCart = require("./cartsRoutes/delete");
 
+
+const postWishList = require('./wishlistRoutes/post');
+const deleteWishProduct = require('./wishlistRoutes/delete');
+const getWishlist = require('./wishlistRoutes/get');
+
 const order = require("./paypal/order");
 const payOrder = require("./paypal/payOrder");
 const cancelPayment = require("./paypal/cancelPayment");
+
 
 /* *************************  routes GENRES   **************************************** */
 router.use("/genres", getGenres);
@@ -49,14 +55,19 @@ router.use("/users", updateUser);
 router.use("/users", deleteUser);
 
 /* *************************  routes PAYPAL   **************************************** */
-
 router.use("/order", order);
 router.use("/pay-order", payOrder);
 router.use("/cancel-payment", cancelPayment);
+
+/* *************************  routes WISHLIST   **************************************** */
+router.use("/wishlist",postWishList);
+router.use("/wishlist/delete",deleteWishProduct);
+router.use("/wishlist",getWishlist);
 
 /* *************************  routes CARRITO   **************************************** */
 router.use("/cart", getCart);
 router.use("/cart/addProduct", addProduct);
 router.use("/cart/delete", deleteCart);
+
 
 module.exports = router;
