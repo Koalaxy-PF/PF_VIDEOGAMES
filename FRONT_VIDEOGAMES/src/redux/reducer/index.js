@@ -178,7 +178,7 @@ function rootReducer(state = initialState, action){
           : AllCom?.filter((t) => t.company.includes(action.payload));
       return {
         ...state,
-        Games: TypeCompanyFilter,
+        GamesCopy: TypeCompanyFilter,
       };
 
     case FILTER_GENRES:
@@ -189,7 +189,7 @@ function rootReducer(state = initialState, action){
           : AllGen?.filter((t) => t.genre.includes(action.payload));
       return {
         ...state,
-        Games: TypeGamesFilter,
+        GamesCopy: TypeGamesFilter,
       };
 
     case GET_BY_ID:
@@ -210,11 +210,6 @@ function rootReducer(state = initialState, action){
         GamesCopy: action.payload,
       };
 
-    case CLEAN_GAMES:
-      return {
-        ...state,
-        GamesCopy: action.payload,
-      };
 
     default: {
       return state;
