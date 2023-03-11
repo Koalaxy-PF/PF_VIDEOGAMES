@@ -9,6 +9,7 @@ import Footer from "../../components/Footer/Footer";
 import { Register } from "../../redux/actions/actions";
 import { useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2'
+import NavBar from "../../components/Navbar/Navbar";
 
 
 // const validateForm = (input) => {
@@ -126,12 +127,16 @@ export default function CreateUser(){
     }
 
   return (
-    <div >
+    <div className="h-screen w-screen" >
 
-        <div className="flex min-height-full">
+        <div className="">
+          <NavBar />
+        </div>
 
-            <div className="hidden lg:block relative h-full flex-1">
-              <img class='w-[750px] ' src={img} alt="" /> 
+        <div className="flex  max-h-[calc(100vh-5rem)] bg-gray-200">
+
+            <div className="hidden lg:block relative flex-1">
+              <img class='h-[calc(100vh-5rem)] w-full' src={img} alt="" /> 
             </div>
 
             <div className="justify-center flex-1 flex flex-col py-12 px-4 sm:px-6 lg:px-20 xl:px-24" >
