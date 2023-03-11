@@ -13,8 +13,7 @@ import Filter from "../Filter/Filter";
 export default function Cards() {
 //const dispatch = useDispatch();
 const allGames = useSelector((state) => state.GamesCopy);
-const [gamesPerPage, setGamesPerPage] = useState(10);
-
+const [gamesPerPage, setGamesPerPage] = useState(8);
 const dispatch = useDispatch();
 const[currentPage,setCurrentPage] =useState(1) 
 
@@ -25,13 +24,17 @@ const indexLastGame = currentPage * gamesPerPage;
 const indexFirstGame = indexLastGame - gamesPerPage;
 const currentGames = allGames.slice(indexFirstGame, indexLastGame)
 
+console.log(allGames);
+
+const pagination = pagesNumber =>{
+  setCurrentPage(pagesNumber)
+  window.scrollTo(0,0)
+}
+
 useEffect(() => {
   dispatch(GetGames());
 }, [dispatch]);  
 
-const pagination = pagesNumber => {
-  setCurrentPage(pagesNumber)
-};
 
 const handleClick = (e) => {
   e.preventDefault();
@@ -75,7 +78,7 @@ const  HandlerFilterTypeFerCompany = (e) =>{
   setOrder(`ordenado ${e.target.value}`)
 }
 
-
+console.log(currentGames);
 
   return (
     <div class='bg-gray-200  overflow-x-hidden flex flex-wrap justify-center'>
@@ -186,9 +189,10 @@ const  HandlerFilterTypeFerCompany = (e) =>{
       })} 
        <div className="flex flex-nowrap justify-center w-full flex-row my-3">
         <Pagination 
+          allGames={allGames}
           gamesPerPage={gamesPerPage}
-          allGames={allGames.length}
           pagination={pagination}
+          currentPage={currentPage}
         />
        </div>
     </div>

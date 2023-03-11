@@ -6,32 +6,30 @@ const jwt = require('jsonwebtoken');
 
 router.post('/login', async(req,res)=>{
     const { email, password } = req.body;
-    try {
 
         const user = await User.findOne({
             where: { email: email }
         })
 
-        !user && res.send('Incorrect username. Are you registered?');
+        if (!user) {
+            return res.status(401).send({message: "Incorrect username. Are you registered?"});
+        }
+
         const decryptPassword = CryptoJS.AES.decrypt(user.password, process.env.SECRET_KEY_CRYPTO);
         const originalPassword = decryptPassword.toString(CryptoJS.enc.Utf8);
 
-        originalPassword !== password && res.send('Incorrect password o username.');
+        if (originalPassword !== password) {
+            return res.status(401).send({message: "Incorrect password o username"});
+        }
 
         const accessToken = jwt.sign(
-            {id: user.id, is_admin: user.is_admin}, //credenciales
+            {id: user.id, is_admin: user.is_admin},
             process.env.SECRET_KEY_CRYPTO,
             {expiresIn:86400}
         );
 
-        res.send({user, accessToken})
+        return res.status(200).send({user, accessToken});
 
-
-    } catch (err) {
-        console.log(err)
-    }
 })
-
-
 
 module.exports = router;
