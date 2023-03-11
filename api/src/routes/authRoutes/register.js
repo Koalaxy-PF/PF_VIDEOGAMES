@@ -3,6 +3,7 @@ const router = Router();
 const { Op } = require('sequelize');
 const { User, Role } = require('../../db');
 const CryptoJS = require("crypto-js");
+const { transporter } = require('../../emailer');
 
 router.post('/register', async(req,res) => {
 
@@ -33,7 +34,17 @@ router.post('/register', async(req,res) => {
       description,
       genre
     });
-  
+    await transporter.sendMail({
+      from: '"Koalaxy Company" <koalaxygames@gmail.com>', // sender address
+      to: email, // list of receivers
+      subject: "Bienvenido!", // Subject line
+      html: `<h4>Hola ${username}!</h4>
+            <p>Te damos la bienvenida a Koalaxy Games!
+        Esperamos que tengas una buena experiencia y puedas disfrutar de los mejores juegos en linea.<br>
+        <br>
+        <br>Koalaxy Team.<br>
+        <p/>`, // html body
+    });
     res.status(200).send({ message: "El usuario se ha registrado correctamente" });
   });
 
