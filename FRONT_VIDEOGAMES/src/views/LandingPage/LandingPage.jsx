@@ -14,8 +14,6 @@ export default function ReturnLandingPage(){
     return(
         <div className="bg-gray-300 ">
 
-
-
             <div className="  min-h-screen ">
                     <div className=" bg-gray-300 ">
 
