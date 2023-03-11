@@ -4,7 +4,7 @@ const { User, Role } = require('../../db');
 const CryptoJS = require("crypto-js");
 
 router.post('/register', async(req,res)=>{
-    const { username, name, last_name, email, password, img, date, description, genre } = req.body;
+    const { username, name, last_name, email, password, img, date, description, genre,is_admin } = req.body;
     try {
         const newUser = await User.create({
             username,
@@ -15,7 +15,8 @@ router.post('/register', async(req,res)=>{
             img,
             date,
             description,
-            genre
+            genre,
+            is_admin
         })
 
 
