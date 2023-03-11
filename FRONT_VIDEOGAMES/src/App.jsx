@@ -12,6 +12,7 @@ import QA from "./components/QA/QA"
 import CreateUser from "./views/createUser/createUser"
 import Login from "./views/Login/Login"
 import WishList from "./views/WishList/WishList"
+import Trolley from "./views/Trolley/Trolley"
 
 export default function App(){
 
@@ -29,6 +30,7 @@ export default function App(){
         <Route exact path="/CreateUser" element={<CreateUser/>} /> 
         <Route exact path="/Login" element={<Login/>} />
         <Route exact path="/WishList" element={<WishList />} />
+        <Route exact path="/Trolley" element={<Trolley />} />
       </Routes>
     </div>
   );
