@@ -214,7 +214,7 @@ export default function CreateUser(){
                       <div >
                         <label class='block text-sm font-medium text-gray-600 mt-2 lg:mt-0'>Password: </label>
 
-                          <div className="flex  flex item-center justify-between flex-wrap bg-white">
+                          <div className="flex item-center justify-between flex-wrap bg-white">
                               <input  placeholder='Password ' className="mt-2 shadow appearance-none  p-4 rounded w-full py-2 px-3 text-gray-700 leading-tight  focus:shadow-outline"
                         
                         type={showPwd ? "text" : "password"} {...register('password', {
