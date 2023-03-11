@@ -31,11 +31,20 @@ function rootReducer(state = initialState, action){
 
         case LOGIN_SUCESS:
 
-        console.log(action.payload)
+          if(window.localStorage.getItem('info-token')){
             return{
-                ...state,
-                user: action.payload.user,
-        }
+              ...state,
+              user: action.payload,
+            }
+          }
+
+          else{
+            window.localStorage.setItem(('info-token'), JSON.stringify(action.payload));
+             return{
+                  ...state,
+                  user: action.payload
+            }
+          }
 
         case LOGIN_FAIL:
             return{

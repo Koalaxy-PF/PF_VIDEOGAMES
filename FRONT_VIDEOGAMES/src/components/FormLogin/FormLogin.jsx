@@ -9,7 +9,6 @@ import {Link} from 'react-router-dom'
 import Swal from 'sweetalert2'
 
 
-
 export default function LoginForm(){
 
     const {register, formState:{errors}, handleSubmit}= useForm();
