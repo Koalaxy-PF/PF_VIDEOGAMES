@@ -6,8 +6,10 @@ mercadopago.configure({
   access_token:
     "TEST-7548539109315518-031010-dde8cb0d83f1da3868386f0ae69c57ed-229385058",
 });
+
 router.post("/", (req, res) => {
-  let preference = {
+  let order = {
+    // Cambiar por datos del body
     items: [
       {
         id: 123,
@@ -24,18 +26,12 @@ router.post("/", (req, res) => {
       pending: "",
     },
     auto_return: "approved",
-    binary_mode: true,
+    binary_mode: true, // Para solo recibir pagos por tarjeta o saldo de mercadopago. No efectivo
   };
 
   mercadopago.preferences
-    .create(preference)
+    .create(order)
     .then((response) => res.status(200).send({ response }))
     .catch((error) => res.status(400).send({ error: error.message }));
 });
 module.exports = router;
-
-/* tarjeta prueba:
- Visa
-4509 9535 6623 3704
-123
-11/25 */

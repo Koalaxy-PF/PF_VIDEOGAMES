@@ -30,7 +30,7 @@ router.post("/:id", async (req, res) => {
         landing_page: "NO_PREFERENCE",
         user_action: "PAY_NOW",
         return_url: `http://localhost:3000/pay-order`,
-        cancel_url: `http://localhost:3000/cart/${id}`,
+        cancel_url: `http://localhost:5173/home`,
       },
     };
 
