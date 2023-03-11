@@ -13,6 +13,8 @@ import {
     GET_GAME,
     LOGIN_SUCESS,
     LOGIN_FAIL,
+    POST_WISH_LIST,
+    GET_WISH_LIST,
 } from "../actions/actions"
 
 const initialState = {
@@ -20,7 +22,8 @@ const initialState = {
     GamesCopy:[],
     Genres:[],
     details:[],
-    user:{}
+    user:{},
+    WishList:[]
 }
 
 function rootReducer(state = initialState, action){
@@ -215,6 +218,20 @@ function rootReducer(state = initialState, action){
         ...state,
         GamesCopy: action.payload,
       };
+
+    // Reducers WishList
+
+    case POST_WISH_LIST:
+      return {
+      ...state,
+      WishList: action.payload,
+    };
+
+    case GET_WISH_LIST:
+      return{
+          ...state,
+          WishList: action.payload,
+  }
 
     default: {
       return state;

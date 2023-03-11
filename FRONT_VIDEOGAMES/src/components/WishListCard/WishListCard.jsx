@@ -4,10 +4,10 @@ export default function WishListCard ({name, img, calification, price, genre}) {
     return(
         <div>
             <div>
-                <div>
-                    <img src={img} alt="" />
-                    <div>
-                        <h1>{name}</h1>
+                <div class='flex'>
+                    <img class='w-[400px]' src={img} alt="" />
+                    <div class='flex'>
+                        <h1 class='px-[20px]'>{name}</h1>
                     </div>
                     <div>
                         <p>{calification}</p>
