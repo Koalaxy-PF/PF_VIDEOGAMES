@@ -214,8 +214,8 @@ export default function CreateUser(){
                       <div >
                         <label class='block text-sm font-medium text-gray-600 mt-2 lg:mt-0'>Password: </label>
 
-                          <div className="flex mt-2 shadow appearance-none  rounded w-full py-2 px-3 text-gray-700 leading-tight  focus:shadow-outline flex item-center justify-between flex-wrap bg-white p-4 ">
-                              <input  placeholder='Password ' className="focus:outline-none"
+                          <div className="flex  flex item-center justify-between flex-wrap bg-white">
+                              <input  placeholder='Password ' className="mt-2 shadow appearance-none  p-4 rounded w-full py-2 px-3 text-gray-700 leading-tight  focus:shadow-outline"
                         
                         type={showPwd ? "text" : "password"} {...register('password', {
                             pattern: /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/ ,
@@ -227,8 +227,12 @@ export default function CreateUser(){
                         {errors.password?.type === 'pattern' && <p class='text-red-600'>the password at least one digit, at least one lower case and at least one upper case.</p>}
                         {errors.password?.type === 'maxLength' && <p class='text-red-600'>must have a maximum of 16 characters</p>}
                         {errors.password?.type === 'minLength' && <p class='text-red-600'>must contain at least 8 characters</p>}
-                        <a class="block lg:inline-block lg:mt-0 " onClick={() => setShowPwd(!showPwd)}> <img  class= " z-6 inset-y-0 my-auto h-6 active:bg-gray-600 active:rounded-full"src = {seePassaword}/> </a>
-                          </div>
+                          <a class="block lg:inline-block lg:mt-0 " onClick={() => setShowPwd(!showPwd)}> <img  class= " z-6 inset-y-0 my-auto h-6 active:bg-gray-600 active:rounded-full"src = {seePassaword}/> </a>
+
+                        </div>
+
+                        
+
                       </div>
 
                       {/* <div class='flex justify-center'>
@@ -255,7 +259,7 @@ export default function CreateUser(){
                             validate: edadValidator
                         })} />
                         {errors.date?.type === 'required' && <p class='text-red-600'> the date is required</p>}
-                        {errors.date && <p>La edad minima es de 14</p>}
+                        {errors.date && <p class='text-red-600'>You have to be over 14 years old to register</p>}
                       </div>
 
                       {/* <div class='flex justify-center'>
