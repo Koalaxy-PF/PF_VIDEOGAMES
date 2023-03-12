@@ -16,10 +16,12 @@ import {
     LOGIN_FAIL,
     POST_WISH_LIST,
     GET_WISH_LIST,
+    GET_ALL_CART
 } from "../actions/actions"
 
 const initialState = {
     Games:[],
+    AllCart:[],
     GamesCopy:[],
     Genres:[],
     Companies:[],
@@ -50,6 +52,15 @@ function rootReducer(state = initialState, action){
                   user: action.payload
             }
           }
+              
+        
+        case GET_ALL_CART:
+          return{
+            ...state,
+            AllCart: action.payload
+          }
+
+
 
         case LOGIN_FAIL:
             return{
