@@ -284,7 +284,6 @@ export default function CreateUser(){
 //<<<<<<< Facundo-Maciel
                         <select name="genre" class='mt-2 shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' {...register('genre', {
 //=======
-                        <select name="genre" class='rounded-md w-[250px] relative' {...register('genre', {
 //>>>>>>> develop
                             required: true,
                         })} >
