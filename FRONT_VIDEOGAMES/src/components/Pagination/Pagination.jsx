@@ -7,7 +7,7 @@ export default function Pagination({allGames, gamesPerPage, pagination, currentP
     const [minPageNumberLimit, setMinNumberLimit] = useState(0)
     
     const pages = [];
-    for (let i = 1; i < Math.ceil(allGames.length/gamesPerPage); i++) {
+    for (let i = 1; i <= Math.ceil((allGames)/gamesPerPage); i++) {
         pages.push(i);
     }
 
@@ -42,7 +42,7 @@ export default function Pagination({allGames, gamesPerPage, pagination, currentP
     }
 
     const renderPageNumbers = pages.map((number) => {
-        if(number < maxPageNumberLimit + 1 && number > minPageNumberLimit){
+        if(number < (maxPageNumberLimit + 1) && number > minPageNumberLimit){
             return(
                 <li>
                     {
