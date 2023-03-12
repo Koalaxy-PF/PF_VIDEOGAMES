@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import Footer from "../../components/Footer/Footer";
 import NavBar from "../../components/Navbar/Navbar";
 import Sidebar from "../../components/SideBar/Sidebar";
-import { Clean, GetGameById } from "../../redux/actions/actions";
+import { Clean, GetGameById, PostWishList } from "../../redux/actions/actions";
 import FavIcon from "../../assets/icons/corazon.png"
 import CartIcon from "../../assets/icons/carrito-de-compras.png"
 
@@ -14,6 +14,10 @@ const Details = () => {
 
     const dispatch = useDispatch();
     const vgDetail = useSelector((state) => state.details);
+
+    function addWishList(e){
+        PostWishList(id)
+      }
 
     useEffect(() => {
         dispatch(GetGameById(id))
@@ -93,6 +97,9 @@ const Details = () => {
                                 <div className="bg-gray-500 rounded-md w-12 h-12 flex items-center justify-center">
                                     <img className="w-3/5" src={CartIcon}></img>
                                 </div>
+                            </div>
+                            <div>
+                                <button onClick={(e) => addWishList(id)}>Add to Wish List</button>
                             </div>
                         </div>
                     {/* <div className=" ">
