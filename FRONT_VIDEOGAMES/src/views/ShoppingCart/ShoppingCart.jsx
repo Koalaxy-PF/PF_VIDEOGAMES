@@ -1,7 +1,7 @@
 import React from "react";
 
 
-export default function Trolley(){
+export default function ShoppingCart(){
 
     return(
         <div>

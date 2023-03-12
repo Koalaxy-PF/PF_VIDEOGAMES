@@ -5,9 +5,9 @@ const { User, Role } = require('../../db');
 const CryptoJS = require("crypto-js");
 const { transporter } = require('../../emailer');
 
-router.post('/register', async(req,res) => {
 
-    const { username, name, last_name, email, password, img, date, description, genre } = req.body;
+router.post('/register', async(req,res)=>{
+    const { username, name, last_name, email, password, img, date, description, genre,is_admin } = req.body;
   
     const existingUser = await User.findOne({
       where: {
@@ -32,7 +32,8 @@ router.post('/register', async(req,res) => {
       img,
       date,
       description,
-      genre
+      genre,
+      is_admin
     });
     await transporter.sendMail({
       from: '"Koalaxy Company" <koalaxygames@gmail.com>', // sender address
