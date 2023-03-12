@@ -205,6 +205,7 @@ export default function CreateUser(){
                             <input type="text" class='mt-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' placeholder='Name' {...register('name', {
                                 required: true
                             })} />
+                            {errors.name?.type === 'required' && <p class='text-red-600'> the Name is required</p>}
                       </div>
 
                       {/* <div class='flex justify-center'>
