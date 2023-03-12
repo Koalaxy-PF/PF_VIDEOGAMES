@@ -1,4 +1,7 @@
-Ruta:
+Paypal:
+
+Ruta: # cuando el front mande datos por body, se va a cambiar la ruta. pasa a ser sin ID, esto es solo para probar que funciona y como llegan los datos por el momento.
+
 Metodo Post, "http://localhost:3000/order/:id" ---> para generar el pago, devuelve un objeto con links.
 Deben seleccionar el que tiene la key "ref" con el value "approve". Copien y peguenlo en el navegador para probarlo.
 Deben pasar el id del usuario al que quieren cobrar el pago.
@@ -12,4 +15,26 @@ password: Henry123
 
 En esta url https://www.sandbox.paypal.com/ar/home, pueden loguearse con esta cuenta de prueba y comprobar que el
 pago esta registrado, y los datos. Esto sirve por si nos preguntan si el pago se ejecuta.
+
+
+MercadoPago:
+
+Ruta: Metodo Post, "http://localhost:3000/payment" ---> con solo hacer la peticion te llega por medio de la key "init_point" el enlace de la orden de compra.
+La ruta no va a cambiar, solamente hay que cambiar los datos de prueba por la informacion del body.
+
+Credenciales para probar el pago:
+
+Cuenta prueba: TEST_USER_1020255995 / jgeA4cehI7 // para loguearse
+
+Tarjeta prueba:
+Martinez Mirtha
+Visa
+4509 9535 6623 3704
+123
+11/25
+
+DNI 01111
+
+
+# Al ser metodo de pago local, el precio llega en dolares pero mercadopago convierte a peso argentino.
 

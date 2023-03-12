@@ -9,6 +9,7 @@ const {
 const router = Router();
 
 router.get("/", async (req, res) => {
+  //ACA AGUS!!!
   const { token } = req.query;
   try {
     const response = await axios.post(
@@ -23,10 +24,10 @@ router.get("/", async (req, res) => {
     );
     /*  console.log(response.data);  */
 
-    res.send(response.data); // Datos del cliente, para manipular desde el front
+    return res.send(response.data); // Datos del cliente, para manipular desde el front
   } catch (error) {
     console.log(error);
-    res.status(505).send("error");
+    return res.status(505).send("error");
   }
 });
 module.exports = router;

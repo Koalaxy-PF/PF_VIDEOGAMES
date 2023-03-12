@@ -3,6 +3,7 @@ import {
     POST_GAME,
     GET_BY_ID,
     GET_GENRES,
+    GET_COMPANIES,
     FILTER_GENRES,
     FILTER_PER_COMPANY,
     ORDER_BY_NAME ,
@@ -15,12 +16,15 @@ import {
     LOGIN_FAIL,
     POST_WISH_LIST,
     GET_WISH_LIST,
+    GET_ALL_CART
 } from "../actions/actions"
 
 const initialState = {
     Games:[],
+    AllCart:[],
     GamesCopy:[],
     Genres:[],
+    Companies:[],
     details:[],
     user:{},
     WishList:[]
@@ -34,11 +38,29 @@ function rootReducer(state = initialState, action){
 
         case LOGIN_SUCESS:
 
-        console.log(action.payload)
+          if(window.localStorage.getItem('info-token')){
             return{
-                ...state,
-                user: action.payload.user,
-        }
+              ...state,
+              user: action.payload,
+            }
+          }
+
+          else{
+            window.localStorage.setItem(('info-token'), JSON.stringify(action.payload));
+             return{
+                  ...state,
+                  user: action.payload
+            }
+          }
+              
+        
+        case GET_ALL_CART:
+          return{
+            ...state,
+            AllCart: action.payload
+          }
+
+
 
         case LOGIN_FAIL:
             return{
@@ -54,24 +76,17 @@ function rootReducer(state = initialState, action){
         }
 
         case GET_GAME:
-            console.log(action.payload);
             return {
                 ...state,
                 Games: action.payload,
         }
 
-        case GET_GENRES:
-        return{
-            ...state,
-            Genres: action.payload
-        }
-
         case POST_GAME:
-        return {
-        ...state,
-        Games: action.payload,
-        GamesCopy: action.payload,
-      };
+          return {
+          ...state,
+          Games: action.payload,
+          GamesCopy: action.payload,
+        };
 
     case GET_GAME:
       console.log(action.payload);
@@ -86,6 +101,12 @@ function rootReducer(state = initialState, action){
         Genres: action.payload,
       };
 
+      case GET_COMPANIES:
+        return {
+          ...state,
+          Companies: action.payload,
+        }
+
     case POST_GAME:
       return {
         ...state,
@@ -94,6 +115,7 @@ function rootReducer(state = initialState, action){
     //reducers de ordenamiento
 
     case ORDER_BY_NAME:
+      console.log("1")
       let order =
         action.payload === "asc"
           ? state.Games.sort(function (a, b) {
@@ -181,7 +203,7 @@ function rootReducer(state = initialState, action){
           : AllCom?.filter((t) => t.company.includes(action.payload));
       return {
         ...state,
-        Games: TypeCompanyFilter,
+        GamesCopy: TypeCompanyFilter,
       };
 
     case FILTER_GENRES:
@@ -192,7 +214,7 @@ function rootReducer(state = initialState, action){
           : AllGen?.filter((t) => t.genre.includes(action.payload));
       return {
         ...state,
-        Games: TypeGamesFilter,
+        GamesCopy: TypeGamesFilter,
       };
 
     case GET_BY_ID:
@@ -213,11 +235,6 @@ function rootReducer(state = initialState, action){
         GamesCopy: action.payload,
       };
 
-    case CLEAN_GAMES:
-      return {
-        ...state,
-        GamesCopy: action.payload,
-      };
 
     // Reducers WishList
 

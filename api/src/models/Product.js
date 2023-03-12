@@ -36,7 +36,7 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
     },
     company: {
-      type: DataTypes.STRING,
+      type: DataTypes.ARRAY(DataTypes.STRING),
     },
     released: {
       type: DataTypes.STRING,

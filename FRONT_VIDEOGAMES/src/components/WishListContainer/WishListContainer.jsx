@@ -7,7 +7,6 @@ import { Fragment } from "react";
 import SearchBar from "../SearchBar/SearchBar";
 import { GetWishList, PostWishList, GetGames} from "../../redux/actions/actions";
 import Pagination from "../Pagination/Pagination";
-import Filter from "../Filter/Filter";
 import WishListCard from "../WishListCard/WishListCard";
 
 
