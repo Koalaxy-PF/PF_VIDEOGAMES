@@ -4,6 +4,7 @@ import AuthService from '../../services/Auth.service'
 export const GET_GAMES = "GET_GAMES"
 export const GET_BY_ID = "GET_BY_ID"
 export const GET_GENRES = "GET_GENRES"
+export const GET_COMPANIES = "GET_COMPANIES"
 export const FILTER_GENRES = "FILTER_GENRES"
 export const FILTER_PER_COMPANY = "FILTER_PER_COMPANY"
 export const ORDER_BY_NAME = "ORDER_BY_NAME"
@@ -87,19 +88,26 @@ export function GetGameById(id){
 export function GetGenres(){
 
     return async function(dispatch){
-        let Json = await axios.get(`http://localhost:3000/genres`)
+        let json = await axios.get(`http://localhost:3000/genres`)
         dispatch({
             type: GET_GENRES,
-            payload: Json.data
+            payload: json.data
         })
     }
+}
 
+export function GetCompanies(){
+    return async function(dispatch){
+        let json = await axios.get('http://localhost:3000/company')
+        dispatch({
+            type: GET_COMPANIES,
+            payload: json.data
+        })
+    }
 }
 
 //action PostGame sirve para el crear un juego
 export function PostGame(payload){
-
-    
         var json = axios.post(`http://localhost:3000/products`,payload)
         return { type: POST_GAME, payload: json };
    } 

@@ -1,10 +1,11 @@
 import React from 'react'
 
-export default function Card({img, name, price, genre, calification}) {
+export default function Card({img, name, price, genre, calification}){
+    
     return (
-        <div class="w-full max-w-sm bg-gray-100 shadow-md shadow-slate-600 mb-2">
+        <div class="w-full max-w-sm bg-gray-100 shadow-md shadow-slate-600 mb-2 border-2">
         <a href="#">
-            <img className="rounded-t-lg h-[150px] w-full object-cover" src={img} alt="product image" />
+            <img className="rounded-t-lg h-[150px] w-full object-cover " src={img} alt="product image" />
         </a>
     
         <div class="px-2 pb-4 mt-2">
@@ -35,7 +36,7 @@ export default function Card({img, name, price, genre, calification}) {
                 {
                     genre?.map((el) => {
                         return(
-                            <div className=' mb-4 text-sm rounded-full bg-gray-200 px-4 py-1  font-semibold'>{el} </div>
+                            <div className='mb-4 text-[0.7rem] rounded-full bg-gray-200 px-4 py-2 font-semibold'>{el} </div>
                         )
                     })
                 }
