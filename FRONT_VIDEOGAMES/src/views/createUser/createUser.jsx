@@ -204,6 +204,7 @@ export default function CreateUser(){
                             <input type="text" class='mt-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' placeholder='Name' {...register('name', {
                                 required: true
                             })} />
+                            {errors.name?.type === 'required' && <p class='text-red-600'> the Name is required</p>}
                       </div>
 
                       {/* <div class='flex justify-center'>
@@ -283,7 +284,10 @@ export default function CreateUser(){
 
                         <select name="genre" class='mt-2 shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' {...register('genre', {
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1d6b53c63e003beea245ea77bbf42fad85ec0bbd
                             required: true,
                         })} >
                             <option value="">Select Genre</option>
