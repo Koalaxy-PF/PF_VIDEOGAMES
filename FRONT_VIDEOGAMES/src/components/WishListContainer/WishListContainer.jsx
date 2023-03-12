@@ -11,24 +11,17 @@ import WishListCard from "../WishListCard/WishListCard";
 
 
 export default function Cards() {
-//const dispatch = useDispatch();
-const allGames = useSelector((state) => state.GamesCopy);
+const WishListGames = useSelector((state) => state.WishList);
 const [gamesPerPage, setGamesPerPage] = useState(8);
 const dispatch = useDispatch();
 const[currentPage,setCurrentPage] =useState(1) 
-
-const[order,setOrder] =useState('') 
-const [setRender] = useState("");
-
 const indexLastGame = currentPage * gamesPerPage;
 const indexFirstGame = indexLastGame - gamesPerPage;
-const currentGames = allGames.slice(indexFirstGame, indexLastGame)
+const currentGames = WishListGames.slice(indexFirstGame, indexLastGame)
 
 function addWishList(e){
   PostWishList(id)
 }
-
-console.log(allGames);
 
 const pagination = pagesNumber =>{
   setCurrentPage(pagesNumber)
@@ -66,7 +59,7 @@ console.log(currentGames);
       })} 
        <div className="flex flex-nowrap justify-center w-full flex-row my-3">
         <Pagination 
-          allGames={allGames}
+          allGames={WishListGames.length}
           gamesPerPage={gamesPerPage}
           pagination={pagination}
           currentPage={currentPage}

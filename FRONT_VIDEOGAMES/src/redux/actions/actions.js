@@ -199,10 +199,16 @@ export function GetWishList(id){
 }
 
 export function PostWishList(payload){
-
-    var json = axios.post(`http://localhost:3000/wishlist`,payload)
-    return { type: POST_WISH_LIST, payload: json };
+    return function(){
+        return axios.post(`http://localhost:3000/wishlist/addProduct`,payload)
+    }
 } 
+
+export function DeleteWishListProduct(productWish){
+    return async function(dispatch){
+        return axios.delete(`http://localhost:3000/wishlist/`, productWish)
+    }
+}
 
 ///Routes ShoppingCart
 
