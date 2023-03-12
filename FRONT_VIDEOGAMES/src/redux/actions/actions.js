@@ -13,6 +13,8 @@ export const CLEAN = "CLEAN"
 export const POST_GAME = "POST_GAME"
 export const CLEAN_GAMES = "CLEAN_GAMES"
 export const GET_GAME = "GET_GAME"
+export const GET_WISH_LIST = 'GET_WISH_LIST'
+export const POST_WISH_LIST = 'POST_WISH_LIST'
 
 // RUTAS PARA LA AUTENTICACIÓN
 
@@ -168,3 +170,26 @@ export function CleanGames(){
         payload: []
     }
 }
+
+
+// Actions WishList
+
+export function GetWishList(id){
+
+    return async function(dispatch){
+      var json = await axios.get(`http://localhost:3000/wishlist/${id}`)
+      return dispatch ({
+        type : GET_WISH_LIST,
+        payload: json.data
+      })
+    }
+  
+}
+
+export function PostWishList(payload){
+
+    var json = axios.post(`http://localhost:3000/wishlist`,payload)
+    return { type: POST_WISH_LIST, payload: json };
+} 
+
+
