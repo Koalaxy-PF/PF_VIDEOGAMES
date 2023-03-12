@@ -34,6 +34,11 @@ const cancelPayment = require("./paypal/cancelPayment");
 
 const payment = require("./mercadopago/payment");
 
+const postReview = require('./reviewRoutes/post');
+const getReview = require('./reviewRoutes/get');
+const updateReview = require('./reviewRoutes/put');
+const deleteReview = require('./reviewRoutes/delete');
+
 
 
 /* *************************  routes GENRES   **************************************** */
@@ -77,6 +82,15 @@ router.use("/wishlist",getWishlist);
 router.use("/cart", getCart);
 router.use("/cart/addProduct", addProduct);
 router.use("/cart/delete", deleteCart);
+
+/* *************************  routes REVIEWS   **************************************** */
+router.use("/reviews", postReview);
+router.use("/reviews", getReview);
+router.use("/reviews", updateReview);
+router.use("/reviews/delete", deleteReview);
+
+
+
 
 
 module.exports = router;
