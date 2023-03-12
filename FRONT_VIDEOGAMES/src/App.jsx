@@ -13,7 +13,7 @@ import CreateUser from "./views/createUser/createUser"
 import Login from "./views/Login/Login"
 import { Login_OK } from "../src/redux/actions/actions"
 import WishList from "./views/WishList/WishList"
-import Trolley from "./views/Trolley/Trolley"
+import ShoppingCart from "./views/ShoppingCart/ShoppingCart"
 
 export default function App(){
 
@@ -41,7 +41,7 @@ export default function App(){
         <Route exact path="/CreateUser" element={<CreateUser/>} /> 
         <Route exact path="/Login" element={<Login/>} />
         <Route exact path="/WishList" element={<WishList />} />
-        <Route exact path="/Trolley" element={<Trolley />} />
+        <Route exact path="/ShoppingCart" element={<ShoppingCart />} />
       </Routes>
     </div>
   );
