@@ -43,16 +43,16 @@ export default function LoginForm(){
         
 
     return(
-        <div class='min-height-full flex bg-gray-200'>
+        <div class='min-height-full flex bg-gray-200 justify-center'>
             <div class='hidden lg:block relative h-full'>
                 <img class='w-[750px] object-cover' src={koala} alt="" />
             </div>
-            <div class='flex-1 flex flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 mx-auto xl:px-24'>
-                <div class='mx-auto w-full max-w-sm lg:max-w-lg lg:w-[100rem]'>
-                    <div class='text-center lg:text-left'>
-                        <img class='h-12 w-auto m-auto lg:m-0' src={logo} alt="" />
-                        <h2 class='mt-6 text-3xl font-extrabold text-gray-900'>Login with your account</h2>
-                        <p class='mt-2 text-sm text-gray-600'>
+            <div class='flex flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 mx-auto xl:px-24'>
+                <div class='mx-auto w-full max-w-sm lg:max-w-lg lg:w-[100rem] justify-center'>
+                    <div class='text-center lg:text-left justify-center'>
+                        <img class='h-12 w-auto m-auto  justify-center' src={logo} alt="" />
+                        <h2 class='mt-6 text-3xl font-extrabold text-gray-900 text-center'>Login with your account</h2>
+                        <p class='mt-2 text-sm text-gray-600 text-center'>
                             No tienes cuenta ?
                             <Link to='/CreateUser' class='font-medium text-sky-600 hover:text-sky-200 pl-[5px]'>Regístrate ahora</Link>
                         </p>
