@@ -9,7 +9,7 @@ import style from "./card.module.css";
 
 
 
- export default function Card({name, img, calification, price, genre}) {
+ export default function Card({productId, name, img, calification, price, genre}) {
   return (
     <div class="flex h-[350px] mx-[20px]">
       <div className={style.card}>
