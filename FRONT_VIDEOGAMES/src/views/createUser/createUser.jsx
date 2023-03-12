@@ -227,7 +227,7 @@ export default function CreateUser(){
                       <div >
                         <label class='block text-sm font-medium text-gray-600 mt-2 lg:mt-0'>Password: </label>
 
-                          <div className="flex  flex item-center justify-between flex-wrap bg-white mt-2 shadow appearance-none  p-4 rounded w-full py-2 px-3 text-gray-700 leading-tight ">
+                          <div className="  flex item-center justify-between flex-wrap bg-white mt-2 shadow appearance-none  p-4 rounded w-full py-2 px-3 text-gray-700 leading-tight ">
                               <input  placeholder='Password ' className="  focus:outline-none"
                         
                         type={showPwd ? "text" : "password"} {...register('password', {
@@ -280,10 +280,10 @@ export default function CreateUser(){
 
                       <div >
                         <label class='block text-sm font-medium text-gray-600 mt-2 lg:mt-0'>Genre</label>
-//<<<<<<< Facundo-Maciel
+
                         <select name="genre" class='mt-2 shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' {...register('genre', {
-//=======
-//>>>>>>> develop
+
+
                             required: true,
                         })} >
                             <option value="">Select Genre</option>
