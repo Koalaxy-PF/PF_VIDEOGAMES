@@ -17,11 +17,12 @@ export default function ShoppingCart(){
                 <div className='flex min-height-full '> 
 
                     <Sidebar/> 
+                    
                     <CartContainer/>
                    
                 </div>
             
-                <div>
+                <div className="block">
                     <Footer/>
                 </div>
         </div>

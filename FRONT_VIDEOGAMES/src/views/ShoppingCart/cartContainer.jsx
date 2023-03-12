@@ -18,13 +18,13 @@ export default function CartContainer(){
       }, [dispatch]); 
 
     return(
-        <div className="justify-center item-center h-full w-full bg-gray-100">
+        <div className="justify-center item-center h-full w-full  bg-gray-100">
 
-                        <div className="bg-red-200 justify-center item-center flex  ">
+                        <div className="bg-red-200 justify-center item-center flex ">
                             {<h1 className="mt-6 text-2xl font-extrabold text-gray-900" >Total: {allCart.total} </h1>}
                          </div>
 
-                        <div className="justify-center item-center  w-full flex-wrap">
+                        <div className="justify-center item-center  flex  flex-col">
                             
                             {allCart.productcarts?allCart.productcarts.map( (e) =>{
                             return(       
