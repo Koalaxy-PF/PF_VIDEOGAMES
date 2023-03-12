@@ -43,7 +43,8 @@ export default function CreateUser(){
   const { register, formState: { errors }, watch, handleSubmit } = useForm({
     defaultValues: {
         img: 'https://w7.pngwing.com/pngs/741/68/png-transparent-user-computer-icons-user-miscellaneous-cdr-rectangle-thumbnail.png',
-        is_banned: false
+        is_banned: false,
+        description: ""
     }
 });
   // const [input, setInput] = useState({
@@ -276,18 +277,11 @@ export default function CreateUser(){
                       {error.date && <span >{error.date}</span>}
                       </div> */}
 
-                      <div >
-                        <label class='block text-sm font-medium text-gray-600 mt-2 lg:mt-0'>Description: </label>
-                        <input  class='mt-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' placeholder='Description'
-                    
-                          type="text" 
-
-                        />
-                      </div>
+  
 
                       <div >
                         <label class='block text-sm font-medium text-gray-600 mt-2 lg:mt-0'>Genre</label>
-                        <select name="genre" class='rounded-md w-[250px] relative' {...register('genre', {
+                        <select name="genre" class='mt-2 shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' {...register('genre', {
                             required: true,
                         })} >
                             <option value="">Select Genre</option>
