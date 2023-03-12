@@ -205,7 +205,7 @@ export function getInCart(id){
         let json = await axios.get(`http://localhost:3000/cart/${id}`);
         dispatch({
             type: GET_ALL_CART,
-            payload: Json.data
+            payload: json.data
         })
     }
 }
@@ -224,5 +224,5 @@ export function DeleteProduct(idProduct, idUser){
     }
 }
 
-//actions  User
+
 
