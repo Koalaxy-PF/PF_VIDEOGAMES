@@ -29,17 +29,17 @@ export default function ShoppingCart(){
                     <Sidebar/>
                     </div>
                         
-                    <div className="flex min-height-full justify-center item-center">
+                    <div className="flex justify-center item-center">
                         
-                        <div className="flex min-height-full justify-center item-center">
-                        <div class='text-center lg:text-left flex justify-center' >
+                        <div  >
+                        <div  >
                         {
                             <h1 className="mt-6 text-xl font-extrabold text-gray-900" >Total: {allCart.total} </h1>
                         }
 
                         </div>
                 
-                        <div className="justify-center item-center ">
+                        <div className="justify-center item-center flex " >
                             {allCart.productcarts?.map( (e) =>{
                             return(       
                             
