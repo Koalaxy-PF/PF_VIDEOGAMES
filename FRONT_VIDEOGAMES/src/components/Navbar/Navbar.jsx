@@ -9,8 +9,8 @@ import koala from "../../assets/icons/koalaLogo.png"
 export default function NavBar(){
 
     return(
-        <div>
-                    <div class="flex item-center justify-between flex-wrap bg-white p-4">
+        <div className="">
+                    <div class="flex item-center justify-between flex-wrap p-4">
 
                     <div class="flex item-center flex-shrink-0 text-black mr-6 sticky ">
 
@@ -23,7 +23,7 @@ export default function NavBar(){
                     <div w-full flex-grow lg:flex lg:items-center lg:w-auto text-center>
                                 <a class="block mt-4 lg:inline-block lg:mt-0 mr-4"><img  class= " z-10 inset-y-0 my-auto h-10 hover:bg-gray-600 hover:rounded-full  p-1"src = {darkMode}/> </a>
                                 <a class="block mt-4 lg:inline-block lg:mt-0 mr-4"> <img  class= " z-10 inset-y-0 my-auto h-10 hover:bg-gray-600 hover:rounded-full  p-1"src = {heart}/> </a>
-                        <Link to= "/Trolley"> <a class="block mt-4 lg:inline-block lg:mt-0 mr-4"> <img  class= " z-10 inset-y-0 my-auto h-10  hover:bg-gray-600 hover:rounded-full p-1"src = {trolley}/> </a></Link>
+                        <Link to= "/ShoppingCart"> <a class="block mt-4 lg:inline-block lg:mt-0 mr-4"> <img  class= " z-10 inset-y-0 my-auto h-10  hover:bg-gray-600 hover:rounded-full p-1"src = {trolley}/> </a></Link>
                         <Link to= "/login">  <a class="block mt-4 lg:inline-block lg:mt-0 mr-4">  <img  class= " z-10 inset-y-0 my-auto h-10  hover:bg-gray-600 hover:rounded-full p-1"src = {user}/> </a></Link>
                     </div>
 
