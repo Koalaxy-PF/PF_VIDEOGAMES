@@ -10,18 +10,20 @@ import { Register } from "../../redux/actions/actions";
 import { useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2'
 import seePassaword from "../../assets/icons/seePassword.png";
+import Sidebar from "../../components/SideBar/Sidebar"
+import NavBar from "../../components/Navbar/Navbar";
 
 
 // const validateForm = (input) => {
 //   const error = {};
-//   if(!input.username.length) error.username = <h3>username is required</h3>
-//   if(!input.email.length) error.email = <h3>email is required</h3>
-//   if(!input.name.length) error.name = <h3>name is required</h3>
-//   if(!input.last_name.length) error.last_name = <h3>last name is required</h3>
-//   if(!input.password.length) error.password = <h3>password is required</h3>
-//   if(!input.img.length) error.img = <h3>img is required</h3>
-//   if(!input.date.length) error.date = <h3>date is required</h3>
-//   if(!input.description.length) error.description = <h3> description is required</h3>
+//   // if(!input.username.length) error.username = <h3>username is required</h3>
+//   // if(!input.email.length) error.email = <h3>email is required</h3>
+//   // if(!input.name.length) error.name = <h3>name is required</h3>
+//   // if(!input.last_name.length) error.last_name = <h3>last name is required</h3>
+//   // if(!input.password.length) error.password = <h3>password is required</h3>
+//   // if(!input.img.length) error.img = <h3>img is required</h3>
+//   // if(!input.date.length) error.date = <h3>date is required</h3>
+//   // if(!input.description.length) error.description = <h3> description is required</h3>
 //   if(!input.genre.length) error.genre = <h3>genre is required</h3>
 //   // if(!input.baned.length) error.baned = <h3>baned is required</h3>
 //   // if(!input.is_admin.length) error.is_admin = <h3>is admin is required</h3>
@@ -129,17 +131,28 @@ export default function CreateUser(){
     }
 
   return (
-    <div >
+    <div className="h-full">
 
-        <div className="flex min-height-full">
+      <div>
+        <NavBar/>
+      </div>
+
+      <div className="flex min-height-full  item-center bg-gray-200 ">
+
+        <div className='flex min-h-[calc(100vh-5rem)]'>
+        <Sidebar/>
+        </div>
+
+        <div className="flex min-height-full justify-center item-center" >
+
 
             <div className="hidden lg:block relative h-full flex-1">
               <img class='w-[750px] ' src={img} alt="" /> 
             </div>
 
-            <div className="justify-center flex-1 flex flex-col py-12 px-4 sm:px-6 lg:px-20 xl:px-24" >
+            <div className="justify-center flex-1 flex flex-col py-10 px-0 sm:px-8 lg:px-20 sm:py-9 md:py-9  xl:px-24" >
 
-                <div class='text-center lg:text-left'>
+                <div class='text-center lg:text-left flex justify-center'>
                   <img class='h-12 w-auto m-auto lg:m-0' src={logo} alt="" />
                   <h2 class='mt-6 text-3xl font-extrabold text-gray-900'>Create User</h2>
                 </div>
@@ -214,8 +227,8 @@ export default function CreateUser(){
                       <div >
                         <label class='block text-sm font-medium text-gray-600 mt-2 lg:mt-0'>Password: </label>
 
-                          <div className="flex  flex item-center justify-between flex-wrap bg-white">
-                              <input  placeholder='Password ' className="mt-2 shadow appearance-none  p-4 rounded w-full py-2 px-3 text-gray-700 leading-tight  focus:shadow-outline"
+                          <div className="flex  flex item-center justify-between flex-wrap bg-white mt-2 shadow appearance-none  p-4 rounded w-full py-2 px-3 text-gray-700 leading-tight ">
+                              <input  placeholder='Password ' className="  focus:outline-none"
                         
                         type={showPwd ? "text" : "password"} {...register('password', {
                             pattern: /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/ ,
@@ -223,15 +236,12 @@ export default function CreateUser(){
                             maxLength: 16,
                             minLength: 8
                         })} />
+                          <a class="block lg:inline-block lg:mt-0 " onClick={() => setShowPwd(!showPwd)}> <img  class= " z-6 inset-y-0 my-auto h-6 active:bg-gray-600 active:rounded-full"src = {seePassaword}/> </a>
+                        </div>
                         {errors.password?.type === 'required' && <p class='text-red-600'>the passaword is required</p>}
                         {errors.password?.type === 'pattern' && <p class='text-red-600'>the password at least one digit, at least one lower case and at least one upper case.</p>}
                         {errors.password?.type === 'maxLength' && <p class='text-red-600'>must have a maximum of 16 characters</p>}
                         {errors.password?.type === 'minLength' && <p class='text-red-600'>must contain at least 8 characters</p>}
-                          <a class="block lg:inline-block lg:mt-0 " onClick={() => setShowPwd(!showPwd)}> <img  class= " z-6 inset-y-0 my-auto h-6 active:bg-gray-600 active:rounded-full"src = {seePassaword}/> </a>
-
-                        </div>
-
-                        
 
                       </div>
 
@@ -277,15 +287,21 @@ export default function CreateUser(){
 
                       <div >
                         <label class='block text-sm font-medium text-gray-600 mt-2 lg:mt-0'>Genre</label>
-                        <select name="genre" class='rounded-md w-[250px] relative' >
+                        <select name="genre" class='rounded-md w-[250px] relative' {...register('genre', {
+                            required: true,
+                        })} >
                             <option value="">Select Genre</option>
                             {
                               genre.map(genre => (
                                 <option value={genre} key={genre}>{genre}</option>
                               ))
                             }
+                    
                           </select>
+                          {errors.genre?.type === 'required' && <p class='text-red-600'> the genre is required</p>}
                       </div>
+
+
 
                       </div>
 
@@ -299,6 +315,8 @@ export default function CreateUser(){
               
             </div>
         </div>
+      </div>
+      
       <div>
         <Footer/>
       </div>
