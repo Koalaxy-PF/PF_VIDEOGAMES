@@ -25,6 +25,10 @@ export const LOGIN_FAIL = "LOGIN_FAIL"
 export const LOGOUT = "LOGOUT"
 export const SET_MESSAGE = "SET_MESSAGE"
 
+//constantes para el shoppingCart
+
+export const GET_ALL_CART = 'GET_ALL_CART'
+
 
 // - - - ACCIONES PARA LA AUTENTICACIÓN - - -
 
@@ -191,5 +195,33 @@ export function PostWishList(payload){
     var json = axios.post(`http://localhost:3000/wishlist`,payload)
     return { type: POST_WISH_LIST, payload: json };
 } 
+
+///Routes ShoppingCart
+
+export function getInCart(id){
+
+    return async function(dispatch){
+        let json = await axios.get(`http://localhost:3000/cart/${id}`);
+        dispatch({
+            type: GET_ALL_CART,
+            payload: json.data
+        })
+    }
+}
+
+export function postInCart(payload){
+    return function(dispatch){
+       return axios.post("http://localhost:3000/cart/addProduct", payload);
+}}
+
+export function DeleteProduct(idProduct, idUser){
+    return async function(dispatch){
+        return axios.delete(`http://localhost:3000/cart/delete/?productCardId=${idProduct}`)
+        .then((resp) => {
+            dispatch(getInCart(idUser));
+       })
+    }
+}
+
 
 
