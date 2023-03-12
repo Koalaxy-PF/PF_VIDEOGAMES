@@ -85,6 +85,7 @@ const  HandlerFilterTypeFerCompany = (e) =>{
             <Link to={"/products/" + product.id}>
               <div>
               <Card
+                productId={product.id}
                 img={product.img}
                 name={product.name}
                 calification={product.calification}
@@ -100,7 +101,7 @@ const  HandlerFilterTypeFerCompany = (e) =>{
 
        <div className="flex flex-nowrap justify-center w-full flex-row my-3">
         <Pagination 
-          allGames={allGames}
+          allGames={allGames.length}
           gamesPerPage={gamesPerPage}
           pagination={pagination}
           currentPage={currentPage}

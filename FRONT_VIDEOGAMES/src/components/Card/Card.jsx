@@ -7,7 +7,9 @@ import starWhite from "../../assets/card/starWhite.png";*/
 import starBlue from "../../assets/card/starBlue.png"; 
 import style from "./card.module.css";
 
- export default function Card({index, name, img, calification, price, genre}) {
+
+
+ export default function Card({index, productID, name, img, calification, price, genre}) {
   return (
     <div class="flex h-[350px] mx-[20px]">
       <div className={style.card}>
