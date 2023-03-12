@@ -12,22 +12,38 @@ export default function Home(){
   const data = [
         {
           name: "FORSPOKEN",
-          img: "https://fyre.cdn.sewest.net/forspoken/6189087b0af2d9001990bfe2/sharing-p3zcX_kG4.png" },
+          img: "https://fyre.cdn.sewest.net/forspoken/6189087b0af2d9001990bfe2/sharing-p3zcX_kG4.png",
+          genre: ["Action", "Adventure", "Rol"],
+          price: 70,
+        },
+
         {
           name: "WATCH DOGS LEGION",
-          img: "https://cdn.cloudflare.steamstatic.com/steam/apps/2239550/capsule_616x353.jpg?t=1674755684" },
+          img: "https://cdn.cloudflare.steamstatic.com/steam/apps/2239550/capsule_616x353.jpg?t=1674755684",
+          genre: ["Action", "Adventure"],
+          price: 60,
+        },
+
         {
           name: "DEAD SPACE",
-          img: "https://cdn.akamai.steamstatic.com/steam/apps/1693980/capsule_616x353.jpg?t=1677545181" },
+          img: "https://cdn.akamai.steamstatic.com/steam/apps/1693980/capsule_616x353.jpg?t=1677545181",
+          genre: ["Action", "Adventure"],
+          price: 60,
+        },
+
         {
           name: "PIZZA TOWER",
-          img: "https://cdn.akamai.steamstatic.com/steam/apps/2231450/capsule_616x353.jpg?t=1674756021" },
-        {
-          name: "WARLANDER",
-          img: "https://cdn.akamai.steamstatic.com/steam/apps/1675900/capsule_616x353.jpg?t=1677772500" },
+          img: "https://cdn.akamai.steamstatic.com/steam/apps/2231450/capsule_616x353.jpg?t=1674756021",
+          genre: ["Action", "Indie"],
+          price: 20,
+        },
+
         {
           name: "AQUATICO",
-          img: "https://cdn.akamai.steamstatic.com/steam/apps/1812300/header.jpg?t=1676051297" 
+          img: "https://cdn.akamai.steamstatic.com/steam/apps/1812300/header.jpg?t=1676051297",
+          genre: ["Simulation", "Strategy"],
+          price: 25,
+
         },
     ];
 

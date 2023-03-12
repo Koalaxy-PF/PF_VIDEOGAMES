@@ -1,5 +1,5 @@
 const jsonGames = [
-  {
+    {
     img: "https://media.rawg.io/media/games/456/456dea5e1c7e3cd07060c14e96612001.jpg",
     name: "Grand Theft Auto V",
     genre: ["Acción", "Aventura"],
@@ -238,42 +238,6 @@ const jsonGames = [
   },
 
   {
-    name: "BioShock",
-    description:
-      "<p>FPS with RPG elements, Bioshock invites players to experience horrors of underwater isolation in the city of Rapture, the failed project of the better future. After surviving the plane crash, the protagonist has only one way to go – to the giant lighthouse that opens a way to the underwater utopia. Players will have to unravel the complicated history of Rapture, relying only on themselves, their guns and Plasmids, a mystical substance, that allows it’s user to obtain near magical abilities.<br />\nThe atmosphere of isolation and threat is conveyed through the environmental sounds, subtle electrical buzzing and audio logs, telling the story of societal decay and despair. Players will shape the story, making moral choices along their way, saving Little Sisters or extracting ADAM, the mystical fuel for your abilities. While exploring the underwater city, players will complete missions for the last sane inhabitants of Rapture, while fending off the less fortunate ones.</p>",
-    released: "2007-08-21",
-    img: "https://media.rawg.io/media/games/bc0/bc06a29ceac58652b684deefe7d56099.jpg",
-    calification: "4.37",
-    MinRequirements:
-      "Minimum: Operating System: Windows XP (with Service Pack 2) or Windows Vista\nCPU: Intel single-core Pentium 4 processor at 2.4GHz\nRAM: 1 GB\nVideo Card: Direct X 9.0c compliant video card with 128MB RAM and Pixel Shader 3.0 (NVIDIA 6600 or better/ATI X1300 or better, excluding ATI X1550)\nSound Card: 100% direct X 9.0c compatible sound card\nHard Drive Space: 8GB\nGame requires Internet connection for activation",
-    RecommendRequirements:
-      "Recommended: CPU: Intel Core 2 Duo processor\nRAM: 2GB\nVideo Card: DX 9 - Direct X 9.0c compliant video card with 512 MB RAM and Pixel Shader 3.0 (NVIDIA GeForce 7900 GT or better), DX 10 - NVIDIA GeForce 8600 or better\nSound Card: SoundBlaster(r) X-Fi(tm) series (optimized foruse with Creative Labs EAX ADVANCED HD 4.0 or EAX ADVANCED HD 5.0 compatible sound cards)",
-    company: "Digital Extremes",
-    genre: ["Shooter", "Action"],
-    price: Math.round(Math.random() * (100.99 - 1.99) + 1.99),
-    stock: Math.floor(Math.random() * (500 - 0)),
-    discount: Math.floor(Math.random() * (50 - 0)),
-  },
-
-  {
-    name: "DOOM (2016)",
-    description:
-      "<p>Return of the classic FPS, Doom (2016) acts as a reboot of the series and brings back the Doomslayer, protagonist of the original Doom games. In order to solve the energy crisis, humanity learned to harvest the energy from Hell, and when something went wrong and a demon invasion has started, it’s up to the player to control the Doomslayer and destroy the evil.</p>\n<p>Doom is a fast-paced game that restores the concept of instant health packs and leaves the player against armies of Hell with no cover, no health regeneration, or help from anyone. After damaging monsters enough, they will start glowing, which will allow players to perform glory kills to restore some health. While exploring the levels, players will come across secrets, collectible items, or upgrade points for the weapons and armor. The single-player campaign silent protagonist has a noticeable personality. He gets visibly annoyed and angry in his actions during expository cutscenes and forces his way through the game. Multiplayer maps gather players in Deathmatch/”king-of-the-hill” type game modes, with all the weapons from the single-player campaign.</p>",
-    released: "2016-05-13",
-    img: "https://media.rawg.io/media/games/c4b/c4b0cab189e73432de3a250d8cf1c84e.jpg",
-    calification: "4.38",
-    MinRequirements:
-      "Minimum:\nOS: Windows7,Windows8,Windows10\nProcessor: Intel cpu i3\nMemory: 4 GB RAM\nGraphics: GTX 650\nStorage: 2 GB available space\nSound Card: Realtek",
-    RecommendRequirements:
-      "Recommended:\nOS: Windows7,Windows8,Windows10\nProcessor: Intel cpu i5\nMemory: 8 GB RAM\nGraphics: GTX 770\nStorage: 4 GB available space\nSound Card: Realtek",
-    company: "Bethesda Softworks",
-    genre: ["Action", "Shooter"],
-    price: Math.round(Math.random() * (5000.99 - 500.99) + 500.99),
-    stock: Math.floor(Math.random() * (500 - 0)),
-    discount: Math.floor(Math.random() * (50 - 0)),
-  },
-
-  {
     name: "Limbo",
     description:
       "<p>This popular 2D puzzle-platformer creates the atmosphere of isolation, where the player alone can guide the nameless protagonist to his destination. Hostile environments and one-hit deaths may seem difficult, but the game implements a fair amount of checkpoints. The monochrome color palette showcases cartoony proportions of every living thing while making lack of details threatening. Limbo shows you exactly what you encounter, but never how it looks.</p>\n<p>Limbo uses the atmosphere and sound design of the horror genre while avoiding tropes of the modern horror games. The overarching theme and unique style compensated for the rather short game with an abrupt ending, making Limbo one of the most impactful games for the genre.</p>\n<p>The simple controls and easy-to-pick-up mechanics help to make a clear distinction, which part of the stage players can interact with, and which part can lead to the quick death. Even though the game is in black and white, this separation is intuitive and natural, so the player would know exactly where to go or what to do.</p>",
@@ -325,5 +289,204 @@ const jsonGames = [
     stock: Math.floor(Math.random() * (500 - 0)),
     discount: Math.floor(Math.random() * (50 - 0)),
   },
+
+  {
+    name: "FORSPOKEN",
+    description: "Forspoken narra la historia de Frey, una joven neoyorquina que acaba en el hermoso y cruel mundo de Athia. Mientras averigua cómo volver a casa, tendrá que usar sus nuevas dotes mágicas para recorrer paisajes enormes y enfrentarse a seres monstruosos.",
+    released: "2023-01-24",
+    img: "https://cdn.akamai.steamstatic.com/steam/apps/1680880/capsule_616x353.jpg?t=1678382734",
+    calification: "3",
+    MinRequirements: "",
+    RecommendRequirements: "",
+    company: ["Luminous Productions"],
+    genre: ["Action", "Adventure", "Rol"],
+    price: 70,
+    discount: 0,
+  },
+
+  {
+    name: "WATCH DOGS®: LEGION",
+    description: "En Watch Dogs: Legion, tu misión es crear una resistencia para salvar a Londres de la debacle en un futuro próximo.",
+    released: "2023-01-26",
+    img: "https://cdn.akamai.steamstatic.com/steam/apps/2239550/capsule_616x353.jpg?t=1674755684",
+    calification: "3",
+    MinRequirements: "",
+    RecommendRequirements: "",
+    company: ["Ubisoft Toronto"],
+    genre: ["Action", "Adventure"],
+    price: 60,
+    discount: 0,
+  },
+
+  {
+    name: "DEAD SPACE",
+    description: "Vuelve el clásico de terror y supervivencia de ciencia ficción, recreado completamente para ofrecer una experiencia más inmersiva (incluidas mejoras visuales, sonoras y de jugabilidad) al mismo tiempo que se mantiene fiel a la emocionante visión del juego original.",
+    released: "2023-01-27",
+    img: "https://cdn.akamai.steamstatic.com/steam/apps/1693980/capsule_616x353.jpg?t=1678446810",
+    calification: "4",
+    MinRequirements: "",
+    RecommendRequirements: "",
+    company: ["Motive"],
+    genre: ["Action", "Adventure"],
+    price: 60,
+    discount: 0,
+  },
+
+  {
+    name: "PIZA TOWER",
+    description: "Pizza Tower es un juego de plataformas en 2D de ritmo rápido inspirado en la serie Wario Land, con énfasis en el movimiento, la exploración y el ataque de puntuación. Con pixel art muy estilizado inspirado en los dibujos animados de los años 90 y una banda sonora muy enérgica.",
+    released: "2023-01-26",
+    img: "https://cdn.akamai.steamstatic.com/steam/apps/2231450/capsule_616x353.jpg?t=1674756021",
+    calification: "5",
+    MinRequirements: "",
+    RecommendRequirements: "",
+    company: ["Tour De Pizza"],
+    genre: ["Action", "Indie"],
+    price: 20,
+    discount: 0,
+  },
+
+  {
+    name: "AQUATICO",
+    description: "Aquatico es un juego de supervivencia de construcción de ciudades ambientado en las profundidades marinas. Construye estratégicamente una ciudad sumergida sobre el lecho marino y enfrenta los retos que conlleva una vida oceánica..",
+    released: "2023-01-12",
+    img: "https://cdn.cloudflare.steamstatic.com/steam/apps/1675900/capsule_616x353.jpg?t=1677772500",
+    calification: "3",
+    MinRequirements: "",
+    RecommendRequirements: "",
+    company: ["Digital Reef Games."],
+    genre: ["Simulation", "Strategy"],
+    price: 25,
+    discount: 0,
+  },
+
+  {
+    name: "SEA OF THIEVES",
+    description: "Sea of Thieves ofrece la experiencia de piratasdefinitiva, desde la navegación y elcombate hasta la exploración y elsaqueo: todo para disfrutar de la vidapirata y convertirteenleyenda. No hay funcionesestablecidas, tienes total libertad para enfrentarte al mundo",
+    released: "2020-06-03",
+    img: "https://cdn.akamai.steamstatic.com/steam/apps/1172620/capsule_616x353.jpg?t=1673489975",
+    calification: "4",
+    MinRequirements: "",
+    RecommendRequirements: "",
+    company: ["Rare Ltd"],
+    genre: ["Action", "Adventure"],
+    price: 25,
+    discount: 0,
+  },
+
+  {
+    name: "VALHEIM",
+    description: "Un brutal juego de supervivencia y exploración multijugador, ambientado en un purgatorio generado de forma procedural e inspirado en la cultura vikinga. ¡Lucha, construye y conquista tu viaje en una saga digna de la bendición de Odin!",
+    released: "2021-02-02",
+    img: "https://cdn.cloudflare.steamstatic.com/steam/apps/892970/capsule_616x353.jpg?t=1676365340",
+    calification: "4",
+    MinRequirements: "",
+    RecommendRequirements: "",
+    company: ["Iron Gate AB"],
+    genre: ["Action", "Adventure", "Indie", "Rol", "Early Access"],
+    price: 20,
+    discount: 0,
+  },
+
+  {
+    name: "STARDEW VALLEY",
+    description: "Un brutal juego de supervivencia y exploración multijugador, ambientado en un purgatorio generado de forma procedural e inspirado en la cultura vikinga. ¡Lucha, construye y conquista tu viaje en una saga digna de la bendición de Odin!",
+    released: "2016-02-26",
+    img: "https://cdn.akamai.steamstatic.com/steam/apps/413150/header.jpg?t=1666917466",
+    calification: "5",
+    MinRequirements: "",
+    RecommendRequirements: "",
+    company: ["ConcernedApe"],
+    genre: ["Indie", "Rol", "Simulation"],
+    price: 15,
+    discount: 0,
+  },
+
+  {
+    name: "PROJECT ZOMBOID",
+    description: "Project Zomboid es lo último en supervivencia zombie. Solo o en MP: saqueas, construyes, fabricas, luchas, cultivas y pescas en una lucha por sobrevivir. Un conjunto de habilidades de juego de rol extremo, un vasto mapa, una zona de pruebas enormemente personalizable y un simpático mapache tutorial esperan a los desprevenidos. Entonces, ¿cómo vas a morir?",
+    released: "2013-11-08",
+    img: "https://cdn.cloudflare.steamstatic.com/steam/apps/108600/header.jpg?t=1667832656",
+    calification: "5",
+    MinRequirements: "",
+    RecommendRequirements: "",
+    company: ["The Indie Stone"],
+    genre: ["Indie", "Rol", "Simulation", "Early Access"],
+    price: 20,
+    discount: 0,
+  },
+
+  {
+    name: "AMONG US",
+    description: "Un juego de socialización local o en línea de trabajo en equipo y traición para 4 a 15 jugadores... ¡ambientado en el espacio!",
+    released: "2018-11-16",
+    img: "https://cdn.akamai.steamstatic.com/steam/apps/945360/header.jpg?t=1673370035",
+    calification: "4",
+    MinRequirements: "",
+    RecommendRequirements: "",
+    company: ["Innersloth"],
+    genre: ["Casual"],
+    price: 5,
+    discount: 0,
+  },
+
+  {
+    name: "FALLOUT 4",
+    description: "Bethesda Game Studios, el galardonado creador de Fallout 3 y The Elder Scrolls V: Skyrim, os da la bienvenida al mundo de Fallout 4, su juego más ambicioso hasta la fecha y la siguiente generación de mundos abiertos.",
+    released: "2015-11-10",
+    img: "https://cdn.cloudflare.steamstatic.com/steam/apps/377160/capsule_616x353.jpg?t=1650909928",
+    calification: "4",
+    MinRequirements: "",
+    RecommendRequirements: "",
+    company: ["Bethesda Game Studios"],
+    genre: ["Rol"],
+    price: 20,
+    discount: 0,
+  },
+
+  {
+    name: "FOOTBALL MANAGER 2023",
+    description: "Confecciona la plantilla de tus sueños, supera a tus rivales y vive la emoción de las grandes noches europeas en la UEFA Champions League. Emprende tu viaje hacia la gloria.",
+    released: "2022-11-07",
+    img: "https://cdn.cloudflare.steamstatic.com/steam/apps/377160/capsule_616x353.jpg?t=1650909928",
+    calification: "4",
+    MinRequirements: "",
+    RecommendRequirements: "",
+    company: ["Sports Interactive"],
+    genre: ["Simulation", "Sports"],
+    price: 60,
+    discount: 0,
+  },
+
+  {
+    name: "GAME DEV TYCOON",
+    description: "En Game Dev Tycoon, reproduces la historia de la industria de los juegos al iniciar tu propia empresa de desarrollo de videojuegos en los años 80. Crea los juegos más vendidos. Investiga nuevas tecnologías e inventa nuevos tipos de juegos. Conviértase en el líder del mercado y gane seguidores en todo el mundo.",
+    released: "2013-08-29",
+    img: "https://cdn.akamai.steamstatic.com/steam/apps/239820/capsule_616x353.jpg?t=1667167358",
+    calification: "5",
+    MinRequirements: "",
+    RecommendRequirements: "",
+    company: ["Greenheart Games"],
+    genre: ["Casual", "Indie", "Simulation", "Strategy"],
+    price: 10,
+    discount: 0,
+  },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ];
 module.exports = { jsonGames };
