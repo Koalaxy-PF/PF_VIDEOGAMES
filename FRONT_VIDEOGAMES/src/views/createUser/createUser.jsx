@@ -64,7 +64,6 @@ export default function CreateUser(){
   //history.push("/home");
 /* 
   useEffect(() => {
-
     
   }, []); */
 
