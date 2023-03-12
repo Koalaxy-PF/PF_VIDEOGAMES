@@ -28,7 +28,7 @@ export default function Sidebar(){
     {/* INICIO */}
 
     <div className={`flex mt-4 items-center cursor-pointer rounded-full ${open && "bg-gray-600 pl-4 py-2 gap-x-2"}`}>
-      <Link to="/">
+      <Link to="/home">
         <div className='flex flex-row'>
           <img src={icons.img3} className="w-8 items-center" />              
           <span className={`font-medium ml-3 text-md mt-1 flex-1 duration-200 text-slate-100 ${!open && "hidden"}`}>
