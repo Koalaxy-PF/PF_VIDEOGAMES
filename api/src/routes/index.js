@@ -65,6 +65,8 @@ router.use("/cancel-payment", cancelPayment);
 
 /* *************************  routes MERCADOPAGO   **************************************** */
 router.use("/payment", payment);
+
+
 /* *************************  routes WISHLIST   **************************************** */
 router.use("/wishlist",postWishList);
 router.use("/wishlist/delete",deleteWishProduct);

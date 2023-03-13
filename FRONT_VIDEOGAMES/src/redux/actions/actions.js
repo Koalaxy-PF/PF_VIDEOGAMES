@@ -4,6 +4,7 @@ import AuthService from '../../services/Auth.service'
 export const GET_GAMES = "GET_GAMES"
 export const GET_BY_ID = "GET_BY_ID"
 export const GET_GENRES = "GET_GENRES"
+export const GET_COMPANIES = "GET_COMPANIES"
 export const FILTER_GENRES = "FILTER_GENRES"
 export const FILTER_PER_COMPANY = "FILTER_PER_COMPANY"
 export const ORDER_BY_NAME = "ORDER_BY_NAME"
@@ -13,6 +14,8 @@ export const CLEAN = "CLEAN"
 export const POST_GAME = "POST_GAME"
 export const CLEAN_GAMES = "CLEAN_GAMES"
 export const GET_GAME = "GET_GAME"
+export const GET_WISH_LIST = 'GET_WISH_LIST'
+export const POST_WISH_LIST = 'POST_WISH_LIST'
 
 // RUTAS PARA LA AUTENTICACIÓN
 
@@ -22,6 +25,10 @@ export const LOGIN_SUCESS = "LOGIN_SUCESS"
 export const LOGIN_FAIL = "LOGIN_FAIL"
 export const LOGOUT = "LOGOUT"
 export const SET_MESSAGE = "SET_MESSAGE"
+
+//constantes para el shoppingCart
+
+export const GET_ALL_CART = 'GET_ALL_CART'
 
 
 // - - - ACCIONES PARA LA AUTENTICACIÓN - - -
@@ -85,19 +92,26 @@ export function GetGameById(id){
 export function GetGenres(){
 
     return async function(dispatch){
-        let Json = await axios.get(`http://localhost:3000/genres`)
+        let json = await axios.get(`http://localhost:3000/genres`)
         dispatch({
             type: GET_GENRES,
-            payload: Json.data
+            payload: json.data
         })
     }
+}
 
+export function GetCompanies(){
+    return async function(dispatch){
+        let json = await axios.get('http://localhost:3000/company')
+        dispatch({
+            type: GET_COMPANIES,
+            payload: json.data
+        })
+    }
 }
 
 //action PostGame sirve para el crear un juego
 export function PostGame(payload){
-
-    
         var json = axios.post(`http://localhost:3000/products`,payload)
         return { type: POST_GAME, payload: json };
    } 
@@ -168,3 +182,57 @@ export function CleanGames(){
         payload: []
     }
 }
+
+
+// Actions WishList
+
+export function GetWishList(id){
+
+    return async function(dispatch){
+      var json = await axios.get(`http://localhost:3000/wishlist/${id}`)
+      return dispatch ({
+        type : GET_WISH_LIST,
+        payload: json.data
+      })
+    }
+  
+}
+
+export function PostWishList(payload){
+    return function(){
+        return axios.post(`http://localhost:3000/wishlist/addProduct`,payload)
+    }
+} 
+
+export function DeleteWishListProduct(productWish){
+    return async function(dispatch){
+        return axios.delete(`http://localhost:3000/wishlist/`, productWish)
+    }
+}
+
+///Routes ShoppingCart
+
+export function getInCart(id){
+
+    return async function(dispatch){
+        let json = await axios.get(`http://localhost:3000/cart/${id}`);
+        dispatch({
+            type: GET_ALL_CART,
+            payload: json.data
+        })
+    }
+}
+
+export function postInCart(payload){
+    return async function(dispatch){
+       return await axios.post("http://localhost:3000/cart/addProduct", payload);
+}}
+
+export function DeleteProductCart(idProduct, idUser){
+    return async function(dispatch){
+        return axios.delete(`http://localhost:3000/cart/delete/?productCardId=${idProduct}`)
+    }
+}
+
+
+
