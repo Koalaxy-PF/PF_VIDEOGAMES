@@ -4,11 +4,12 @@ const {
   /* gameInfoFinal */ apicompany, apigenres,
 } = require("./src/controllers/apidatos");
 const { jsonGames } = require("./src/JSON/JsonOfVideogame");
+const port = process.env.PORT || 3000;
 
-conn.sync({ force: true }).then(() => {
+conn.sync({ force: false }).then(() => {
   // si tenes en true, renueva la base de datos
 
-  app.listen(3000, async () => {
+  app.listen(port, async () => {
     const dbgame = await Product.findAll();
     const dbcompany = await Company.findAll();
     const dbGenres = await Genre.findAll();

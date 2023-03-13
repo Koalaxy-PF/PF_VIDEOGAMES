@@ -54,7 +54,7 @@ export const Login_OK = (data) =>{
 export function GetGames(){
 
     return async function(dispatch){
-        let Json = await axios.get(`http://localhost:3000/products`)
+        let Json = await axios.get(`https://apipf-production-2e29.up.railway.app/products`)
         dispatch({
             type: GET_GAMES,
             payload: Json.data
@@ -67,7 +67,7 @@ export function GetGames(){
 export function GetGame(name){
 
     return async function(dispatch){
-        let json = await axios.get("http://localhost:3000/products?name=" + name);
+        let json = await axios.get("https://apipf-production-2e29.up.railway.app/products?name=" + name);
         dispatch({
             type: GET_GAMES,
             payload: json.data,
@@ -79,7 +79,7 @@ export function GetGame(name){
 export function GetGameById(id){
 
     return async function(dispatch){
-      var json = await axios.get(`http://localhost:3000/products/${id}`)
+      var json = await axios.get(`https://apipf-production-2e29.up.railway.app/${id}`)
       return dispatch ({
         type : GET_BY_ID,
         payload: json.data
@@ -92,7 +92,7 @@ export function GetGameById(id){
 export function GetGenres(){
 
     return async function(dispatch){
-        let json = await axios.get(`http://localhost:3000/genres`)
+        let json = await axios.get(`https://apipf-production-2e29.up.railway.app/genres`)
         dispatch({
             type: GET_GENRES,
             payload: json.data
@@ -102,7 +102,7 @@ export function GetGenres(){
 
 export function GetCompanies(){
     return async function(dispatch){
-        let json = await axios.get('http://localhost:3000/company')
+        let json = await axios.get('https://apipf-production-2e29.up.railway.app/company')
         dispatch({
             type: GET_COMPANIES,
             payload: json.data
@@ -112,7 +112,7 @@ export function GetCompanies(){
 
 //action PostGame sirve para el crear un juego
 export function PostGame(payload){
-        var json = axios.post(`http://localhost:3000/products`,payload)
+        var json = axios.post(`https://apipf-production-2e29.up.railway.app/products`,payload)
         return { type: POST_GAME, payload: json };
    } 
 
@@ -189,7 +189,7 @@ export function CleanGames(){
 export function GetWishList(id){
 
     return async function(dispatch){
-      var json = await axios.get(`http://localhost:3000/wishlist/${id}`)
+      var json = await axios.get(`https://apipf-production-2e29.up.railway.app/wishlist/${id}`)
       return dispatch ({
         type : GET_WISH_LIST,
         payload: json.data
@@ -200,13 +200,13 @@ export function GetWishList(id){
 
 export function PostWishList(payload){
     return function(){
-        return axios.post(`http://localhost:3000/wishlist/addProduct`,payload)
+        return axios.post(`https://apipf-production-2e29.up.railway.app/wishlist/addProduct`,payload)
     }
 } 
 
 export function DeleteWishListProduct(productWish){
     return async function(dispatch){
-        return axios.delete(`http://localhost:3000/wishlist/`, productWish)
+        return axios.delete(`https://apipf-production-2e29.up.railway.app/wishlist/`, productWish)
     }
 }
 
@@ -215,7 +215,7 @@ export function DeleteWishListProduct(productWish){
 export function getInCart(id){
 
     return async function(dispatch){
-        let json = await axios.get(`http://localhost:3000/cart/${id}`);
+        let json = await axios.get(`https://apipf-production-2e29.up.railway.app/cart/${id}`);
         dispatch({
             type: GET_ALL_CART,
             payload: json.data
@@ -225,12 +225,12 @@ export function getInCart(id){
 
 export function postInCart(payload){
     return function(dispatch){
-       return axios.post("http://localhost:3000/cart/addProduct", payload);
+       return axios.post("https://apipf-production-2e29.up.railway.app/cart/addProduct", payload);
 }}
 
 export function DeleteProduct(idProduct, idUser){
     return async function(dispatch){
-        return axios.delete(`http://localhost:3000/cart/delete/?productCardId=${idProduct}`)
+        return axios.delete(`https://apipf-production-2e29.up.railway.app/cart/delete/?productCardId=${idProduct}`)
         .then((resp) => {
             dispatch(getInCart(idUser));
        })
