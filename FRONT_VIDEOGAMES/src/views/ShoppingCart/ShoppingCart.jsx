@@ -72,7 +72,7 @@ export default function ShoppingCart(){
 
                                     <div>
                                         <button onClick={() => DeleteProduct(e.id) }>
-                                        <img className="w-10" src="https://assets.stickpng.com/images/5a02bfca18e87004f1ca4395.png" alt="" />
+                                        <img className="w-10" src="https://static.vecteezy.com/system/resources/thumbnails/009/344/493/small/x-transparent-free-png.png" alt="" />
                                         </button>
                                     </div>
                             
