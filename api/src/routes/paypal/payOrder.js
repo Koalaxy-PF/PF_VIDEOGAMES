@@ -8,8 +8,9 @@ const {
 
 const router = Router();
 
-router.get("/", async (req, res) => {
+router.get("/:id", async (req, res) => {
   //ACA AGUS!!!
+  const {id} = req.params
   const { token } = req.query;
   try {
     const response = await axios.post(
@@ -23,6 +24,9 @@ router.get("/", async (req, res) => {
       }
     );
     /*  console.log(response.data);  */
+    console.log(id);
+    
+
 
     return res.send(response.data); // Datos del cliente, para manipular desde el front
   } catch (error) {
