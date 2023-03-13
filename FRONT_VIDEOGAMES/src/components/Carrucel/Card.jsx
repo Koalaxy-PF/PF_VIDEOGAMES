@@ -1,6 +1,45 @@
-import React from 'react'
+import { postInCart } from "../../redux/actions/actions"
+import { useSelector, useDispatch} from "react-redux"
+import Swal from "sweetalert2";
 
-export default function Card({img, name, price, genre, calification}){
+export default function Card({img, id, name, price, genre, calification}){
+
+    const dispatch = useDispatch();
+    const User = useSelector((state) => state.user);
+
+    const AddCart = (e) => {
+
+        e.preventDefault();
+
+        if(Object.entries(User).length === 0){
+            alert("El usuario no está registrado");
+        }else{
+
+            console.log("ID del producto: ", id);
+            console.log("ID del usuario: ", User.user.id);
+
+            const obj = {
+                userId: User.user.id,
+                productId: id,
+            }
+
+            console.log(obj);
+
+            dispatch(postInCart(obj)).then((response) => {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Felicidades',
+                    text: 'Se añadió a tu carrito',
+                  })
+            }).catch((response) => {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Error',
+                    text: 'El producto ya está en tu carrito',
+                  })
+            })
+        }
+    }
     
     return (
         <div class="w-full max-w-sm bg-gray-100 shadow-md shadow-slate-600 mb-2 border-2">
@@ -44,7 +83,10 @@ export default function Card({img, name, price, genre, calification}){
     
             <div class="flex items-center justify-between">
                 <span class="text-3xl font-bold text-slate-900">${price}</span>
-                <a href="#" class="text-slate-100 bg-purple-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add to Cart</a>
+
+                <a href="#" class="text-slate-100 bg-purple-600 hover:bg-blue-800 focus:ring-4 focus:outline-none
+                 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600
+                  dark:hover:bg-blue-700 dark:focus:ring-blue-800" onClick={(e) => AddCart(e)}>Add to Cart</a>
             </div>
         </div>
     </div>
