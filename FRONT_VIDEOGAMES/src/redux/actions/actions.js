@@ -228,12 +228,9 @@ export function postInCart(payload){
        return axios.post("http://localhost:3000/cart/addProduct", payload);
 }}
 
-export function DeleteProduct(idProduct, idUser){
+export function DeleteProductCart(idProduct, idUser){
     return async function(dispatch){
         return axios.delete(`http://localhost:3000/cart/delete/?productCardId=${idProduct}`)
-        .then((resp) => {
-            dispatch(getInCart(idUser));
-       })
     }
 }
 
