@@ -35,7 +35,7 @@ const addProductCart = async(req, res) => {
 
         let findProduct = await cart.productcarts?.find(e => e.productId == productId);
         if(findProduct){
-            return res.send('Product already exists in the cart')
+            return res.status(401).send('El producto ya está añadido en el carrito');
         }else {
             let totalValue = product.price;
             await Productcart.create({
@@ -49,16 +49,13 @@ const addProductCart = async(req, res) => {
             });
         await updateTotalValue(cart);
 
-            res.send('Product uploaded successfully');
+            res.status(200).send({message: 'El producto se añadió correctamente'});
         }
 
     } catch (err) {
         console.log(err)
     }
 } 
-
-
-
 
 const deleteProductCart = async (req, res) => {
     try {

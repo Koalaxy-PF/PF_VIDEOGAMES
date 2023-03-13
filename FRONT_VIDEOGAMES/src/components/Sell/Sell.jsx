@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Cards from '../CardContainer/CardContainer'
 import Card from '../Carrucel/Card'
-//import Card from '../Card/Card'
+import SearchBar from '../SearchBar/SearchBar';
 import { useDispatch , useSelector} from "react-redux";
 import { GetGames , GetGenres, TidyAlphabetically , TidyPrice , TidyReleased, FilterGenres, FilterCompany, GetCompanies} from "../../redux/actions/actions";
 import { useEffect } from 'react'
@@ -58,13 +58,14 @@ export default function Sell() {
   }
 
   
-
-  //  const allGames = useSelector((state)=> state.Games)
-  
   return (
     <div className="w-full h-100vh bg-gray-200">
       <div className="w-100vh mx-10 mt-4">
+          <div className='inline-flex mb-4'> 
+            <SearchBar />
+          </div>
         <div class="flex item-center justify-between flex-wrap">
+
           <div class="block mt-4 lg:inline-block lg:mt-0 mr-4  ">
             <select
               className="px-3 bg-[#1cecf4] text-white py-3 rounded-xl border-2 border-white text-xl text-center hover:bg-transparent hover:text-black"
@@ -144,6 +145,7 @@ export default function Sell() {
           return (
             <Card
               key={index}
+              id={el.id}
               img={el.img}
               name={el.name}
               price={el.price}

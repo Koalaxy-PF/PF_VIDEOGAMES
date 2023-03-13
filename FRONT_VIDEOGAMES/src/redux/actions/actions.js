@@ -224,16 +224,25 @@ export function getInCart(id){
 }
 
 export function postInCart(payload){
+
     return function(dispatch){
        return axios.post("https://apipf-production-2e29.up.railway.app/cart/addProduct", payload);
+
+    return async function(dispatch){
+       return await axios.post("http://localhost:3000/cart/addProduct", payload);
+
 }}
 
-export function DeleteProduct(idProduct, idUser){
+export function DeleteProductCart(idProduct, idUser){
     return async function(dispatch){
+
         return axios.delete(`https://apipf-production-2e29.up.railway.app/cart/delete/?productCardId=${idProduct}`)
         .then((resp) => {
             dispatch(getInCart(idUser));
        })
+
+        return axios.delete(`http://localhost:3000/cart/delete/?productCardId=${idProduct}`)
+
     }
 }
 
