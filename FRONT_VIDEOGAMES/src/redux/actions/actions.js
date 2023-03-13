@@ -224,8 +224,8 @@ export function getInCart(id){
 }
 
 export function postInCart(payload){
-    return function(dispatch){
-       return axios.post("http://localhost:3000/cart/addProduct", payload);
+    return async function(dispatch){
+       return await axios.post("http://localhost:3000/cart/addProduct", payload);
 }}
 
 export function DeleteProductCart(idProduct, idUser){
