@@ -145,6 +145,7 @@ export default function Sell() {
           return (
             <Card
               key={index}
+              id={el.id}
               img={el.img}
               name={el.name}
               price={el.price}
