@@ -16,6 +16,17 @@ export default function Sell() {
   const AllGames = useSelector((state) => state.GamesCopy)
   const AllGenres = useSelector((state) => state.Genres);
   const AllCompanies = useSelector((state) => state.Companies);
+
+const [gamesPerPage, setGamesPerPage] = useState(8);
+const [currentPage,setCurrentPage] =useState(1) 
+const indexLastGame = currentPage * gamesPerPage;
+const indexFirstGame = indexLastGame - gamesPerPage;
+const currentGames = AllGames.slice(indexFirstGame, indexLastGame)
+
+const pagination = pagesNumber =>{
+  setCurrentPage(pagesNumber)
+  window.scrollTo(0,0)
+}
   
   useEffect(() => {
       dispatch(GetGames());
@@ -140,7 +151,6 @@ export default function Sell() {
             </select>
           </div>
           <button onClick={e => {handleClick(e)}} className="px-3 bg-[#1cecf4] text-white py-3  rounded-xl border-2 border-white text-xl text-center hover:bg-transparent hover:text-black">Clear Filters</button>
-          <Pagination/>
         </div>
 
         
@@ -149,7 +159,7 @@ export default function Sell() {
      
 
       <div class="grid justify-center grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 mx-10 mt-5 mb-4">
-        {AllGames?.map((el, index) => {
+        {currentGames?.map((el, index) => {
           return (
             <Card
               key={index}
@@ -163,6 +173,14 @@ export default function Sell() {
           );
         })}
       </div>
+      <div className="flex flex-nowrap justify-center w-full flex-row my-3">
+        <Pagination 
+          allGames={AllGames.length}
+          gamesPerPage={gamesPerPage}
+          pagination={pagination}
+          currentPage={currentPage}
+        />
+       </div>
     </div>
   );
 }
