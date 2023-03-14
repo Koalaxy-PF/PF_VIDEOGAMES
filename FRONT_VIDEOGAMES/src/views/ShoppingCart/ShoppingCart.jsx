@@ -8,7 +8,7 @@ import Footer from "../../components/Footer/Footer";
 import Swal from "sweetalert2";
 
 
-import CarritoVacio from "../../assets/Error/Error2.png.png"
+import Trash from "../../assets/icons/trashCan.png"
 
 export default function ShoppingCart(){
 
@@ -43,39 +43,32 @@ export default function ShoppingCart(){
                     <NavBar/>
                 </div>
 
-                <div className="flex  bg-gray-200 ">
+                <div className="flex  bg-gray-100  ">
 
                     <div className='flex min-h-[calc(100vh-5rem)]'>
                     <Sidebar/>
                     </div>
                         
-                    <div className="w-full relative">
+                    <div className="w-full relative box-border border-2 flex ">
                         
-                        <div  className="relative w-full">
-
-                        <div  className=" text-center" >
-                        {
-                            <h1 className="mt-6 text-2xl font-extrabold text-gray-900" >Total: {allCart.total} </h1>
-                        }
-
-                        </div>
+                        <div  className="relative w-3/4">
                 
+                        <div className="bg-white box-border border-2 flex border-green-300 flex ">
+                                <selection className = "py-4 container m-6 ">
 
-                            <selection className = "py-4 container ">
-
-                                <div className="row justify-center">
+                                <div className="row justify-center flex-col m-6">
 
                                     <div className="col-12">
-  
-                                            <table className="table table-light table hover m-0 bg-gray-100 inline-flex  w-full relative "> 
-  
-                                                <tbody className="w-full relative ">                         
+
+                                            <table className="table table-light table hover m-0 bg-gray-100 inline-flex   w-full relative box-border border-4 border-green-200 "> 
+
+                                                <tbody className="w-full relative mt-6 bg-auto flex-col  ">                         
                                                         {allCart.productcarts?.map( (e , index) =>{
                                                     return(
                                                     
-                                                    <tr key = {index} className="">
-                                                        <td>
-                                                            <img src={e.img} alt=""  width={"300px"} height={"250px"} />    
+                                                    <tr key = {index} className="bg-gray-100 box-border bg-auto mt-6 flex-col  border-8 border-white  item-center justify-center ">
+                                                        <td >
+                                                            <img src={e.img} alt=""  width={"150px"} height={"20px"} />    
                                                         </td>
 
                                                         <td>
@@ -88,7 +81,7 @@ export default function ShoppingCart(){
 
                                                         <ty>
                                                         <button onClick={() => DeleteProduct(e.id) }>
-                                                        <img className="w-10" src="https://static.vecteezy.com/system/resources/thumbnails/009/344/493/small/x-transparent-free-png.png" alt="" />
+                                                         <img  class= " z-10  my-auto h-9 text-center "src = {Trash}/>
                                                         </button>
                                                         </ty>
                                                     </tr>
@@ -101,22 +94,28 @@ export default function ShoppingCart(){
                                                 </tbody>
                                         
                                             </table>
-                    
+
                                     </div>
 
                                 </div>
-                            </selection>
+                                </selection>
+                            </div>
 
-                               {/* Marina */}
-
-                                    
-
-
-
-                                  {/* Marina */}
 
                         </div>
+
+                         {/* Marina adentro de un  */}
+
+                        <div  className=" text-center lg:block relative h-full flex-1" >
+                        {
+                            <h1 className="mt-6 text-2xl font-extrabold text-gray-900" >Total: {allCart.total} </h1>
+                        }
+                         </div>
+
+                            {/* Marina */}
                  </div>
+
+           
                       
 
                 </div>
