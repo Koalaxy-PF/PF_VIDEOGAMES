@@ -29,13 +29,11 @@ const addProductLibrary = async(productId,userId) => {
             return 'Product already exists in the library';
         }else {
             await Productlibrary.create({
-                cartId: cart.id,
+                libraryId : library.id,
                 productId: product.id,
                 img:product.img,
                 name:product.name,
             });
-        await updateTotalValue(library);
-
             return "se actualizo";
         }
 
