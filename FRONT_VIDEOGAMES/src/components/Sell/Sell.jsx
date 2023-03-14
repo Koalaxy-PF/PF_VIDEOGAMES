@@ -3,8 +3,10 @@ import Cards from '../CardContainer/CardContainer'
 import Card from '../Carrucel/Card'
 import SearchBar from '../SearchBar/SearchBar';
 import { useDispatch , useSelector} from "react-redux";
-import { GetGames , GetGenres, TidyAlphabetically , TidyPrice , TidyReleased, FilterGenres, FilterCompany, GetCompanies} from "../../redux/actions/actions";
+import { GetGames , GetGenres, TidyAlphabetically , TidyPrice , TidyReleased, FilterGenres, FilterCompany, GetCompanies , CleanGames} from "../../redux/actions/actions";
 import { useEffect } from 'react'
+
+import Pagination from '../Pagination/Pagination';
 
 export default function Sell() {
 
@@ -14,6 +16,17 @@ export default function Sell() {
   const AllGames = useSelector((state) => state.GamesCopy)
   const AllGenres = useSelector((state) => state.Genres);
   const AllCompanies = useSelector((state) => state.Companies);
+
+const [gamesPerPage, setGamesPerPage] = useState(8);
+const [currentPage,setCurrentPage] =useState(1) 
+const indexLastGame = currentPage * gamesPerPage;
+const indexFirstGame = indexLastGame - gamesPerPage;
+const currentGames = AllGames.slice(indexFirstGame, indexLastGame)
+
+const pagination = pagesNumber =>{
+  setCurrentPage(pagesNumber)
+  window.scrollTo(0,0)
+}
   
   useEffect(() => {
       dispatch(GetGames());
@@ -21,11 +34,11 @@ export default function Sell() {
       dispatch(GetCompanies());
   }, [dispatch])
 
-  /*const handleClick = (e) => {
+  const handleClick = (e) => {
     e.preventDefault();
     dispatch(CleanGames(dispatch))
     dispatch(GetGames())
-  }*/
+  }
 
 
   const handleFilterTidy = (e) => {
@@ -65,6 +78,7 @@ export default function Sell() {
             <SearchBar />
           </div>
         <div class="flex item-center justify-between flex-wrap">
+
 
           <div class="block mt-4 lg:inline-block lg:mt-0 mr-4  ">
             <select
@@ -136,12 +150,16 @@ export default function Sell() {
               <option value="descendente"> oldest</option>
             </select>
           </div>
-          {/* <button onClick={e => {handleClick(e)}}>Clear Filters</button> */}
+          <button onClick={e => {handleClick(e)}} className="px-3 bg-[#1cecf4] text-white py-3  rounded-xl border-2 border-white text-xl text-center hover:bg-transparent hover:text-black">Clear Filters</button>
         </div>
+
+        
       </div>
 
+     
+
       <div class="grid justify-center grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 mx-10 mt-5 mb-4">
-        {AllGames?.map((el, index) => {
+        {currentGames?.map((el, index) => {
           return (
             <Card
               key={index}
@@ -155,6 +173,14 @@ export default function Sell() {
           );
         })}
       </div>
+      <div className="flex flex-nowrap justify-center w-full flex-row my-3">
+        <Pagination 
+          allGames={AllGames.length}
+          gamesPerPage={gamesPerPage}
+          pagination={pagination}
+          currentPage={currentPage}
+        />
+       </div>
     </div>
   );
 }
