@@ -36,58 +36,86 @@ export default function ShoppingCart(){
        }
 
     return(
-        <div className="h-full ">
+        <div >
 
                 <div>
                     <NavBar/>
                 </div>
 
-                <div className="flex min-height-full  item-center bg-gray-200 ">
+                <div className="flex  bg-gray-200 ">
 
                     <div className='flex min-h-[calc(100vh-5rem)]'>
                     <Sidebar/>
                     </div>
                         
-                    <div className="flex justify-center item-center">
+                    <div className="w-full relative">
                         
-                        <div  >
-                        <div  >
+                        <div  className="relative w-full">
+
+                        <div  className=" text-center" >
                         {
-                            <h1 className="mt-6 text-xl font-extrabold text-gray-900" >Total: {allCart.total} </h1>
+                            <h1 className="mt-6 text-2xl font-extrabold text-gray-900" >Total: {allCart.total} </h1>
                         }
 
                         </div>
-                
-                        <div className="justify-center item-center flex " >
-                            {allCart.productcarts?.map( (e) =>{
-                            return(       
-                            
-                                <div className="justify-center item-center w-[100%] bg-blue-200 shadow-md shadow-slate-600 mb-2 "> 
 
-                                    <img src={e.img} alt=""  width={"300px"} height={"200px"} />
-                                    
-                                    <div className="flex flex-col  p-[40px]'">
-                                        <h1 className="mt-6 text-xl font-extrabold text-gray-900 "> {e.name} </h1>
-                                        <h2 className="mt-6 text-xl font-extrabold text-gray-900"> {e.priceProduct}</h2>
+                            <selection className = "py-4 container ">
+
+                                <div className="row justify-center">
+
+                                    <div className="col-12">
+  
+                                            <table className="table table-light table hover m-0 bg-gray-100 inline-flex  w-full relative "> 
+  
+                                                <tbody className="w-full relative ">                         
+                                                        {allCart.productcarts?.map( (e , index) =>{
+                                                    return(
+                                                    
+                                                    <tr key = {index} className="">
+                                                        <td>
+                                                            <img src={e.img} alt=""  width={"300px"} height={"250px"} />    
+                                                        </td>
+
+                                                        <td>
+                                                            <h1 className="mt-6 text-xl font-extrabold text-gray-900 "> {e.name} </h1>    
+                                                        </td>
+
+                                                        <td>
+                                                            <h2 className="mt-6 text-xl font-extrabold text-gray-900"> {e.priceProduct}</h2>  
+                                                        </td>
+
+                                                        <ty>
+                                                        <button onClick={() => DeleteProduct(e.id) }>
+                                                        <img className="w-10" src="https://static.vecteezy.com/system/resources/thumbnails/009/344/493/small/x-transparent-free-png.png" alt="" />
+                                                        </button>
+                                                        </ty>
+                                                    </tr>
+
+                                                    )
+
+                                                    })
+                                                    }
+
+                                                </tbody>
                                         
+                                            </table>
+                    
                                     </div>
 
-                                    <div>
-                                        <button onClick={() => DeleteProduct(e.id) }>
-                                        <img className="w-10" src="https://static.vecteezy.com/system/resources/thumbnails/009/344/493/small/x-transparent-free-png.png" alt="" />
-                                        </button>
-                                    </div>
-                            
                                 </div>
-                                
-                            )
+                            </selection>
 
-                        })
-                         }
-                        </div>
+                               {/* Marina */}
+
+                                    
+
+
+
+                                  {/* Marina */}
+
                         </div>
                  </div>
-
+                      
 
                 </div>
             
