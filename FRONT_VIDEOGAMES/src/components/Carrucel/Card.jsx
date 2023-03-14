@@ -1,6 +1,7 @@
 import { postInCart } from "../../redux/actions/actions"
 import { useSelector, useDispatch} from "react-redux"
 import Swal from "sweetalert2";
+import AddToWishList from "../AddToWishList/AddToWishList";
 
 export default function Card({img, id, name, price, genre, calification}){
 
@@ -69,6 +70,10 @@ export default function Card({img, id, name, price, genre, calification}){
                 })
             }
                 <span class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">{calification}</span>
+                <a>
+                    <AddToWishList
+                    productId={id}/>
+                </a>
             </div>
     
             <div className='mt-3 w-full flex text-yellow-800'>

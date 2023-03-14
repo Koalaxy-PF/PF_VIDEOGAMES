@@ -12,25 +12,28 @@ import WishListCard from "../WishListCard/WishListCard";
 
 export default function Cards() {
 const WishListGames = useSelector((state) => state.WishList);
+const User = useSelector((state) => state.user)
 const [gamesPerPage, setGamesPerPage] = useState(8);
 const dispatch = useDispatch();
 const[currentPage,setCurrentPage] =useState(1) 
+
+console.log(WishListGames, 'wl');
+
+useEffect(() => {
+  dispatch(GetWishList(User.id))
+},[dispatch, User.id]) 
+
+
 const indexLastGame = currentPage * gamesPerPage;
 const indexFirstGame = indexLastGame - gamesPerPage;
 const currentGames = WishListGames.slice(indexFirstGame, indexLastGame)
 
-function addWishList(e){
-  PostWishList(id)
-}
+
 
 const pagination = pagesNumber =>{
   setCurrentPage(pagesNumber)
   window.scrollTo(0,0)
-}
-
-useEffect(() => {
-  dispatch(GetGames());
-}, [dispatch]);  
+} 
 
 
 
