@@ -239,7 +239,6 @@ function rootReducer(state = initialState, action){
     case POST_WISH_LIST:
       return {
       ...state,
-      WishList: action.payload,
     };
 
     case GET_WISH_LIST:
