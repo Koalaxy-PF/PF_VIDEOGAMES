@@ -75,11 +75,11 @@ function rootReducer(state = initialState, action){
                 GamesCopy: action.payload,
         }
 
-        case GET_GAME:
-            return {
-                ...state,
-                Games: action.payload,
-        }
+        // case GET_GAME:
+        //     return {
+        //         ...state,
+        //         Games: action.payload,
+        // }
 
         case POST_GAME:
           return {
@@ -88,12 +88,12 @@ function rootReducer(state = initialState, action){
           GamesCopy: action.payload,
         };
 
-    case GET_GAME:
-      console.log(action.payload);
-      return {
-        ...state,
-        Games: action.payload,
-      };
+    // case GET_GAME:
+    //   console.log(action.payload);
+    //   return {
+    //     ...state,
+    //     Games: action.payload,
+    //   };
 
     case GET_GENRES:
       return {
@@ -116,8 +116,7 @@ function rootReducer(state = initialState, action){
 
     case ORDER_BY_NAME:
       console.log("1")
-      let order =
-        action.payload === "asc"
+      let order = action.payload === "asc"
           ? state.Games.sort(function (a, b) {
               if (a.name.toLowerCase() > b.name.toLowerCase()) {
                 return 1;
@@ -142,8 +141,7 @@ function rootReducer(state = initialState, action){
       };
 
     case ORDER_BY_RELEASED:
-      let orderByReleased =
-        action.payload === "asc"
+      let orderByReleased = action.payload === "asc"
           ? state.Games.sort(function (a, b) {
               if (a.released.toLowerCase() > b.released.toLowerCase()) {
                 return 1;
