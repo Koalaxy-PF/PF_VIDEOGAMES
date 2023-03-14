@@ -11,9 +11,8 @@ export default function AddToWishList({productId}){
 
 const handleClick = (e) => {
     e.preventDefault();
-    const userId = User.id;
-
-    dispatch(PostWishList(productId, userId
+    const userId = User.user.id;
+    dispatch(PostWishList(e, userId
     ));
     alert('Product added successfully');
 }
