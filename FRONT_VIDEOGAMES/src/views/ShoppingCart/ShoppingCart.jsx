@@ -60,20 +60,21 @@ export default function ShoppingCart(){
                 
                         <div className="justify-center item-center flex " >
                             {allCart.productcarts?.map( (e) =>{
-                            return(       
-                            
-                                <div className="justify-center item-center w-[100%] bg-blue-200 shadow-md shadow-slate-600 mb-2 "> 
-
-                                    <img src={e.img} alt=""  width={"300px"} height={"200px"} />
+                            return(   
                                     
-                                    <div className="flex flex-col  p-[40px]'">
-                                        <h1 className="mt-6 text-xl font-extrabold text-gray-900 "> {e.name} </h1>
-                                        <h2 className="mt-6 text-xl font-extrabold text-gray-900"> {e.priceProduct}</h2>
+                            
+                                <div class= "bg-gray-100 shadow-md mx-[20px] shadow-slate-600 mb-4 border-4"> 
+                                 {/*  <div class="flex justify-between ">  */}
+                                    <img className="rounded-t-lg h-[150px] w-full object-cover " src={e.img} alt=""  />
+                                   {/*  </div>  */}
+                                     <div className="px-2  pb-4 mt-2"> 
+                                        <h1 className="mt-6 text-xl text-center justify-center  font-extrabold text-gray-900 "> {e.name} </h1>
+                                        <h2 className="mt-6 text-xl text-right  font-extrabold text-gray-900"> {e.priceProduct}</h2>
                                         
-                                    </div>
+                                     </div> 
 
-                                    <div>
-                                        <button onClick={() => DeleteProduct(e.id) }>
+                                    <div className="text-right">
+                                        <button  onClick={() => DeleteProduct(e.id) }>
                                         <img className="w-10" src="https://static.vecteezy.com/system/resources/thumbnails/009/344/493/small/x-transparent-free-png.png" alt="" />
                                         </button>
                                     </div>
