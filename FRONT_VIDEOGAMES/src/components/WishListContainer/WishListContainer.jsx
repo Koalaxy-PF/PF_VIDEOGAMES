@@ -18,10 +18,11 @@ const dispatch = useDispatch();
 const[currentPage,setCurrentPage] =useState(1) 
 
 console.log(WishListGames, 'wl');
+console.log(User, 'user');
 
 useEffect(() => {
-  dispatch(GetWishList(User.id))
-},[dispatch, User.id]) 
+  dispatch(GetWishList(User.user.id))
+},[]) 
 
 
 const indexLastGame = currentPage * gamesPerPage;
@@ -37,11 +38,11 @@ const pagination = pagesNumber =>{
 
 
 
-console.log(currentGames);
+console.log(currentGames, 'currentGames');
 
   return (        
     <div>  
-      {currentGames?.map((product) => {
+      {WishListGames?.map((product) => {
         return (
           <Fragment key={product.id}>
         
@@ -61,12 +62,12 @@ console.log(currentGames);
         );
       })} 
        <div className="flex flex-nowrap justify-center w-full flex-row my-3">
-        <Pagination 
+        {/* <Pagination 
           allGames={WishListGames.length}
           gamesPerPage={gamesPerPage}
           pagination={pagination}
           currentPage={currentPage}
-        />
+        /> */}
        </div>
     </div>
   );

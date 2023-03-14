@@ -198,9 +198,9 @@ export function GetWishList(id){
   
 }
 
-export function PostWishList(productId, userId){
+export function PostWishList(payload){
     return async function(){
-        return axios.post(`http://localhost:3000/wishlist/`, {productId, userId})
+        return axios.post(`http://localhost:3000/wishlist/`, payload)
         
     }
 } 

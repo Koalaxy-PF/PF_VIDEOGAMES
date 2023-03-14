@@ -2,6 +2,7 @@ import { postInCart } from "../../redux/actions/actions"
 import { useSelector, useDispatch} from "react-redux"
 import Swal from "sweetalert2";
 import AddToWishList from "../AddToWishList/AddToWishList";
+import { PostWishList } from "../../redux/actions/actions";
 
 export default function Card({img, id, name, price, genre, calification}){
 
@@ -41,6 +42,33 @@ export default function Card({img, id, name, price, genre, calification}){
             })
         }
     }
+
+    
+
+    const AddToWL = (e) => {
+        e.preventDefault();
+
+        if(Object.entries(User).lenght === 0){
+            alert("El usuario no está registrado")
+        } else {
+
+            console.log(id, 'pID');
+            console.log(User, 'uID');
+
+            const obj = {
+                userId: User.id,
+                productId: id,
+            }
+
+            dispatch(PostWishList(obj)).then((response) => {
+                alert('Juego añadido a la wishlist')
+            }).catch((response) => {
+                alert('No se ha podido añadir a la Wishlist')
+            })
+        }
+
+        console.log(PostWishList(obj));
+    }
     
     return (
         <div class="w-full max-w-sm bg-gray-100 shadow-md shadow-slate-600 mb-2 border-2">
@@ -71,8 +99,11 @@ export default function Card({img, id, name, price, genre, calification}){
             }
                 <span class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">{calification}</span>
                 <a>
-                    <AddToWishList
-                    productId={id}/>
+                    {/* <AddToWishList
+                    productId={id}/> */}
+                    <div>
+                        <button className="" onClick={(e) => AddToWL(e)} ><ion-icon name="heart"></ion-icon></button>
+                    </div>
                 </a>
             </div>
     
