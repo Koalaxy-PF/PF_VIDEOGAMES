@@ -1,12 +1,13 @@
 import React  from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {getInCart, DeleteProductCart, setAllCart } from "../../redux/actions/actions"
+import {getInCart, DeleteProductCart, setAllCart, DeleteProductCartLocalStorage } from "../../redux/actions/actions"
 import {useEffect, useState} from "react"
 import NavBar from "../../components/Navbar/Navbar";
 import Sidebar from "../../components/SideBar/Sidebar";
 import Footer from "../../components/Footer/Footer";
 import Swal from "sweetalert2";
 import Trash from "../../assets/icons/trashCan.png"
+import Error from "../../assets/Error/Error2.png.png"
 
 export default function ShoppingCart(){
 
@@ -23,25 +24,36 @@ export default function ShoppingCart(){
         }
 
         else{
-             const carrito = JSON.parse(window.localStorage.getItem('carrito-ls'));
-             dispatch(setAllCart(carrito)); // Aquí se carga el carrito en AllCart
+             dispatch(setAllCart()) // Aquí se carga el carrito en AllCart
         }
+        
     }, []); 
 
-      const DeleteProduct = (e) => {
-        dispatch(DeleteProductCart(e, User.user.id)).then((resp) => {
-            Swal.fire({
-                icon: 'Success',
-                title: resp.data.message,
-                text: 'El producto se eliminó!',
-        }).then(() => {
-            dispatch(getInCart(User.user.id));
-        })}).catch((resp) => {
-            Swal.fire({
-                icon: 'error',
-                title: resp.data.message,
-                text: 'El producto no se eliminó!',
-       })})
+        const DeleteProduct = (id) => {
+
+            if(window.localStorage.getItem('info-token')){
+                dispatch(DeleteProductCart(id, User.user.id)).then((resp) => {
+                    Swal.fire({
+                        icon: 'Success',
+                        title: resp.data.message,
+                        text: 'El producto se eliminó!',
+                }).then(() => {
+                    dispatch(getInCart(User.user.id));
+                })}).catch((resp) => {
+                    Swal.fire({
+                        icon: 'error',
+                        title: resp.data.message,
+                        text: 'El producto no se eliminó!',
+               })})
+            }
+
+            else{
+                dispatch(DeleteProductCartLocalStorage(id)).then(() => {
+                    dispatch(setAllCart());
+                })
+            }
+
+        
        }
 
     return(
@@ -56,7 +68,15 @@ export default function ShoppingCart(){
                     <div className='flex min-h-[calc(100vh-5rem)]'>
                     <Sidebar/>
                     </div>
+
+                    {
+                        allCart.total === 0 ?
+                            <div>
+                                <img className="w-1/3 mx-auto" src={Error} alt="" />
+                            </div>
                         
+                        :
+
                     <div className="w-full relative box-border border-2 flex ">
                         
                         <div  className="relative w-3/4">
@@ -131,8 +151,8 @@ export default function ShoppingCart(){
                             {/* Marina */}
                  </div>
 
-           
-                      
+                    }
+                         
 
                 </div>
             

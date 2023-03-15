@@ -17,7 +17,8 @@ import {
     POST_WISH_LIST,
     GET_WISH_LIST,
     GET_ALL_CART,
-    GET_ALL_CART_LOCAL_STORAGE
+    GET_ALL_CART_LOCAL_STORAGE,
+    DELETE_PRODUCT_CART_LOCAL_STORAGE
 } from "../actions/actions"
 
 const initialState = {
@@ -56,17 +57,47 @@ function rootReducer(state = initialState, action){
               
         
         case GET_ALL_CART:
+
           return{
             ...state,
             AllCart: action.payload
           }
 
           case GET_ALL_CART_LOCAL_STORAGE:
+
+            if(action.payload === null){
+              return{
+                ...state,
+                AllCart: {
+                  total: 0,
+                }
+              }
+            }
             return{
               ...state,
               AllCart: action.payload
             }
 
+            case  DELETE_PRODUCT_CART_LOCAL_STORAGE:
+
+              const carrito = JSON.parse(window.localStorage.getItem('carrito-ls'));
+
+              for(let i=0; i<carrito.productcarts.length; i++){
+                if(action.payload === carrito.productcarts[i].id){
+                  carrito.productcarts.splice(i, 1);
+                  i--;
+                }
+              }
+
+              if(carrito.productcarts.length === 0){
+                window.localStorage.removeItem('carrito-ls')
+              }
+
+              else window.localStorage.setItem('carrito-ls', JSON.stringify(carrito));
+
+              return{
+                ...state,
+              }
 
 
 

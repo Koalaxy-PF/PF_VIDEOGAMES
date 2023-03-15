@@ -26,10 +26,15 @@ export const LOGIN_FAIL = "LOGIN_FAIL"
 export const LOGOUT = "LOGOUT"
 export const SET_MESSAGE = "SET_MESSAGE"
 
-//constantes para el shoppingCart
+// CARRITO, BASE DE DATOS
 
 export const GET_ALL_CART = 'GET_ALL_CART'
+export const DELETE_PRODUCT_CART = 'DELETE_PRODUCT_CART'
+
+// CARRITO, LOCAL STORAGE
+
 export const GET_ALL_CART_LOCAL_STORAGE = 'GET_ALL_CART_LOCAL_STORAGE'
+export const DELETE_PRODUCT_CART_LOCAL_STORAGE = 'DELETE_PRODUCT_CART_LOCAL_STORAGE'
 
 
 // ACCIONES PARA LA AUTENTICACIÓN
@@ -228,12 +233,14 @@ export function getInCart(id){
     }
 }
 
-export function setAllCart(info){
+export function setAllCart(){
+
+    const carrito = JSON.parse(window.localStorage.getItem('carrito-ls'));
 
     return async function(dispatch){
         dispatch({
             type: GET_ALL_CART_LOCAL_STORAGE,
-            payload: info,
+            payload: carrito
         })
     }
 }
@@ -243,9 +250,19 @@ export function postInCart(payload){
        return await axios.post("http://localhost:3000/cart/addProduct", payload);
 }}
 
-export function DeleteProductCart(idProduct, idUser){
+export function DeleteProductCart(idProduct){
     return async function(dispatch){
         return axios.delete(`http://localhost:3000/cart/delete/?productCardId=${idProduct}`)
+        
+    }
+}
+
+export function DeleteProductCartLocalStorage(idProduct){
+    return async function(dispatch){
+        dispatch({
+            type: DELETE_PRODUCT_CART_LOCAL_STORAGE,
+            payload: idProduct,
+        })
     }
 }
 
