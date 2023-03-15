@@ -202,8 +202,9 @@ export function GetWishList(id){
 }
 
 export function PostWishList(payload){
-    return function(){
-        return axios.post(`http://localhost:3000/wishlist/addProduct`,payload)
+    return async function(){
+        return axios.post(`http://localhost:3000/wishlist/`, payload)
+        
     }
 } 
 
