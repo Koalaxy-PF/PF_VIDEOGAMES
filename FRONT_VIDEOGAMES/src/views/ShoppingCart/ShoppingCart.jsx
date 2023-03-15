@@ -1,7 +1,7 @@
 import React  from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {getInCart, DeleteProductCart } from "../../redux/actions/actions"
-import {useEffect} from "react"
+import {useEffect, useState} from "react"
 import NavBar from "../../components/Navbar/Navbar";
 import Sidebar from "../../components/SideBar/Sidebar";
 import Footer from "../../components/Footer/Footer";
@@ -11,11 +11,21 @@ import CarritoVacio from "../../assets/Error/Error2.png.png"
 
 export default function ShoppingCart(){
 
-    const allCart = useSelector((state) => state.AllCart);
+    let allCart = useSelector((state) => state.AllCart);
     const User = useSelector((state) => state.user);
     const dispatch = useDispatch();
-
+    
     useEffect(() => {
+        
+        if(window.localStorage.getItem('info-token')){
+
+            const [carrito, setCarrito] = useState(JSON.parse(window.localStorage.getItem('carrito-ls')));
+        }
+
+
+
+
+
         dispatch(getInCart(User.user.id));
     }, []); 
 

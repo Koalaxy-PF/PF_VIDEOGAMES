@@ -1,29 +1,100 @@
-import { postInCart } from "../../redux/actions/actions"
+import { postInCart, postInCartLocalStorage } from "../../redux/actions/actions"
 import { useSelector, useDispatch} from "react-redux"
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 export default function Card({img, id, name, price, genre, calification}){
-
+    
     const dispatch = useDispatch();
     const User = useSelector((state) => state.user);
+    
+    const PostInCartLocal = (obj) => {
+        
+        if(window.localStorage.getItem('carrito-ls')){
+        
+                const objeto = JSON.parse(window.localStorage.getItem('carrito-ls'));
+                const p = [];
+
+                // COMPROBAMOS QUE EL PRODUCTO NO ESTÉ YA EN EL CARRITO. 
+
+                for(let i=0; i<objeto.products.length; i++){
+                    if(obj.id === objeto.products[i].id) {
+                        return Swal.fire({
+                            icon: 'warning',
+                            title: '¡Ops! Algo salió mal',
+                            text: 'El producto ya está en el carrito',
+                          })
+                    }
+                }
+        
+                // MODIFICAMOS EL TOTAL DE PRODUCTOS EN EL CARRITO Y SU VALOR TOTAL
+        
+                objeto.total = objeto.total + 1;    // TOTAL DE ELEMENTOS
+                objeto.price = objeto.price + obj.price;    // VALOR TOTAL DE TODOS LOS PRODUCTOS
+        
+                for(let i=0; i<objeto.products.length; i++){
+                    p.push(objeto.products[i]);
+                }
+        
+                p.push(obj);
+                objeto.products = p;
+                window.localStorage.setItem('carrito-ls', JSON.stringify(objeto));
+        
+                return Swal.fire({
+                    icon: 'success',
+                    title: 'Felicidades',
+                    text: 'Se añadió a tu carrito',
+                  })
+        }
+            
+        else{
+
+                // EL CARRITO ESTÁ VACÍO Y SE METERÁ EL PRIMER PRODUCTO. 
+        
+                const objeto = {
+                    total: 1,
+                    price: obj.price,
+                    products: [obj],
+                }
+        
+                window.localStorage.setItem('carrito-ls', JSON.stringify(objeto));
+        
+                return Swal.fire({
+                    icon: 'success',
+                    title: 'Felicidades',
+                    text: 'Se añadió a tu carrito',
+                  })
+            }
+    }
 
     const AddCart = (e) => {
 
         e.preventDefault();
 
-        if(Object.entries(User).length === 0){
-            alert("El usuario no está registrado");
-        }else{
+        // COMPROBAMOS SI EL USUARIO ESTÁ VALIDADO O NO.
 
-            console.log("ID del producto: ", id);
-            console.log("ID del usuario: ", User.user.id);
+        if(Object.entries(User).length === 0){
+
+            console.log("USUARIO NO ESTÁ VALIDADO");
+
+            const obj = {
+                id: id,
+                img: img,
+                name: name,
+                price: price,
+            }
+
+            PostInCartLocal(obj);
+        }
+
+        else{
+
+            console.log("USUARIO VALIDADO");
 
             const obj = {
                 userId: User.user.id,
                 productId: id,
             }
-
-            console.log(obj);
 
             dispatch(postInCart(obj)).then((response) => {
                 Swal.fire({
@@ -41,11 +112,12 @@ export default function Card({img, id, name, price, genre, calification}){
         }
     }
     
-    return (
+    return(
         <div class="w-full max-w-sm bg-gray-100 shadow-md shadow-slate-600 mb-2 border-2">
-        <a href="#">
+
+        <Link to={`/products/${id}`}>
             <img className="rounded-t-lg h-[150px] w-full object-cover " src={img} alt="product image" />
-        </a>
+        </Link>
     
         <div class="px-2 pb-4 mt-2">
     

@@ -76,8 +76,12 @@ export function GetGame(name){
 }
 
 //action que trae juegos por id (sirve para el detail)
+
 export function GetGameById(id){
 
+    console.log("llegué")
+    console.log(id);
+    
     return async function(dispatch){
       var json = await axios.get(`http://localhost:3000/products/${id}`)
       return dispatch ({
@@ -85,7 +89,6 @@ export function GetGameById(id){
         payload: json.data
       })
     }
-  
 }
 
 //action que trae todos los generos
@@ -234,5 +237,44 @@ export function DeleteProductCart(idProduct, idUser){
     }
 }
 
+// ACTIONS - LOCAL STORAGE
+
+export function postInCartLocalStorage(obj){
+
+    if(window.localStorage.getItem('carrito-ls')){
+
+        const objeto = JSON.parse(window.localStorage.getItem('carrito-ls'));
+        const p = [];
+
+        // MODIFICAMOS EL TOTAL DE PRODUCTOS EN EL CARRITO Y SU VALOR TOTAL
+
+        objeto.total = objeto.total + 1;    // TOTAL DE ELEMENTOS
+        objeto.price = objeto.price + obj.price;    // VALOR TOTAL DE TODOS LOS PRODUCTOS
+
+        for(let i=0; i<objeto.products.length; i++){
+            p.push(objeto.products[i]);
+        }
+
+        p.push(obj);
+        objeto.products = p;
+        window.localStorage.setItem('carrito-ls', JSON.stringify(objeto));
+
+        return 'El producto se agregó con éxito a su carrito';
+    }
+    
+    else{
+
+        const objeto = {
+            total: 1,
+            price: obj.price,
+            products: [obj],
+        }
+
+        window.localStorage.setItem('carrito-ls', JSON.stringify(objeto));
+
+        return 'El producto se agregó con éxito a su carrito';
+
+    }
+}
 
 
