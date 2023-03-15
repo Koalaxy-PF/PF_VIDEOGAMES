@@ -106,10 +106,18 @@ export default function ShoppingCart(){
 
                          {/* Marina adentro de un  */}
 
-                        <div  className=" text-center lg:block relative h-full flex-1" >
+                        <div  className=" text-center flex h-full flex-1 flex-col mx-8 mt-4" >
                         {
-                            <h1 className="mt-6 text-2xl font-extrabold text-gray-900" >Total: {allCart.total} </h1>
+                            <h1 className="mt-6 text-3xl font-extrabold text-gray-900 " >Total: {allCart.total} </h1>
                         }
+
+                            <select className="px-3 mt-8 bg-green-400 text-white py-3 rounded-xl border-2 border-white text-xl text-center hover:bg-transparent hover:text-black">
+                                <option selected hidden > Payment method </option>
+                                <option> PayPal </option>
+                                <option> Mercado Pago</option>
+                            </select>
+
+                            <button className="px-3 mt-4 bg-green-600 text-white py-3 rounded-xl border-2 border-white text-xl text-center hover:bg-transparent hover:text-black"> Buy </button>
                          </div>
 
                             {/* Marina */}
