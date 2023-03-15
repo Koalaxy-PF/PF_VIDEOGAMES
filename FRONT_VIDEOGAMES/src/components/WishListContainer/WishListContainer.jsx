@@ -32,19 +32,20 @@ export default function Cards(){
   }  
 
   return (        
-    <div>  
+    <div className="grid bg-gray-100 w-full pt-2">  
       {
         WishListGames.productwishes?.map((product) => {
         return (
           <Fragment key={product.id}>
         
             <Link to={"/products/" + product.id}>
-              <div>
+              <div className="mx-4 my-1">
               <WishListCard
+                id={product.id}
                 img={product.img}
                 name={product.name}
                 calification={product.calification}
-                price={product.price}
+                price={product.priceProduct}
                 genre={product.genre} 
               />
               </div>
