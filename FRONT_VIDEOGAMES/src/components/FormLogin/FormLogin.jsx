@@ -7,11 +7,14 @@ import { Login, Login_OK} from '../../redux/actions/actions'
 import { useNavigate } from 'react-router-dom'
 import {Link} from 'react-router-dom'
 import Swal from 'sweetalert2'
+import seePassword from "../../assets/icons/seePassword.png";
+
 
 
 export default function LoginForm(){
 
     const {register, formState:{errors}, handleSubmit}= useForm();
+    const [showPwd, setShowPwd] = useState(false)
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -19,11 +22,11 @@ export default function LoginForm(){
         dispatch(Login(data)).then((response) => {
             dispatch(Login_OK(response.data)).then(() => {
                 Swal.fire({
-                    title: '¡Bienvenido!',
-                    text: 'Usuario validado correctamente',
+                    title: '¡Welcome!',
+                    text: 'User validated successfully',
                     icon: 'success',
                     confirmButtonColor: '#3085d6',
-                    confirmButtonText: 'Continuar'
+                    confirmButtonText: 'Continue'
                   }).then((result) => {
                     if (result.isConfirmed) {
                       navigate("/home");
@@ -32,10 +35,10 @@ export default function LoginForm(){
                     }})})
             }).catch((err) => {
                 Swal.fire({
-                  tittle: '¡Ops! Hay un problema',
+                  tittle: '¡Ops! There is a problem',
                   text: err.response.data.message,
                   icon: "error",
-                  confirmButtonText: "Continuar"
+                  confirmButtonText: "Continue"
                 })
               })
     }
@@ -52,8 +55,8 @@ export default function LoginForm(){
                         <img class='h-12 w-auto m-auto  justify-center' src={logo} alt="" />
                         <h2 class='mt-6 text-3xl font-extrabold text-gray-900 text-center'>Login with your account</h2>
                         <p class='mt-2 text-sm text-gray-600 text-center'>
-                            No tienes cuenta ?
-                            <Link to='/CreateUser' class='font-medium text-sky-600 hover:text-sky-200 pl-[5px]'>Regístrate ahora</Link>
+                            You don't have an account ?
+                            <Link to='/CreateUser' class='font-medium text-sky-600 hover:text-sky-200 pl-[5px]'>Register now</Link>
                         </p>
                     </div>
 
@@ -61,7 +64,7 @@ export default function LoginForm(){
                         <form onSubmit={handleSubmit(onSubmit)} class='space-y-1'>
                             <div class='grid grid-cols-1 lg:grid-cols-2 lg:gap-3'>
                                 <div>
-                                    <label class='block text-sm font-medium text-gray-600 mt-2 lg:mt-0'>Email</label>
+                                    <label class='block text-sm font-medium text-gray-600 mt-2 lg:mt-0 '>Email</label>
                                     <input type="text" class='mt-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' placeholder='Email' {...register('email',{
                                         required: true,
                                         minLength: 3,
@@ -73,10 +76,16 @@ export default function LoginForm(){
                                 </div>
                                 <div>
                                 <label for="password" class='block text-sm font-medium text-gray-600 mt-2 lg:mt-0'>Password</label>
-                                    <input type="password" class='mt-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' placeholder='Password' {...register('password', {
-                                        required: true,
-                                        minLength: 6
+                                <div class='flex item-center justify-between flex-wrap bg-white mt-2 shadow appearance-none  p-4 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none'>
+                                <input class=' focus:shadow-outline focus:outline-none' placeholder='Password' 
+                                    type={showPwd ? "text" : "password"} {...register('password', {
+                                     pattern: /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/ ,
+                                     required: true,
+                                     maxLength: 16,
+                                     minLength: 8
                                     })} />
+                                    <a class="block lg:inline-block lg:mt-0 " onClick={() => setShowPwd(!showPwd)}> <img  class= " z-6 inset-y-0 my-auto h-6 active:bg-gray-600 active:rounded-full"src = {seePassword}/> </a>
+                                </div>
                                     {errors.password?.type === 'minLength' && <p class='mt-[10px] text-center'>The password must have at least 3 characters</p>}
                                     {errors.password?.type === 'required' && <p class='mt-[10px] text-center'>Please enter a password</p>}
                                 </div>
