@@ -7,6 +7,7 @@ router.post('/', async(req,res) => {
 
     try {
         const { userId, productId } = req.body;
+
         let user = await User.findOne({
             where: { id: userId}
         })
@@ -27,7 +28,7 @@ router.post('/', async(req,res) => {
 
         let findProduct = await wishlist.productwishes?.find(e => e.productId == productId );
         if(findProduct){
-            return res.send('Product already exists in the list')
+            return res.status(401).send('Product already exists in the list')
         }else{
             await Productwish.create({
                 wishlistId: wishlist.id,
@@ -36,10 +37,10 @@ router.post('/', async(req,res) => {
                 name: product.name,
                 priceProduct: product.price
             });
-            res.send('Product uploaded successfully');
+            res.status(200).send('Product uploaded successfully');
         }
     } catch (err) {
-        console.log(err)
+        return res.status(401).send(err);
     }
 })
 

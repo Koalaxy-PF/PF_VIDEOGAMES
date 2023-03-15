@@ -1,14 +1,6 @@
 const axios = require("axios");
 const { Product } = require("../db.js");
 
-const getDetail = async (id) => {
-  const detail = await axios.get(
-    `https://api.rawg.io/api/games/${id}?key=15017e1f70774fd391be156691d53fac&page&page`
-  );
-
-  console.log(detail);
-  return detail;
-};
 
 const apicompany = async () => {
 
@@ -124,4 +116,4 @@ const gameInfoFinal = async () => {
   return games;
 };
 
-module.exports = { getDetail, getApiInfo, gameInfoFinal, apicompany, apigenres };
+module.exports = {  getApiInfo, gameInfoFinal, apicompany, apigenres };
