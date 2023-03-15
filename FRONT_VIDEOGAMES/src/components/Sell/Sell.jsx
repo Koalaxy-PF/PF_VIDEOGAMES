@@ -1,48 +1,186 @@
 import React, { useState } from 'react'
 import Cards from '../CardContainer/CardContainer'
-//import Card from '../Card/Card'
+import Card from '../Carrucel/Card'
+import SearchBar from '../SearchBar/SearchBar';
 import { useDispatch , useSelector} from "react-redux";
-import { GetGames , TidyAlphabetically , TidyPrice , TidyReleased, FilterGenres} from "../../redux/actions/actions";
+import { GetGames , GetGenres, TidyAlphabetically , TidyPrice , TidyReleased, FilterGenres, FilterCompany, GetCompanies , CleanGames} from "../../redux/actions/actions";
 import { useEffect } from 'react'
+
+import Pagination from '../Pagination/Pagination';
 
 export default function Sell() {
 
-  const allGames = useSelector((state) => state.Games)
-  const dispatch = useDispatch();
   const[order,setOrder] =useState('') 
-  const [setRender] = useState("");
+  const dispatch = useDispatch();
 
+  const AllGames = useSelector((state) => state.GamesCopy)
+  const AllGenres = useSelector((state) => state.Genres);
+  const AllCompanies = useSelector((state) => state.Companies);
 
-  //  const allGames = useSelector((state)=> state.Games)
-  useEffect(() => {
-    dispatch(GetGames());
-  }, [dispatch]);  
+const [gamesPerPage, setGamesPerPage] = useState(8);
+const [currentPage,setCurrentPage] =useState(1) 
+const indexLastGame = currentPage * gamesPerPage;
+const indexFirstGame = indexLastGame - gamesPerPage;
+const currentGames = AllGames.slice(indexFirstGame, indexLastGame)
+
+const pagination = pagesNumber =>{
+  setCurrentPage(pagesNumber)
+  window.scrollTo(0,0)
+}
   
-  // const pagination = pagesNumber => {
-  //   setCurrentPage(pagesNumber)
-  // };
+  useEffect(() => {
+      dispatch(GetGames());
+      dispatch(GetGenres());
+      dispatch(GetCompanies());
+  }, [dispatch])
 
-  // const handleClick = (e) => {
-  //   e.preventDefault();
-  //   dispatch(CleanGames(dispatch))
-  //   dispatch(GetGames())
-  // }
+  const handleClick = (e) => {
+    e.preventDefault();
+    dispatch(CleanGames(dispatch))
+    dispatch(GetGames())
+  }
 
 
+  const handleFilterTidy = (e) => {
+    e.preventDefault();
+    dispatch(TidyAlphabetically(e.target.value))
+    setOrder(`ordenado ${e.target.value}`)
+  }
 
+  const handleFilterTidyPrice = (e) => {
+    e.preventDefault();
+    dispatch(TidyPrice(e.target.value))
+    setOrder(`ordenado ${e.target.value}`)
+  }
+
+  const handleFilterTidyReleased = (e) => {
+    dispatch(TidyReleased(e.target.value))
+    setOrder(`ordenado ${e.target.value}`)
+  }
+
+  const  HandlerFilterTypeFerGenres = (e) =>{
+    e.preventDefault();
+    dispatch(FilterGenres(e.target.value))
+    setOrder(`ordenado ${e.target.value}`)
+  }
+
+  const HandlerFilterTypeFerCompany = (e) =>{
+    e.preventDefault();
+    dispatch(FilterCompany(e.target.value))
+    setOrder(`ordenado ${e.target.value}`)
+  }
+
+  
   return (
+    <div className="w-full h-100vh bg-gray-200">
+      <div className="w-100vh mx-10 mt-4">
+          <div className='inline-flex mb-4'> 
+            <SearchBar />
+          </div>
+        <div class="flex item-center justify-between flex-wrap">
 
-    <div className='w-full h-100vh bg-gray-300'>
-      
 
+          <div class="block mt-4 lg:inline-block lg:mt-0 mr-4  ">
+            <select
+              className="px-3 bg-[#1cecf4] text-white py-3 rounded-xl border-2 border-white text-xl text-center hover:bg-transparent hover:text-black"
+              onChange={(e) => handleFilterTidy(e)}
+            >
+              <option selected hidden>
+                Alphabetic
+              </option>
+              <option value="asc"> A to Z </option>
+              <option value="descendente">Z to A</option>
+            </select>
+          </div>
 
-      {/* <h1 className='flex  ml-8 font-bold mt-0'>STORE</h1> */}
+          <div class="block mt-4 lg:inline-block lg:mt-0 mr-4">
+            <select
+              className="px-3 bg-[#1cecf4] text-white py-3  rounded-xl border-2 border-white text-xl text-center hover:bg-transparent hover:text-black"
+              onChange={(e) => handleFilterTidyPrice(e)}
+            >
+              <option selected hidden>
+                Price
+              </option>
+              <option value="min"> Minor to Major Price </option>
+              <option value="Maximo">Major to Minor Price</option>
+            </select>
+          </div>
 
-    <div class='flex'>
-      <Cards />
+          <div className="block mt-4 lg:inline-block lg:mt-0 mr-4">
+            <select
+              className="px-3 bg-[#1cecf4] text-white py-3 rounded-xl border-2 border-white text-center text-xl hover:bg-transparent hover:text-black"
+              onChange={HandlerFilterTypeFerGenres}
+            >
+              <option selected hidden value="all">
+                TypesGames
+              </option>
+              {AllGenres?.map((value, index) => (
+                <option key={index} value={value}>
+                  {value}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div className="block mt-4 lg:inline-block lg:mt-0 mr-4">
+            <select
+              className="px-3 bg-[#1cecf4] text-white py-3 rounded-xl border-2 border-white text-center text-xl hover:bg-transparent hover:text-black"
+              onChange={HandlerFilterTypeFerCompany}
+            >
+              <option selected hidden value="all">
+                Companies
+              </option>
+              {AllCompanies?.map((value, index) => (
+                <option key={index} value={value}>
+                  {value}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div class="block mt-4 lg:inline-block lg:mt-0 mr-4">
+            <select
+              className="px-3 bg-[#1cecf4] text-white py-3 rounded-xl border-2 border-white text-xl text-center hover:bg-transparent hover:text-black"
+              onChange={(e) => handleFilterTidyReleased(e)}
+            >
+              <option selected hidden>
+                Released
+              </option>
+              <option value="asc"> recent </option>
+              <option value="descendente"> oldest</option>
+            </select>
+          </div>
+          <button onClick={e => {handleClick(e)}} className="px-3 bg-[#1cecf4] text-white py-3  rounded-xl border-2 border-white text-xl text-center hover:bg-transparent hover:text-black">Clear Filters</button>
+        </div>
+
+        
+      </div>
+
+     
+
+      <div class="grid justify-center grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 mx-10 mt-5 mb-4">
+        {currentGames?.map((el, index) => {
+          return (
+            <Card
+              key={index}
+              id={el.id}
+              img={el.img}
+              name={el.name}
+              price={el.price}
+              genre={el.genre}
+              calification={el.calification}
+            />
+          );
+        })}
+      </div>
+      <div className="flex flex-nowrap justify-center w-full flex-row my-3">
+        <Pagination 
+          allGames={AllGames.length}
+          gamesPerPage={gamesPerPage}
+          pagination={pagination}
+          currentPage={currentPage}
+        />
+       </div>
     </div>
-
-
-    </div>
-  )
+  );
 }

@@ -1,5 +1,5 @@
 const axios = require("axios");
-const { Company, Product } = require("../db.js");
+const { Product } = require("../db.js");
 
 const getDetail = async (id) => {
   const detail = await axios.get(
@@ -11,23 +11,40 @@ const getDetail = async (id) => {
 };
 
 const apicompany = async () => {
-  const obj = [];
 
-  const games = await Product.findAll();
-  const companies = games.map((e) => e.company);
-  const companiesNotRepet = new Set(companies);
+  try {
+    // Obtener todos los registros de Product
+    const productos = await Product.findAll();
 
-  const res = [...companiesNotRepet];
+    // Extraer los géneros de cada registro y combinarlos en un solo array
+    const compañias = productos.map(producto => producto.company).flat();
 
-  for (let i = 0; i < res.length; i++) {
-    const objeto = { name: "" };
-    objeto.name = res[i];
-    obj.push(objeto);
+    // Eliminar cualquier género duplicado
+    const compañiasUnicas = [...new Set(compañias)];
+
+    return compañiasUnicas;
+  } catch (error) {
+    console.log(error);
   }
-
-  console.log(obj);
-  return obj;
 };
+
+const apigenres = async () => {
+
+  try {
+    // Obtener todos los registros de Product
+    const productos = await Product.findAll();
+
+    // Extraer los géneros de cada registro y combinarlos en un solo array
+    const generos = productos.map(producto => producto.genre).flat();
+
+    // Eliminar cualquier género duplicado
+    const generosUnicos = [...new Set(generos)];
+
+    return generosUnicos;
+  } catch (error) {
+    console.log(error);
+  }
+  };
 
 const getApiInfo = async () => {
   let result = []; //uno por uno con su respectiva info
@@ -107,4 +124,4 @@ const gameInfoFinal = async () => {
   return games;
 };
 
-module.exports = { getDetail, getApiInfo, gameInfoFinal, apicompany };
+module.exports = { getDetail, getApiInfo, gameInfoFinal, apicompany, apigenres };
