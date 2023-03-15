@@ -53,14 +53,14 @@ export default function ShoppingCart(){
                         
                         <div  className="relative w-3/4">
                 
-                        <div className="bg-white box-border border-2 flex border-green-300 flex ">
+                        <div className="bg-white box-border border-2 border-green-300 flex ">
                                 <selection className = "py-4 container m-6 ">
 
                                 <div className="row justify-center flex-col m-6">
 
                                     <div className="col-12">
 
-                                            <table className="table table-light table hover m-0 bg-gray-100 inline-flex   w-full relative box-border border-4 border-green-200 "> 
+                                            <table className=" table-light hover m-0 bg-gray-100 inline-flex   w-full relative box-border border-4 border-green-200 "> 
 
                                                 <tbody className="w-full relative mt-6 bg-auto flex-col  ">                         
                                                         {allCart.productcarts?.map( (e , index) =>{
