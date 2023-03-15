@@ -29,9 +29,10 @@ export const SET_MESSAGE = "SET_MESSAGE"
 //constantes para el shoppingCart
 
 export const GET_ALL_CART = 'GET_ALL_CART'
+export const GET_ALL_CART_LOCAL_STORAGE = 'GET_ALL_CART_LOCAL_STORAGE'
 
 
-// - - - ACCIONES PARA LA AUTENTICACIÓN - - -
+// ACCIONES PARA LA AUTENTICACIÓN
 
 export const Register = (data) => (dispatch) => {
     return AuthService.Register(data);
@@ -50,7 +51,8 @@ export const Login_OK = (data) =>{
     }
 }
 
-//action que trae todos los juegos
+// ACCIÓN QUE TRAE TODOS LOS JUEGOS
+
 export function GetGames(){
 
     return async function(dispatch){
@@ -76,8 +78,12 @@ export function GetGame(name){
 }
 
 //action que trae juegos por id (sirve para el detail)
+
 export function GetGameById(id){
 
+    console.log("llegué")
+    console.log(id);
+    
     return async function(dispatch){
       var json = await axios.get(`http://localhost:3000/products/${id}`)
       return dispatch ({
@@ -85,7 +91,6 @@ export function GetGameById(id){
         payload: json.data
       })
     }
-  
 }
 
 //action que trae todos los generos
@@ -184,7 +189,7 @@ export function CleanGames(){
 }
 
 
-// Actions WishList
+// ACCIONES - LISTA DE FAVORITOS ✔
 
 export function GetWishList(id){
 
@@ -199,8 +204,8 @@ export function GetWishList(id){
 }
 
 export function PostWishList(payload){
-    return function(){
-        return axios.post(`http://localhost:3000/wishlist/addProduct`,payload)
+    return async function(dispatch){
+        return await axios.post(`http://localhost:3000/wishlist`, payload)
     }
 } 
 
@@ -210,7 +215,7 @@ export function DeleteWishListProduct(productWish){
     }
 }
 
-///Routes ShoppingCart
+// ACCIONES DEL CARRITO DE COMPRAS
 
 export function getInCart(id){
 
@@ -219,6 +224,16 @@ export function getInCart(id){
         dispatch({
             type: GET_ALL_CART,
             payload: json.data
+        })
+    }
+}
+
+export function setAllCart(info){
+
+    return async function(dispatch){
+        dispatch({
+            type: GET_ALL_CART_LOCAL_STORAGE,
+            payload: info,
         })
     }
 }
@@ -234,5 +249,44 @@ export function DeleteProductCart(idProduct, idUser){
     }
 }
 
+// ACTIONS - LOCAL STORAGE
+
+export function postInCartLocalStorage(obj){
+
+    if(window.localStorage.getItem('carrito-ls')){
+
+        const objeto = JSON.parse(window.localStorage.getItem('carrito-ls'));
+        const p = [];
+
+        // MODIFICAMOS EL TOTAL DE PRODUCTOS EN EL CARRITO Y SU VALOR TOTAL
+
+        objeto.total = objeto.total + 1;    // TOTAL DE ELEMENTOS
+        objeto.price = objeto.price + obj.price;    // VALOR TOTAL DE TODOS LOS PRODUCTOS
+
+        for(let i=0; i<objeto.products.length; i++){
+            p.push(objeto.products[i]);
+        }
+
+        p.push(obj);
+        objeto.products = p;
+        window.localStorage.setItem('carrito-ls', JSON.stringify(objeto));
+
+        return 'El producto se agregó con éxito a su carrito';
+    }
+    
+    else{
+
+        const objeto = {
+            total: 1,
+            price: obj.price,
+            products: [obj],
+        }
+
+        window.localStorage.setItem('carrito-ls', JSON.stringify(objeto));
+
+        return 'El producto se agregó con éxito a su carrito';
+
+    }
+}
 
 

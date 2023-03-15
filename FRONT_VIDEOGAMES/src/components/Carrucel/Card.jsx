@@ -1,29 +1,46 @@
-import { postInCart } from "../../redux/actions/actions"
+import { postInCart, PostWishList } from "../../redux/actions/actions"
 import { useSelector, useDispatch} from "react-redux"
 import Swal from "sweetalert2";
+import AddToWishList from "../AddToWishList/AddToWishList";
+import { Link } from "react-router-dom";
 
 export default function Card({img, id, name, price, genre, calification}){
-
+    
     const dispatch = useDispatch();
     const User = useSelector((state) => state.user);
 
+    // FUNCIÓN PARA METER PRODUCTOS AL CARRITO
+    
     const AddCart = (e) => {
-
+        
         e.preventDefault();
+        
+        // COMPROBAMOS SI EL USUARIO ESTÁ VALIDADO O NO
 
         if(Object.entries(User).length === 0){
-            alert("El usuario no está registrado");
-        }else{
 
-            console.log("ID del producto: ", id);
-            console.log("ID del usuario: ", User.user.id);
+            // USUARIO NO ESTÁ VALIDADO
+
+            const obj = {
+                id: id,
+                img: img,
+                name: name,
+                price: price,
+            }
+
+            PostInCartLocal(obj);
+        }
+
+        // AQUÍ EL USUARIO YA ESTÁ VALIDADO, TIENE UNA CUENTA.
+
+        else{
+
+            // USUARIO VALIDADO CORRECTAMENTE
 
             const obj = {
                 userId: User.user.id,
                 productId: id,
             }
-
-            console.log(obj);
 
             dispatch(postInCart(obj)).then((response) => {
                 Swal.fire({
@@ -40,12 +57,105 @@ export default function Card({img, id, name, price, genre, calification}){
             })
         }
     }
+
+    const PostInCartLocal = (obj) => {
+        
+        if(window.localStorage.getItem('carrito-ls')){
+        
+                const objeto = JSON.parse(window.localStorage.getItem('carrito-ls'));
+                const p = [];
+
+                // COMPROBAMOS QUE EL PRODUCTO NO ESTÉ YA EN EL CARRITO. 
+
+                for(let i=0; i<objeto.productcarts.length; i++){
+                    if(obj.id === objeto.productcarts[i].id) {
+                        return Swal.fire({
+                            icon: 'error',
+                            title: 'Something has gone wrong!',
+                            text: 'The product is already in your cart',
+                          })
+                    }
+                }
+        
+                // MODIFICAMOS EL TOTAL DE PRODUCTOS EN EL CARRITO Y SU VALOR TOTAL
+        
+                objeto.total = objeto.total + obj.total   // TOTAL DE ELEMENTOS
+        
+                for(let i=0; i<objeto.productcarts.length; i++){
+                    p.push(objeto.productcarts[i]);
+                }
+        
+                p.push(obj);
+                objeto.productcarts = p;
+                window.localStorage.setItem('carrito-ls', JSON.stringify(objeto));
+        
+                return Swal.fire({
+                    icon: 'success',
+                    title: 'Congratulations!',
+                    text: 'The product was added to your cart',
+                  })
+        }
+            
+        else{
+
+                // EL CARRITO ESTÁ VACÍO Y SE METERÁ EL PRIMER PRODUCTO. 
+        
+                const objeto = {
+                    total: obj.price,
+                    productcarts: [obj],
+                }
+        
+                window.localStorage.setItem('carrito-ls', JSON.stringify(objeto));
+        
+                return Swal.fire({
+                    icon: 'success',
+                    title: 'Felicidades',
+                    text: 'Se añadió a tu carrito',
+                  })
+            }
+    }
+
+    const AddToWL = (e) => {
+
+        e.preventDefault();
+
+        if(Object.entries(User).length === 0){
+            return Swal.fire({
+                icon: 'error',
+                title: 'Something has gone wrong!',
+            text: 'Unregistered users cannot have favorites list',
+        })}
+        
+        else {
+            
+            const obj = {
+                userId: User.user.id,
+                productId: id,
+            }
+
+            dispatch(PostWishList(obj)).then((response) => {
+                return Swal.fire({
+                    icon: 'success',
+                    title: 'Congratulations',
+                    text: 'The product was successfully added to your wishlist'
+                  })
+            }).catch((response) => {
+                return Swal.fire({
+                    icon: 'error',
+                    title: 'Something has gone wrong!',
+                    text: 'The product is already in your wish list'
+                  })
+                
+            })
+        }
+    }
     
-    return (
+    return(
         <div class="w-full max-w-sm bg-gray-100 shadow-md shadow-slate-600 mb-2 border-2">
-        <a href="#">
+
+        <Link to={`/products/${id}`}>
             <img className="rounded-t-lg h-[150px] w-full object-cover " src={img} alt="product image" />
-        </a>
+        </Link>
     
         <div class="px-2 pb-4 mt-2">
     
@@ -69,6 +179,13 @@ export default function Card({img, id, name, price, genre, calification}){
                 })
             }
                 <span class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">{calification}</span>
+                <a>
+                    {/* <AddToWishList
+                    productId={id}/> */}
+                    <div>
+                        <button className="" onClick={(e) => AddToWL(e)} ><ion-icon name="heart"></ion-icon></button>
+                    </div>
+                </a>
             </div>
     
             <div className='mt-3 w-full flex text-yellow-800'>
