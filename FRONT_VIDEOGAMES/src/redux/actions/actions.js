@@ -29,9 +29,10 @@ export const SET_MESSAGE = "SET_MESSAGE"
 //constantes para el shoppingCart
 
 export const GET_ALL_CART = 'GET_ALL_CART'
+export const GET_ALL_CART_LOCAL_STORAGE = 'GET_ALL_CART_LOCAL_STORAGE'
 
 
-// - - - ACCIONES PARA LA AUTENTICACIÓN - - -
+// ACCIONES PARA LA AUTENTICACIÓN
 
 export const Register = (data) => (dispatch) => {
     return AuthService.Register(data);
@@ -50,7 +51,8 @@ export const Login_OK = (data) =>{
     }
 }
 
-//action que trae todos los juegos
+// ACCIÓN QUE TRAE TODOS LOS JUEGOS
+
 export function GetGames(){
 
     return async function(dispatch){
@@ -187,7 +189,7 @@ export function CleanGames(){
 }
 
 
-// Actions WishList
+// ACCIONES - LISTA DE FAVORITOS ✔
 
 export function GetWishList(id){
 
@@ -202,9 +204,8 @@ export function GetWishList(id){
 }
 
 export function PostWishList(payload){
-    return async function(){
-        return axios.post(`http://localhost:3000/wishlist/`, payload)
-        
+    return async function(dispatch){
+        return await axios.post(`http://localhost:3000/wishlist`, payload)
     }
 } 
 
@@ -214,7 +215,7 @@ export function DeleteWishListProduct(productWish){
     }
 }
 
-///Routes ShoppingCart
+// ACCIONES DEL CARRITO DE COMPRAS
 
 export function getInCart(id){
 
@@ -223,6 +224,16 @@ export function getInCart(id){
         dispatch({
             type: GET_ALL_CART,
             payload: json.data
+        })
+    }
+}
+
+export function setAllCart(info){
+
+    return async function(dispatch){
+        dispatch({
+            type: GET_ALL_CART_LOCAL_STORAGE,
+            payload: info,
         })
     }
 }

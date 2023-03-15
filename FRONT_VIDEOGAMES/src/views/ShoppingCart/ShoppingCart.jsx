@@ -1,33 +1,31 @@
 import React  from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {getInCart, DeleteProductCart } from "../../redux/actions/actions"
+import {getInCart, DeleteProductCart, setAllCart } from "../../redux/actions/actions"
 import {useEffect, useState} from "react"
 import NavBar from "../../components/Navbar/Navbar";
 import Sidebar from "../../components/SideBar/Sidebar";
 import Footer from "../../components/Footer/Footer";
 import Swal from "sweetalert2";
-
-
 import Trash from "../../assets/icons/trashCan.png"
 
 export default function ShoppingCart(){
 
-    let allCart = useSelector((state) => state.AllCart);
+    const allCart = useSelector((state) => state.AllCart);
     const User = useSelector((state) => state.user);
     const dispatch = useDispatch();
     
     useEffect(() => {
+
+        // COMPROBAMOS SI LEEMOS EL CARRITO DE LA BASE DE DATOS O EL LOCAL STORAGE.
         
         if(window.localStorage.getItem('info-token')){
-
-            const [carrito, setCarrito] = useState(JSON.parse(window.localStorage.getItem('carrito-ls')));
+            dispatch(getInCart(User.user.id));
         }
 
-
-
-
-
-        dispatch(getInCart(User.user.id));
+        else{
+             const carrito = JSON.parse(window.localStorage.getItem('carrito-ls'));
+             dispatch(setAllCart(carrito)); // Aquí se carga el carrito en AllCart
+        }
     }, []); 
 
       const DeleteProduct = (e) => {

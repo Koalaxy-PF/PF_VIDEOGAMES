@@ -1,82 +1,25 @@
-import { postInCart, postInCartLocalStorage } from "../../redux/actions/actions"
+import { postInCart, PostWishList } from "../../redux/actions/actions"
 import { useSelector, useDispatch} from "react-redux"
 import Swal from "sweetalert2";
 import AddToWishList from "../AddToWishList/AddToWishList";
-import { PostWishList } from "../../redux/actions/actions";
+import { Link } from "react-router-dom";
 
 export default function Card({img, id, name, price, genre, calification}){
     
     const dispatch = useDispatch();
     const User = useSelector((state) => state.user);
+
+    // FUNCIÓN PARA METER PRODUCTOS AL CARRITO
     
-    const PostInCartLocal = (obj) => {
-        
-        if(window.localStorage.getItem('carrito-ls')){
-        
-                const objeto = JSON.parse(window.localStorage.getItem('carrito-ls'));
-                const p = [];
-
-                // COMPROBAMOS QUE EL PRODUCTO NO ESTÉ YA EN EL CARRITO. 
-
-                for(let i=0; i<objeto.products.length; i++){
-                    if(obj.id === objeto.products[i].id) {
-                        return Swal.fire({
-                            icon: 'warning',
-                            title: '¡Ops! Algo salió mal',
-                            text: 'El producto ya está en el carrito',
-                          })
-                    }
-                }
-        
-                // MODIFICAMOS EL TOTAL DE PRODUCTOS EN EL CARRITO Y SU VALOR TOTAL
-        
-                objeto.total = objeto.total + 1;    // TOTAL DE ELEMENTOS
-                objeto.price = objeto.price + obj.price;    // VALOR TOTAL DE TODOS LOS PRODUCTOS
-        
-                for(let i=0; i<objeto.products.length; i++){
-                    p.push(objeto.products[i]);
-                }
-        
-                p.push(obj);
-                objeto.products = p;
-                window.localStorage.setItem('carrito-ls', JSON.stringify(objeto));
-        
-                return Swal.fire({
-                    icon: 'success',
-                    title: 'Felicidades',
-                    text: 'Se añadió a tu carrito',
-                  })
-        }
-            
-        else{
-
-                // EL CARRITO ESTÁ VACÍO Y SE METERÁ EL PRIMER PRODUCTO. 
-        
-                const objeto = {
-                    total: 1,
-                    price: obj.price,
-                    products: [obj],
-                }
-        
-                window.localStorage.setItem('carrito-ls', JSON.stringify(objeto));
-        
-                return Swal.fire({
-                    icon: 'success',
-                    title: 'Felicidades',
-                    text: 'Se añadió a tu carrito',
-                  })
-            }
-    }
-
     const AddCart = (e) => {
-
+        
         e.preventDefault();
-
-        // COMPROBAMOS SI EL USUARIO ESTÁ VALIDADO O NO.
+        
+        // COMPROBAMOS SI EL USUARIO ESTÁ VALIDADO O NO
 
         if(Object.entries(User).length === 0){
 
-            console.log("USUARIO NO ESTÁ VALIDADO");
+            // USUARIO NO ESTÁ VALIDADO
 
             const obj = {
                 id: id,
@@ -88,9 +31,11 @@ export default function Card({img, id, name, price, genre, calification}){
             PostInCartLocal(obj);
         }
 
+        // AQUÍ EL USUARIO YA ESTÁ VALIDADO, TIENE UNA CUENTA.
+
         else{
 
-            console.log("USUARIO VALIDADO");
+            // USUARIO VALIDADO CORRECTAMENTE
 
             const obj = {
                 userId: User.user.id,
@@ -113,31 +58,96 @@ export default function Card({img, id, name, price, genre, calification}){
         }
     }
 
-    
+    const PostInCartLocal = (obj) => {
+        
+        if(window.localStorage.getItem('carrito-ls')){
+        
+                const objeto = JSON.parse(window.localStorage.getItem('carrito-ls'));
+                const p = [];
+
+                // COMPROBAMOS QUE EL PRODUCTO NO ESTÉ YA EN EL CARRITO. 
+
+                for(let i=0; i<objeto.productcarts.length; i++){
+                    if(obj.id === objeto.productcarts[i].id) {
+                        return Swal.fire({
+                            icon: 'error',
+                            title: 'Something has gone wrong!',
+                            text: 'The product is already in your cart',
+                          })
+                    }
+                }
+        
+                // MODIFICAMOS EL TOTAL DE PRODUCTOS EN EL CARRITO Y SU VALOR TOTAL
+        
+                objeto.total = objeto.total + obj.total   // TOTAL DE ELEMENTOS
+        
+                for(let i=0; i<objeto.productcarts.length; i++){
+                    p.push(objeto.productcarts[i]);
+                }
+        
+                p.push(obj);
+                objeto.productcarts = p;
+                window.localStorage.setItem('carrito-ls', JSON.stringify(objeto));
+        
+                return Swal.fire({
+                    icon: 'success',
+                    title: 'Congratulations!',
+                    text: 'The product was added to your cart',
+                  })
+        }
+            
+        else{
+
+                // EL CARRITO ESTÁ VACÍO Y SE METERÁ EL PRIMER PRODUCTO. 
+        
+                const objeto = {
+                    total: obj.price,
+                    productcarts: [obj],
+                }
+        
+                window.localStorage.setItem('carrito-ls', JSON.stringify(objeto));
+        
+                return Swal.fire({
+                    icon: 'success',
+                    title: 'Felicidades',
+                    text: 'Se añadió a tu carrito',
+                  })
+            }
+    }
 
     const AddToWL = (e) => {
+
         e.preventDefault();
 
-        if(Object.entries(User).lenght === 0){
-            alert("El usuario no está registrado")
-        } else {
-
-            console.log(id, 'pID');
-            console.log(User, 'uID');
-
+        if(Object.entries(User).length === 0){
+            return Swal.fire({
+                icon: 'error',
+                title: 'Something has gone wrong!',
+            text: 'Unregistered users cannot have favorites list',
+        })}
+        
+        else {
+            
             const obj = {
-                userId: User.id,
+                userId: User.user.id,
                 productId: id,
             }
 
             dispatch(PostWishList(obj)).then((response) => {
-                alert('Juego añadido a la wishlist')
+                return Swal.fire({
+                    icon: 'success',
+                    title: 'Congratulations',
+                    text: 'The product was successfully added to your wishlist'
+                  })
             }).catch((response) => {
-                alert('No se ha podido añadir a la Wishlist')
+                return Swal.fire({
+                    icon: 'error',
+                    title: 'Something has gone wrong!',
+                    text: 'The product is already in your wish list'
+                  })
+                
             })
         }
-
-        console.log(PostWishList(obj));
     }
     
     return(
