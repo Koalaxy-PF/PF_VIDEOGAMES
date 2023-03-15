@@ -51,7 +51,7 @@ export default function ShoppingCart(){
                         
                     <div className="w-full relative box-border border-2 flex ">
                         
-                        <div  className="relative w-3/4">
+                        <div  className="relative w-3/4 ">
                 
                         <div className="bg-white box-border border-2 flex border-green-300 flex ">
                                 <selection className = "py-4 container m-6 ">
@@ -66,7 +66,7 @@ export default function ShoppingCart(){
                                                         {allCart.productcarts?.map( (e , index) =>{
                                                     return(
                                                     
-                                                    <tr key = {index} className="bg-gray-100 box-border bg-auto mt-6 flex-col  border-8 border-white  item-center justify-center ">
+                                                    <tr key = {index} className="bg-gray-100 box-border bg-auto mt-6 flex-col  lg:gap border-8 border-white  item-center justify-center  ">
                                                         <td >
                                                             <img src={e.img} alt=""  width={"150px"} height={"20px"} />    
                                                         </td>
