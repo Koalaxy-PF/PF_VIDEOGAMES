@@ -68,7 +68,7 @@ export default function ShoppingCart(){
 
                                     <div className="col-12">
 
-                                            <table className=" table-light hover m-0 bg-gray-100 inline-flex   w-full relative box-border border-4 border-green-200 "> 
+                                            <table className="table table-light hover m-0 bg-gray-100 inline-flex w-full relative box-border border-4 border-green-200 "> 
 
                                                 <tbody className="w-full relative mt-6 bg-auto flex-col  ">                         
                                                         {allCart.productcarts?.map( (e , index) =>{
@@ -84,7 +84,7 @@ export default function ShoppingCart(){
                                                         </td>
 
                                                         <td>
-                                                            <h2 className="mt-6 text-xl font-extrabold text-gray-900"> {e.priceProduct}</h2>  
+                                                            <h2 className="mt-6 text-xl font-extrabold text-gray-900">  ${e.priceProduct}</h2>  
                                                         </td>
 
                                                         <ty>
