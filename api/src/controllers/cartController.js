@@ -1,4 +1,4 @@
-const  { User, Cart, Productcart, Product }  = require("../db");
+const  { User, Cart, Productcart, Product,Library, Productlibrary }  = require("../db");
 
 const updateTotalValue = async(cart) => {
     //busco los productos cargados en el carrito y calculo el total
@@ -11,13 +11,14 @@ const updateTotalValue = async(cart) => {
 const addProductCart = async(req, res) => {
     try {
         const { productId, userId} = req.body;
-        //busco el usuario dueño del carrito y el producto que quiero agregar
+        //busco el usuario dueño del carrito y el producto que quiero agregar7
         let user = await User.findOne({
             where: { id: userId}
         })
         let product = await Product.findOne({
             where: { id: productId}
         })
+
 
         let cart = null;
         //si el usuario no tenia carrito lo creo y se lo asigno
@@ -32,6 +33,19 @@ const addProductCart = async(req, res) => {
             });
         }
         //vemos si el producto ya esta agregado o no al carrito
+
+       
+        let library = await Library.findOne({
+            where :{ id: user.libraryId},
+            include:{model: Productlibrary}
+        })
+
+        if(library){
+            let productLibrary = await library.productlibraries?.find(e=> e.productId == productId)
+            if(productLibrary){
+                return res.status(401).send("Este producto ya existe en tu biblioteca de juego! No puedes volver a comprarlo")
+            }
+        }
 
         let findProduct = await cart.productcarts?.find(e => e.productId == productId);
         if(findProduct){
@@ -77,4 +91,4 @@ const deleteProductCart = async (req, res) => {
 };
 
 
-module.exports = {addProductCart,deleteProductCart}
+module.exports = {addProductCart,deleteProductCart,updateTotalValue}
