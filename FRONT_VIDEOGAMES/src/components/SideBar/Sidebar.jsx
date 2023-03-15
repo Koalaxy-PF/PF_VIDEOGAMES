@@ -77,7 +77,7 @@ export default function Sidebar(){
     </div>  */}
 
     {/* SOPORTE */}
-
+    <Link to="/Support">
      <div className={`flex mt-4 items-center cursor-pointer rounded-full ${open && "bg-gray-600 pl-4 py-2 gap-x-2"}`}>
       <span>
         <img src={icons.img5} className='block w-8 items-center text-white text-4xl cursor-pointer' />               
@@ -87,7 +87,7 @@ export default function Sidebar(){
         <h1>Soporte</h1>
       </span>
     </div> 
-
+    </Link>
   </div>
   )
 }
