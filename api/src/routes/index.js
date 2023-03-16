@@ -34,7 +34,7 @@ const cancelPayment = require("./paypal/cancelPayment");
 
 const payment = require("./mercadopago/payment");
 
-
+const libraryget = require("./libraryRoutes/get")
 
 /* *************************  routes GENRES   **************************************** */
 router.use("/genres", getGenres);
@@ -67,6 +67,7 @@ router.use("/cancel-payment", cancelPayment);
 /* *************************  routes MERCADOPAGO   **************************************** */
 router.use("/payment", payment);
 
+
 /* *************************  routes WISHLIST   **************************************** */
 router.use("/wishlist",postWishList);
 router.use("/wishlist/delete",deleteWishProduct);
@@ -78,5 +79,8 @@ router.use("/cart", getCart);
 router.use("/cart/addProduct", addProduct);
 router.use("/cart/delete", deleteCart);
 
+
+/* *************************  routes LIBRARY   **************************************** */
+router.use("/library", libraryget);
 
 module.exports = router;

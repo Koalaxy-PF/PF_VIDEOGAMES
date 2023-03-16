@@ -79,22 +79,22 @@ export default function ShoppingCart(){
 
                     <div className="w-full relative box-border border-2 flex ">
                         
-                        <div  className="relative w-3/4">
+                        <div  className="relative w-3/4 ">
                 
                         <div className="bg-white box-border border-2 border-green-300 flex ">
-                                <selection className = "py-4 container m-6 ">
+                                <selection className = "py-4 container m-6 w-full">
 
-                                <div className="row justify-center flex-col m-6">
+                                <div className="row justify-center flex-col m-6 ">
 
                                     <div className="col-12">
 
-                                            <table className=" table-light hover m-0 bg-gray-100 inline-flex   w-full relative box-border border-4 border-green-200 "> 
+                                            <table className="table table-light hover m-0 bg-gray-100 inline-flex   w-full relative box-border border-4 border-green-200 "> 
 
-                                                <tbody className="w-full relative mt-6 bg-auto flex-col  ">                         
+                                                <tbody className="w-full relative mt-6 bg-auto  ">                         
                                                         {allCart.productcarts?.map( (e , index) =>{
                                                     return(
                                                     
-                                                    <tr key = {index} className="bg-gray-100 box-border bg-auto mt-6 flex-col  border-8 border-white  item-center justify-center ">
+                                                    <tr key = {index} className="bg-gray-100 box-border bg-auto mt-6  lg:gap border-8 border-white  item-center justify-center  ">
                                                         <td >
                                                             <img src={e.img} alt=""  width={"150px"} height={"20px"} />    
                                                         </td>
@@ -104,7 +104,7 @@ export default function ShoppingCart(){
                                                         </td>
 
                                                         <td>
-                                                            <h2 className="mt-6 text-xl font-extrabold text-gray-900"> {e.priceProduct}</h2>  
+                                                            <h2 className="mt-6 text-xl font-extrabold text-gray-900">  ${e.priceProduct}</h2>  
                                                         </td>
 
                                                         <ty>
