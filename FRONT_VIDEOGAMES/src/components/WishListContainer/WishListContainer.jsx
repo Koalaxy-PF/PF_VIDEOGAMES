@@ -32,13 +32,11 @@ export default function Cards(){
   }  
 
   return (        
-    <div className="grid bg-gray-100 w-full pt-2">  
+    <div className="grid bg-gray-100 content-start w-full pt-2">  
       {
         WishListGames.productwishes?.map((product) => {
         return (
           <Fragment key={product.id}>
-        
-            <Link to={"/products/" + product.id}>
               <div className="mx-4 my-1">
               <WishListCard
                 id={product.id}
@@ -49,7 +47,6 @@ export default function Cards(){
                 genre={product.genre} 
               />
               </div>
-            </Link>
           </Fragment>
         );
       })} 
