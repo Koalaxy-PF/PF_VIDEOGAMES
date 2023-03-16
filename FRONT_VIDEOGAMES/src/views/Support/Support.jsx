@@ -73,7 +73,7 @@ export default function Support() {
 
           <div className="justify-center flex-1 flex flex-col py-10 px-0 sm:px-8 lg:px-20 sm:py-9 md:py-9  xl:px-24">
             <div class="text-center lg:text-left flex justify-center">
-              <img class="h-14 w-[60px]  m-auto lg:m-0" src={logo} alt="" />
+              <img class="h-14 w-[55px]  m-auto lg:m-0" src={logo} alt="" />
               <h2 class="mt-6 text-3xl font-extrabold text-gray-900">
                 Contact Us
               </h2>
