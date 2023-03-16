@@ -1,11 +1,12 @@
 import React from "react";
 import profile from '../../assets/dashboard/profile.png'
+import SideBarDashBoard from "../Dashboard/sideBarDashBoard"
 
 export default function Dashboard() {
   return (
     <div class='grid grid-cols-6 min-h-screen'>
-      <div class='col-span-1 bg-slate-400'>
-        <h1>SideBar</h1>
+      <div class=''>
+        <SideBarDashBoard/>
       </div>
       <div class='col-span-5 bg-red-300'>
         <div class='mx-[50px] mt-[20px]'>
