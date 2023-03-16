@@ -1,27 +1,27 @@
 import React from "react";
 import { DeleteWishListProduct, GetWishList } from "../../redux/actions/actions";
 import Swal from "sweetalert2";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 export default function WishListCard ({id, name, img, calification, price, genre}) {
 
     const User = useSelector((state) => state.user)
-    const DeleteFromWL = (e) => {
-        e.preventeDefault();
-
-        dispatchEvent(DeleteWishListProduct(e, User.user.id)).then((response) =>{
+    const dispatch = useDispatch()
+    const DeleteFromWL = (id) => {
+        console.log(id);
+        dispatch(DeleteWishListProduct(id)).then((response) =>{
             Swal.fire({
                 icon: 'Success',
-                title: resp.data.message,
+                title: response.data.message,
                 text: 'El producto se eliminó!',
         }).then(() => {
             dispatch(GetWishList(User.user.id))
         })
-        }).catch((resp) => {
+        }).catch((response) => {
             Swal.fire({
                 icon: 'error',
-                title: resp.data.message,
+                title: response.message,
                 text: 'El producto no se eliminó!',
        })})
     }
@@ -48,7 +48,7 @@ export default function WishListCard ({id, name, img, calification, price, genre
                         </Link>
                     </div>
                     <div class='items-center  justify-center text-center text-xl font-semibold text-white '>
-                        <button onClick={() => DeleteFromWL(e.id)} class='rounded w-36 h-10 bg-gray-600'>Delete</button>
+                        <button onClick={() => DeleteFromWL(id)} class='rounded w-36 h-10 bg-gray-600'>Delete</button>
                     </div>
                     </div>
                 

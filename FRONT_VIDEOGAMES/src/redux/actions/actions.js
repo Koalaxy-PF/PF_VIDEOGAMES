@@ -51,14 +51,14 @@ export const Login_OK = (data) => {
 };
 
 //action que trae todos los juegos
-export function GetGames() {
-  return async function (dispatch) {
-    let Json = await axios.get(`http://localhost:3000/products`);
-    dispatch({
-      type: GET_GAMES,
-      payload: Json.data,
-    });
-  };
+// export function GetGames() {
+//   return async function (dispatch) {
+//     let Json = await axios.get(`http://localhost:3000/products`);
+//     dispatch({
+//       type: GET_GAMES,
+//       payload: Json.data,
+//     });
+//   };}
 // ACCIÓN QUE TRAE TODOS LOS JUEGOS
 
 export function GetGames(){
@@ -96,19 +96,19 @@ export function GetGameById(id) {
 }
 
 
-export function GetGameById(id){
+// export function GetGameById(id){
 
-    console.log("llegué")
-    console.log(id);
+//     console.log("llegué")
+//     console.log(id);
     
-    return async function(dispatch){
-      var json = await axios.get(`http://localhost:3000/products/${id}`)
-      return dispatch ({
-        type : GET_BY_ID,
-        payload: json.data
-      })
-    }
-}
+//     return async function(dispatch){
+//       var json = await axios.get(`http://localhost:3000/products/${id}`)
+//       return dispatch ({
+//         type : GET_BY_ID,
+//         payload: json.data
+//       })
+//     }
+// }
 
 //action que trae todos los generos
 export function GetGenres() {
@@ -238,15 +238,15 @@ export function setAllCart(info) {
   };
 }
 
-export function setAllCart(info){
+// export function setAllCart(info){
 
-    return async function(dispatch){
-        dispatch({
-            type: GET_ALL_CART_LOCAL_STORAGE,
-            payload: info,
-        })
-    }
-}
+//     return async function(dispatch){
+//         dispatch({
+//             type: GET_ALL_CART_LOCAL_STORAGE,
+//             payload: info,
+//         })
+//     }
+// }
 
 export function postInCart(payload) {
   return async function (dispatch) {

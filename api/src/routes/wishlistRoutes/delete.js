@@ -14,9 +14,8 @@ router.delete('/', async(req,res) => {
         if(!productWish){
             res.send("Can't delete a product you didn't add")
         }
-        await productWish.destroy();
+        await Productwish.destroy();
         res.send('Product has been removed');
-
     } catch (err) {
         console.log(err)
     }
