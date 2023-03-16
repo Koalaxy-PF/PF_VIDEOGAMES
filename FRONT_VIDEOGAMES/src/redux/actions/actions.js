@@ -29,8 +29,9 @@ export const SET_MESSAGE = "SET_MESSAGE";
 //constantes para el shoppingCart
 
 export const GET_ALL_CART = "GET_ALL_CART";
+export const GET_ALL_CART_LOCAL_STORAGE = "GET_ALL_CART_LOCAL_STORAGE";
 
-// - - - ACCIONES PARA LA AUTENTICACIÓN - - -
+// ACCIONES PARA LA AUTENTICACIÓN
 
 export const Register = (data) => (dispatch) => {
   return AuthService.Register(data);
@@ -58,6 +59,17 @@ export function GetGames() {
       payload: Json.data,
     });
   };
+// ACCIÓN QUE TRAE TODOS LOS JUEGOS
+
+export function GetGames(){
+
+    return async function(dispatch){
+        let Json = await axios.get(`http://localhost:3000/products`)
+        dispatch({
+            type: GET_GAMES,
+            payload: Json.data
+        })
+    }
 }
 
 //action que busca un juego en específico (searchbar)
@@ -81,6 +93,21 @@ export function GetGameById(id) {
       payload: json.data,
     });
   };
+}
+
+
+export function GetGameById(id){
+
+    console.log("llegué")
+    console.log(id);
+    
+    return async function(dispatch){
+      var json = await axios.get(`http://localhost:3000/products/${id}`)
+      return dispatch ({
+        type : GET_BY_ID,
+        payload: json.data
+      })
+    }
 }
 
 //action que trae todos los generos
@@ -166,7 +193,7 @@ export function CleanGames() {
   };
 }
 
-// Actions WishList
+// ACCIONES - LISTA DE FAVORITOS ✔
 
 export function GetWishList(id) {
   return async function (dispatch) {
@@ -178,15 +205,19 @@ export function GetWishList(id) {
   };
 }
 
-//action que odena por precio de forma ascendente y descendiente
-export function TidyPrice(payload) {
-  return {
-    type: TIDY_PRICE,
-    payload,
+export function PostWishList(payload) {
+  return async function () {
+    return axios.post(`http://localhost:3000/wishlist/`, payload);
   };
 }
 
-///Routes ShoppingCart
+export function DeleteWishListProduct(productWish) {
+  return async function (dispatch) {
+    return axios.delete(`http://localhost:3000/wishlist/`, productWish);
+  };
+}
+
+// ACCIONES DEL CARRITO DE COMPRAS
 
 export function getInCart(id) {
   return async function (dispatch) {
@@ -196,6 +227,25 @@ export function getInCart(id) {
       payload: json.data,
     });
   };
+}
+
+export function setAllCart(info) {
+  return async function (dispatch) {
+    dispatch({
+      type: GET_ALL_CART_LOCAL_STORAGE,
+      payload: info,
+    });
+  };
+}
+
+export function setAllCart(info){
+
+    return async function(dispatch){
+        dispatch({
+            type: GET_ALL_CART_LOCAL_STORAGE,
+            payload: info,
+        })
+    }
 }
 
 export function postInCart(payload) {
@@ -211,3 +261,45 @@ export function DeleteProductCart(idProduct, idUser) {
     );
   };
 }
+
+// ACTIONS - LOCAL STORAGE
+
+export function postInCartLocalStorage(obj){
+
+    if(window.localStorage.getItem('carrito-ls')){
+
+        const objeto = JSON.parse(window.localStorage.getItem('carrito-ls'));
+        const p = [];
+
+        // MODIFICAMOS EL TOTAL DE PRODUCTOS EN EL CARRITO Y SU VALOR TOTAL
+
+        objeto.total = objeto.total + 1;    // TOTAL DE ELEMENTOS
+        objeto.price = objeto.price + obj.price;    // VALOR TOTAL DE TODOS LOS PRODUCTOS
+
+        for(let i=0; i<objeto.products.length; i++){
+            p.push(objeto.products[i]);
+        }
+
+        p.push(obj);
+        objeto.products = p;
+        window.localStorage.setItem('carrito-ls', JSON.stringify(objeto));
+
+        return 'El producto se agregó con éxito a su carrito';
+    }
+    
+    else{
+
+        const objeto = {
+            total: 1,
+            price: obj.price,
+            products: [obj],
+        }
+
+        window.localStorage.setItem('carrito-ls', JSON.stringify(objeto));
+
+        return 'El producto se agregó con éxito a su carrito';
+
+    }
+}
+
+

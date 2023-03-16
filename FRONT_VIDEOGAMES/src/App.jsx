@@ -16,15 +16,15 @@ import WishList from "./views/WishList/WishList"
 import ShoppingCart from "./views/ShoppingCart/ShoppingCart"
 import Dashboard from "./views/Dashboard/Dashboard"
 import Library from "./views/Library/Library"
+import Support from "./views/Support/Support"
 
 export default function App(){
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-
-    if(window.localStorage.getItem('token-info')){
-      dispatch(Login_OK(JSON.parse(window.localStorage.getItem('token-info'))))
+    if(window.localStorage.getItem('info-token')){
+      dispatch(Login_OK(JSON.parse(window.localStorage.getItem('info-token'))))
     }
   }, [])
   
@@ -39,13 +39,13 @@ export default function App(){
         <Route exact path="/AboutUs" element={<AboutUs />} />
         <Route exact path="/QA" element={<QA />} />
         <Route exact path="/products/:id" element={<Details/>} />
-        <Route exact path="/products/:id" element={<Details/>} /> 
         <Route exact path="/CreateUser" element={<CreateUser/>} /> 
         <Route exact path="/Login" element={<Login/>} />
         <Route exact path="/WishList" element={<WishList />} />
         <Route exact path="/ShoppingCart" element={<ShoppingCart />} />
         <Route exact path="/Dashboard" element={<Dashboard />} />
         <Route exact path="/Library" element={<Library />} />
+        <Route exact path="/Support" element={<Support/>} />
       </Routes>
     </div>
   );

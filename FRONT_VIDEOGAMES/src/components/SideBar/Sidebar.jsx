@@ -53,7 +53,7 @@ export default function Sidebar(){
 
     {/* BIBLIOTECA */}
 
-    {/* <div className={`flex mt-4 items-center cursor-pointer rounded-full ${open && "bg-gray-600 pl-4 py-2 gap-x-2"}`}>
+   <div className={`flex mt-4 items-center cursor-pointer rounded-full ${open && "bg-gray-600 pl-4 py-2 gap-x-2"}`}>
       <Link to="/Store">
         <div className='flex flex-row'>
           <img src={icons.img1} className="w-8 items-center" />              
@@ -62,7 +62,7 @@ export default function Sidebar(){
           </span>
         </div>
       </Link>
-    </div> */}
+    </div> 
 
     {/* FAVORITOS
 
@@ -77,8 +77,8 @@ export default function Sidebar(){
     </div>  */}
 
     {/* SOPORTE */}
-
-    {/* <div className={`flex mt-4 items-center cursor-pointer rounded-full ${open && "bg-gray-600 pl-4 py-2 gap-x-2"}`}>
+    <Link to="/Support">
+     <div className={`flex mt-4 items-center cursor-pointer rounded-full ${open && "bg-gray-600 pl-4 py-2 gap-x-2"}`}>
       <span>
         <img src={icons.img5} className='block w-8 items-center text-white text-4xl cursor-pointer' />               
       </span>
@@ -86,8 +86,8 @@ export default function Sidebar(){
       <span className={`text-base font-medium  flex-1 duration-200 text-slate-100 ${!open && "hidden"}`}>
         <h1>Soporte</h1>
       </span>
-    </div> */}
-
+    </div> 
+    </Link>
   </div>
   )
 }
