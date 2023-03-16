@@ -147,7 +147,7 @@ export default function CreateUser(){
 
 
             <div className="hidden lg:block relative h-full flex-1">
-              <img class='w-[750px] ' src={img} alt="" /> 
+              <img class='mt-14 w-[300px] h-[200px] mx-10' src={img} alt="" /> 
             </div>
 
             <div className="justify-center flex-1 flex flex-col py-10 px-0 sm:px-8 lg:px-20 sm:py-9 md:py-9  xl:px-24" >
@@ -308,7 +308,7 @@ export default function CreateUser(){
                   </form>
                 </div>
             
-              
+             
             </div>
         </div>
       </div>
