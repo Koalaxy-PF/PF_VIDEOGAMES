@@ -16,7 +16,8 @@ import {
     LOGIN_FAIL,
     POST_WISH_LIST,
     GET_WISH_LIST,
-    GET_ALL_CART
+    GET_ALL_CART,
+    GET_ALL_CART_LOCAL_STORAGE
 } from "../actions/actions"
 
 const initialState = {
@@ -59,6 +60,13 @@ function rootReducer(state = initialState, action){
             ...state,
             AllCart: action.payload
           }
+
+          case GET_ALL_CART_LOCAL_STORAGE:
+            return{
+              ...state,
+              AllCart: action.payload
+            }
+
 
 
 
@@ -239,14 +247,13 @@ function rootReducer(state = initialState, action){
     case POST_WISH_LIST:
       return {
       ...state,
-      WishList: action.payload,
     };
 
     case GET_WISH_LIST:
       return{
           ...state,
           WishList: action.payload,
-  }
+    };
 
     default: {
       return state;

@@ -9,36 +9,32 @@ import { GetWishList, PostWishList, GetGames} from "../../redux/actions/actions"
 import Pagination from "../Pagination/Pagination";
 import WishListCard from "../WishListCard/WishListCard";
 
+export default function Cards(){
 
-export default function Cards() {
-const WishListGames = useSelector((state) => state.WishList);
-const [gamesPerPage, setGamesPerPage] = useState(8);
-const dispatch = useDispatch();
-const[currentPage,setCurrentPage] =useState(1) 
-const indexLastGame = currentPage * gamesPerPage;
-const indexFirstGame = indexLastGame - gamesPerPage;
-const currentGames = WishListGames.slice(indexFirstGame, indexLastGame)
+  const WishListGames = useSelector((state) => state.WishList);
+  const User = useSelector((state) => state.user)
+  const [gamesPerPage, setGamesPerPage] = useState(8);
+  const dispatch = useDispatch();
+  const[currentPage,setCurrentPage] =useState(1) 
 
-function addWishList(e){
-  PostWishList(id)
-}
-
-const pagination = pagesNumber =>{
-  setCurrentPage(pagesNumber)
-  window.scrollTo(0,0)
-}
-
-useEffect(() => {
-  dispatch(GetGames());
-}, [dispatch]);  
+  useEffect(() => {
+    dispatch(GetWishList(User.user.id))
+  },[]) 
 
 
+  const indexLastGame = currentPage * gamesPerPage;
+  const indexFirstGame = indexLastGame - gamesPerPage;
+  //const currentGames = WishListGames.productwishes.slice(indexFirstGame, indexLastGame)
 
-console.log(currentGames);
+  const pagination = pagesNumber =>{
+    setCurrentPage(pagesNumber)
+    window.scrollTo(0,0)
+  }  
 
   return (        
     <div>  
-      {currentGames?.map((product) => {
+      {
+        WishListGames.productwishes?.map((product) => {
         return (
           <Fragment key={product.id}>
         
@@ -49,7 +45,6 @@ console.log(currentGames);
                 name={product.name}
                 calification={product.calification}
                 price={product.price}
-                /* stock={product.stock} */
                 genre={product.genre} 
               />
               </div>
@@ -58,12 +53,12 @@ console.log(currentGames);
         );
       })} 
        <div className="flex flex-nowrap justify-center w-full flex-row my-3">
-        <Pagination 
+        {/* <Pagination 
           allGames={WishListGames.length}
           gamesPerPage={gamesPerPage}
           pagination={pagination}
           currentPage={currentPage}
-        />
+        /> */}
        </div>
     </div>
   );

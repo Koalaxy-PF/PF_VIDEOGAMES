@@ -5,11 +5,12 @@ import heart from "../../assets/card/heartBlue.png";
 import carrito from "../../assets/card/carrito.png";
 import starWhite from "../../assets/card/starWhite.png";*/
 import starBlue from "../../assets/card/starBlue.png"; 
+import AddToWishList from "../AddToWishList/AddToWishList";
 import style from "./card.module.css";
 
 
 
- export default function Card({index, productID, name, img, calification, price, genre}) {
+ export default function Card({index, id, name, img, calification, price, genre}) {
   return (
     <div class="flex h-[350px] mx-[20px]">
       <div className={style.card}>
@@ -22,6 +23,11 @@ import style from "./card.module.css";
        <div class='flex flex-wrap ml-[10px] mt-[5px]'>
        <p class='w-full text-left'><strong>{calification}/5 <span class='text-[#00E1D8] relative top-[1px] left-[2px]'><ion-icon name="star"></ion-icon></span> </strong></p>
            {/*  <p class='w-full text-left'>Stock: <strong>{stock}</strong></p> */}
+        <div>
+          <AddToWishList 
+          productId={id}
+          />
+        </div>
              <p class='w-full text-left'>{genre}</p>  
 
 

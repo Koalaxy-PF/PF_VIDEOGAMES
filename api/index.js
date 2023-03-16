@@ -1,7 +1,8 @@
 const app = require("./src/app.js");
 const { conn, Product, Company, Genre } = require("./src/db.js");
 const {
-  /* gameInfoFinal */ apicompany, apigenres,
+  /* gameInfoFinal */ apicompany,
+  apigenres,
 } = require("./src/controllers/apidatos");
 const { jsonGames } = require("./src/JSON/JsonOfVideogame");
 
@@ -18,25 +19,24 @@ conn.sync({ force: false }).then(() => {
       console.log("creados");
     }
 
-    if (!dbcompany.length){
-
+    if (!dbcompany.length) {
       const compañias = await apicompany();
-      
-      const compañiasParaInsertar = compañias.map(compañia => {
+
+      const compañiasParaInsertar = compañias.map((compañia) => {
         return { name: compañia };
       });
-  
+
       // Insertar los registros en la tabla Genre
       await Company.bulkCreate(compañiasParaInsertar);
     }
 
-    if (!dbGenres.length){
+    if (!dbGenres.length) {
       const genre = await apigenres();
-      
-      const generosParaInsertar = genre.map(genero => {
+
+      const generosParaInsertar = genre.map((genero) => {
         return { name: genero };
       });
-  
+
       // Insertar los registros en la tabla Genre
       await Genre.bulkCreate(generosParaInsertar);
     }
