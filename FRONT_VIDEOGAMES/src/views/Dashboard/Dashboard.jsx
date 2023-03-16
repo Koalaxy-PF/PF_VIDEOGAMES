@@ -1,5 +1,5 @@
 import React from "react";
-import SideBarDashBoard from "./sideBarDashboard";
+import SideBarDashBoard from "./sideBarDashBoard";
 
 export default function Dashboard() {
 
