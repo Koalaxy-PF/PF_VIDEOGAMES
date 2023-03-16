@@ -8,7 +8,7 @@ export default function SideBarDashBoard(){
     // const User = useSelector((state) => state.user);
 
     return(
-        <div className="bg-gray-900 h-full  fixed  lg:static w-[80%] top-0 left-0">
+        <div className="bg-gray-900 h-full  fixed  lg:static w-[100%] top-0 left-0">
 
             <div className="justify-center item-center  flex flex-col p-8 gap-2 h-[30vh] ">
                 <img src="https://img.freepik.com/foto-gratis/joven-feliz-pie-aislado_171337-1127.jpg?w=2000" className="w-[110px] text-center  h-[110px] objet-cover  rounded-full ring-2 ring-gray-300"/>
