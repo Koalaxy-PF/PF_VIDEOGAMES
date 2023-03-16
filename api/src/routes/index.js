@@ -22,19 +22,22 @@ const getCart = require("./cartsRoutes/get");
 const addProduct = require("./cartsRoutes/post");
 const deleteCart = require("./cartsRoutes/delete");
 
-
-const postWishList = require('./wishlistRoutes/post');
-const deleteWishProduct = require('./wishlistRoutes/delete');
-const getWishlist = require('./wishlistRoutes/get');
+const postWishList = require("./wishlistRoutes/post");
+const deleteWishProduct = require("./wishlistRoutes/delete");
+const getWishlist = require("./wishlistRoutes/get");
 
 const order = require("./paypal/order");
 const payOrder = require("./paypal/payOrder");
 const cancelPayment = require("./paypal/cancelPayment");
 
-
 const payment = require("./mercadopago/payment");
+const payOrderM = require("./mercadopago/payOrder");
 
-const libraryget = require("./libraryRoutes/get")
+const libraryget = require("./libraryRoutes/get");
+
+
+const postContactus = require("./contactus/post.js")
+const getContactus = require('./contactus/get.js')
 
 /* *************************  routes GENRES   **************************************** */
 router.use("/genres", getGenres);
@@ -63,24 +66,26 @@ router.use("/order", order);
 router.use("/pay-order", payOrder);
 router.use("/cancel-payment", cancelPayment);
 
-
 /* *************************  routes MERCADOPAGO   **************************************** */
 router.use("/payment", payment);
-
+router.use("/pay-order-mercadopago", payOrderM);
 
 /* *************************  routes WISHLIST   **************************************** */
-router.use("/wishlist",postWishList);
-router.use("/wishlist/delete",deleteWishProduct);
-router.use("/wishlist",getWishlist);
-
+router.use("/wishlist", postWishList);
+router.use("/wishlist/delete", deleteWishProduct);
+router.use("/wishlist", getWishlist);
 
 /* *************************  routes CARRITO   **************************************** */
 router.use("/cart", getCart);
 router.use("/cart/addProduct", addProduct);
 router.use("/cart/delete", deleteCart);
 
-
 /* *************************  routes LIBRARY   **************************************** */
 router.use("/library", libraryget);
+
+/* *************************  routes CONTACTUS   **************************************** */
+router.use("/contactus", getContactus);
+router.use("/contactus", postContactus)
+
 
 module.exports = router;
