@@ -302,4 +302,20 @@ export function postInCartLocalStorage(obj){
     }
 }
 
+// ACTIONS - MÉTODOS DE PAGO
+
+export function PostPaypal(id){
+    return async function(){
+        return  axios.post(`http://localhost:3000/order/${id}`);
+    }
+}
+
+export function PostMercadoPago(){
+    return async function(){
+        
+    }
+}
+
+
+
 

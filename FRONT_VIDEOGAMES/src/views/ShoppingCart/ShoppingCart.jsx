@@ -1,19 +1,20 @@
 import React  from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {getInCart, DeleteProductCart, setAllCart, DeleteProductCartLocalStorage } from "../../redux/actions/actions"
+import {getInCart, DeleteProductCart, setAllCart, DeleteProductCartLocalStorage, PostPaypal } from "../../redux/actions/actions"
 import {useEffect, useState} from "react"
 import NavBar from "../../components/Navbar/Navbar";
 import Sidebar from "../../components/SideBar/Sidebar";
 import Footer from "../../components/Footer/Footer";
 import Swal from "sweetalert2";
 import Trash from "../../assets/icons/trashCan.png"
-import Error from "../../assets/Error/Error2.png.png"
+import Error from "../../assets/Error/EmptyCart.png.png"
 
 export default function ShoppingCart(){
 
     const allCart = useSelector((state) => state.AllCart);
     const User = useSelector((state) => state.user);
     const dispatch = useDispatch();
+    const [cambiar, setCambiar] = useState("3");
     
     useEffect(() => {
 
@@ -27,7 +28,24 @@ export default function ShoppingCart(){
              dispatch(setAllCart()) // Aquí se carga el carrito en AllCart
         }
         
-    }, []); 
+    }, [dispatch]); 
+
+    const handleClick = (e, id) => {
+
+        e.preventDefault();
+
+        dispatch(PostPaypal(id))
+          .then((response) => {
+            window.open(response.data.links[1].href, '_blank');
+        }).then(() => {
+            console.log("llegué")
+            setCambiar("pepe");
+            dispatch(getInCart(User.user.id));
+          })
+          .catch((error) => {
+            // manejar errores
+          });
+      }
 
         const DeleteProduct = (id) => {
 
@@ -70,7 +88,7 @@ export default function ShoppingCart(){
                     </div>
 
                     {
-                        allCart.total === 0 ?
+                        allCart.total === 0 || allCart === "" ?
                             <div>
                                 <img className="w-1/3 mx-auto" src={Error} alt="" />
                             </div>
@@ -141,11 +159,12 @@ export default function ShoppingCart(){
 
                             <select className="px-3 mt-8 bg-green-400 text-white py-3 rounded-xl border-2 border-white text-xl text-center hover:bg-transparent hover:text-black">
                                 <option selected hidden > Payment method </option>
-                                <option> PayPal </option>
-                                <option> Mercado Pago</option>
+                                <option>PayPal</option>
+                                <option>Mercado Pago</option>
                             </select>
 
-                            <button className="px-3 mt-4 bg-green-600 text-white py-3 rounded-xl border-2 border-white text-xl text-center hover:bg-transparent hover:text-black"> Buy </button>
+                            <button className="px-3 mt-4 bg-green-600 text-white py-3 rounded-xl border-2 border-white text-xl text-center hover:bg-transparent hover:text-black"
+                                onClick={(e) => handleClick(e, User.user.id)}>Buy</button>
                          </div>
 
                             {/* Marina */}

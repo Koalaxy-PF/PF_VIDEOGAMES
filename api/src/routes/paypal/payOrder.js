@@ -55,7 +55,7 @@ router.get("/:id", async (req, res) => {
 
     await updateTotalValue(cart)
 
-    return res.send(cart); // Datos del cliente, para manipular desde el front
+    return res.status(200).send(cart); // Datos del cliente, para manipular desde el front
   } catch (error) {
     console.log(error);
     return res.status(505).send("error");

@@ -12,7 +12,7 @@ export default function QA() {
             <Navbar />
         </div>
 
-        <div className='flex w-full h-[calc(100vh-5.2rem)] bg-gray-100'>
+        <div className='flex w-full h-[calc(100vh-5.1rem)] bg-gray-100'>
 
             <Sidebar />
 
