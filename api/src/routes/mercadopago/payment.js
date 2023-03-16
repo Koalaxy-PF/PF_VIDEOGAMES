@@ -1,28 +1,31 @@
 const { Router } = require("express");
+const axios = require("axios");
 const mercadopago = require("mercadopago");
 
 const router = Router();
 mercadopago.configure({
   access_token:
-    "TEST-7548539109315518-031010-dde8cb0d83f1da3868386f0ae69c57ed-229385058",
+    "APP_USR-4890727195212624-031512-85bd55b40130b2d65eac83d1be722cd8-1327733016",
 });
 
-router.post("/", (req, res) => {
+router.post("/:id", async (req, res) => {
+  const { id } = req.params;
+  const response = await axios.get(`http://localhost:3000/cart/${id}`);
+  const price = response.data.total;
   let order = {
     // Cambiar por datos del body
     items: [
       {
-        id: 123,
-        title: "prueba",
+        id: id,
+        title: "Digital Product",
         currency_id: "USD",
-        description: "prueba producto",
         quantity: 1,
-        unit_price: 50,
+        unit_price: price,
       },
     ],
     back_urls: {
-      success: "http://localhost:3000",
-      failure: "",
+      success: "http://localhost:3000/pay-order-mercadopago/" + id,
+      failure: "http://localhost:5173/home",
       pending: "",
     },
     auto_return: "approved",
