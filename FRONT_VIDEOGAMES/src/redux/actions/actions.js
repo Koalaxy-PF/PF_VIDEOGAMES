@@ -273,12 +273,8 @@ export function postInCartLocalStorage(obj){
     if(window.localStorage.getItem('carrito-ls')){
 
         const objeto = JSON.parse(window.localStorage.getItem('carrito-ls'));
-        const p = [];
 
         // MODIFICAMOS EL TOTAL DE PRODUCTOS EN EL CARRITO Y SU VALOR TOTAL
-
-        objeto.total = objeto.total + 1;    // TOTAL DE ELEMENTOS
-        objeto.price = objeto.price + obj.price;    // VALOR TOTAL DE TODOS LOS PRODUCTOS
 
         for(let i=0; i<objeto.products.length; i++){
             p.push(objeto.products[i]);

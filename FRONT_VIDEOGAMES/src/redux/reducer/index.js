@@ -99,8 +99,6 @@ function rootReducer(state = initialState, action){
                 ...state,
               }
 
-
-
         case LOGIN_FAIL:
             return{
                 ...state,
