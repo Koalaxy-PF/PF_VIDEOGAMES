@@ -16,6 +16,8 @@ import WishList from "./views/WishList/WishList"
 import ShoppingCart from "./views/ShoppingCart/ShoppingCart"
 import Dashboard from "./views/Dashboard/Dashboard"
 import Library from "./views/Library/Library"
+import Support from "./views/Support/Support"
+
 
 export default function App(){
 
@@ -44,6 +46,8 @@ export default function App(){
         <Route exact path="/ShoppingCart" element={<ShoppingCart />} />
         <Route exact path="/Dashboard" element={<Dashboard />} />
         <Route exact path="/Library" element={<Library />} />
+        <Route exact path="/Support" element={<Support/>} />
+
       </Routes>
     </div>
   );
