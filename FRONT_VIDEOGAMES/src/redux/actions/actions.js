@@ -59,18 +59,19 @@ export function GetGames() {
       payload: Json.data,
     });
   };
+}
 // ACCIÓN QUE TRAE TODOS LOS JUEGOS
 
-export function GetGames(){
+// export function GetGames(){
 
-    return async function(dispatch){
-        let Json = await axios.get(`http://localhost:3000/products`)
-        dispatch({
-            type: GET_GAMES,
-            payload: Json.data
-        })
-    }
-}
+//     return async function(dispatch){
+//         let Json = await axios.get(`http://localhost:3000/products`)
+//         dispatch({
+//             type: GET_GAMES,
+//             payload: Json.data
+//         })
+//     }
+// }
 
 //action que busca un juego en específico (searchbar)
 
@@ -84,16 +85,16 @@ export function GetGame(name) {
   };
 }
 
-//action que trae juegos por id (sirve para el detail)
-export function GetGameById(id) {
-  return async function (dispatch) {
-    var json = await axios.get(`http://localhost:3000/products/${id}`);
-    return dispatch({
-      type: GET_BY_ID,
-      payload: json.data,
-    });
-  };
-}
+// action que trae juegos por id (sirve para el detail)
+// export function GetGameById(id) {
+//   return async function (dispatch) {
+//     var json = await axios.get(`http://localhost:3000/products/${id}`);
+//     return dispatch({
+//       type: GET_BY_ID,
+//       payload: json.data,
+//     });
+//   };
+// }
 
 
 export function GetGameById(id){
@@ -238,15 +239,15 @@ export function setAllCart(info) {
   };
 }
 
-export function setAllCart(info){
+// export function setAllCart(info){
 
-    return async function(dispatch){
-        dispatch({
-            type: GET_ALL_CART_LOCAL_STORAGE,
-            payload: info,
-        })
-    }
-}
+//     return async function(dispatch){
+//         dispatch({
+//             type: GET_ALL_CART_LOCAL_STORAGE,
+//             payload: info,
+//         })
+//     }
+// }
 
 export function postInCart(payload) {
   return async function (dispatch) {
