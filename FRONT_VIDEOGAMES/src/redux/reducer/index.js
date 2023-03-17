@@ -1,136 +1,126 @@
 import {
-    GET_GAMES,
-    POST_GAME,
-    GET_BY_ID,
-    GET_GENRES,
-    GET_COMPANIES,
-    FILTER_GENRES,
-    FILTER_PER_COMPANY,
-    ORDER_BY_NAME ,
-    ORDER_BY_RELEASED,
-    TIDY_PRICE ,
-    CLEAN,
-    CLEAN_GAMES,
-    GET_GAME,
-    LOGIN_SUCESS,
-    LOGIN_FAIL,
-    POST_WISH_LIST,
-    GET_WISH_LIST,
-    GET_ALL_CART,
-    GET_ALL_CART_LOCAL_STORAGE,
-    DELETE_PRODUCT_CART_LOCAL_STORAGE
-} from "../actions/actions"
+  GET_GAMES,
+  POST_GAME,
+  GET_BY_ID,
+  GET_GENRES,
+  GET_COMPANIES,
+  FILTER_GENRES,
+  FILTER_PER_COMPANY,
+  ORDER_BY_NAME,
+  ORDER_BY_RELEASED,
+  TIDY_PRICE,
+  CLEAN,
+  CLEAN_GAMES,
+  GET_GAME,
+  LOGIN_SUCESS,
+  LOGIN_FAIL,
+  POST_WISH_LIST,
+  GET_WISH_LIST,
+  GET_ALL_CART,
+  GET_ALL_CART_LOCAL_STORAGE,
+  DELETE_PRODUCT_CART_LOCAL_STORAGE,
+  POST_SUPPORT,
+} from "../actions/actions";
 
 const initialState = {
-    Games:[],
-    AllCart:[],
-    GamesCopy:[],
-    Genres:[],
-    Companies:[],
-    details:[],
-    user:{},
-    WishList:[]
-}
+  Games: [],
+  AllCart: [],
+  GamesCopy: [],
+  Genres: [],
+  Companies: [],
+  details: [],
+  user: {},
+  WishList: [],
+  dataSupport: {},
+};
 
-function rootReducer(state = initialState, action){
-    
-    switch(action.type){
+function rootReducer(state = initialState, action) {
+  switch (action.type) {
+    // - - - AUTENTICACIÓN - - -
 
-        // - - - AUTENTICACIÓN - - -
-
-        case LOGIN_SUCESS:
-
-          if(window.localStorage.getItem('info-token')){
-            return{
-              ...state,
-              user: action.payload,
-            }
-          }
-
-          else{
-            window.localStorage.setItem(('info-token'), JSON.stringify(action.payload));
-             return{
-                  ...state,
-                  user: action.payload
-            }
-          }
-              
-        
-        case GET_ALL_CART:
-
-          return{
-            ...state,
-            AllCart: action.payload
-          }
-
-          case GET_ALL_CART_LOCAL_STORAGE:
-
-            if(!window.localStorage.getItem('carrito-ls')){
-              return{
-                ...state,
-                AllCart: {
-                  total: 0,
-                }
-              }
-            }
-            
-            else {
-
-              const carrito = JSON.parse(window.localStorage.getItem('carrito-ls'));
-
-              return {
-                ...state,
-                AllCart: carrito,
-              }
-            }
-
-            case  DELETE_PRODUCT_CART_LOCAL_STORAGE:
-
-              const carrito = JSON.parse(window.localStorage.getItem('carrito-ls'));
-
-              for(let i=0; i<carrito.productcarts.length; i++){
-                if(action.payload === carrito.productcarts[i].id){
-                  carrito.total = carrito.total - carrito.productcarts[i].price;
-                  carrito.productcarts.splice(i, 1);
-                  i--;
-                }
-              }
-
-              if(carrito.productcarts.length === 0){
-                window.localStorage.removeItem('carrito-ls')
-              }
-
-              else window.localStorage.setItem('carrito-ls', JSON.stringify(carrito));
-
-              return{
-                ...state,
-              }
-
-        case LOGIN_FAIL:
-            return{
-                ...state,
-
-            }
-
-        case GET_GAMES:
-            return{
-                ...state,
-                Games: action.payload,
-                GamesCopy: action.payload,
-        }
-
-        // case GET_GAME:
-        //     return {
-        //         ...state,
-        //         Games: action.payload,
-        // }
-
-        case POST_GAME:
-          return {
+    case LOGIN_SUCESS:
+      if (window.localStorage.getItem("info-token")) {
+        return {
           ...state,
-          Games: action.payload,
-          GamesCopy: action.payload,
+          user: action.payload,
         };
+      } else {
+        window.localStorage.setItem(
+          "info-token",
+          JSON.stringify(action.payload)
+        );
+        return {
+          ...state,
+          user: action.payload,
+        };
+      }
+
+    case GET_ALL_CART:
+      return {
+        ...state,
+        AllCart: action.payload,
+      };
+
+    case GET_ALL_CART_LOCAL_STORAGE:
+      if (!window.localStorage.getItem("carrito-ls")) {
+        return {
+          ...state,
+          AllCart: {
+            total: 0,
+          },
+        };
+      } else {
+        const carrito = JSON.parse(window.localStorage.getItem("carrito-ls"));
+
+        return {
+          ...state,
+          AllCart: carrito,
+        };
+      }
+
+    case DELETE_PRODUCT_CART_LOCAL_STORAGE:
+      const carrito = JSON.parse(window.localStorage.getItem("carrito-ls"));
+
+      for (let i = 0; i < carrito.productcarts.length; i++) {
+        if (action.payload === carrito.productcarts[i].id) {
+          carrito.total = carrito.total - carrito.productcarts[i].price;
+          carrito.productcarts.splice(i, 1);
+          i--;
+        }
+      }
+
+      if (carrito.productcarts.length === 0) {
+        window.localStorage.removeItem("carrito-ls");
+      } else window.localStorage.setItem("carrito-ls", JSON.stringify(carrito));
+
+      return {
+        ...state,
+      };
+
+    case LOGIN_FAIL:
+      return {
+        ...state,
+      };
+
+    case GET_GAMES:
+      return {
+        ...state,
+        Games: action.payload,
+        GamesCopy: action.payload,
+      };
+
+    // case GET_GAME:
+    //     return {
+    //         ...state,
+    //         Games: action.payload,
+    // }
+
+    case POST_GAME:
+      return {
+        ...state,
+        Games: action.payload,
+        GamesCopy: action.payload,
+      };
 
     // case GET_GAME:
     //   console.log(action.payload);
@@ -145,11 +135,11 @@ function rootReducer(state = initialState, action){
         Genres: action.payload,
       };
 
-      case GET_COMPANIES:
-        return {
-          ...state,
-          Companies: action.payload,
-        }
+    case GET_COMPANIES:
+      return {
+        ...state,
+        Companies: action.payload,
+      };
 
     case POST_GAME:
       return {
@@ -159,8 +149,9 @@ function rootReducer(state = initialState, action){
     //reducers de ordenamiento
 
     case ORDER_BY_NAME:
-      console.log("1")
-      let order = action.payload === "asc"
+      console.log("1");
+      let order =
+        action.payload === "asc"
           ? state.Games.sort(function (a, b) {
               if (a.name.toLowerCase() > b.name.toLowerCase()) {
                 return 1;
@@ -185,7 +176,8 @@ function rootReducer(state = initialState, action){
       };
 
     case ORDER_BY_RELEASED:
-      let orderByReleased = action.payload === "asc"
+      let orderByReleased =
+        action.payload === "asc"
           ? state.Games.sort(function (a, b) {
               if (a.released.toLowerCase() > b.released.toLowerCase()) {
                 return 1;
@@ -277,19 +269,25 @@ function rootReducer(state = initialState, action){
         GamesCopy: action.payload,
       };
 
-
     // Reducers WishList
 
     case POST_WISH_LIST:
       return {
-      ...state,
-    };
+        ...state,
+      };
 
     case GET_WISH_LIST:
-      return{
-          ...state,
-          WishList: action.payload,
-    };
+      return {
+        ...state,
+        WishList: action.payload,
+      };
+
+    case POST_SUPPORT:
+      return {
+        ...state,
+        dataSupport: action.payload,
+      };
+     
 
     default: {
       return state;
