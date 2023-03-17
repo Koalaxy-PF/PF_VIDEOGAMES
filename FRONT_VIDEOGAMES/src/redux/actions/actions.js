@@ -211,9 +211,9 @@ export function PostWishList(payload) {
   };
 }
 
-export function DeleteWishListProduct(productWish) {
+export function DeleteWishListProduct(productWishId) {
   return async function (dispatch) {
-    return axios.delete(`http://localhost:3000/wishlist/`, productWish);
+    return axios.delete(`http://localhost:3000/wishlist/`, productWishId);
   };
 }
 
