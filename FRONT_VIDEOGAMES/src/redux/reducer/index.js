@@ -90,6 +90,7 @@ function rootReducer(state = initialState, action){
 
               for(let i=0; i<carrito.productcarts.length; i++){
                 if(action.payload === carrito.productcarts[i].id){
+                  carrito.total = carrito.total - carrito.productcarts[i].price;
                   carrito.productcarts.splice(i, 1);
                   i--;
                 }

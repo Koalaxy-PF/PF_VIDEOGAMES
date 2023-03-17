@@ -45,14 +45,14 @@ export default function Card({img, id, name, price, genre, calification}){
             dispatch(postInCart(obj)).then((response) => {
                 Swal.fire({
                     icon: 'success',
-                    title: 'Felicidades',
-                    text: 'Se añadió a tu carrito',
+                    title: 'Congratulations!',
+                    text: response.data.message,
                   })
             }).catch((response) => {
                 Swal.fire({
-                    icon: 'warning',
-                    title: 'Error',
-                    text: 'El producto ya está en tu carrito',
+                    icon: 'error',
+                    title: 'Something has gone wrong',
+                    text: response.response.data.message,
                   })
             })
         }
@@ -109,8 +109,8 @@ export default function Card({img, id, name, price, genre, calification}){
         
                 return Swal.fire({
                     icon: 'success',
-                    title: 'Felicidades',
-                    text: 'Se añadió a tu carrito',
+                    title: 'Congratulations!',
+                    text: 'The product was added to your cart',
                   })
             }
     }
