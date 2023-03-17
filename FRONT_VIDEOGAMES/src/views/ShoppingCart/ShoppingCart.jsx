@@ -75,7 +75,7 @@ export default function ShoppingCart(){
     return(
         <div >
 
-                <div>
+                <div className="">
                     <NavBar/>
                 </div>
 
