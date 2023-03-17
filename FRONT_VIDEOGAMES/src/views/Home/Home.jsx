@@ -266,18 +266,16 @@ export default function Home(){
         <Navbar/>
       </div>
 
-
           <div className='flex flex-row'>
 
             <div className='bg-gray-900'>
               <Sidebar />
             </div>
          
-
             <div className='bg-gray-200 w-full'>
-              <Slider2 data={Tendencias} tittle={"NOVEDADES Y TENDENCIAS"} />
-              <Slider2 data={vendidos} tittle={"MÁS VENDIDOS"} />
-              <Slider2 data={data} tittle={"MEJORES JUEGOS DE FEBRERO"} />
+              <Slider2 data={Tendencias} tittle={"NEWS AND TRENDS"} />
+              <Slider2 data={vendidos} tittle={"BEST SELLERS"} />
+              <Slider2 data={data} tittle={"BEST GAMES OF FEBRUARY"} />
               
             </div>
         </div>

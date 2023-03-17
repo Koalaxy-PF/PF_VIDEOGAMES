@@ -45,14 +45,14 @@ export default function Card({img, id, name, price, genre, calification}){
             dispatch(postInCart(obj)).then((response) => {
                 Swal.fire({
                     icon: 'success',
-                    title: 'Felicidades',
-                    text: 'Se añadió a tu carrito',
+                    title: 'Congratulations!',
+                    text: response.data.message,
                   })
             }).catch((response) => {
                 Swal.fire({
-                    icon: 'warning',
-                    title: 'Error',
-                    text: 'El producto ya está en tu carrito',
+                    icon: 'error',
+                    title: 'Something has gone wrong',
+                    text: response.response.data.message,
                   })
             })
         }
@@ -79,7 +79,7 @@ export default function Card({img, id, name, price, genre, calification}){
         
                 // MODIFICAMOS EL TOTAL DE PRODUCTOS EN EL CARRITO Y SU VALOR TOTAL
         
-                objeto.total = objeto.total + obj.total   // TOTAL DE ELEMENTOS
+                objeto.total = objeto.total + obj.price   // TOTAL DE ELEMENTOS
         
                 for(let i=0; i<objeto.productcarts.length; i++){
                     p.push(objeto.productcarts[i]);
@@ -109,8 +109,8 @@ export default function Card({img, id, name, price, genre, calification}){
         
                 return Swal.fire({
                     icon: 'success',
-                    title: 'Felicidades',
-                    text: 'Se añadió a tu carrito',
+                    title: 'Congratulations!',
+                    text: 'The product was added to your cart',
                   })
             }
     }

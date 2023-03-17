@@ -42,7 +42,7 @@ export default function CreateUser(){
 
   const { register, formState: { errors }, watch, handleSubmit } = useForm({
     defaultValues: {
-        img: 'https://w7.pngwing.com/pngs/741/68/png-transparent-user-computer-icons-user-miscellaneous-cdr-rectangle-thumbnail.png',
+        img: 'https://i.pinimg.com/736x/0c/4f/72/0c4f72fe65bb7bd9db63ce5021c1371a.jpg',
         is_banned: false,
         description: ""
     }

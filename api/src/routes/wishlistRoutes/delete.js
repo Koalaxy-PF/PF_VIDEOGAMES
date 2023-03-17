@@ -16,7 +16,6 @@ router.delete('/', async(req,res) => {
         }
         await productWish.destroy();
         res.send('Product has been removed');
-
     } catch (err) {
         console.log(err)
     }

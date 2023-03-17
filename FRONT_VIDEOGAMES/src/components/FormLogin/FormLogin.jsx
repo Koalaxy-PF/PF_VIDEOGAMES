@@ -9,8 +9,6 @@ import {Link} from 'react-router-dom'
 import Swal from 'sweetalert2'
 import seePassword from "../../assets/icons/seePassword.png";
 
-
-
 export default function LoginForm(){
 
     const {register, formState:{errors}, handleSubmit}= useForm();
