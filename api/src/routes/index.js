@@ -35,6 +35,10 @@ const payOrderM = require("./mercadopago/payOrder");
 
 const libraryget = require("./libraryRoutes/get");
 
+
+const postContactus = require("./contactus/post.js")
+const getContactus = require('./contactus/get.js')
+
 /* *************************  routes GENRES   **************************************** */
 router.use("/genres", getGenres);
 router.use("/genres", postGenres);
@@ -78,5 +82,10 @@ router.use("/cart/delete", deleteCart);
 
 /* *************************  routes LIBRARY   **************************************** */
 router.use("/library", libraryget);
+
+/* *************************  routes CONTACTUS   **************************************** */
+router.use("/contactus", getContactus);
+router.use("/contactus", postContactus)
+
 
 module.exports = router;
