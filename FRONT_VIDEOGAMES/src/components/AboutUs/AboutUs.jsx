@@ -16,7 +16,7 @@ export default function AboutUs(){
         </div>
 
 
-      <div className='flex w-full h-full bg-gray-100'>
+		<div className='flex w-full h-full bg-gray-100'>
 
             <Sidebar />
 

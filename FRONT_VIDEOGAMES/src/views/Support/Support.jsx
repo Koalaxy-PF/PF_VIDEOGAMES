@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { Register } from "../../redux/actions/actions";
-import img from "../../assets/Support/planet.gif";
+import img from "../../assets/Support/spae-planet.gif";
 import logo from "../../assets/icons/koalaLogo.png";
 import Footer from "../../components/Footer/Footer";
 import Swal from "sweetalert2";
@@ -68,12 +68,12 @@ export default function Support() {
 
         <div className="flex min-height-full justify-center item-center">
           <div className="hidden lg:block relative h-full flex-1">
-            <img class="mx-20 w-[350px] h-[260px] mt-10" src={img} alt="" />
+            <img class=" w-[750px] h-[730px] " src={img} alt="" />
           </div>
 
           <div className="justify-center flex-1 flex flex-col py-10 px-0 sm:px-8 lg:px-20 sm:py-9 md:py-9  xl:px-24">
             <div class="text-center lg:text-left flex justify-center">
-              <img class="h-14 w-[60px]  m-auto lg:m-0" src={logo} alt="" />
+              <img class="h-14 w-[55px]  m-auto lg:m-0" src={logo} alt="" />
               <h2 class="mt-6 text-3xl font-extrabold text-gray-900">
                 Contact Us
               </h2>

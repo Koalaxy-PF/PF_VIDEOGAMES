@@ -87,19 +87,23 @@ const Details = () => {
                                             <a className="line-through text-gray-300">${vgDetail.price} </a>
                                         </div>
                                     : 
-                                    <div>
-                                        <a> {vgDetail.price} </a>
+                                    <div className="bg-gray-500 rounded-md w-48 h-12 ml-5 text-center text-xl flex items-center justify-around ">
+                                        <a className="text-white font-semibold">PRICE: </a>
+                                        <a className="text-yellow-400">${vgDetail.price} </a>
                                     </div>
                                 }
-                                <div className="bg-gray-500 rounded-md w-12 h-12 flex items-center justify-center">
-                                    <img className="w-3/5" src={FavIcon}></img>
-                                </div>
+                                <button onClick={(e) => addWishList(id)}>
+                                    <div className="bg-gray-500 rounded-md w-12 h-12 flex items-center justify-center">
+                                        <img className="w-3/5" src={FavIcon}></img>
+                                    </div>
+                                </button>
+                                
                                 <div className="bg-gray-500 rounded-md w-12 h-12 flex items-center justify-center">
                                     <img className="w-3/5" src={CartIcon}></img>
                                 </div>
                             </div>
                             <div>
-                                <button onClick={(e) => addWishList(id)}>Add to Wish List</button>
+                                
                             </div>
                         </div>
                     {/* <div className=" ">
