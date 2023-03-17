@@ -13,7 +13,7 @@ export default function NavBar(){
     const User = useSelector((state) => state.user)
 
     return(
-        <div className="">
+        <div className="bg-white">
                     <div class="flex item-center justify-between flex-wrap p-4">
 
                     <div class="flex item-center flex-shrink-0 text-black mr-6">
