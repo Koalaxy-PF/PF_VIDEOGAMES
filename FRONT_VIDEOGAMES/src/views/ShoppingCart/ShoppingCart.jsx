@@ -7,7 +7,7 @@ import Sidebar from "../../components/SideBar/Sidebar";
 import Footer from "../../components/Footer/Footer";
 import Swal from "sweetalert2";
 import Trash from "../../assets/icons/trashCan.png"
-import Error from "../../assets/Error/EmptyCart.png.png"
+import Error from '../../assets/Error/Cart/EmptyCart.png'
 
 export default function ShoppingCart(){
 
