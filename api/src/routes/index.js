@@ -43,6 +43,9 @@ const deleteReview = require('./reviewRoutes/delete');
 
 
 
+const postContactus = require("./contactus/post.js")
+const getContactus = require('./contactus/get.js')
+
 /* *************************  routes GENRES   **************************************** */
 router.use("/genres", getGenres);
 router.use("/genres", postGenres);
@@ -95,6 +98,11 @@ router.use("/reviews/delete", deleteReview);
 
 
 
+
+
+/* *************************  routes CONTACTUS   **************************************** */
+router.use("/contactus", getContactus);
+router.use("/contactus", postContactus)
 
 
 module.exports = router;

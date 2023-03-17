@@ -59,6 +59,7 @@ export function GetGames() {
       payload: Json.data,
     });
   };
+}
 // ACCIÓN QUE TRAE TODOS LOS JUEGOS
 
 export function GetGames(){
