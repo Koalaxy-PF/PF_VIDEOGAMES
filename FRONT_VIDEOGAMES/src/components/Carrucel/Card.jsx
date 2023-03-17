@@ -79,7 +79,7 @@ export default function Card({img, id, name, price, genre, calification}){
         
                 // MODIFICAMOS EL TOTAL DE PRODUCTOS EN EL CARRITO Y SU VALOR TOTAL
         
-                objeto.total = objeto.total + obj.total   // TOTAL DE ELEMENTOS
+                objeto.total = objeto.total + obj.price   // TOTAL DE ELEMENTOS
         
                 for(let i=0; i<objeto.productcarts.length; i++){
                     p.push(objeto.productcarts[i]);

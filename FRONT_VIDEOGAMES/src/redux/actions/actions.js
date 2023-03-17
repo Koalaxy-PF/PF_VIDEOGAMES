@@ -36,7 +36,6 @@ export const DELETE_PRODUCT_CART = 'DELETE_PRODUCT_CART'
 export const GET_ALL_CART_LOCAL_STORAGE = 'GET_ALL_CART_LOCAL_STORAGE'
 export const DELETE_PRODUCT_CART_LOCAL_STORAGE = 'DELETE_PRODUCT_CART_LOCAL_STORAGE'
 
-
 // ACCIONES PARA LA AUTENTICACIÓN
 
 export const Register = (data) => (dispatch) => {
@@ -57,25 +56,14 @@ export const Login_OK = (data) => {
 };
 
 //action que trae todos los juegos
-export function GetGames() {
+export function GetGames(){
   return async function (dispatch) {
     let Json = await axios.get(`http://localhost:3000/products`);
     dispatch({
       type: GET_GAMES,
       payload: Json.data,
     });
-  };
-// ACCIÓN QUE TRAE TODOS LOS JUEGOS
-
-export function GetGames(){
-
-    return async function(dispatch){
-        let Json = await axios.get(`http://localhost:3000/products`)
-        dispatch({
-            type: GET_GAMES,
-            payload: Json.data
-        })
-    }
+  }
 }
 
 //action que busca un juego en específico (searchbar)
@@ -101,20 +89,6 @@ export function GetGameById(id) {
   };
 }
 
-
-export function GetGameById(id){
-
-    console.log("llegué")
-    console.log(id);
-    
-    return async function(dispatch){
-      var json = await axios.get(`http://localhost:3000/products/${id}`)
-      return dispatch ({
-        type : GET_BY_ID,
-        payload: json.data
-      })
-    }
-}
 
 //action que trae todos los generos
 export function GetGenres() {
@@ -223,6 +197,14 @@ export function DeleteWishListProduct(productWish) {
   };
 }
 
+// ACTIONS - MÉTODOS DE PAGO
+
+export function PostPaypal(id){
+    return async function(){
+        return  axios.post(`http://localhost:3000/order/${id}`);
+    }
+}
+
 // ACCIONES DEL CARRITO DE COMPRAS
 
 export function getInCart(id) {
@@ -242,18 +224,6 @@ export function setAllCart(info) {
       payload: info,
     });
   };
-}
-
-export function setAllCart(){
-
-    const carrito = JSON.parse(window.localStorage.getItem('carrito-ls'));
-
-    return async function(dispatch){
-        dispatch({
-            type: GET_ALL_CART_LOCAL_STORAGE,
-            payload: carrito
-        })
-    }
 }
 
 export function postInCart(payload) {
@@ -313,21 +283,3 @@ export function postInCartLocalStorage(obj){
 
     }
 }
-
-// ACTIONS - MÉTODOS DE PAGO
-
-export function PostPaypal(id){
-    return async function(){
-        return  axios.post(`http://localhost:3000/order/${id}`);
-    }
-}
-
-export function PostMercadoPago(){
-    return async function(){
-        
-    }
-}
-
-
-
-

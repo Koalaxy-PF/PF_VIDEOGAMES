@@ -65,7 +65,7 @@ function rootReducer(state = initialState, action){
 
           case GET_ALL_CART_LOCAL_STORAGE:
 
-            if(action.payload === null){
+            if(!window.localStorage.getItem('carrito-ls')){
               return{
                 ...state,
                 AllCart: {
@@ -73,9 +73,15 @@ function rootReducer(state = initialState, action){
                 }
               }
             }
-            return{
-              ...state,
-              AllCart: action.payload
+            
+            else {
+
+              const carrito = JSON.parse(window.localStorage.getItem('carrito-ls'));
+
+              return {
+                ...state,
+                AllCart: carrito,
+              }
             }
 
             case  DELETE_PRODUCT_CART_LOCAL_STORAGE:
