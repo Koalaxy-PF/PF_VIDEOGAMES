@@ -5,7 +5,7 @@ const verifyToken = require("../../verifyToken");
 const CryptoJS = require("crypto-js");
 
 
-router.put('/:id',  verifyToken, async(req,res)=>{
+router.put('/:id',  /* verifyToken, */ async(req,res)=>{
     const { id } = req.params;
     let { username, name, last_name, email, password, img, date, description, genre, is_admin, is_banned } = req.body;
 
