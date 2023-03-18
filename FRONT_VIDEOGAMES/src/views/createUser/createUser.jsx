@@ -136,7 +136,7 @@ export default function CreateUser(){
         <NavBar/>
       </div>
 
-      <div className="flex min-height-full  item-center bg-gray-200 ">
+      <div className="flex min-height-full  item-center bg-gray-200 " style={{backgroundImage: `url('https://www.xtrafondos.com/descargar.php?id=4047&resolucion=3840x2400')`, backgroundSize: 'cover'}}>
 
         <div className='flex min-h-[calc(100vh-5rem)]'>
         <Sidebar/>
@@ -257,7 +257,7 @@ export default function CreateUser(){
                           type="text"  {...register('img', {
                             required: true,
                         })} />
-                        {errors.img?.type === 'required' && <p class='text-red-600' >img is required</p>}
+                        {errors.img?.type === 'required' && <p class='text-red-600' >the img is required</p>}
                       </div>
 
                       <div >

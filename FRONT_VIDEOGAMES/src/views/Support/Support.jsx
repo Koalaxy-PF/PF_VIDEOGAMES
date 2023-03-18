@@ -54,12 +54,12 @@ export default function Support() {
   };
 
   return (
-    <div className="h-full">
+    <div className="h-full" >
       <div>
         <NavBar />
       </div>
 
-      <div className="flex min-height-full  item-center bg-gray-200 ">
+      <div className="flex min-height-full  item-center bg-gray-200 " style={{backgroundImage: `url('https://www.xtrafondos.com/descargar.php?id=4047&resolucion=3840x2400')`, backgroundSize: 'cover'}}>
         <div className="flex min-h-[calc(100vh-5rem)]">
           <Sidebar />
         </div>
