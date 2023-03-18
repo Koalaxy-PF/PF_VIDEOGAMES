@@ -168,11 +168,11 @@ export default function CreateUser(){
                         <input  class='mt-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'  placeholder='Username'  
                           type="text" {...register('username' , {
                           required: true,
-                          maxLength: 50,
+                          maxLength: 10,
                           minLength: 3
                           })} />
                             {errors.username?.type === 'required' && <p class='text-red-600'> the user name is required</p>}
-                            {errors.username?.type === 'maxLength' && <p class='text-red-600'>the maximum capacity of characters allowed is 50</p>}
+                            {errors.username?.type === 'maxLength' && <p class='text-red-600'>the maximum capacity of characters allowed is 10</p>}
                             {errors.username?.type === 'minLength' && <p class='text-red-600'>the minimum capacity of characters allowed is 3</p>}
                       </div>
 
