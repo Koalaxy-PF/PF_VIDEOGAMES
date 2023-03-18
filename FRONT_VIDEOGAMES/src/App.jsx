@@ -1,5 +1,4 @@
 import { Route, Routes } from "react-router-dom"
-import {GetGames} from "../src/redux/actions/actions"
 import { useEffect } from "react"
 import { useDispatch} from "react-redux"
 import Details from "./views/Details/Details"
@@ -8,15 +7,16 @@ import CreateGame from "./views/CreateGame/CreateGame"
 import Store from './views/Store/Store'
 import AboutUs from "./components/AboutUs/AboutUs"
 import ReturnLandingPage from "./views/LandingPage/LandingPage"
-import QA from "./components/QA/QA"
 import CreateUser from "./views/createUser/createUser"
 import Login from "./views/Login/Login"
+import QA from "./views/QA/QA"
 import { Login_OK } from "../src/redux/actions/actions"
 import WishList from "./views/WishList/WishList"
 import ShoppingCart from "./views/ShoppingCart/ShoppingCart"
 import Dashboard from "./views/Dashboard/Dashboard"
 import Library from "./views/Library/Library"
 import Support from "./views/Support/Support"
+import Games from "./views/Dashboard/Games/Games"
 
 
 export default function App(){
@@ -47,6 +47,7 @@ export default function App(){
         <Route exact path="/Dashboard" element={<Dashboard />} />
         <Route exact path="/Library" element={<Library />} />
         <Route exact path="/Support" element={<Support/>} />
+        <Route exact path="/Games" element={<Games/>} />
 
       </Routes>
     </div>

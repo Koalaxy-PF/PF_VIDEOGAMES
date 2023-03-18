@@ -13,8 +13,10 @@ export default function WishList() {
         </div>
 
         <div className='flex min-h-[calc(100vh-5rem)]'>
-            <Sidebar /> 
+            <Sidebar />             
             <WishListContainer />
+
+            
         </div>
 
         <div className="block">

@@ -42,7 +42,7 @@ export default function CreateUser(){
 
   const { register, formState: { errors }, watch, handleSubmit } = useForm({
     defaultValues: {
-        img: 'https://w7.pngwing.com/pngs/741/68/png-transparent-user-computer-icons-user-miscellaneous-cdr-rectangle-thumbnail.png',
+        img: 'https://i.pinimg.com/736x/0c/4f/72/0c4f72fe65bb7bd9db63ce5021c1371a.jpg',
         is_banned: false,
         description: ""
     }
@@ -143,11 +143,11 @@ export default function CreateUser(){
         <Sidebar/>
         </div>
 
-        <div className="flex min-height-full justify-center item-center" >
+        <div className="flex min-height-full justify-center " >
 
 
-            <div className="hidden lg:block relative h-full flex-1">
-              <img class='mt-14 w-[300px] h-[200px] mx-10' src={img} alt="" /> 
+            <div className="hidden lg:block relative h-full'">
+              <img class='w-[750px] object-cover' src={img} alt="" /> 
             </div>
 
             <div className="justify-center flex-1 flex flex-col py-10 px-0 sm:px-8 lg:px-20 sm:py-9 md:py-9  xl:px-24" >

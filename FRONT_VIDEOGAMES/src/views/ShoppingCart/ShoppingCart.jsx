@@ -1,12 +1,13 @@
 import React  from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {getInCart, DeleteProductCart, setAllCart } from "../../redux/actions/actions"
-import {useEffect, useState} from "react"
+import {getInCart, DeleteProductCart, setAllCart, DeleteProductCartLocalStorage, PostPaypal } from "../../redux/actions/actions"
+import {useEffect} from "react"
 import NavBar from "../../components/Navbar/Navbar";
 import Sidebar from "../../components/SideBar/Sidebar";
 import Footer from "../../components/Footer/Footer";
 import Swal from "sweetalert2";
 import Trash from "../../assets/icons/trashCan.png"
+import Error from '../../assets/Error/Cart/EmptyCart.png'
 
 export default function ShoppingCart(){
 
@@ -23,31 +24,58 @@ export default function ShoppingCart(){
         }
 
         else{
-             const carrito = JSON.parse(window.localStorage.getItem('carrito-ls'));
-             dispatch(setAllCart(carrito)); // Aquí se carga el carrito en AllCart
+             dispatch(setAllCart()) // Aquí se carga el carrito en AllCart
         }
+        
     }, []); 
 
-      const DeleteProduct = (e) => {
-        dispatch(DeleteProductCart(e, User.user.id)).then((resp) => {
-            Swal.fire({
-                icon: 'Success',
-                title: resp.data.message,
-                text: 'El producto se eliminó!',
+    const handleClick = (e, id) => {
+
+        e.preventDefault();
+
+        dispatch(PostPaypal(id))
+          .then((response) => {
+            window.open(response.data.links[1].href, '_blank');
         }).then(() => {
+            
             dispatch(getInCart(User.user.id));
-        })}).catch((resp) => {
-            Swal.fire({
-                icon: 'error',
-                title: resp.data.message,
-                text: 'El producto no se eliminó!',
-       })})
+          })
+          .catch((error) => {
+            // manejar errores
+          });
+      }
+
+        const DeleteProduct = (id) => {
+
+            if(window.localStorage.getItem('info-token')){
+                dispatch(DeleteProductCart(id, User.user.id)).then((resp) => {
+                    Swal.fire({
+                        icon: 'Success',
+                        title: resp.data.message,
+                        text: 'El producto se eliminó!',
+                }).then(() => {
+                    dispatch(getInCart(User.user.id));
+                })}).catch((resp) => {
+                    Swal.fire({
+                        icon: 'error',
+                        title: resp.data.message,
+                        text: 'El producto no se eliminó!',
+               })})
+            }
+
+            else{
+                dispatch(DeleteProductCartLocalStorage(id)).then(() => {
+                    dispatch(setAllCart());
+                })
+            }
+
+        
        }
 
     return(
         <div >
 
-                <div>
+                <div className="">
                     <NavBar/>
                 </div>
 
@@ -56,8 +84,16 @@ export default function ShoppingCart(){
                     <div className='flex min-h-[calc(100vh-5rem)]'>
                     <Sidebar/>
                     </div>
+
+                    {
+                        allCart.total === 0 || allCart === "" ?
+                            <div>
+                                <img className="w-1/3 mx-auto" src={Error} alt="" />
+                            </div>
                         
-                    <div className="w-full  relative box-border border-2 flex ">
+                        :
+
+                    <div className="w-full relative box-border border-2 flex ">
                         
                         <div  className="relative w-3/4 ">
                 
@@ -121,18 +157,19 @@ export default function ShoppingCart(){
 
                             <select className="px-3 mt-8 bg-green-400 text-white py-3 rounded-xl border-2 border-white text-xl text-center hover:bg-transparent hover:text-black">
                                 <option selected hidden > Payment method </option>
-                                <option> PayPal </option>
-                                <option> Mercado Pago</option>
+                                <option>PayPal</option>
+                                <option>Mercado Pago</option>
                             </select>
 
-                            <button className="px-3 mt-4 bg-green-600 text-white py-3 rounded-xl border-2 border-white text-xl text-center hover:bg-transparent hover:text-black"> Buy </button>
+                            <button className="px-3 mt-4 bg-green-600 text-white py-3 rounded-xl border-2 border-white text-xl text-center hover:bg-transparent hover:text-black"
+                                onClick={(e) => handleClick(e, User.user.id)}>Buy</button>
                          </div>
 
                             {/* Marina */}
                  </div>
 
-           
-                      
+                    }
+                         
 
                 </div>
             
