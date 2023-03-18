@@ -4,7 +4,7 @@ import heart from "../../assets/icons/corazon.png"
 import trolley from "../../assets/icons/carrito-de-compras.png"
 import user from "../../assets/icons/usuario.png"
 import darkMode from "../../assets/icons/darkmode.png"
-import koala from "../../assets/icons/koalaLogo.png"
+import koala from "../../assets/logo/logo.png"
 
 import menu from "../../assets/icons/menu.png"
 
@@ -20,8 +20,8 @@ export default function NavBar(){
 
                     <div class="flex item-center flex-shrink-0 text-black mr-6  ">
 
-                    <Link to= "/"><img  class= " z-10 inset-y-0 my-auto h-12  "src = {koala}/> </Link>
-                    <Link to= "/">  <span class="font-semibold text-5xl tracking-tight "> Koalaxy </span> </Link>
+                    <Link to= "/"><img  class= " z-10 inset-y-0  h-[80px] w-[500px] "src = {koala}/> </Link>
+                   {/*  <Link to= "/">  <span class="font-semibold text-5xl tracking-tight "> Koalaxy </span> </Link> */}
 
                     </div>
 
