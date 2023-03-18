@@ -35,11 +35,9 @@ export default function ShoppingCart(){
 
         // LÓGICA PARA CONDICIONAR SI SE VA POR PAYPAL O MERCADOPAGO.
         
-        
         dispatch(PostPaypal(id)).then((response) => {
             window.open(response.data.links[1].href, '_blank')
-        }).then((response) => {
-          })
+        })
           .catch((error) => {
             // manejar errores
           });
