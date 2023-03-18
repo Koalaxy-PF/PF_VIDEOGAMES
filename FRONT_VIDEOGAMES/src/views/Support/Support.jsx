@@ -1,4 +1,4 @@
-import { useDispatch} from "react-redux";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { postSupport, postSupport_OK } from "../../redux/actions/actions";
@@ -12,42 +12,46 @@ import Sidebar from "../../components/SideBar/Sidebar";
 export default function Support() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const {register, formState:{errors}, handleSubmit, dataSupport}= useForm({
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+    dataSupport,
+  } = useForm({
     defaultValues: {
-      name:"",
+      name: "",
       email: "",
-      description: ""
-  }
-});
+      description: "",
+    },
+  });
 
- 
-
- 
   const onSubmit = (data) => {
-    dispatch(postSupport(data)).then((response) => {
+    dispatch(postSupport(data))
+      .then((response) => {
         dispatch(postSupport_OK(response.data)).then(() => {
-        Swal.fire({
-          title: "¡Thank you for contacting us!",
-          text: response.data.message,
-          icon: "success",
-          confirmButtonColor: "#3085d6",
-          confirmButtonText: "Continue",
-        }).then((result) => {
-          if (result.isConfirmed) {
-            navigate("/Home");
-            console.log(result)
-          }})})
-        }).catch((err) => {
           Swal.fire({
-            tittle: '¡Ops! There is a problem',
-            text: err.response.data.message,
-            icon: "error",
-            confirmButtonText: "Continue"
-          })
-        })
-}
-
-    
+            title: "¡Thank you for contacting us!",
+            text: response.data.message,
+            icon: "success",
+            confirmButtonColor: "#3085d6",
+            confirmButtonText: "Continue",
+          }).then((result) => {
+            if (result.isConfirmed) {
+              navigate("/Home");
+              console.log(result);
+            }
+          });
+        });
+      })
+      .catch((err) => {
+        Swal.fire({
+          tittle: "¡Ops! There is a problem",
+          text: err.response.data.message,
+          icon: "error",
+          confirmButtonText: "Continue",
+        });
+      });
+  };
 
   return (
     <div className="h-full">
@@ -79,12 +83,12 @@ export default function Support() {
                   <div></div>
                 </div>
 
-                {/* <div class='flex justify-center'>
-                      {error.email && <span >{error.email}</span>}
-                      </div> */}
+             
 
                 <div>
-                  <label class="block text-sm font-medium text-gray-600 mt-2 lg:mt-0">Name</label>
+                  <label class="block text-sm font-medium text-gray-600 mt-2 lg:mt-0">
+                    Name
+                  </label>
                   <input
                     type="text"
                     class="mt-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -98,9 +102,7 @@ export default function Support() {
                   )}
                 </div>
 
-                {/* <div class='flex justify-center'>
-                      {error.name && <span >{error.name}</span>}
-                      </div> */}
+              
                 <div>
                   <label class="block text-sm font-medium text-gray-600 mt-2 lg:mt-0">
                     Email
@@ -132,15 +134,7 @@ export default function Support() {
                   )}
                 </div>
 
-                <div>
-                  {/*   <label class='block text-sm font-medium text-gray-600 mt-2 lg:mt-0'> Last name: </label>
-                        <input  class='mt-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' placeholder='Last name'
-                      
-                          type="text"  {...register('last_name', {
-                            required: true,
-                        })} />
-                        {errors.last_name?.type === 'required' && <p class='text-red-600' >the last name is required</p>} */}
-                </div>
+                <div></div>
 
                 <div>
                   <label class="block text-sm font-medium text-gray-600 mt-2 lg:mt-0">
