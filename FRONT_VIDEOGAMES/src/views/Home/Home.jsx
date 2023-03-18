@@ -4,7 +4,6 @@ import Footer from '../../components/Footer/Footer'
 import Sidebar from '../../components/SideBar/Sidebar'
 import Carrucel_main from '../../components/Carrucel/Carrucel_main'
 import Slider2 from '../../components/Carrucel/Slider'
-import Video from '../../assets/juego-37255.mp4'
 
 export default function Home(){
 
