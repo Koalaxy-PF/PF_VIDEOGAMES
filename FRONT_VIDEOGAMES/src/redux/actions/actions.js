@@ -36,7 +36,12 @@ export const DELETE_PRODUCT_CART = 'DELETE_PRODUCT_CART'
 export const GET_ALL_CART_LOCAL_STORAGE = 'GET_ALL_CART_LOCAL_STORAGE'
 export const DELETE_PRODUCT_CART_LOCAL_STORAGE = 'DELETE_PRODUCT_CART_LOCAL_STORAGE'
 
+//Users
+export const GET_USERS = "GET_USERS"
+
 // ACCIONES PARA LA AUTENTICACIÓN
+
+
 
 export const Register = (data) => (dispatch) => {
   return AuthService.Register(data);
@@ -283,3 +288,23 @@ export function postInCartLocalStorage(obj){
 
     }
 }
+
+export function GetUsers(){
+  return async function (dispatch) {
+    let Json = await axios.get(`http://localhost:3000/users`);
+    dispatch({
+      type: GET_USERS,
+      payload: Json.data,
+    });
+  }
+}
+
+// export function GetGames(){
+//   return async function (dispatch) {
+//     let Json = await axios.get(`http://localhost:3000/products`);
+//     dispatch({
+//       type: GET_GAMES,
+//       payload: Json.data,
+//     });
+//   }
+// }

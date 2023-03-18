@@ -18,7 +18,8 @@ import {
     GET_WISH_LIST,
     GET_ALL_CART,
     GET_ALL_CART_LOCAL_STORAGE,
-    DELETE_PRODUCT_CART_LOCAL_STORAGE
+    DELETE_PRODUCT_CART_LOCAL_STORAGE,
+    GET_USERS
 } from "../actions/actions"
 
 const initialState = {
@@ -29,6 +30,7 @@ const initialState = {
     Companies:[],
     details:[],
     user:{},
+    users:[],
     WishList:[]
 }
 
