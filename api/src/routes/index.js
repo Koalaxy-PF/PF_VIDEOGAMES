@@ -6,6 +6,7 @@ const postGenres = require("./genreRoutes/post");
 const deleteGenres = require("./genreRoutes/delete");
 
 const getCompany = require("./companyRoutes/get");
+const postCompany = require("./companyRoutes/post");
 
 const getProducts = require("./productRoutes/get");
 const postProducts = require("./productRoutes/post");
@@ -54,11 +55,12 @@ router.use("/genres", deleteGenres);
 /*************************************  routes Company ******************************************** */
 
 router.use("/company", getCompany);
+router.use("/company", postCompany);
 
 /* *************************  routes PRODUCTS   **************************************** */
 router.use("/products", getProducts);
 router.use("/products", postProducts);
-router.use("/products", putProducts);
+router.use("/products/update", putProducts);
 router.use("/products", deleteProducts);
 
 /* *************************  routes USER   **************************************** */

@@ -4,7 +4,7 @@ const verifyToken = require("../../verifyToken");
 const { getAllReviews, getReviewByUserId, getReviewByProductId } = require('../../controllers/reviewControllers')
 
 
-router.get("/", verifyToken, async (req, res) => {
+router.get("/", /* verifyToken, */ async (req, res) => {
     try {
         const { userId, productId } = req.query;
         if(userId){

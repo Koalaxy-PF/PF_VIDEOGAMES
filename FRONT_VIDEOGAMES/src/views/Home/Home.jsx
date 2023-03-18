@@ -293,7 +293,7 @@ export default function Home(){
               <Sidebar />
             </div>
          
-            <div class="bg-cover bg-no-repeat" style={{backgroundImage: `url('https://images.unsplash.com/photo-1548346941-0f485f3ec808?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c3RhciUyMGJhY2tncm91bmR8ZW58MHx8MHx8&w=1000&q=80')`, backgroundSize: 'cover'}}>
+            <div class="bg-cover bg-no-repeat" style={{backgroundImage: `url('https://www.xtrafondos.com/descargar.php?id=4047&resolucion=3840x2400')`, backgroundSize: 'cover'}}>
   <Slider2 data={Tendencias} tittle={"NEWS AND TRENDS"} />
   <Slider2 data={vendidos} tittle={"BEST SELLERS"} />
   <Slider2 data={data} tittle={"BEST GAMES OF FEBRUARY"} />
