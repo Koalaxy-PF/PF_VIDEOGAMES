@@ -42,7 +42,6 @@ export default function CreateUser(){
 
   const { register, formState: { errors }, watch, handleSubmit } = useForm({
     defaultValues: {
-        img: 'https://i.pinimg.com/736x/0c/4f/72/0c4f72fe65bb7bd9db63ce5021c1371a.jpg',
         is_banned: false,
         description: ""
     }
@@ -255,10 +254,10 @@ export default function CreateUser(){
                         <label class='block text-sm font-medium text-gray-600 mt-2 lg:mt-0'>Image: </label>
                         <input  class='mt-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' placeholder='img'
                       
-                          type="text"
-
-                        />
-                      
+                          type="text"  {...register('img', {
+                            required: true,
+                        })} />
+                        {errors.img?.type === 'required' && <p class='text-red-600' >img is required</p>}
                       </div>
 
                       <div >
