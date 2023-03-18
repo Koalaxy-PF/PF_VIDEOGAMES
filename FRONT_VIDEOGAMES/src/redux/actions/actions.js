@@ -256,15 +256,15 @@ export function DeleteProductCartLocalStorage(idProduct){
 // ACTIONS - LOCAL STORAGE
 
   //action que trae todos los juegos
-  // export function GetUsers(){
-  //   return async function (dispatch) {
-  //     let Json = await axios.get(`http://localhost:3000/users`);
-  //     dispatch({
-  //       type: GET_USERS,
-  //       payload: Json.data,
-  //     });
-  //   }
-  // }
+  export function GetUsers(){
+    return async function (dispatch) {
+      let Json = await axios.get(`http://localhost:3000/users`);
+      dispatch({
+        type: GET_USERS,
+        payload: Json.data,
+      });
+    }
+  }
 
 export function postInCartLocalStorage(obj){
 

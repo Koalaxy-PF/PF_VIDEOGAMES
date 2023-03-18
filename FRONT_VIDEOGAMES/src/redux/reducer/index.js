@@ -1,38 +1,41 @@
+import { Action } from "@remix-run/router";
 import {
-    GET_GAMES,
-    POST_GAME,
-    GET_BY_ID,
-    GET_GENRES,
-    GET_COMPANIES,
-    FILTER_GENRES,
-    FILTER_PER_COMPANY,
-    ORDER_BY_NAME ,
-    ORDER_BY_RELEASED,
-    TIDY_PRICE ,
-    CLEAN,
-    CLEAN_GAMES,
-    GET_GAME,
-    LOGIN_SUCESS,
-    LOGIN_FAIL,
-    POST_WISH_LIST,
-    GET_WISH_LIST,
-    GET_ALL_CART,
-    GET_ALL_CART_LOCAL_STORAGE,
-    DELETE_PRODUCT_CART_LOCAL_STORAGE,
-    GET_USERS
-} from "../actions/actions"
+  GET_GAMES,
+  POST_GAME,
+  GET_BY_ID,
+  GET_GENRES,
+  GET_COMPANIES,
+  FILTER_GENRES,
+  FILTER_PER_COMPANY,
+  ORDER_BY_NAME,
+  ORDER_BY_RELEASED,
+  TIDY_PRICE,
+  CLEAN,
+  CLEAN_GAMES,
+  GET_GAME,
+  LOGIN_SUCESS,
+  LOGIN_FAIL,
+  POST_WISH_LIST,
+  GET_WISH_LIST,
+  GET_ALL_CART,
+  GET_ALL_CART_LOCAL_STORAGE,
+  DELETE_PRODUCT_CART_LOCAL_STORAGE,
+  POST_SUPPORT,
+  GET_USERS
+} from "../actions/actions";
 
 const initialState = {
-    Games:[],
-    AllCart:[],
-    GamesCopy:[],
-    Genres:[],
-    Companies:[],
-    details:[],
-    user:{},
-    users:[],
-    WishList:[]
-}
+  Games: [],
+  AllCart: [],
+  GamesCopy: [],
+  Genres: [],
+  Companies: [],
+  details: [],
+  user: {},
+  users:[],
+  WishList: [],
+  dataSupport: {},
+};
 
 function rootReducer(state = initialState, action) {
   switch (action.type) {
@@ -60,6 +63,12 @@ function rootReducer(state = initialState, action) {
         ...state,
         AllCart: action.payload,
       };
+
+      case GET_USERS:
+        return{
+          ...state,
+          users: action.payload,
+        }
 
     case GET_ALL_CART_LOCAL_STORAGE:
       if (!window.localStorage.getItem("carrito-ls")) {
@@ -108,13 +117,6 @@ function rootReducer(state = initialState, action) {
         Games: action.payload,
         GamesCopy: action.payload,
       };
-
-      // case GET_USERS:
-      //   return {
-      //     ...state,
-      //     users: action.payload,
-         
-      //   };
 
     // case GET_GAME:
     //     return {
