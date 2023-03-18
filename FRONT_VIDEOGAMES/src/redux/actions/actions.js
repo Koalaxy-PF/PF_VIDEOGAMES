@@ -16,6 +16,7 @@ export const CLEAN_GAMES = "CLEAN_GAMES";
 export const GET_GAME = "GET_GAME";
 export const GET_WISH_LIST = "GET_WISH_LIST";
 export const POST_WISH_LIST = "POST_WISH_LIST";
+export const POST_SUPPORT = "POST_SUPPORT";
 
 // RUTAS PARA LA AUTENTICACIÓN
 
@@ -36,7 +37,11 @@ export const DELETE_PRODUCT_CART = 'DELETE_PRODUCT_CART'
 export const GET_ALL_CART_LOCAL_STORAGE = 'GET_ALL_CART_LOCAL_STORAGE'
 export const DELETE_PRODUCT_CART_LOCAL_STORAGE = 'DELETE_PRODUCT_CART_LOCAL_STORAGE'
 
+export const GET_USERS = "GET_USERS"
+
 // ACCIONES PARA LA AUTENTICACIÓN
+
+
 
 export const Register = (data) => (dispatch) => {
   return AuthService.Register(data);
@@ -251,6 +256,17 @@ export function DeleteProductCartLocalStorage(idProduct){
 
 // ACTIONS - LOCAL STORAGE
 
+  //action que trae todos los juegos
+  export function GetUsers(){
+    return async function (dispatch) {
+      let Json = await axios.get(`http://localhost:3000/users`);
+      dispatch({
+        type: GET_USERS,
+        payload: Json.data,
+      });
+    }
+  }
+
 export function postInCartLocalStorage(obj){
 
     if(window.localStorage.getItem('carrito-ls')){
@@ -283,4 +299,20 @@ export function postInCartLocalStorage(obj){
         return 'El producto se agregó con éxito a su carrito';
 
     }
-}
+  }
+
+
+    //ACTION SUPPORT
+
+    export const postSupport = (data) => (dispatch) => {
+      return AuthService.Support(data);
+    };
+    
+    export const postSupport_OK = (data) => {
+      return async function (dispatch) {
+        dispatch({
+          type: POST_SUPPORT,
+          payload: data,
+        });
+      };
+    };

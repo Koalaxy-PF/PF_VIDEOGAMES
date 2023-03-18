@@ -2,6 +2,8 @@ import axios from 'axios'
 
 const API_URL = "http://localhost:3000/auth/"
 
+const API_URL2 = "http://localhost:3000/contactus/create"
+
 class AuthService{
 
     Register(data){
@@ -10,6 +12,10 @@ class AuthService{
 
     Login(data){
       return axios.post(API_URL + "login", data);
+    }
+
+    Support(data){
+      return axios.post(API_URL2, data);
     }
   
     Logout(){
