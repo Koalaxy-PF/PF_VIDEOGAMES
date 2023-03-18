@@ -1,6 +1,7 @@
 import React from "react";
 import users from "../../assets/icons/users.png"
 import games from "../../assets/icons/games.png"
+import { Link } from "react-router-dom";
 
 
 export default function SideBarDashBoard(){
@@ -31,9 +32,9 @@ export default function SideBarDashBoard(){
 
             } */}
 
-            <div className="bg-gray-500 p-8 rounded-tr-[100px] h-[70vh]">
+            <div className="bg-gray-500 p-8 rounded-tr-[100px] h-full">
                 <nav className="flex flex-col gap-4">
-                    <a className="text-white text-xl font-bolt flex item-center justify-center gap-4 py-2 px-4 hover:bg-gray-600 rounded-xl"> Games <img  class= " z-10 inset-y-0 my-auto h-10  hover:bg-gray-600  p-1"src = {games}/></a>
+                    <Link to='/Games'><a className="text-white text-xl font-bolt flex item-center justify-center gap-4 py-2 px-4 hover:bg-gray-600 rounded-xl"> Games <img  class= " z-10 inset-y-0 my-auto h-10  hover:bg-gray-600  p-1"src = {games}/></a></Link>
                     <a className="text-white text-xl font-bolt flex item-center justify-center gap-4 py-2 px-4 hover:bg-gray-600 rounded-xl"> Users <img  class= " z-10 inset-y-0 my-auto h-10  hover:bg-gray-600  p-1"src = {users}/></a>
                 </nav>
             </div>
