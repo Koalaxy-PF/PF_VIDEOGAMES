@@ -79,15 +79,15 @@ export function GetGame(name) {
 }
 
 // action que trae juegos por id (sirve para el detail)
-// export function GetGameById(id) {
-//   return async function (dispatch) {
-//     var json = await axios.get(`http://localhost:3000/products/${id}`);
-//     return dispatch({
-//       type: GET_BY_ID,
-//       payload: json.data,
-//     });
-//   };
-// }
+export function GetGameById(id) {
+  return async function (dispatch) {
+    var json = await axios.get(`http://localhost:3000/products/${id}`);
+    return dispatch({
+      type: GET_BY_ID,
+      payload: json.data,
+    });
+  };
+}
 
 
 //action que trae todos los generos

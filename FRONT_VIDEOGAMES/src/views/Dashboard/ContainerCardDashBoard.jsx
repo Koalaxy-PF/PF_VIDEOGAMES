@@ -32,7 +32,6 @@ useEffect(() => {
         return (
           <Fragment key={product.id}>
         
-            <Link to={"/products/" + product.id}>
               <div>
               <CardDashBoard
                 productId={product.id}
@@ -44,7 +43,7 @@ useEffect(() => {
                 genre={product.genre} 
               />
               </div>
-            </Link>
+
           </Fragment>
         );
       })} 
