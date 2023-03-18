@@ -190,15 +190,17 @@ export function GetWishList(id) {
   };
 }
 
-export function PostWishList(payload) {
+export function PostWishList(productWishId) {
   return async function () {
-    return axios.post(`http://localhost:3000/wishlist/`, payload);
+    return axios.post(`http://localhost:3000/wishlist/`, productWishId);
   };
 }
 
-export function DeleteWishListProduct(productWishId) {
-  return async function (dispatch) {
-    return axios.delete(`http://localhost:3000/wishlist/`, productWishId);
+export function DeleteWishListProduct(payload){
+
+  console.log(payload);
+  return async function () {
+    return await axios.delete(`http://localhost:3000/wishlist/delete/?productWishId=${payload}`);
   };
 }
 
@@ -240,7 +242,6 @@ export function postInCart(payload) {
 export function DeleteProductCart(idProduct){
     return async function(dispatch){
         return axios.delete(`http://localhost:3000/cart/delete/?productCardId=${idProduct}`)
-        
     }
 }
 

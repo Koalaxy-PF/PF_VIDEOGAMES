@@ -33,16 +33,16 @@ export default function ShoppingCart(){
 
         e.preventDefault();
 
-        dispatch(PostPaypal(id))
-          .then((response) => {
-            window.open(response.data.links[1].href, '_blank');
-        }).then(() => {
-            
-            dispatch(getInCart(User.user.id));
-          })
+        // LÓGICA PARA CONDICIONAR SI SE VA POR PAYPAL O MERCADOPAGO.
+        
+        dispatch(PostPaypal(id)).then((response) => {
+            window.open(response.data.links[1].href, '_blank')
+        })
           .catch((error) => {
             // manejar errores
           });
+
+          dispatch(getInCart(User.user.id));
       }
 
         const DeleteProduct = (id) => {
@@ -50,7 +50,7 @@ export default function ShoppingCart(){
             if(window.localStorage.getItem('info-token')){
                 dispatch(DeleteProductCart(id, User.user.id)).then((resp) => {
                     Swal.fire({
-                        icon: 'Success',
+                        icon: 'sucess',
                         title: resp.data.message,
                         text: 'El producto se eliminó!',
                 }).then(() => {
@@ -68,8 +68,6 @@ export default function ShoppingCart(){
                     dispatch(setAllCart());
                 })
             }
-
-        
        }
 
     return(
