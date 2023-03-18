@@ -14,7 +14,7 @@ export default function QA() {
 
         <div className='flex w-full h-[calc(100vh-5.1rem)] bg-gray-100'>
 
-            <Sidebar />
+          
 
             <section className="bg-gray-100 text-gray-500 w-full h-full">
 	            <div className="container flex flex-col justify-center p-4 mx-auto md:p-8">

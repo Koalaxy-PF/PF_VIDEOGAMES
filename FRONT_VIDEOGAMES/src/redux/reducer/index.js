@@ -29,7 +29,8 @@ const initialState = {
     Companies:[],
     details:[],
     user:{},
-    WishList:[]
+    WishList:[],
+    library:[],
 }
 
 function rootReducer(state = initialState, action){

@@ -7,6 +7,7 @@ import Sidebar from '../../components/SideBar/Sidebar'
 import Carrucel_main from '../../components/Carrucel/Carrucel_main'
 import Cards from '../../components/CardContainer/CardContainer'
 import Slider2 from '../../components/Carrucel/Slider'
+import Video from '../../assets/juego-37255.mp4'
 export default function Home(){
 
   const data = [
@@ -259,20 +260,21 @@ export default function Home(){
     ];
 
   return (
-    <div className="Home">
+    <div className="w-full">
 
 
       <div className='top-0'> 
         <Navbar/>
       </div>
 
-          <div className='flex flex-row'>
+          <div className='flex flex-row w-full'>
 
             <div className='bg-gray-900'>
               <Sidebar />
             </div>
          
-            <div className='bg-gray-200 w-full'>
+            <div className='bg-gray-200'>            
+            
               <Slider2 data={Tendencias} tittle={"NEWS AND TRENDS"} />
               <Slider2 data={vendidos} tittle={"BEST SELLERS"} />
               <Slider2 data={data} tittle={"BEST GAMES OF FEBRUARY"} />
