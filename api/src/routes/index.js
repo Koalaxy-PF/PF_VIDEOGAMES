@@ -51,7 +51,7 @@ router.use("/company", getCompany);
 /* *************************  routes PRODUCTS   **************************************** */
 router.use("/products", getProducts);
 router.use("/products", postProducts);
-router.use("/products", putProducts);
+router.use("/products/update", putProducts);
 router.use("/products", deleteProducts);
 
 /* *************************  routes USER   **************************************** */
