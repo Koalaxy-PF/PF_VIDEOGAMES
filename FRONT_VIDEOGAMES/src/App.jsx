@@ -16,13 +16,11 @@ import ShoppingCart from "./views/ShoppingCart/ShoppingCart"
 import Dashboard from "./views/Dashboard/Dashboard"
 import Library from "./views/Library/Library"
 import Support from "./views/Support/Support"
-import { useState } from "react"
+import Games from "./views/Dashboard/Games/Games"
 
 export default function App(){
 
   const dispatch = useDispatch();
-
- 
 
   useEffect(() => {
     if(window.localStorage.getItem('info-token')){
@@ -48,7 +46,7 @@ export default function App(){
         <Route exact path="/Dashboard" element={<Dashboard />} />
         <Route exact path="/Library" element={<Library />} />
         <Route exact path="/Support" element={<Support/>} />
-
+        <Route exact path="/Games" element={<Games/>} />
       </Routes>
     </div>
   );

@@ -5,12 +5,13 @@ import logo from '../../assets/icons/koalaLogo.png'
 import SideBarDashBoard from "./sideBarDashboard";
 import CardsDashBoard from "./ContainerCardDashBoard";
 import { useSelector } from "react-redux";
+import GamesDashBoard from "./Games/ContainerGamesDashBoard";
 
 
 export default function Dashboard() {
   const allGames = useSelector((state) => state.GamesCopy);
   return (
-    <div class='grid grid-cols-6 min-h-screen '>
+    <div class='grid grid-cols-6 min-h-screen overflow-y-hidden'>
       <div class='col-span-1 bg-slate-400 text-center w-full'>
         <SideBarDashBoard/>
       </div>
