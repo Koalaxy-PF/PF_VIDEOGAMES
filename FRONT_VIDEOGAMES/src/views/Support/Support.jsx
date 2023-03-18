@@ -62,7 +62,7 @@ export default function Support() {
 
         <div className="flex min-height-full justify-center item-center">
           <div className="hidden lg:block relative h-full flex-1">
-            <img class=" w-[750px] h-[730px] " src={img} alt="" />
+            <img class=" w-[950px] h-[730px] " src={img} alt="" />
           </div>
 
           <div className="justify-center flex-1 flex flex-col py-10 px-0 sm:px-8 lg:px-20 sm:py-9 md:py-9  xl:px-24">
@@ -84,7 +84,7 @@ export default function Support() {
                       </div> */}
 
                 <div>
-                  <label class="text-black ">Name</label>
+                  <label class="block text-sm font-medium text-gray-600 mt-2 lg:mt-0">Name</label>
                   <input
                     type="text"
                     class="mt-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
