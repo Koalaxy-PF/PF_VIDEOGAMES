@@ -1,5 +1,4 @@
 import {
-<<<<<<< HEAD
     GET_GAMES,
     POST_GAME,
     GET_BY_ID,
@@ -34,42 +33,6 @@ const initialState = {
     users:[],
     WishList:[]
 }
-=======
-  GET_GAMES,
-  POST_GAME,
-  GET_BY_ID,
-  GET_GENRES,
-  GET_COMPANIES,
-  FILTER_GENRES,
-  FILTER_PER_COMPANY,
-  ORDER_BY_NAME,
-  ORDER_BY_RELEASED,
-  TIDY_PRICE,
-  CLEAN,
-  CLEAN_GAMES,
-  GET_GAME,
-  LOGIN_SUCESS,
-  LOGIN_FAIL,
-  POST_WISH_LIST,
-  GET_WISH_LIST,
-  GET_ALL_CART,
-  GET_ALL_CART_LOCAL_STORAGE,
-  DELETE_PRODUCT_CART_LOCAL_STORAGE,
-  POST_SUPPORT,
-} from "../actions/actions";
-
-const initialState = {
-  Games: [],
-  AllCart: [],
-  GamesCopy: [],
-  Genres: [],
-  Companies: [],
-  details: [],
-  user: {},
-  WishList: [],
-  dataSupport: {},
-};
->>>>>>> 141e40a844fba2c59f1737b59975cf1bcfd93286
 
 function rootReducer(state = initialState, action) {
   switch (action.type) {
@@ -145,6 +108,13 @@ function rootReducer(state = initialState, action) {
         Games: action.payload,
         GamesCopy: action.payload,
       };
+
+      // case GET_USERS:
+      //   return {
+      //     ...state,
+      //     users: action.payload,
+         
+      //   };
 
     // case GET_GAME:
     //     return {

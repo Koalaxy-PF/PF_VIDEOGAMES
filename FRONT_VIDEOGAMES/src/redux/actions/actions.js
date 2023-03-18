@@ -37,7 +37,6 @@ export const DELETE_PRODUCT_CART = 'DELETE_PRODUCT_CART'
 export const GET_ALL_CART_LOCAL_STORAGE = 'GET_ALL_CART_LOCAL_STORAGE'
 export const DELETE_PRODUCT_CART_LOCAL_STORAGE = 'DELETE_PRODUCT_CART_LOCAL_STORAGE'
 
-//Users
 export const GET_USERS = "GET_USERS"
 
 // ACCIONES PARA LA AUTENTICACIÓN
@@ -256,6 +255,17 @@ export function DeleteProductCartLocalStorage(idProduct){
 
 // ACTIONS - LOCAL STORAGE
 
+  //action que trae todos los juegos
+  // export function GetUsers(){
+  //   return async function (dispatch) {
+  //     let Json = await axios.get(`http://localhost:3000/users`);
+  //     dispatch({
+  //       type: GET_USERS,
+  //       payload: Json.data,
+  //     });
+  //   }
+  // }
+
 export function postInCartLocalStorage(obj){
 
     if(window.localStorage.getItem('carrito-ls')){
@@ -288,30 +298,8 @@ export function postInCartLocalStorage(obj){
         return 'El producto se agregó con éxito a su carrito';
 
     }
-<<<<<<< HEAD
-}
-
-export function GetUsers(){
-  return async function (dispatch) {
-    let Json = await axios.get(`http://localhost:3000/users`);
-    dispatch({
-      type: GET_USERS,
-      payload: Json.data,
-    });
   }
-}
 
-// export function GetGames(){
-//   return async function (dispatch) {
-//     let Json = await axios.get(`http://localhost:3000/products`);
-//     dispatch({
-//       type: GET_GAMES,
-//       payload: Json.data,
-//     });
-//   }
-// }
-=======
-  }
 
     //ACTION SUPPORT
 
@@ -327,8 +315,3 @@ export function GetUsers(){
         });
       };
     };
-
-
-
-
->>>>>>> 141e40a844fba2c59f1737b59975cf1bcfd93286
