@@ -37,7 +37,11 @@ export const DELETE_PRODUCT_CART = 'DELETE_PRODUCT_CART'
 export const GET_ALL_CART_LOCAL_STORAGE = 'GET_ALL_CART_LOCAL_STORAGE'
 export const DELETE_PRODUCT_CART_LOCAL_STORAGE = 'DELETE_PRODUCT_CART_LOCAL_STORAGE'
 
+export const GET_USERS = "GET_USERS"
+
 // ACCIONES PARA LA AUTENTICACIÓN
+
+
 
 export const Register = (data) => (dispatch) => {
   return AuthService.Register(data);
@@ -251,6 +255,17 @@ export function DeleteProductCartLocalStorage(idProduct){
 
 // ACTIONS - LOCAL STORAGE
 
+  //action que trae todos los juegos
+  export function GetUsers(){
+    return async function (dispatch) {
+      let Json = await axios.get(`http://localhost:3000/users`);
+      dispatch({
+        type: GET_USERS,
+        payload: Json.data,
+      });
+    }
+  }
+
 export function postInCartLocalStorage(obj){
 
     if(window.localStorage.getItem('carrito-ls')){
@@ -285,6 +300,7 @@ export function postInCartLocalStorage(obj){
     }
   }
 
+
     //ACTION SUPPORT
 
     export const postSupport = (data) => (dispatch) => {
@@ -299,7 +315,3 @@ export function postInCartLocalStorage(obj){
         });
       };
     };
-
-
-
-
