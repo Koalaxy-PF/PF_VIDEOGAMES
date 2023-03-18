@@ -42,7 +42,6 @@ export default function CreateUser(){
 
   const { register, formState: { errors }, watch, handleSubmit } = useForm({
     defaultValues: {
-        img: 'https://i.pinimg.com/736x/0c/4f/72/0c4f72fe65bb7bd9db63ce5021c1371a.jpg',
         is_banned: false,
         description: ""
     }
@@ -137,7 +136,7 @@ export default function CreateUser(){
         <NavBar/>
       </div>
 
-      <div className="flex min-height-full  item-center bg-gray-200 ">
+      <div className="flex min-height-full  item-center bg-gray-200 " style={{backgroundImage: `url('https://www.xtrafondos.com/descargar.php?id=4047&resolucion=3840x2400')`, backgroundSize: 'cover'}}>
 
         <div className='flex min-h-[calc(100vh-5rem)]'>
         <Sidebar/>
@@ -169,11 +168,11 @@ export default function CreateUser(){
                         <input  class='mt-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'  placeholder='Username'  
                           type="text" {...register('username' , {
                           required: true,
-                          maxLength: 50,
+                          maxLength: 10,
                           minLength: 3
                           })} />
                             {errors.username?.type === 'required' && <p class='text-red-600'> the user name is required</p>}
-                            {errors.username?.type === 'maxLength' && <p class='text-red-600'>the maximum capacity of characters allowed is 50</p>}
+                            {errors.username?.type === 'maxLength' && <p class='text-red-600'>the maximum capacity of characters allowed is 10</p>}
                             {errors.username?.type === 'minLength' && <p class='text-red-600'>the minimum capacity of characters allowed is 3</p>}
                       </div>
 
@@ -255,10 +254,10 @@ export default function CreateUser(){
                         <label class='block text-sm font-medium text-gray-600 mt-2 lg:mt-0'>Image: </label>
                         <input  class='mt-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' placeholder='img'
                       
-                          type="text"
-
-                        />
-                      
+                          type="text"  {...register('img', {
+                            required: true,
+                        })} />
+                        {errors.img?.type === 'required' && <p class='text-red-600' >the img is required</p>}
                       </div>
 
                       <div >
