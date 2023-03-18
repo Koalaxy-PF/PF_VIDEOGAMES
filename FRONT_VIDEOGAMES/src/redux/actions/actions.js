@@ -16,6 +16,7 @@ export const CLEAN_GAMES = "CLEAN_GAMES";
 export const GET_GAME = "GET_GAME";
 export const GET_WISH_LIST = "GET_WISH_LIST";
 export const POST_WISH_LIST = "POST_WISH_LIST";
+export const POST_SUPPORT = "POST_SUPPORT";
 
 // RUTAS PARA LA AUTENTICACIÓN
 
@@ -287,6 +288,7 @@ export function postInCartLocalStorage(obj){
         return 'El producto se agregó con éxito a su carrito';
 
     }
+<<<<<<< HEAD
 }
 
 export function GetUsers(){
@@ -308,3 +310,25 @@ export function GetUsers(){
 //     });
 //   }
 // }
+=======
+  }
+
+    //ACTION SUPPORT
+
+    export const postSupport = (data) => (dispatch) => {
+      return AuthService.Support(data);
+    };
+    
+    export const postSupport_OK = (data) => {
+      return async function (dispatch) {
+        dispatch({
+          type: POST_SUPPORT,
+          payload: data,
+        });
+      };
+    };
+
+
+
+
+>>>>>>> 141e40a844fba2c59f1737b59975cf1bcfd93286

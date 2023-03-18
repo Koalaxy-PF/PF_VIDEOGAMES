@@ -1,8 +1,7 @@
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { Register } from "../../redux/actions/actions";
+import { postSupport, postSupport_OK } from "../../redux/actions/actions";
 import img from "../../assets/Support/spae-planet.gif";
 import logo from "../../assets/icons/koalaLogo.png";
 import Footer from "../../components/Footer/Footer";
@@ -13,47 +12,42 @@ import Sidebar from "../../components/SideBar/Sidebar";
 export default function Support() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  const [error, setErrors] = useState({});
-
-  const [showPwd, setShowPwd] = useState(false);
-
-  const {
-    register,
-    formState: { errors },
-    watch,
-    handleSubmit,
-  } = useForm({
+  const {register, formState:{errors}, handleSubmit, dataSupport}= useForm({
     defaultValues: {
-      is_banned: false,
-      description: "",
-    },
-  });
+      name:"",
+      email: "",
+      description: ""
+  }
+});
 
+ 
+
+ 
   const onSubmit = (data) => {
-    dispatch(Register(data))
-      .then((response) => {
+    dispatch(postSupport(data)).then((response) => {
+        dispatch(postSupport_OK(response.data)).then(() => {
         Swal.fire({
-          title: "¡Buen trabajo!",
+          title: "¡Thank you for contacting us!",
           text: response.data.message,
           icon: "success",
           confirmButtonColor: "#3085d6",
-          confirmButtonText: "Continuar",
+          confirmButtonText: "Continue",
         }).then((result) => {
           if (result.isConfirmed) {
-            navigate("/Support");
-          }
-        });
-      })
-      .catch((err) => {
-        Swal.fire({
-          tittle: "¡Ops! Hay un problema",
-          text: err.response.data.message,
-          icon: "error",
-          confirmButtonText: "Continuar",
-        });
-      });
-  };
+            navigate("/Home");
+            console.log(result)
+          }})})
+        }).catch((err) => {
+          Swal.fire({
+            tittle: '¡Ops! There is a problem',
+            text: err.response.data.message,
+            icon: "error",
+            confirmButtonText: "Continue"
+          })
+        })
+}
+
+    
 
   return (
     <div className="h-full">
@@ -68,7 +62,7 @@ export default function Support() {
 
         <div className="flex min-height-full justify-center item-center">
           <div className="hidden lg:block relative h-full flex-1">
-            <img class=" w-[750px] h-[730px] " src={img} alt="" />
+            <img class=" w-[950px] h-[730px] " src={img} alt="" />
           </div>
 
           <div className="justify-center flex-1 flex flex-col py-10 px-0 sm:px-8 lg:px-20 sm:py-9 md:py-9  xl:px-24">
@@ -90,7 +84,7 @@ export default function Support() {
                       </div> */}
 
                 <div>
-                  <label class="text-black ">Name</label>
+                  <label class="block text-sm font-medium text-gray-600 mt-2 lg:mt-0">Name</label>
                   <input
                     type="text"
                     class="mt-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
