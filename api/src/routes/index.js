@@ -39,6 +39,8 @@ const libraryget = require("./libraryRoutes/get");
 const postContactus = require("./contactus/post.js")
 const getContactus = require('./contactus/get.js')
 
+const loginAuth0 = require('./authRoutes/loginAuth0');
+
 /* *************************  routes GENRES   **************************************** */
 router.use("/genres", getGenres);
 router.use("/genres", postGenres);
@@ -60,6 +62,8 @@ router.use("/auth", loginUser);
 router.use("/users", getUsers);
 router.use("/users", updateUser);
 router.use("/users", deleteUser);
+router.use("/auth", loginAuth0);
+
 
 /* *************************  routes PAYPAL   **************************************** */
 router.use("/order", order);
