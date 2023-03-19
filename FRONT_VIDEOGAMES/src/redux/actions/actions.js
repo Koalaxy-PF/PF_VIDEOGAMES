@@ -39,6 +39,10 @@ export const DELETE_PRODUCT_CART_LOCAL_STORAGE = 'DELETE_PRODUCT_CART_LOCAL_STOR
 
 export const GET_USERS = "GET_USERS"
 
+// DASHBOARD
+
+export const PUT_PRODUCT_DASH = "PUT_PRODUCT_DASH"
+
 // ACCIONES PARA LA AUTENTICACIÓN
 
 
@@ -243,6 +247,12 @@ export function DeleteProductCart(idProduct){
     return async function(dispatch){
         return axios.delete(`http://localhost:3000/cart/delete/?productCardId=${idProduct}`)
     }
+}
+
+export function PutProductDash(idProduct){
+  return async function(dispatch){
+      return axios.put(`http://localhost:3000/products/update/${idProduct}`)
+  }
 }
 
 export function DeleteProductCartLocalStorage(idProduct){
