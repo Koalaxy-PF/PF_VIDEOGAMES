@@ -21,7 +21,8 @@ import {
   GET_ALL_CART_LOCAL_STORAGE,
   DELETE_PRODUCT_CART_LOCAL_STORAGE,
   POST_SUPPORT,
-  GET_USERS
+  GET_USERS,
+  GET_REVIEWS,
 } from "../actions/actions";
 
 const initialState = {
@@ -36,6 +37,7 @@ const initialState = {
   WishList: [],
   dataSupport: {},
   library: [],
+  reviews: [],
 };
 
 function rootReducer(state = initialState, action) {
@@ -297,6 +299,13 @@ function rootReducer(state = initialState, action) {
         ...state,
         dataSupport: action.payload,
       };
+
+    //REDUCERS REVIEWS
+    case GET_REVIEWS:
+      return {
+        ...state,
+        reviews: action.payload,
+      }
      
 
     default: {

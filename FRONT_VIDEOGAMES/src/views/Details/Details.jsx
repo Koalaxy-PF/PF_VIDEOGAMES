@@ -4,9 +4,10 @@ import { useParams } from "react-router-dom";
 import Footer from "../../components/Footer/Footer";
 import NavBar from "../../components/Navbar/Navbar";
 import Sidebar from "../../components/SideBar/Sidebar";
-import { Clean, GetGameById, PostWishList } from "../../redux/actions/actions";
+import { Clean, GetGameById, GetReviews, PostWishList } from "../../redux/actions/actions";
 import FavIcon from "../../assets/icons/corazon.png"
 import CartIcon from "../../assets/icons/carrito-de-compras.png"
+import Reviews from "../../components/Reviews/Reviews";
 
 const Details = () => {
     
@@ -18,7 +19,6 @@ const Details = () => {
     function addWishList(e){
         PostWishList(id)
       }
-
     useEffect(() => {
         dispatch(GetGameById(id))
         return () => {
@@ -39,6 +39,7 @@ const Details = () => {
             {
                 
                 vgDetail ? 
+                <div>
                 <div className='flex flex-row bg-gray-100 w-screen h-full justify-start'>
                     <div className="w-1/2 h-250">
                         <img className='w-4/5 m-10 rounded-md shadow-md' src={vgDetail.img} alt="img not found" ></img>
@@ -106,21 +107,18 @@ const Details = () => {
                                 
                             </div>
                         </div>
-                    {/* <div className=" ">
-                        <h1 className="flex flex-col flex-wrap ml-0 text-3xl">Normal Price:  ${vgDetail.price} </h1>
-                        {
-                            vgDetail.discount > 0 ? <h1>Discount: {vgDetail.discount}% <h1>Discount Price: {vgDetail.price - (vgDetail.price * vgDetail.discount/100)} </h1></h1>
-                            : <div></div>
-                        }
-                        <h1> Stock: {vgDetail.stock} </h1>
-                        <h1 className="font-semibold">Requeriments:  </h1>
-                        <p> {vgDetail.MinRequirements} </p>
-                        <p> {vgDetail.RecommendRequirements} </p>
-
-
-                    </div> */}
+                    
                     </div>
-                </div> : 
+                    
+                </div>
+                <div>
+                    <Reviews
+                    id={id}
+                    />
+                </div>
+                
+                </div>
+                : 
                     <div>
                         <h1>Loading</h1>
                     </div>
