@@ -29,7 +29,7 @@ export default function DashBoardUser(){
                 <div class='justify-center text-center bg-white py-[20px] rounded'>
                 <div class='flex justify-around'>
                 <h1 class='relative right-[48px] font-bold text-[20px]'>Users</h1>
-                <span class='relative left-[60px]'>{allUsers.user.length}</span>
+                <span class='relative left-[60px]'>{allUsers.length}</span>
                 </div>
                 <div class='flex text-left bg-white items-center justify-around py-[10px] mt-[10px] flex-wrap w-[500px]'>
                 <CardUserDashBoard/>

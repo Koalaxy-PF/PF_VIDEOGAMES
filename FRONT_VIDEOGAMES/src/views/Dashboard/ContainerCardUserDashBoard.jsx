@@ -19,7 +19,7 @@ export default  function ContainerCardUserDashBoard(){
     return(
 
         <div class='bg-gray-200 overflow-x-hidden flex flex-wrap justify-center'>
-            {allUsers.user?.map((e) => {
+            {allUsers?.map((e) => {
             return(
                 <Fragment key={e.id}>
                     <div>
