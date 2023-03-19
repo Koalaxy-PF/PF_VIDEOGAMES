@@ -1,4 +1,5 @@
 import React, { useEffect} from "react";
+import { Fragment } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {GetUsers } from "../../redux/actions/actions";
 import CardUserDashBoard from "./CardUserDashBoard";
@@ -7,12 +8,12 @@ import CardUserDashBoard from "./CardUserDashBoard";
 export default  function ContainerCardUserDashBoard(){
 
     const dispatch = useDispatch();
+    const allUsers = useSelector((state) => state.users);
+
 
     useEffect(() => {
         dispatch(GetUsers());
       }, [dispatch]); 
-
-    const allUsers = useSelector((state) => state.users);
 
 
     return(
@@ -20,7 +21,8 @@ export default  function ContainerCardUserDashBoard(){
         <div class='bg-gray-200 overflow-x-hidden flex flex-wrap justify-center'>
             {allUsers?.map((e) => {
             return(
-                <div>
+                <Fragment key={e.id}>
+                    <div>
                     <CardUserDashBoard
                     id={e.id}
                     img={e.img}
@@ -29,7 +31,9 @@ export default  function ContainerCardUserDashBoard(){
                     email={e.email}
                     username={e.username}    
                     />
-                </div> 
+                    </div> 
+                </Fragment>
+
             )
         })} 
 

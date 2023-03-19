@@ -71,7 +71,7 @@ function rootReducer(state = initialState, action) {
         return{
           ...state,
           users: action.payload,
-        }
+        };
 
     case GET_ALL_CART_LOCAL_STORAGE:
       if (!window.localStorage.getItem("carrito-ls")) {
