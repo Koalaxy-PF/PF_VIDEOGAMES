@@ -4,6 +4,7 @@ import { useDispatch} from "react-redux"
 import Details from "./views/Details/Details"
 import Home from "./views/Home/Home"
 import CreateGame from "./views/CreateGame/CreateGame"
+import UpdateGame from "./views/UpdateGame/UpdateGame"
 import Store from './views/Store/Store'
 import AboutUs from "./components/AboutUs/AboutUs"
 import ReturnLandingPage from "./views/LandingPage/LandingPage"
@@ -36,6 +37,7 @@ export default function App(){
         <Route exact path="/home" element={<Home />} />
         <Route exact path="/store" element={<Store />} />
         <Route exact path="/CreateGame" element={<CreateGame />} />
+        <Route exact path="/UpdateGame" element={<UpdateGame />} />
         <Route exact path="/AboutUs" element={<AboutUs />} />
         <Route exact path="/QA" element={<QA />} />
         <Route exact path="/products/:id" element={<Details/>} />
