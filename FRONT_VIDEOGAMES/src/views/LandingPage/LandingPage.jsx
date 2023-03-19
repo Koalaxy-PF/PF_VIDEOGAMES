@@ -1,12 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom"; //maneja todas las rutas de la aplicacion
-import NavBar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
-
-import koala from "../../assets/icons/koalaLogo.png"
-
-
-import Style from "../LandingPage/LandingPage.css"
+import "./LandingPage.css"
 
 
 export default function ReturnLandingPage(){

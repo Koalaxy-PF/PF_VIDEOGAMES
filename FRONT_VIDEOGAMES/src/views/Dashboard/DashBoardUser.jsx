@@ -1,5 +1,5 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import SideBarDashBoard from "./sideBarDashboard";
 import CardUserDashBoard from "./CardUserDashBoard";
 import {GetUsers} from "../../redux/actions/actions"
@@ -44,9 +44,5 @@ export default function DashBoardUser(){
 
         </div>
 
-
-
-    </div>
-
-
+      </div>
 }
