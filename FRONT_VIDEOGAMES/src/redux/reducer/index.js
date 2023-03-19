@@ -292,6 +292,16 @@ function rootReducer(state = initialState, action) {
         ...state,
         WishList: action.payload,
       };
+      
+    case LOGOUT:
+
+      window.localStorage.removeItem("info-token");
+
+      return{
+        ...state,
+        user: [],
+      };
+
 
     case POST_SUPPORT:
       return {
