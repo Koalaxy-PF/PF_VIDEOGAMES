@@ -316,3 +316,11 @@ export function postInCartLocalStorage(obj){
         });
       };
     };
+
+    export const LogOut = () => {
+      return async function(dispatch){
+        dispatch({
+          type: LOGOUT,
+        })
+      }
+    }

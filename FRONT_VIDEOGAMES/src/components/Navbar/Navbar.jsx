@@ -1,16 +1,39 @@
 import React, {useState}from "react";
-import { Link } from "react-router-dom"; //maneja todas las rutas de la aplicacion
+import { Link, useNavigate } from "react-router-dom"; //maneja todas las rutas de la aplicacion
 import heart from "../../assets/icons/corazon.png"
 import trolley from "../../assets/icons/carrito-de-compras.png"
 import user from "../../assets/icons/usuario.png"
 import koala from "../../assets/logo/logo.png"
 import { BsFillMoonFill, BsFillSunFill, BsFillDisplayFill } from "react-icons/bs";
 import { useEffect } from "react";
+import { useSelector } from "react-redux"
+import Logout from '../../assets/icons/LogOut.png'
+import AuthService from "../../services/Auth.service";
+import { useDispatch } from "react-redux";
+import { LogOut } from "../../redux/actions/actions";
 
 export default function NavBar(){
 
   const [theme, setTheme] = useState(localStorage.getItem('theme') ? localStorage.getItem("theme") : "system");
   const element = document.documentElement;
+  const dispatch = useDispatch();
+  const [change, setChange] = useState(null);
+  const navigate = useNavigate();
+  
+  const User = useSelector((state) => state.user)
+
+  
+  const iconComponents = [
+    {
+      text: 'light',
+      icon: <BsFillSunFill />},
+      {
+        text: 'dark',
+        icon:  <BsFillMoonFill />},
+      {
+      text: 'system',
+      icon: <BsFillDisplayFill />},
+  ]
 
   useEffect(() => {
 
@@ -32,19 +55,10 @@ export default function NavBar(){
     }
   }, [theme])
 
+  const handleLogOut = () => {
+    dispatch(LogOut());
+  }
 
-
-  const iconComponents = [
-    {
-      text: 'light',
-      icon: <BsFillSunFill />},
-      {
-        text: 'dark',
-        icon:  <BsFillMoonFill />},
-      {
-      text: 'system',
-      icon: <BsFillDisplayFill />},
-  ]
 
     return(
         <div className="">
@@ -70,12 +84,37 @@ export default function NavBar(){
               </div> 
               
               <li>
-                <Link to= "/login">
-                  <a class="block lg:inline-block lg:mt-0 mr-3">
-                    <img className="w-8 h-8 mt-2 ml-2 rounded-full" src = {user}/>
-                  </a>
-                </Link>
+
+                {
+                  Object.keys(User).length === 0 ?
+                  <Link to= "/login">
+                    <a class="block lg:inline-block lg:mt-0 mr-3">
+                      <img className="w-8 h-8 mt-2 ml-2 rounded-full" src = {user} />
+                    </a>
+                  </Link>
+
+                  :
+
+                  <Link to= "/login">
+                    <a className="blck lg:inline-block lg:mt-0 mr-3">
+                      <img className="w-8 h-8 mt-2 ml-2 rounded-full" src = {User.user.img} />
+                    </a>
+                  </Link>                  
+                }
               </li>
+
+              <li>
+
+                {
+                  Object.keys(User).length !== 0 &&
+                  
+                    <div className="blck lg:inline-block lg:mt-0 mr-3">
+                      <img onClick={() => handleLogOut()} className="w-8 h-8 mt-2 ml-2 rounded-full cursor-pointer" src = {Logout} />
+                    </div>             
+                }
+              </li>
+
+
             </ul>
           </div>
         </div>
