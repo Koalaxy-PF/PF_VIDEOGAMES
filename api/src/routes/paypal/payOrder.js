@@ -4,6 +4,7 @@ const { Cart, User, Productcart } = require("../../db.js");
 const { addProductLibrary } = require("../../controllers/libraryController.js");
 const { updateTotalValue } = require("../../controllers/cartController.js");
 const { transporter } = require("../../emailer");
+const {addOrder} = require("../../controllers/orderController")
 
 const {
   PAYPAL_API_TEST,
@@ -44,6 +45,7 @@ router.get("/:id", async (req, res) => {
 
     const usuario = cart.user.id;
     const productos = cart.productcarts.map((e) => e.productId);
+    const total = cart.total;
 
     for (let i = 0; i < productos.length; i++) {
       await addProductLibrary(productos[i], usuario);
@@ -56,6 +58,8 @@ router.get("/:id", async (req, res) => {
     });
 
     await updateTotalValue(cart);
+
+    await addOrder(total,usuario,productos);
 
     const email = cart.user.email;
     const username = cart.user.username;
