@@ -12,14 +12,18 @@ import Style from "../LandingPage/LandingPage.css"
 export default function ReturnLandingPage(){
 
     return(
-        <div className="bg-gray-300 ">
+        <div className="bg-gray-200 ">
 
             <div className="  min-h-screen ">
-                    <div className=" bg-gray-300 ">
+                    <div className=" bg-gray-white p-2">
 
                         
-                        <div className="animation flex justify-center items-center">
-                        <Link to="/home"><span class="px-4 bg-none text-white py-4  rounded-xl border-4 border-white text-2xl text-center hover:bg-transparent hover:text-3xl"> Enter </span></Link>
+                        <div className="animation flex justify-center items-center border-white border-2 ">
+                            
+                  
+                            <Link to="/home"><span class="px-4 bg-none text-white py-4  rounded-xl border-4 border-white text-2xl text-center hover:bg-transparent hover:text-3xl"> Enter </span></Link>
+                            
+
                         </div>
 
 
