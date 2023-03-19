@@ -1,9 +1,8 @@
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { Register } from "../../redux/actions/actions";
-import img from "../../assets/Support/planet.gif";
+import { postSupport, postSupport_OK } from "../../redux/actions/actions";
+import img from "../../assets/Support/spae-planet.gif";
 import logo from "../../assets/icons/koalaLogo.png";
 import Footer from "../../components/Footer/Footer";
 import Swal from "sweetalert2";
@@ -13,67 +12,66 @@ import Sidebar from "../../components/SideBar/Sidebar";
 export default function Support() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  const [error, setErrors] = useState({});
-
-  const [showPwd, setShowPwd] = useState(false);
-
   const {
     register,
     formState: { errors },
-    watch,
     handleSubmit,
+    dataSupport,
   } = useForm({
     defaultValues: {
-      is_banned: false,
+      name: "",
+      email: "",
       description: "",
     },
   });
 
   const onSubmit = (data) => {
-    dispatch(Register(data))
+    dispatch(postSupport(data))
       .then((response) => {
-        Swal.fire({
-          title: "¡Buen trabajo!",
-          text: response.data.message,
-          icon: "success",
-          confirmButtonColor: "#3085d6",
-          confirmButtonText: "Continuar",
-        }).then((result) => {
-          if (result.isConfirmed) {
-            navigate("/Support");
-          }
+        dispatch(postSupport_OK(response.data)).then(() => {
+          Swal.fire({
+            title: "¡Thank you for contacting us!",
+            text: response.data.message,
+            icon: "success",
+            confirmButtonColor: "#3085d6",
+            confirmButtonText: "Continue",
+          }).then((result) => {
+            if (result.isConfirmed) {
+              navigate("/Home");
+              console.log(result);
+            }
+          });
         });
       })
       .catch((err) => {
         Swal.fire({
-          tittle: "¡Ops! Hay un problema",
+          tittle: "¡Ops! There is a problem",
           text: err.response.data.message,
           icon: "error",
-          confirmButtonText: "Continuar",
+          confirmButtonText: "Continue",
         });
       });
   };
 
   return (
-    <div className="h-full">
+    <div className="h-full" >
       <div>
         <NavBar />
       </div>
 
-      <div className="flex min-height-full  item-center bg-gray-200 ">
+      <div className="flex min-height-full  item-center bg-gray-200 " style={{backgroundImage: `url('https://www.xtrafondos.com/descargar.php?id=4047&resolucion=3840x2400')`, backgroundSize: 'cover'}}>
         <div className="flex min-h-[calc(100vh-5rem)]">
           <Sidebar />
         </div>
 
         <div className="flex min-height-full justify-center item-center">
           <div className="hidden lg:block relative h-full flex-1">
-            <img class="mx-20 w-[350px] h-[260px] mt-10" src={img} alt="" />
+            <img class=" w-[950px] h-[730px] " src={img} alt="" />
           </div>
 
           <div className="justify-center flex-1 flex flex-col py-10 px-0 sm:px-8 lg:px-20 sm:py-9 md:py-9  xl:px-24">
             <div class="text-center lg:text-left flex justify-center">
-              <img class="h-14 w-[60px]  m-auto lg:m-0" src={logo} alt="" />
+              <img class="h-14 w-[55px]  m-auto lg:m-0" src={logo} alt="" />
               <h2 class="mt-6 text-3xl font-extrabold text-gray-900">
                 Contact Us
               </h2>
@@ -85,12 +83,12 @@ export default function Support() {
                   <div></div>
                 </div>
 
-                {/* <div class='flex justify-center'>
-                      {error.email && <span >{error.email}</span>}
-                      </div> */}
+             
 
                 <div>
-                  <label class="text-black ">Name</label>
+                  <label class="block text-sm font-medium text-gray-600 mt-2 lg:mt-0">
+                    Name
+                  </label>
                   <input
                     type="text"
                     class="mt-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -104,9 +102,7 @@ export default function Support() {
                   )}
                 </div>
 
-                {/* <div class='flex justify-center'>
-                      {error.name && <span >{error.name}</span>}
-                      </div> */}
+              
                 <div>
                   <label class="block text-sm font-medium text-gray-600 mt-2 lg:mt-0">
                     Email
@@ -138,15 +134,7 @@ export default function Support() {
                   )}
                 </div>
 
-                <div>
-                  {/*   <label class='block text-sm font-medium text-gray-600 mt-2 lg:mt-0'> Last name: </label>
-                        <input  class='mt-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' placeholder='Last name'
-                      
-                          type="text"  {...register('last_name', {
-                            required: true,
-                        })} />
-                        {errors.last_name?.type === 'required' && <p class='text-red-600' >the last name is required</p>} */}
-                </div>
+                <div></div>
 
                 <div>
                   <label class="block text-sm font-medium text-gray-600 mt-2 lg:mt-0">

@@ -9,8 +9,6 @@ import {Link} from 'react-router-dom'
 import Swal from 'sweetalert2'
 import seePassword from "../../assets/icons/seePassword.png";
 
-
-
 export default function LoginForm(){
 
     const {register, formState:{errors}, handleSubmit}= useForm();
@@ -45,7 +43,7 @@ export default function LoginForm(){
         
 
     return(
-        <div class='min-height-full flex bg-gray-200 justify-center'>
+        <div class='min-height-full flex bg-gray-200 justify-center' style={{backgroundImage: `url('https://www.xtrafondos.com/descargar.php?id=4047&resolucion=3840x2400')`, backgroundSize: 'cover'}} >
             <div class='hidden lg:block relative h-full'>
                 <img class='w-[750px] object-cover' src={koala} alt="" />
             </div>

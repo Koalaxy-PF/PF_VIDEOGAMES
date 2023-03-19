@@ -2,11 +2,12 @@ const { Router } = require("express");
 const router = Router();
 const { Productwish } = require('../../db');
 
-
 router.delete('/', async(req,res) => {
 
     try {
-        const { productWishId } = req.body;
+        const { productWishId } = req.query;
+
+        console.log(productWishId);
 
         let productWish = await Productwish.findOne({
             where: { id: productWishId }
@@ -16,7 +17,6 @@ router.delete('/', async(req,res) => {
         }
         await productWish.destroy();
         res.send('Product has been removed');
-
     } catch (err) {
         console.log(err)
     }

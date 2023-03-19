@@ -3,7 +3,7 @@ import favoritos from './favoritos.png'
 import home from './home.png'
 import store from './store.png'
 import soporte from './soporte.png'
-import buscar from './buscar.png'
+import carrito from './carrito.png'
 
 export default {
     "img1": biblioteca,
@@ -11,5 +11,5 @@ export default {
     "img3": home,
     "img4": store,
     "img5": soporte,
-    "img6": buscar,
+    "img6": carrito,
 }

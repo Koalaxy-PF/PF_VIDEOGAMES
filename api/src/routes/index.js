@@ -6,6 +6,7 @@ const postGenres = require("./genreRoutes/post");
 const deleteGenres = require("./genreRoutes/delete");
 
 const getCompany = require("./companyRoutes/get");
+const postCompany = require("./companyRoutes/post");
 
 const getProducts = require("./productRoutes/get");
 const postProducts = require("./productRoutes/post");
@@ -33,7 +34,14 @@ const cancelPayment = require("./paypal/cancelPayment");
 const payment = require("./mercadopago/payment");
 const payOrderM = require("./mercadopago/payOrder");
 
+
 const libraryget = require("./libraryRoutes/get");
+
+const postReview = require('./reviewRoutes/post');
+const getReview = require('./reviewRoutes/get');
+const updateReview = require('./reviewRoutes/put');
+const deleteReview = require('./reviewRoutes/delete');
+
 
 
 const postContactus = require("./contactus/post.js")
@@ -52,6 +60,7 @@ router.use("/genres", deleteGenres);
 /*************************************  routes Company ******************************************** */
 
 router.use("/company", getCompany);
+router.use("/company", postCompany);
 
 /* *************************  routes PRODUCTS   **************************************** */
 router.use("/products", getProducts);
@@ -85,8 +94,18 @@ router.use("/cart", getCart);
 router.use("/cart/addProduct", addProduct);
 router.use("/cart/delete", deleteCart);
 
+
 /* *************************  routes LIBRARY   **************************************** */
 router.use("/library", libraryget);
+/* *************************  routes REVIEWS   **************************************** */
+router.use("/reviews", postReview);
+router.use("/reviews", getReview);
+router.use("/reviews", updateReview);
+router.use("/reviews/delete", deleteReview);
+
+
+
+
 
 /* *************************  routes CONTACTUS   **************************************** */
 router.use("/contactus", getContactus);

@@ -3,13 +3,21 @@ const router = Router();
 const { Genre } = require("../../db");
 
 router.post("/", async (req, res) => {
-  const { name } = req.body;
   try {
+    const { name } = req.body;
+
     if (name) {
-      await Genre.bulkCreate({
-        where: { name: name },
+      const findGenre = await Genre.findOne({
+        where: { name: name }
+      })
+      if(!findGenre){
+      await Genre.create({
+        name: name ,
       });
-      res.send("Genre created successfully");
+        res.send("Genre created successfully");
+      }else{
+        res.send('The genre is already created.') 
+      }
     }
   } catch (err) {
     console.log(err);
@@ -17,3 +25,4 @@ router.post("/", async (req, res) => {
 });
 
 module.exports = router;
+

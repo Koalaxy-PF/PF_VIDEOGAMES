@@ -45,14 +45,14 @@ export default function Card({img, id, name, price, genre, calification}){
             dispatch(postInCart(obj)).then((response) => {
                 Swal.fire({
                     icon: 'success',
-                    title: 'Felicidades',
-                    text: 'Se añadió a tu carrito',
+                    title: 'Congratulations!',
+                    text: response.data.message,
                   })
             }).catch((response) => {
                 Swal.fire({
-                    icon: 'warning',
-                    title: 'Error',
-                    text: 'El producto ya está en tu carrito',
+                    icon: 'error',
+                    title: 'Something has gone wrong',
+                    text: response.response.data.message,
                   })
             })
         }
@@ -79,7 +79,7 @@ export default function Card({img, id, name, price, genre, calification}){
         
                 // MODIFICAMOS EL TOTAL DE PRODUCTOS EN EL CARRITO Y SU VALOR TOTAL
         
-                objeto.total = objeto.total + obj.total   // TOTAL DE ELEMENTOS
+                objeto.total = objeto.total + obj.price   // TOTAL DE ELEMENTOS
         
                 for(let i=0; i<objeto.productcarts.length; i++){
                     p.push(objeto.productcarts[i]);
@@ -109,8 +109,8 @@ export default function Card({img, id, name, price, genre, calification}){
         
                 return Swal.fire({
                     icon: 'success',
-                    title: 'Felicidades',
-                    text: 'Se añadió a tu carrito',
+                    title: 'Congratulations!',
+                    text: 'The product was added to your cart',
                   })
             }
     }
@@ -151,10 +151,10 @@ export default function Card({img, id, name, price, genre, calification}){
     }
     
     return(
-        <div class="w-full max-w-sm bg-gray-100 shadow-md shadow-slate-600 mb-2 border-2">
+        <div class="w-full max-w-sm bg-gray-100 shadow-md shadow-slate-600 mb-2">
 
         <Link to={`/products/${id}`}>
-            <img className="rounded-t-lg h-[150px] w-full object-cover " src={img} alt="product image" />
+            <img className=" h-[150px] w-full object-cover " src={img} alt="product image" />
         </Link>
     
         <div class="px-2 pb-4 mt-2">
@@ -178,7 +178,7 @@ export default function Card({img, id, name, price, genre, calification}){
                 )
                 })
             }
-                <span class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">{calification}</span>
+                <span class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded  ml-3">{calification}</span>
                 <a>
                     {/* <AddToWishList
                     productId={id}/> */}
@@ -188,7 +188,7 @@ export default function Card({img, id, name, price, genre, calification}){
                 </a>
             </div>
     
-            <div className='mt-3 w-full flex text-yellow-800'>
+            <div className='mt-3 w-full flex text-blue-600'>
                 {
                     genre?.map((el) => {
                         return(
@@ -201,9 +201,8 @@ export default function Card({img, id, name, price, genre, calification}){
             <div class="flex items-center justify-between">
                 <span class="text-3xl font-bold text-slate-900">${price}</span>
 
-                <a href="#" class="text-slate-100 bg-purple-600 hover:bg-blue-800 focus:ring-4 focus:outline-none
-                 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600
-                  dark:hover:bg-blue-700 dark:focus:ring-blue-800" onClick={(e) => AddCart(e)}>Add to Cart</a>
+                <a href="#" class="text-slate-100 bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none
+                 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" onClick={(e) => AddCart(e)}>Add to Cart</a>
             </div>
         </div>
     </div>

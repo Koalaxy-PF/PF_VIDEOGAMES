@@ -1,14 +1,35 @@
-import { useState, useRef } from 'react'
-import CreateUser from '../createUser/createUser'
+import { useState, useRef, useEffect } from 'react'
 import Navbar from '../../components/Navbar/Navbar'
-import SearchBar from '../../components/SearchBar/SearchBar'
 import Footer from '../../components/Footer/Footer'
 import Sidebar from '../../components/SideBar/Sidebar'
 import Carrucel_main from '../../components/Carrucel/Carrucel_main'
-import Cards from '../../components/CardContainer/CardContainer'
 import Slider2 from '../../components/Carrucel/Slider'
+
 export default function Home(){
 
+  const [theme, setTheme] = useState(localStorage.getItem('theme') ? localStorage.getItem("theme") : "system");
+  const element = document.documentElement;
+
+  useEffect(() => {
+
+    switch(theme){
+
+      case 'dark':
+        element.classList.add('dark');
+        window.localStorage.setItem('theme', 'dark')
+        break;
+      
+      case 'light':
+        element.classList.remove('dark');
+        window.localStorage.setItem('theme', 'light');
+        break;
+      
+      default:
+        window.localStorage.removeItem('theme');
+        break;    
+    }
+  }, [theme])
+  
   const data = [
         
     {
@@ -266,20 +287,18 @@ export default function Home(){
         <Navbar/>
       </div>
 
-
           <div className='flex flex-row'>
 
-            <div className='bg-gray-900'>
+            <div className='bg-slate-900'>
               <Sidebar />
             </div>
          
+            <div class="bg-cover bg-no-repeat" style={{backgroundImage: `url('https://www.xtrafondos.com/descargar.php?id=4047&resolucion=3840x2400')`, backgroundSize: 'cover'}}>
+  <Slider2 data={Tendencias} tittle={"NEWS AND TRENDS"} />
+  <Slider2 data={vendidos} tittle={"BEST SELLERS"} />
+  <Slider2 data={data} tittle={"BEST GAMES OF FEBRUARY"} />
+</div>
 
-            <div className='bg-gray-200 w-full'>
-              <Slider2 data={Tendencias} tittle={"NOVEDADES Y TENDENCIAS"} />
-              <Slider2 data={vendidos} tittle={"MÁS VENDIDOS"} />
-              <Slider2 data={data} tittle={"MEJORES JUEGOS DE FEBRERO"} />
-              
-            </div>
         </div>
 
 

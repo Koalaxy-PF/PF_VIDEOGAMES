@@ -1,57 +1,80 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import Card from "../Card/Card";
-import { Link } from "react-router-dom";
-import { Fragment } from "react";
-import SearchBar from "../SearchBar/SearchBar";
-import { GetWishList, PostWishList, GetGames} from "../../redux/actions/actions";
-import Pagination from "../Pagination/Pagination";
+import { GetWishList, PostWishList, GetGames, DeleteWishListProduct} from "../../redux/actions/actions";
 import WishListCard from "../WishListCard/WishListCard";
+import Swal from "sweetalert2";
+import Error from '../../assets/Error/Wishlist/EmptyW.png'
 
 export default function Cards(){
 
   const WishListGames = useSelector((state) => state.WishList);
   const User = useSelector((state) => state.user)
-  const [gamesPerPage, setGamesPerPage] = useState(8);
   const dispatch = useDispatch();
-  const[currentPage,setCurrentPage] =useState(1) 
 
   useEffect(() => {
     dispatch(GetWishList(User.user.id))
-  },[]) 
+  },[])   
 
+  const DeleteFromWL = (id) => {
 
-  const indexLastGame = currentPage * gamesPerPage;
-  const indexFirstGame = indexLastGame - gamesPerPage;
-  //const currentGames = WishListGames.productwishes.slice(indexFirstGame, indexLastGame)
-
-  const pagination = pagesNumber =>{
-    setCurrentPage(pagesNumber)
-    window.scrollTo(0,0)
-  }  
+    dispatch(DeleteWishListProduct(id)).then((response) =>{
+        Swal.fire({
+            icon: 'Success',
+            title: response.data.message,
+            text: 'El producto se eliminó!',
+    }).then(() => {
+        dispatch(GetWishList(User.user.id))
+    })
+    }).catch((response) => {
+        Swal.fire({
+            icon: 'error',
+            title: response.message,
+            text: 'El producto no se eliminó!',
+   })})
+}
 
   return (        
-    <div>  
+    <div className="grid bg-gray-100 content-start w-full pt-2">  
+
       {
-        WishListGames.productwishes?.map((product) => {
+        WishListGames.length === 0 ?
+
+        <div>
+          <img src={Error} className="w-1/3 mx-auto" alt="" />
+        </div>
+
+        :
+
+        WishListGames.productwishes.length === 0 ?
+
+          <div>
+            <img src={Error} className="w-1/3 mx-auto" alt="" />
+          </div>
+
+          :
+
+        WishListGames.productwishes?.map((product, index) => {
         return (
-          <Fragment key={product.id}>
-        
-            <Link to={"/products/" + product.id}>
-              <div>
+          <div key={product.id}>
+              <div className="mx-4 my-1">
               <WishListCard
+                id={product.id}
+                key={index}
                 img={product.img}
                 name={product.name}
                 calification={product.calification}
-                price={product.price}
+                price={product.priceProduct}
                 genre={product.genre} 
               />
               </div>
-            </Link>
-          </Fragment>
+              <div>
+                <button onClick={() => DeleteFromWL(product.id)} >Delete</button>
+              </div>
+          </div>
         );
       })} 
+      
        <div className="flex flex-nowrap justify-center w-full flex-row my-3">
         {/* <Pagination 
           allGames={WishListGames.length}

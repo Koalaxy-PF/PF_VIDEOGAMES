@@ -67,7 +67,7 @@ router.post("/:id", async (req, res) => {
     );
     /*  console.log(response.data); */
     
-    res.json(response.data);
+    res.status(200).json(response.data);
   } catch (error) {
     console.log(error.message);
     return res.status(500).json("algo salio mal");

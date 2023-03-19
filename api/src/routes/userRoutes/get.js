@@ -3,7 +3,7 @@ const router = Router();
 const { getAllUsers, getByName, getById, getByEmail } = require('../../controllers/userControllers');
 const verifyToken = require("../../verifyToken");
 
-router.get('/', verifyToken, async(req,res)=>{
+router.get('/', /* verifyToken, */ async(req,res)=>{
     const { username, email } = req.query;
     try {
         if(username) { 
@@ -21,7 +21,7 @@ router.get('/', verifyToken, async(req,res)=>{
     }
 })
 
-router.get('/:id', verifyToken, async(req,res)=>{
+router.get('/:id', /* verifyToken, */ async(req,res)=>{
     const { id } = req.params;
     try {
         if(id) { 

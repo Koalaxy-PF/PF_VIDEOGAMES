@@ -42,7 +42,6 @@ export default function CreateUser(){
 
   const { register, formState: { errors }, watch, handleSubmit } = useForm({
     defaultValues: {
-        img: 'https://w7.pngwing.com/pngs/741/68/png-transparent-user-computer-icons-user-miscellaneous-cdr-rectangle-thumbnail.png',
         is_banned: false,
         description: ""
     }
@@ -137,17 +136,17 @@ export default function CreateUser(){
         <NavBar/>
       </div>
 
-      <div className="flex min-height-full  item-center bg-gray-200 ">
+      <div className="flex min-height-full  item-center bg-gray-200 " style={{backgroundImage: `url('https://www.xtrafondos.com/descargar.php?id=4047&resolucion=3840x2400')`, backgroundSize: 'cover'}}>
 
         <div className='flex min-h-[calc(100vh-5rem)]'>
         <Sidebar/>
         </div>
 
-        <div className="flex min-height-full justify-center item-center" >
+        <div className="flex min-height-full justify-center " >
 
 
-            <div className="hidden lg:block relative h-full flex-1">
-              <img class='mt-14 w-[300px] h-[200px] mx-10' src={img} alt="" /> 
+            <div className="hidden lg:block relative h-full'">
+              <img class='w-[750px] object-cover' src={img} alt="" /> 
             </div>
 
             <div className="justify-center flex-1 flex flex-col py-10 px-0 sm:px-8 lg:px-20 sm:py-9 md:py-9  xl:px-24" >
@@ -169,11 +168,11 @@ export default function CreateUser(){
                         <input  class='mt-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'  placeholder='Username'  
                           type="text" {...register('username' , {
                           required: true,
-                          maxLength: 50,
+                          maxLength: 10,
                           minLength: 3
                           })} />
                             {errors.username?.type === 'required' && <p class='text-red-600'> the user name is required</p>}
-                            {errors.username?.type === 'maxLength' && <p class='text-red-600'>the maximum capacity of characters allowed is 50</p>}
+                            {errors.username?.type === 'maxLength' && <p class='text-red-600'>the maximum capacity of characters allowed is 10</p>}
                             {errors.username?.type === 'minLength' && <p class='text-red-600'>the minimum capacity of characters allowed is 3</p>}
                       </div>
 
@@ -255,10 +254,10 @@ export default function CreateUser(){
                         <label class='block text-sm font-medium text-gray-600 mt-2 lg:mt-0'>Image: </label>
                         <input  class='mt-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' placeholder='img'
                       
-                          type="text"
-
-                        />
-                      
+                          type="text"  {...register('img', {
+                            required: true,
+                        })} />
+                        {errors.img?.type === 'required' && <p class='text-red-600' >the img is required</p>}
                       </div>
 
                       <div >
