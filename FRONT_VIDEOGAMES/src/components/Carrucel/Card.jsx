@@ -188,7 +188,7 @@ export default function Card({img, id, name, price, genre, calification}){
                 </a>
             </div>
     
-            <div className='mt-3 w-full flex text-yellow-800'>
+            <div className='mt-3 w-full flex text-blue-600'>
                 {
                     genre?.map((el) => {
                         return(

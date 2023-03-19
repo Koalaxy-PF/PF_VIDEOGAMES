@@ -21,7 +21,8 @@ import {
   GET_ALL_CART_LOCAL_STORAGE,
   DELETE_PRODUCT_CART_LOCAL_STORAGE,
   POST_SUPPORT,
-  GET_USERS
+  GET_USERS,
+  LOGOUT
 } from "../actions/actions";
 
 const initialState = {
@@ -291,6 +292,16 @@ function rootReducer(state = initialState, action) {
         ...state,
         WishList: action.payload,
       };
+      
+    case LOGOUT:
+
+      window.localStorage.removeItem("info-token");
+
+      return{
+        ...state,
+        user: [],
+      };
+
 
     case POST_SUPPORT:
       return {

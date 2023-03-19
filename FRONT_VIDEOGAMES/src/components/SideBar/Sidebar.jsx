@@ -81,17 +81,21 @@ export default function Sidebar(){
 
     {/* FAVORITOS */}
 
-    <div className={`flex mt-4 items-center cursor-pointer rounded-full ${open && "bg-gray-600 pl-4 py-2 gap-x-2"}`}>
-      <Link to="/WishList"> 
-      <span>
-        <img src={icons.img2} className='block w-8 items-center text-white text-4xl cursor-pointer' />
-      </span>
+    {
+      Object.keys(User).length === 0 ? <></> :
 
-      <span className={`text-base font-medium flex-1 duration-200 text-slate-100 ${!open && "hidden"}`}>
-        <h1>Favoritos</h1>
-      </span>
-      </Link>
-    </div>
+        <div className={`flex mt-4 items-center cursor-pointer rounded-full ${open && "bg-gray-600 pl-4 py-2 gap-x-2"}`}>
+          <Link to="/WishList"> 
+            <span>
+              <img src={icons.img2} className='block w-8 items-center text-white text-4xl cursor-pointer' />
+            </span>
+
+            <span className={`text-base font-medium flex-1 duration-200 text-slate-100 ${!open && "hidden"}`}>
+              <h1>Favoritos</h1>
+            </span>
+          </Link>
+        </div>
+    }
 
     {/* CARRITO */}
 

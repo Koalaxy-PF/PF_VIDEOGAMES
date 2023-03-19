@@ -16,12 +16,7 @@ class AuthService{
 
     Support(data){
       return axios.post(API_URL2, data);
-    }
-  
-    Logout(){
-      localStorage.removeItem("user");
-    }
-  
+    }  
 }
 
 export default new AuthService;
