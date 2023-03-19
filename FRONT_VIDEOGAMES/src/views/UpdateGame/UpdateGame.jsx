@@ -1,6 +1,6 @@
 import React from "react";
 import logo from '../../assets/icons/koalaLogo.png';
-import FormUpdateGame from "../../../src/components/FormUpdateGame/FormUpdateGame";
+import FormUpdateGame from "../../components/FormUpdateGame/FormUpdateGame";
 import SideBarDashBoard from "../Dashboard/sideBarDashboard";
 import { Link } from "react-router-dom";
 

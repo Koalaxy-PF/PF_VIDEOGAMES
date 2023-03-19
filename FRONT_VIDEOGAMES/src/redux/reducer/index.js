@@ -22,7 +22,8 @@ import {
   DELETE_PRODUCT_CART_LOCAL_STORAGE,
   POST_SUPPORT,
   PUT_PRODUCT_DASH,
-  GET_USERS
+  GET_USERS,
+  LOGOUT
 } from "../actions/actions";
 
 const initialState = {

@@ -35,22 +35,7 @@ export default function FormUpdateGame() {
     dispatch(GetGenres())
   },[dispatch]);
 
- /*  const games= useSelector((state) => state.Games);
 
-  function handleSelect(e) {
-    if (input.games.includes(e.target.value)) {
-      alert("The activity already has that country");
-    } else {
-      setInput({
-        ...input,
-        games: [...input.games, e.target.value],
-      });
-    }
-  } */
- // const dispatch = useDispatch();
-  //const history = useHistory();
-
-  //const [errors, setErrors] = useState({});
 
   const [input, setInput] = useState({
     name: "",
@@ -71,12 +56,7 @@ export default function FormUpdateGame() {
 
 
   
-  //history.push("/home");
-/* 
-  useEffect(() => {
 
-    
-  }, []); */
 
   function handleInputChange(e){
     setInput({
