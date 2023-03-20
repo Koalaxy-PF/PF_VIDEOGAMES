@@ -14,7 +14,7 @@ export default function Games() {
       <div class='col-span-1 bg-slate-400 text-center w-full'>
         <SideBarDashBoard/>
       </div>
-      <div class='col-span-5 bg-gray-200 items-center relative'>
+      <div class='col-span-5 items-center relative' style={{backgroundImage: `url('https://www.xtrafondos.com/descargar.php?id=4047&resolucion=3840x2400')`, backgroundSize: 'cover'}}>
         <div class='mx-[30px] mt-[20px] bg-white mb-[20px] p-[10px] rounded flex items-center'>
           <Link to='/DashBoard'><img class='w-[50px]' src={logo}  alt="" /></Link>
         <h1 class='font-bold ml-[10px] text-[25px]'>DashBoard Games</h1>
