@@ -69,7 +69,6 @@ const pagination = pagesNumber =>{
     dispatch(FilterCompany(e.target.value))
     setOrder(`ordenado ${e.target.value}`)
   }
-
   
   return (
     <div className="w-full h-100vh " style={{backgroundImage: `url('https://www.xtrafondos.com/descargar.php?id=4047&resolucion=3840x2400')`, backgroundSize: 'cover'}}>
