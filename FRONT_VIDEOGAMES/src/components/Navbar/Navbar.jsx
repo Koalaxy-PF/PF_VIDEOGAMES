@@ -62,7 +62,7 @@ export default function NavBar(){
 
     return(
         <div className="">
-          <div class="flex item-center justify-between bg-slate-100 py-3 px-2">
+          <div class="flex item-center justify-between bg-slate-100 py-3 px-2 bg-white">
 
             <div class="flex item-center text-black  ">
               <Link to= "/"><img  class= "z-10   h-12  item-center text-black text-center" src={`${koala}`}/> </Link>

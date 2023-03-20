@@ -1,21 +1,29 @@
-import React from "react";
+import React , {useEffect} from "react";
 import profile from '../../assets/dashboard/profile.png';
 import hogwarts from '../../assets/dashboard/hogwarts.jpg';
 import logo from '../../assets/icons/koalaLogo.png'
 import SideBarDashBoard from "./sideBarDashboard";
 import CardsDashBoard from "./ContainerCardDashBoard";
-import { useSelector } from "react-redux";
+import { useSelector , useDispatch } from "react-redux";
 import GamesDashBoard from "./Games/ContainerGamesDashBoard";
+import { GetUsers } from "../../redux/actions/actions";
 
 
 export default function Dashboard() {
   const allGames = useSelector((state) => state.GamesCopy);
+  const allUsers = useSelector((state)=> state.users)
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(GetUsers());
+  }, [dispatch]); 
+
   return (
     <div class='grid grid-cols-6 min-h-screen overflow-y-hidden'>
       <div class='col-span-1 bg-slate-400 text-center w-full'>
         <SideBarDashBoard/>
       </div>
-      <div class='col-span-5 bg-gray-200 items-center relative'>
+      <div class='col-span-5 items-center relative' style={{backgroundImage: `url('https://www.xtrafondos.com/descargar.php?id=4047&resolucion=3840x2400')`, backgroundSize: 'cover'}}>
         <div class='mx-[30px] mt-[20px] bg-white mb-[20px] p-[10px] rounded flex items-center'>
           <img class='w-[50px]' src={logo} alt="" />
         <h1 class='font-bold ml-[10px] text-[25px]'>DashBoard Admin</h1>
