@@ -66,13 +66,13 @@ export default function Support() {
 
         <div className="flex min-height-full justify-center item-center">
           <div className="hidden lg:block relative h-full flex-1">
-            <img class=" w-[950px] h-[730px] " src={img} alt="" />
+            <img class=" w-[1050px] h-[730px] " src={img} alt="" />
           </div>
 
           <div className="justify-center flex-1 flex flex-col py-10 px-0 sm:px-8 lg:px-20 sm:py-9 md:py-9  xl:px-24">
             <div class="text-center lg:text-left flex justify-center">
               <img class="h-14 w-[55px]  m-auto lg:m-0" src={logo} alt="" />
-              <h2 class="mt-6 text-3xl font-extrabold text-gray-900">
+              <h2 class="mt-6 text-3xl font-extrabold text-white">
                 Contact Us
               </h2>
             </div>
