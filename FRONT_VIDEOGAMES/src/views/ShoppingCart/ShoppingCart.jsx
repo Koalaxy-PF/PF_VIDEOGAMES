@@ -118,12 +118,12 @@ export default function ShoppingCart(){
                                                         </td>
 
                                                         <td>
-                                                            <h2 className="mt-6 text-xl font-extrabold text-white">  ${e.priceProduct}</h2>  
+                                                            <h2 className="mt-6 text-xl font-extrabold text-white">  ${e.price}</h2>  
                                                         </td>
 
                                                         <ty>
                                                         <button onClick={() => DeleteProduct(e.id) }>
-                                                         <img  class= " z-10  my-auto h-9 text-center "src = {Trash}/>
+                                                         <img  class= " z-10  my-auto h-9 mt-8 text-center "src = {Trash}/>
                                                         </button>
                                                         </ty>
                                                     </tr>
