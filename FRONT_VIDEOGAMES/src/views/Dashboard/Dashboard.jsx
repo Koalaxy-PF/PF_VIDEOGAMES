@@ -17,6 +17,7 @@ export default function Dashboard() {
 
   useEffect(() => {
     dispatch(GetUsers());
+    
   }, [dispatch]); 
 
   return (

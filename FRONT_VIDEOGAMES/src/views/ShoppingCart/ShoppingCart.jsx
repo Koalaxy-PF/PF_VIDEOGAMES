@@ -77,7 +77,7 @@ export default function ShoppingCart(){
                     <NavBar/>
                 </div>
 
-                <div className="flex  bg-gray-100  " style={{backgroundImage: `url('https://www.xtrafondos.com/descargar.php?id=4047&resolucion=3840x2400')`, backgroundSize: 'cover'}}>
+                <div className="flex  w-full" style={{backgroundImage: `url('https://www.xtrafondos.com/descargar.php?id=4047&resolucion=3840x2400')`, backgroundSize: 'cover'}}>
 
                     <div className='flex min-h-[calc(100vh-5rem)]'>
                     <Sidebar/>
@@ -118,12 +118,12 @@ export default function ShoppingCart(){
                                                         </td>
 
                                                         <td>
-                                                            <h2 className="mt-6 text-xl font-extrabold text-white">  ${e.priceProduct}</h2>  
+                                                            <h2 className="mt-6 text-xl font-extrabold text-white">  ${e.price}</h2>  
                                                         </td>
 
                                                         <ty>
                                                         <button onClick={() => DeleteProduct(e.id) }>
-                                                         <img  class= " z-10  my-auto h-9 text-center "src = {Trash}/>
+                                                         <img  class= " z-10  my-auto h-9 mt-8 text-center "src = {Trash}/>
                                                         </button>
                                                         </ty>
                                                     </tr>
