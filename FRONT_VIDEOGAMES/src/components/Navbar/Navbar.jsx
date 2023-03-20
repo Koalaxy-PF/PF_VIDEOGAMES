@@ -58,6 +58,7 @@ export default function NavBar(){
 
   const handleLogOut = () => {
     dispatch(LogOut());
+    navigate('/Home')
   }
 
 
