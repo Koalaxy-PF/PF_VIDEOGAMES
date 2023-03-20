@@ -23,7 +23,8 @@ import {
   POST_SUPPORT,
   PUT_PRODUCT_DASH,
   GET_USERS,
-  LOGOUT
+  LOGOUT,
+  GET_ORDER_ID
 } from "../actions/actions";
 
 const initialState = {
@@ -38,6 +39,7 @@ const initialState = {
   WishList: [],
   dataSupport: {},
   library: [],
+  order: [],
 };
 
 function rootReducer(state = initialState, action) {
@@ -309,6 +311,15 @@ function rootReducer(state = initialState, action) {
         ...state,
         dataSupport: action.payload,
       };
+
+      case GET_ORDER_ID:
+
+      console.log("datos:", action.payload);
+
+      return {
+        ...state,
+        order: action.payload,
+      }
      
 
     default: {

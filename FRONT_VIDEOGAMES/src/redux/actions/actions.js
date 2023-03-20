@@ -242,11 +242,6 @@ export function DeleteProductCart(idProduct){
         return axios.delete(`http://localhost:3000/cart/delete/?productCardId=${idProduct}`)
       }
     }
-    
-    export function DeleteProductCartLocalStorage(idProduct){
-      return async function(dispatch){
-      }
-    }
 
 export function PutProductDash(idProduct){
   return async function(dispatch){
@@ -354,7 +349,11 @@ export function DeleteProductCartLocalStorage(idProduct){
 
     export function GetOrderByID(id){
       return async function(dispatch){
-        let data = axios.get()
+        let json = await axios.get(`http://localhost:3000/orderDetail/${id}`)
+        dispatch({
+          type: GET_ORDER_ID,
+          payload: json.data,
+        })
       }
     }
     
