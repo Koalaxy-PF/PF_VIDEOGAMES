@@ -77,7 +77,7 @@ export default function ShoppingCart(){
                     <NavBar/>
                 </div>
 
-                <div className="flex  bg-gray-100  " style={{backgroundImage: `url('https://www.xtrafondos.com/descargar.php?id=4047&resolucion=3840x2400')`, backgroundSize: 'cover'}}>
+                <div className="flex  w-full" style={{backgroundImage: `url('https://www.xtrafondos.com/descargar.php?id=4047&resolucion=3840x2400')`, backgroundSize: 'cover'}}>
 
                     <div className='flex min-h-[calc(100vh-5rem)]'>
                     <Sidebar/>
