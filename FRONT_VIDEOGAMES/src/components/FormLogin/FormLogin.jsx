@@ -43,9 +43,9 @@ export default function LoginForm(){
         
 
     return(
-        <div class='min-height-full flex bg-gray-200 justify-center' style={{backgroundImage: `url('https://www.xtrafondos.com/descargar.php?id=4047&resolucion=3840x2400')`, backgroundSize: 'cover'}} >
+        <div class='min-height-full flex bg-gray-200 justify-center' >
             <div class='hidden lg:block relative h-full'>
-                <img class='w-[750px] object-cover' src={koala} alt="" />
+                <img class='w-[810px] object-cover' src={koala} alt="" />
             </div>
             <div class='flex flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 mx-auto xl:px-24'>
                 <div class='mx-auto w-full max-w-sm lg:max-w-lg lg:w-[100rem] justify-center'>
