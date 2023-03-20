@@ -4,6 +4,7 @@ import heart from "../../assets/icons/corazon.png"
 import trolley from "../../assets/icons/carrito-de-compras.png"
 import user from "../../assets/icons/usuario.png"
 import koala from "../../assets/logo/logo.png"
+import koalaWhite from '../../assets/logo/LogoBco.png'
 import { BsFillMoonFill, BsFillSunFill, BsFillDisplayFill } from "react-icons/bs";
 import { useEffect } from "react";
 import { useSelector } from "react-redux"
@@ -62,20 +63,22 @@ export default function NavBar(){
 
     return(
         <div className="">
-          <div class="flex item-center justify-between bg-slate-100 py-3 px-2 bg-white">
+          <div class="flex item-center justify-between bg-slate-100 py-3 px-2 dark:bg-[#17202A]">
 
-            <div class="flex item-center text-black  ">
-              <Link to= "/"><img  class= "z-10   h-12  item-center text-black text-center" src={`${koala}`}/> </Link>
+            <div class="flex item-center text-black">
+              <Link to= "/Home">
+                <img  class= "h-12 item-center text-center" src={theme === "dark" ? `${koalaWhite}` : `${koala}` }/> 
+              </Link>
             </div>
 
-            <ul className={`bg-white  justify-between  item-center right-0  flex  pl-9`}>
+            <ul className={`  justify-between  item-center right-0  flex  pl-9`}>
 
-            <div className="bg-gray-300  duration-100 pl-2 rounded-full">
+            <div className="bg-gray-300 dark:text-[#17202A] duration-100 pl-2 rounded-full mr-1">
                 {
                   iconComponents?.map((element) => {
                     return (
                     <button onClick={() => setTheme(element.text)} key={element.text} 
-                            className={`w-8 h-8  text-gray-500 text-xl  m-1 rounded-full mt-2 ${theme === element.text && "text-gray-900"}`}>
+                            className={`w-8 h-8 text-gray-900 text-xl m-1 rounded-full mt-2 ${theme === element.text && "text-amber-400"}`}>
                       {element.icon}
                     </button>
                     )
@@ -88,15 +91,15 @@ export default function NavBar(){
                 {
                   Object.keys(User).length === 0 ?
                   <Link to= "/login">
-                    <a class="block lg:inline-block lg:mt-0 mr-3">
+                    <a class="block lg:inline-block lg:mt-0 mr-1">
                       <img className="w-8 h-8 mt-2 ml-2 rounded-full" src = {user} />
                     </a>
                   </Link>
 
                   :
 
-                  <Link to= "/login">
-                    <a className="blck lg:inline-block lg:mt-0 mr-3">
+                  <Link to= "/Profile">
+                    <a className="blck lg:inline-block lg:mt-0 mr-1">
                       <img className="w-8 h-8 mt-2 ml-2 rounded-full" src = {User.user.img} />
                     </a>
                   </Link>                  
