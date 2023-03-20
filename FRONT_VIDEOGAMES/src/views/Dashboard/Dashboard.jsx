@@ -1,15 +1,23 @@
-import React from "react";
+import React , {useEffect} from "react";
 import profile from '../../assets/dashboard/profile.png';
 import hogwarts from '../../assets/dashboard/hogwarts.jpg';
 import logo from '../../assets/icons/koalaLogo.png'
 import SideBarDashBoard from "./sideBarDashboard";
 import CardsDashBoard from "./ContainerCardDashBoard";
-import { useSelector } from "react-redux";
+import { useSelector , useDispatch } from "react-redux";
 import GamesDashBoard from "./Games/ContainerGamesDashBoard";
+import { GetUsers } from "../../redux/actions/actions";
 
 
 export default function Dashboard() {
   const allGames = useSelector((state) => state.GamesCopy);
+  const allUsers = useSelector((state)=> state.users)
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(GetUsers());
+  }, [dispatch]); 
+
   return (
     <div class='grid grid-cols-6 min-h-screen overflow-y-hidden'>
       <div class='col-span-1 bg-slate-400 text-center w-full'>
