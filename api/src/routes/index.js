@@ -6,6 +6,7 @@ const postGenres = require("./genreRoutes/post");
 const deleteGenres = require("./genreRoutes/delete");
 
 const getCompany = require("./companyRoutes/get");
+const postCompany = require("./companyRoutes/post");
 
 const getProducts = require("./productRoutes/get");
 const postProducts = require("./productRoutes/post");
@@ -34,10 +35,26 @@ const cancelPayment = require("./paypal/cancelPayment");
 const payment = require("./mercadopago/payment");
 const payOrderM = require("./mercadopago/payOrder");
 
+
 const libraryget = require("./libraryRoutes/get");
+
 
 const postContactus = require("./contactus/post.js");
 const getContactus = require("./contactus/get.js");
+=======
+const postReview = require('./reviewRoutes/post');
+const getReview = require('./reviewRoutes/get');
+const updateReview = require('./reviewRoutes/put');
+const deleteReview = require('./reviewRoutes/delete');
+
+const postContactus = require("./contactus/post.js")
+const getContactus = require('./contactus/get.js')
+
+
+const getallOrders = require('./orderRoutes/getAll.js')
+const getOrderById = require('./orderRoutes/getById.js')
+const getOrderByUsername = require('./orderRoutes/getByUsername')
+const getOrdersByEmail = require('./orderRoutes/getByEmail')
 
 /* *************************  routes GENRES   **************************************** */
 router.use("/genres", getGenres);
@@ -47,11 +64,12 @@ router.use("/genres", deleteGenres);
 /*************************************  routes Company ******************************************** */
 
 router.use("/company", getCompany);
+router.use("/company", postCompany);
 
 /* *************************  routes PRODUCTS   **************************************** */
 router.use("/products", getProducts);
 router.use("/products", postProducts);
-router.use("/products", putProducts);
+router.use("/products/update", putProducts);
 router.use("/products", deleteProducts);
 
 /* *************************  routes USER   **************************************** */
@@ -81,11 +99,33 @@ router.use("/cart", getCart);
 router.use("/cart/addProduct", addProduct);
 router.use("/cart/delete", deleteCart);
 
+
 /* *************************  routes LIBRARY   **************************************** */
 router.use("/library", libraryget);
+/* *************************  routes REVIEWS   **************************************** */
+router.use("/reviews", postReview);
+router.use("/reviews", getReview);
+router.use("/reviews", updateReview);
+router.use("/reviews/delete", deleteReview);
+
+
+
+
 
 /* *************************  routes CONTACTUS   **************************************** */
 router.use("/contactus", getContactus);
+
 router.use("/contactus", postContactus);
+=======
+router.use("/contactus", postContactus)
+
+/* *************************  routes ORDERS   **************************************** */
+router.use("/orderDetail", getallOrders)
+router.use("/orderDetail", getOrderById)
+router.use('/orderDetail', getOrderByUsername)
+router.use('/orderDetail', getOrdersByEmail)
+
+
+
 
 module.exports = router;

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 //import {Link} from "react-router-dom";
 import { edadValidator } from "./validators";
-import img from '../../assets/login/koala_login.jpg'
+import img from '../../assets/login/koala_login3.png'
 import logo from '../../assets/icons/koalaLogo.png';
 import Footer from "../../components/Footer/Footer";
 import { Register } from "../../redux/actions/actions";
@@ -42,7 +42,6 @@ export default function CreateUser(){
 
   const { register, formState: { errors }, watch, handleSubmit } = useForm({
     defaultValues: {
-        img: 'https://i.pinimg.com/736x/0c/4f/72/0c4f72fe65bb7bd9db63ce5021c1371a.jpg',
         is_banned: false,
         description: ""
     }
@@ -137,7 +136,7 @@ export default function CreateUser(){
         <NavBar/>
       </div>
 
-      <div className="flex min-height-full  item-center bg-gray-200 ">
+      <div className="flex min-height-full  item-center bg-gray-200 " style={{backgroundImage: `url('https://www.xtrafondos.com/descargar.php?id=4047&resolucion=3840x2400')`, backgroundSize: 'cover'}}>
 
         <div className='flex min-h-[calc(100vh-5rem)]'>
         <Sidebar/>
@@ -147,14 +146,14 @@ export default function CreateUser(){
 
 
             <div className="hidden lg:block relative h-full'">
-              <img class='w-[750px] object-cover' src={img} alt="" /> 
+              <img class='w-[750px] object-cover border-white p-0' src={img} alt="" /> 
             </div>
 
-            <div className="justify-center flex-1 flex flex-col py-10 px-0 sm:px-8 lg:px-20 sm:py-9 md:py-9  xl:px-24" >
+            <div className="justify-center flex-1 flex flex-col py-10 px-0 sm:px-8 lg:px-20 sm:py-9 md:py-9  xl:px-24 " >
 
                 <div class='text-center lg:text-left flex justify-center'>
                   <img class='h-12 w-auto m-auto lg:m-0' src={logo} alt="" />
-                  <h2 class='mt-6 text-3xl font-extrabold text-gray-900'>Create User</h2>
+                  <h2 class='mt-6 text-3xl font-extrabold text-gray-900 text-white'>Create User</h2>
                 </div>
               
                 <div class='mt-6'>
@@ -165,16 +164,16 @@ export default function CreateUser(){
 
 
                       <div >
-                        <label class='block text-sm font-medium text-gray-600 mt-2 lg:mt-0'>Username: </label>
+                        <label class='block text-base text-gray-600 mt-2 lg:mt-0 text-white font-extrabold'>Username: </label>
                         <input  class='mt-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'  placeholder='Username'  
                           type="text" {...register('username' , {
                           required: true,
-                          maxLength: 50,
+                          maxLength: 10,
                           minLength: 3
                           })} />
-                            {errors.username?.type === 'required' && <p class='text-red-600'> the user name is required</p>}
-                            {errors.username?.type === 'maxLength' && <p class='text-red-600'>the maximum capacity of characters allowed is 50</p>}
-                            {errors.username?.type === 'minLength' && <p class='text-red-600'>the minimum capacity of characters allowed is 3</p>}
+                            {errors.username?.type === 'required' && <p class='text-red-600 text-base font-extrabold'> the user name is required</p>}
+                            {errors.username?.type === 'maxLength' && <p class='text-red-600 text-base font-extrabold'>the maximum capacity of characters allowed is 10</p>}
+                            {errors.username?.type === 'minLength' && <p class='text-red-600 text-base font-extrabold'>the minimum capacity of characters allowed is 3</p>}
                       </div>
 
                       {/* <div class='flex justify-center'>
@@ -182,17 +181,17 @@ export default function CreateUser(){
                       </div> */}
 
                       <div >
-                      <label class='block text-sm font-medium text-gray-600 mt-2 lg:mt-0'>Email</label>
+                      <label class='block text-base font-extrabold text-gray-600 mt-2 lg:mt-0 text-white'>Email</label>
                             <input type="text" class='mt-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'  placeholder='Email'  {...register('email', {
                                 pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/i,
                                 required: true,
                                 maxLength: 50,
                                 minLength: 3
                             })} />
-                            {errors.email?.type === 'pattern' && <p class='text-red-600'>The email format is incorrect</p>}
-                            {errors.email?.type === 'required' && <p class='text-red-600'> the email is required</p>}
-                            {errors.email?.type === 'maxLength' && <p class='text-red-600'>the maximum capacity of characters allowed is 50</p>}
-                            {errors.email?.type === 'minLength' && <p class='text-red-600'>wrong email</p>}
+                            {errors.email?.type === 'pattern' && <p class='text-red-500 text-base font-extrabold'>The email format is incorrect</p>}
+                            {errors.email?.type === 'required' && <p class='text-red-500 text-base font-extrabold'> the email is required</p>}
+                            {errors.email?.type === 'maxLength' && <p class='text-red-500 text-base font-extrabold'>the maximum capacity of characters allowed is 50</p>}
+                            {errors.email?.type === 'minLength' && <p class='text-red-500 text-base font-extrabold' >wrong email</p>}
                       </div>
 
                       {/* <div class='flex justify-center'>
@@ -200,11 +199,11 @@ export default function CreateUser(){
                       </div> */}
 
                       <div >
-                      <label class='text-black '>Name</label>
+                      <label class='text-white text-base font-extrabold'>Name</label>
                             <input type="text" class='mt-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' placeholder='Name' {...register('name', {
                                 required: true
                             })} />
-                            {errors.name?.type === 'required' && <p class='text-red-600'> the Name is required</p>}
+                            {errors.name?.type === 'required' && <p class='text-red-500 text-base font-extrabold'> the Name is required</p>}
                       </div>
 
                       {/* <div class='flex justify-center'>
@@ -212,13 +211,13 @@ export default function CreateUser(){
                       </div> */}
 
                       <div>
-                        <label class='block text-sm font-medium text-gray-600 mt-2 lg:mt-0'> Last name: </label>
+                        <label class='block text-base font-extrabold mt-2 lg:mt-0 text-white'> Last name: </label>
                         <input  class='mt-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' placeholder='Last name'
                       
                           type="text"  {...register('last_name', {
                             required: true,
                         })} />
-                        {errors.last_name?.type === 'required' && <p class='text-red-600' >the last name is required</p>}
+                        {errors.last_name?.type === 'required' && <p class='text-red-500 text-base font-extrabold' >the last name is required</p>}
                       </div>
                   {/* 
                       <div class='flex justify-center'>
@@ -226,7 +225,7 @@ export default function CreateUser(){
                       </div> */}
 
                       <div >
-                        <label class='block text-sm font-medium text-gray-600 mt-2 lg:mt-0'>Password: </label>
+                        <label class='block text-base font-extrabold text-gray-500 mt-2 lg:mt-0 text-white '>Password: </label>
 
                           <div className="  flex item-center justify-between flex-wrap bg-white mt-2 shadow appearance-none  p-4 rounded w-full py-2 px-3 text-gray-700 leading-tight ">
                               <input  placeholder='Password ' className="  focus:outline-none"
@@ -239,10 +238,10 @@ export default function CreateUser(){
                         })} />
                           <a class="block lg:inline-block lg:mt-0 " onClick={() => setShowPwd(!showPwd)}> <img  class= " z-6 inset-y-0 my-auto h-6 active:bg-gray-600 active:rounded-full"src = {seePassaword}/> </a>
                         </div>
-                        {errors.password?.type === 'required' && <p class='text-red-600'>the passaword is required</p>}
-                        {errors.password?.type === 'pattern' && <p class='text-red-600'>the password at least one digit, at least one lower case and at least one upper case.</p>}
-                        {errors.password?.type === 'maxLength' && <p class='text-red-600'>must have a maximum of 16 characters</p>}
-                        {errors.password?.type === 'minLength' && <p class='text-red-600'>must contain at least 8 characters</p>}
+                        {errors.password?.type === 'required' && <p class='text-red-500 text-base font-extrabold'>the passaword is required</p>}
+                        {errors.password?.type === 'pattern' && <p class='text-red-500 text-base font-extrabold'>the password at least one digit, at least one lower case and at least one upper case.</p>}
+                        {errors.password?.type === 'maxLength' && <p class='text-red-500 text-base font-extrabold'>must have a maximum of 16 characters</p>}
+                        {errors.password?.type === 'minLength' && <p class='text-red-500 text-base font-extrabold'>must contain at least 8 characters</p>}
 
                       </div>
 
@@ -252,25 +251,25 @@ export default function CreateUser(){
 
 
                       <div >
-                        <label class='block text-sm font-medium text-gray-600 mt-2 lg:mt-0'>Image: </label>
+                        <label class='block text-base font-extrabold  mt-2 lg:mt-0 text-white'>Image: </label>
                         <input  class='mt-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' placeholder='img'
                       
-                          type="text"
-
-                        />
-                      
+                          type="text"  {...register('img', {
+                            required: true,
+                        })} />
+                        {errors.img?.type === 'required' && <p class='text-red-500 text-base font-extrabold' >the img is required</p>}
                       </div>
 
                       <div >
-                        <label class='block text-sm font-medium text-gray-600 mt-2 lg:mt-0'>Date: </label>
+                        <label class='block text-base font-extrabold text-gray-500 mt-2 lg:mt-0 text-white'>Date: </label>
                         <input  class='mt-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' placeholder='date'
                       
                           type="date" {...register('date', {
                             required: true,
                             validate: edadValidator
                         })} />
-                        {errors.date?.type === 'required' && <p class='text-red-600'> the date is required</p>}
-                        {errors.date && <p class='text-red-600'>You have to be over 14 years old to register</p>}
+                        {errors.date?.type === 'required' && <p class='text-red-500 text-base font-extrabold'> the date is required</p>}
+                        {errors.date && <p class='text-red-500 text-base font-extrabold'>You have to be over 14 years old to register</p>}
                       </div>
 
                       {/* <div class='flex justify-center'>
@@ -280,7 +279,7 @@ export default function CreateUser(){
   
 
                       <div >
-                        <label class='block text-sm font-medium text-gray-600 mt-2 lg:mt-0'>Genre</label>
+                        <label class='block text-base font-extrabold mt-2 lg:mt-0 text-white'>Genre</label>
 
                         <select name="genre" class='mt-2 shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' {...register('genre', {
 
@@ -294,7 +293,7 @@ export default function CreateUser(){
                             }
                     
                           </select>
-                          {errors.genre?.type === 'required' && <p class='text-red-600'> the genre is required</p>}
+                          {errors.genre?.type === 'required' && <p class='text-red-500 text-base font-extrabold'> the genre is required</p>}
                       </div>
 
 

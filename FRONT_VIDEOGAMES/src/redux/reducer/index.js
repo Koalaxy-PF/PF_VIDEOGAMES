@@ -1,3 +1,4 @@
+import { Action } from "@remix-run/router";
 import {
   GET_GAMES,
   POST_GAME,
@@ -20,6 +21,10 @@ import {
   GET_ALL_CART_LOCAL_STORAGE,
   DELETE_PRODUCT_CART_LOCAL_STORAGE,
   POST_SUPPORT,
+  PUT_PRODUCT_DASH,
+  GET_USERS,
+  LOGOUT,
+  GET_ORDER_ID
 } from "../actions/actions";
 
 const initialState = {
@@ -30,8 +35,11 @@ const initialState = {
   Companies: [],
   details: [],
   user: {},
+  users:[],
   WishList: [],
   dataSupport: {},
+  library: [],
+  order: [],
 };
 
 function rootReducer(state = initialState, action) {
@@ -60,6 +68,12 @@ function rootReducer(state = initialState, action) {
         ...state,
         AllCart: action.payload,
       };
+
+      case GET_USERS:
+        return{
+          ...state,
+          users: action.payload,
+        };
 
     case GET_ALL_CART_LOCAL_STORAGE:
       if (!window.localStorage.getItem("carrito-ls")) {
@@ -281,12 +295,31 @@ function rootReducer(state = initialState, action) {
         ...state,
         WishList: action.payload,
       };
+      
+    case LOGOUT:
+
+      window.localStorage.removeItem("info-token");
+
+      return{
+        ...state,
+        user: [],
+      };
+
 
     case POST_SUPPORT:
       return {
         ...state,
         dataSupport: action.payload,
       };
+
+      case GET_ORDER_ID:
+
+      console.log("datos:", action.payload);
+
+      return {
+        ...state,
+        order: action.payload,
+      }
      
 
     default: {

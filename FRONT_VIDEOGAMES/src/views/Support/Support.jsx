@@ -1,4 +1,4 @@
-import { useDispatch} from "react-redux";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { postSupport, postSupport_OK } from "../../redux/actions/actions";
@@ -12,63 +12,65 @@ import Sidebar from "../../components/SideBar/Sidebar";
 export default function Support() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const {register, formState:{errors}, handleSubmit, dataSupport}= useForm({
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+    dataSupport,
+  } = useForm({
     defaultValues: {
-      name:"",
+      name: "",
       email: "",
-      description: ""
-  }
-});
+      description: "",
+    },
+  });
 
- 
-
- 
   const onSubmit = (data) => {
-    dispatch(postSupport(data)).then((response) => {
+    dispatch(postSupport(data))
+      .then((response) => {
         dispatch(postSupport_OK(response.data)).then(() => {
-        Swal.fire({
-          title: "¡Thank you for contacting us!",
-          text: response.data.message,
-          icon: "success",
-          confirmButtonColor: "#3085d6",
-          confirmButtonText: "Continue",
-        }).then((result) => {
-          if (result.isConfirmed) {
-            navigate("/Home");
-            console.log(result)
-          }})})
-        }).catch((err) => {
           Swal.fire({
-            tittle: '¡Ops! There is a problem',
-            text: err.response.data.message,
-            icon: "error",
-            confirmButtonText: "Continue"
-          })
-        })
-}
-
-    
+            title: "¡Thank you for contacting us!",
+            text: response.data.message,
+            icon: "success",
+            confirmButtonColor: "#3085d6",
+            confirmButtonText: "Continue",
+          }).then((result) => {
+            if (result.isConfirmed) {
+              navigate("/Home");
+              console.log(result);
+            }
+          });
+        });
+      })
+      .catch((err) => {
+        Swal.fire({
+          tittle: "¡Ops! There is a problem",
+          text: err.response.data.message,
+          icon: "error",
+          confirmButtonText: "Continue",
+        });
+      });
+  };
 
   return (
-    <div className="h-full">
+    <div className="h-full" >
       <div>
         <NavBar />
       </div>
 
-      <div className="flex min-height-full  item-center bg-gray-200 ">
+      <div className="flex min-height-full  item-center bg-gray-200 " style={{backgroundImage: `url('https://www.xtrafondos.com/descargar.php?id=4047&resolucion=3840x2400')`, backgroundSize: 'cover'}}>
         <div className="flex min-h-[calc(100vh-5rem)]">
           <Sidebar />
         </div>
 
-        <div className="flex min-height-full justify-center item-center">
-          <div className="hidden lg:block relative h-full flex-1">
-            <img class=" w-[750px] h-[730px] " src={img} alt="" />
-          </div>
+        <div className="flex flex-col justify-center item-center  w-full h-full w-full">
 
-          <div className="justify-center flex-1 flex flex-col py-10 px-0 sm:px-8 lg:px-20 sm:py-9 md:py-9  xl:px-24">
+
+          <div className="flex flex-col justify-center item-center h-full w-[650px] p-40 sm:px-0 lg:flex-none lg:px-0 mx-auto ">
             <div class="text-center lg:text-left flex justify-center">
               <img class="h-14 w-[55px]  m-auto lg:m-0" src={logo} alt="" />
-              <h2 class="mt-6 text-3xl font-extrabold text-gray-900">
+              <h2 class="mt-6 text-3xl font-extrabold text-gray-900 text-white">
                 Contact Us
               </h2>
             </div>
@@ -79,12 +81,12 @@ export default function Support() {
                   <div></div>
                 </div>
 
-                {/* <div class='flex justify-center'>
-                      {error.email && <span >{error.email}</span>}
-                      </div> */}
+             
 
                 <div>
-                  <label class="text-black ">Name</label>
+                  <label class="block text-sm font-extrabold text-white mt-2 lg:mt-0 ">
+                    Name
+                  </label>
                   <input
                     type="text"
                     class="mt-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -94,15 +96,13 @@ export default function Support() {
                     })}
                   />
                   {errors.name?.type === "required" && (
-                    <p class="text-red-600"> the Name is required</p>
+                    <p class="text-red-500 font-extrabold"> the Name is required</p>
                   )}
                 </div>
 
-                {/* <div class='flex justify-center'>
-                      {error.name && <span >{error.name}</span>}
-                      </div> */}
+              
                 <div>
-                  <label class="block text-sm font-medium text-gray-600 mt-2 lg:mt-0">
+                  <label class="block text-sm  font-extrabold mt-2 lg:mt-0 text-white">
                     Email
                   </label>
                   <input
@@ -117,33 +117,25 @@ export default function Support() {
                     })}
                   />
                   {errors.email?.type === "pattern" && (
-                    <p class="text-red-600">The email format is incorrect</p>
+                    <p class="text-red-500 font-extrabold">The email format is incorrect</p>
                   )}
                   {errors.email?.type === "required" && (
-                    <p class="text-red-600"> the email is required</p>
+                    <p class="text-red-500 font-extrabold"> the email is required</p>
                   )}
                   {errors.email?.type === "maxLength" && (
-                    <p class="text-red-600">
+                    <p class="text-red-500 font-extrabold">
                       the maximum capacity of characters allowed is 50
                     </p>
                   )}
                   {errors.email?.type === "minLength" && (
-                    <p class="text-red-600">wrong email</p>
+                    <p class="text-red-500 font-extrabold">wrong email</p>
                   )}
                 </div>
 
-                <div>
-                  {/*   <label class='block text-sm font-medium text-gray-600 mt-2 lg:mt-0'> Last name: </label>
-                        <input  class='mt-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' placeholder='Last name'
-                      
-                          type="text"  {...register('last_name', {
-                            required: true,
-                        })} />
-                        {errors.last_name?.type === 'required' && <p class='text-red-600' >the last name is required</p>} */}
-                </div>
+                <div></div>
 
                 <div>
-                  <label class="block text-sm font-medium text-gray-600 mt-2 lg:mt-0">
+                  <label class="block text-sm font-extrabold text-white mt-2 lg:mt-0">
                     Description:{" "}
                   </label>
                   <textarea
@@ -155,7 +147,7 @@ export default function Support() {
                     })}
                   />
                   {errors.description?.type === "required" && (
-                    <p class="text-red-600"> the description is required</p>
+                    <p class="text-red-500 font-extrabold"> the description is required</p>
                   )}
                 </div>
 

@@ -9,10 +9,10 @@ export default function Login(){
             <div>
                <NavBar/> 
             </div>
-            <div class='flex min-height-full  item-center bg-gray-200'>
+            <div class='flex min-height-full  item-center 'style={{backgroundImage: `url('https://www.xtrafondos.com/descargar.php?id=4047&resolucion=3840x2400')`, backgroundSize: 'cover'}} >
             <div className='flex min-h-[calc(100vh-5rem)]'>
                <Sidebar/>
-            </div>
+            </div >
                 <LoginForm/>
             </div>
             <div>
