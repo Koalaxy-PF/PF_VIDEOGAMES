@@ -67,7 +67,7 @@ export default function Support() {
         <div className="flex flex-col justify-center item-center  w-full h-full w-full">
 
 
-          <div className="flex flex-col justify-center h-full w-[850px] p-40 px-40 sm:px-0 lg:flex-none lg:px-0 mx-auto xl:px-24">
+          <div className="flex flex-col justify-center item-center h-full w-[650px] p-40 sm:px-0 lg:flex-none lg:px-0 mx-auto ">
             <div class="text-center lg:text-left flex justify-center">
               <img class="h-14 w-[55px]  m-auto lg:m-0" src={logo} alt="" />
               <h2 class="mt-6 text-3xl font-extrabold text-gray-900 text-white">
