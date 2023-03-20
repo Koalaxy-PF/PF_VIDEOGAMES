@@ -7,6 +7,7 @@ import CardsDashBoard from "./ContainerCardDashBoard";
 import { useSelector , useDispatch } from "react-redux";
 import GamesDashBoard from "./Games/ContainerGamesDashBoard";
 import { GetUsers } from "../../redux/actions/actions";
+import { Link } from "react-router-dom";
 
 
 export default function Dashboard() {
@@ -40,7 +41,7 @@ export default function Dashboard() {
           <CardsDashBoard/>
         </div>
         <div>
-          <button class='py-[10px] px-[10px] mt-[20px] rounded border-blue-900 border-[1px]'>See all the games</button>
+          <Link to='/Games'><button class='py-[10px] px-[10px] mt-[20px] rounded border-blue-900 border-[1px]'>See all the games</button></Link>
         </div>
       </div>
 

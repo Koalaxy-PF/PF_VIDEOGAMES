@@ -4,7 +4,7 @@ import SideBarDashBoard from "../sideBarDashboard";
 import logo from '../../../assets/icons/koalaLogo.png';
 import { Link } from "react-router-dom";
 import SearchBar from "../../../components/SearchBar/SearchBar";
-import Delete from "../Delete";
+
 
 
 
@@ -26,13 +26,9 @@ export default function Games() {
         <span class='text-[30px] relative top-[2px] text-blue-700'><ion-icon name="add-circle"></ion-icon></span>
         <p class='ml-[2px] font-bold'>Create new game</p>
         </div></Link>
-        <Link to='/UpdateGame'><div class='flex items-center relative left-[190px]'>
-        <span class='text-[30px] relative top-[2px] text-blue-700'><ion-icon name="add-circle"></ion-icon></span>
-        <p class='ml-[2px] font-bold'>Update game</p>
-        </div></Link>
         </div>
         <div class='text-center'>
-        <Delete/>
+        <GamesDashBoard/>
       </div>
       </div>
     </div>
