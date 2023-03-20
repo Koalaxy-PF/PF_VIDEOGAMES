@@ -4,6 +4,7 @@ import SideBarDashBoard from "../sideBarDashboard";
 import logo from '../../../assets/icons/koalaLogo.png';
 import { Link } from "react-router-dom";
 import SearchBar from "../../../components/SearchBar/SearchBar";
+import Delete from "../Delete";
 
 
 
@@ -31,7 +32,7 @@ export default function Games() {
         </div></Link>
         </div>
         <div class='text-center'>
-        <GamesDashBoard/>
+        <Delete/>
       </div>
       </div>
     </div>

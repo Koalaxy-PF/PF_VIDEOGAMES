@@ -334,3 +334,21 @@ export function postInCartLocalStorage(obj){
         })
       }
     }
+
+    export const deleteGame = (idGame) => {
+      try {
+          return async () => {
+              let info = await axios.delete(`http://localhost:3000/products/${idGame}`);
+              return info;
+          }
+      } catch (error) {
+          console.log(error);
+      }
+  
+  };
+
+  export function DeleteGame(idGame){
+    return async function(dispatch){
+        return axios.delete(`http://localhost:3000/products/${idGame}`)
+    }
+}

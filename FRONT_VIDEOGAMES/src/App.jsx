@@ -19,6 +19,7 @@ import Library from "./views/Library/Library"
 import Support from "./views/Support/Support"
 import Games from "./views/Dashboard/Games/Games"
 import DashBoardUser from "./views/Dashboard/DashBoardUser"
+import Delete from "./views/Dashboard/Delete"
 
 export default function App(){
 
@@ -51,6 +52,7 @@ export default function App(){
         <Route exact path="/Support" element={<Support/>} />
         <Route exact path="/Games" element={<Games/>} />
         <Route exact path="/Dashboard/users" element={<DashBoardUser/>} />
+        <Route exact path="/Delete" element={<Delete/>} />
       </Routes>
     </div>
   );
