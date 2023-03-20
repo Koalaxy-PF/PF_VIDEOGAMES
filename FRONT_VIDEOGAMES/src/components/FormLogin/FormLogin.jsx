@@ -43,7 +43,7 @@ export default function LoginForm(){
         
 
     return(
-        <div class='min-height-full flex bg-gray-200 justify-center' >
+        <div class='min-height-full flex  justify-center'style={{backgroundImage: `url('https://www.xtrafondos.com/descargar.php?id=4047&resolucion=3840x2400')`, backgroundSize: 'cover'}} >
             <div class='hidden lg:block relative h-full'>
                 <img class='w-[810px] object-cover' src={koala} alt="" />
             </div>
