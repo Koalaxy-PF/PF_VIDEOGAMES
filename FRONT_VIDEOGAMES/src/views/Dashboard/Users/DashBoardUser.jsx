@@ -1,9 +1,9 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import SideBarDashBoard from "./sideBarDashboard";
+import SideBarDashBoard from "../sideBarDashboard";
 import CardUserDashBoard from "./CardUserDashBoard";
-import {GetUsers} from "../../redux/actions/actions"
-import logo from '../../assets/icons/koalaLogo.png'
+import {GetUsers} from "../../../redux/actions/actions";
+import logo from '../../../assets/icons/koalaLogo.png'
 
 
 export default function DashBoardUser(){

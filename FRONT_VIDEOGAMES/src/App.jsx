@@ -18,7 +18,7 @@ import Dashboard from "./views/Dashboard/Dashboard"
 import Library from "./views/Library/Library"
 import Support from "./views/Support/Support"
 import Games from "./views/Dashboard/Games/Games"
-import DashBoardUser from "./views/Dashboard/DashBoardUser"
+import DashBoardUser from "./views/Dashboard/Users/DashBoardUser"
 
 export default function App(){
 
