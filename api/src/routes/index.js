@@ -42,10 +42,13 @@ const getReview = require('./reviewRoutes/get');
 const updateReview = require('./reviewRoutes/put');
 const deleteReview = require('./reviewRoutes/delete');
 
-
-
 const postContactus = require("./contactus/post.js")
 const getContactus = require('./contactus/get.js')
+
+const getallOrders = require('./orderRoutes/getAll.js')
+const getOrderById = require('./orderRoutes/getById.js')
+const getOrderByUsername = require('./orderRoutes/getByUsername')
+const getOrdersByEmail = require('./orderRoutes/getByEmail')
 
 /* *************************  routes GENRES   **************************************** */
 router.use("/genres", getGenres);
@@ -105,6 +108,14 @@ router.use("/reviews/delete", deleteReview);
 /* *************************  routes CONTACTUS   **************************************** */
 router.use("/contactus", getContactus);
 router.use("/contactus", postContactus)
+
+/* *************************  routes ORDERS   **************************************** */
+router.use("/orderDetail", getallOrders)
+router.use("/orderDetail", getOrderById)
+router.use('/orderDetail', getOrderByUsername)
+router.use('/orderDetail', getOrdersByEmail)
+
+
 
 
 module.exports = router;
