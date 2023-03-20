@@ -1,9 +1,9 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import SideBarDashBoard from "./sideBarDashboard";
+import SideBarDashBoard from "../sideBarDashboard";
 import CardUserDashBoard from "./CardUserDashBoard";
-import {GetUsers} from "../../redux/actions/actions"
-import logo from '../../assets/icons/koalaLogo.png'
+import {GetUsers} from "../../../redux/actions/actions";
+import logo from '../../../assets/icons/koalaLogo.png'
 
 
 export default function DashBoardUser(){
@@ -17,7 +17,7 @@ export default function DashBoardUser(){
         <SideBarDashBoard/>
     </div>
 
-    <div class='col-span-5 bg-gray-200 items-center relative'>
+    <div class='col-span-5  items-center relative' style={{backgroundImage: `url('https://www.xtrafondos.com/descargar.php?id=4047&resolucion=3840x2400')`, backgroundSize: 'cover'}}>
 
         <div class='mx-[30px] mt-[20px] bg-white mb-[20px] p-[10px] rounded flex items-center'>
             <img class='w-[50px]' src={logo} alt="" />
@@ -32,7 +32,7 @@ export default function DashBoardUser(){
             <h1 class='relative right-[48px] font-bold text-[20px]'>Users</h1>
             <span class='relative left-[60px]'>{allUsers.length}</span>
             </div>
-            <div class='flex text-left bg-white items-center justify-around py-[10px] mt-[10px] flex-wrap w-[500px]'>
+            <div class='flex text-left bg-white items-center justify-around py-[10px] mt-[10px] flex-wrap w-[900px]'>
             <CardUserDashBoard/>
             </div>
             <div>

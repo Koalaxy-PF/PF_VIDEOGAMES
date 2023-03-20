@@ -1,7 +1,7 @@
 import React, { useEffect , useState} from "react";
 import { Fragment } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {GetUsers } from "../../redux/actions/actions";
+import {GetUsers } from "../../../redux/actions/actions";
 import CardUserDashBoard from "./CardUserDashBoard";
 
 
