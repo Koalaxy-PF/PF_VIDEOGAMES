@@ -17,6 +17,7 @@ import Dashboard from "./views/Dashboard/Dashboard"
 import Library from "./views/Library/Library"
 import Support from "./views/Support/Support"
 import Games from "./views/Dashboard/Games/Games"
+import Profile from "./views/Profile/Profile"
 
 export default function App(){
 
@@ -47,6 +48,7 @@ export default function App(){
         <Route exact path="/Library" element={<Library />} />
         <Route exact path="/Support" element={<Support/>} />
         <Route exact path="/Games" element={<Games/>} />
+        <Route exact path="/Profile" element={<Profile/>} />
       </Routes>
     </div>
   );

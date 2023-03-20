@@ -95,7 +95,7 @@ export default function NavBar(){
 
                   :
 
-                  <Link to= "/login">
+                  <Link to= "/Profile">
                     <a className="blck lg:inline-block lg:mt-0 mr-3">
                       <img className="w-8 h-8 mt-2 ml-2 rounded-full" src = {User.user.img} />
                     </a>
