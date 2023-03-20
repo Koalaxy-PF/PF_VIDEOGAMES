@@ -81,7 +81,7 @@ const pagination = pagesNumber =>{
 
           <div class="block mt-4 lg:inline-block lg:mt-0 mr-4  ">
             <select
-              className="px-3 bg-[#1cecf4] text-white py-3 rounded-xl border-2 border-white text-xl text-center hover:bg-transparent hover:text-black"
+              className="px-3 bg-gray-300 text-black py-3 rounded-xl border-2 border-white text-xl text-center  "
               onChange={(e) => handleFilterTidy(e)}
             >
               <option selected hidden>
@@ -94,7 +94,7 @@ const pagination = pagesNumber =>{
 
           <div class="block mt-4 lg:inline-block lg:mt-0 mr-4">
             <select
-              className="px-3 bg-[#1cecf4] text-white py-3  rounded-xl border-2 border-white text-xl text-center hover:bg-transparent hover:text-black"
+              className="px-3 bg-gray-300 text-black py-3  rounded-xl border-2 border-white text-xl text-center "
               onChange={(e) => handleFilterTidyPrice(e)}
             >
               <option selected hidden>
@@ -107,7 +107,7 @@ const pagination = pagesNumber =>{
 
           <div className="block mt-4 lg:inline-block lg:mt-0 mr-4">
             <select
-              className="px-3 bg-[#1cecf4] text-white py-3 rounded-xl border-2 border-white text-center text-xl hover:bg-transparent hover:text-black"
+              className="px-3 bg-gray-300 text-black py-3 rounded-xl border-2 border-white text-center text-xl "
               onChange={HandlerFilterTypeFerGenres}
             >
               <option selected hidden value="all">
@@ -123,7 +123,7 @@ const pagination = pagesNumber =>{
 
           <div className="block mt-4 lg:inline-block lg:mt-0 mr-4">
             <select
-              className="px-3 bg-[#1cecf4] text-white py-3 rounded-xl border-2 border-white text-center text-xl hover:bg-transparent hover:text-black"
+              className="px-3 bg-gray-300 text-black py-3 rounded-xl border-2 border-white text-center text-xl "
               onChange={HandlerFilterTypeFerCompany}
             >
               <option selected hidden value="all">
@@ -139,7 +139,7 @@ const pagination = pagesNumber =>{
 
           <div class="block mt-4 lg:inline-block lg:mt-0 mr-4">
             <select
-              className="px-3 bg-[#1cecf4] text-white py-3 rounded-xl border-2 border-white text-xl text-center hover:bg-transparent hover:text-black"
+              className="px-3 bg-gray-300 text-black py-3 rounded-xl border-2 border-white text-xl text-center "
               onChange={(e) => handleFilterTidyReleased(e)}
             >
               <option selected hidden>
@@ -149,7 +149,7 @@ const pagination = pagesNumber =>{
               <option value="descendente"> oldest</option>
             </select>
           </div>
-          <button onClick={e => {handleClick(e)}} className="px-3 bg-[#1cecf4] text-white py-3  rounded-xl border-2 border-white text-xl text-center hover:bg-transparent hover:text-black">Clear Filters</button>
+          <button onClick={e => {handleClick(e)}} className="px-3 bg-gray-300 text-black py-3  rounded-xl border-2 border-white text-xl text-center hover:bg-transparent hover:text-white">Clear Filters</button>
         </div>
 
         

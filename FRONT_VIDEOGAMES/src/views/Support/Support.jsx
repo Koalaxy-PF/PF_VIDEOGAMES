@@ -64,15 +64,13 @@ export default function Support() {
           <Sidebar />
         </div>
 
-        <div className="flex min-height-full justify-center item-center">
-          <div className="hidden lg:block relative h-full flex-1">
-            <img class=" w-[1050px] h-[730px] " src={img} alt="" />
-          </div>
+        <div className="flex flex-col justify-center item-center  w-full h-full w-full">
 
-          <div className="justify-center flex-1 flex flex-col py-10 px-0 sm:px-8 lg:px-20 sm:py-9 md:py-9  xl:px-24">
+
+          <div className="flex flex-col justify-center item-center h-full w-[650px] p-40 sm:px-0 lg:flex-none lg:px-0 mx-auto ">
             <div class="text-center lg:text-left flex justify-center">
               <img class="h-14 w-[55px]  m-auto lg:m-0" src={logo} alt="" />
-              <h2 class="mt-6 text-3xl font-extrabold text-white">
+              <h2 class="mt-6 text-3xl font-extrabold text-gray-900 text-white">
                 Contact Us
               </h2>
             </div>
@@ -86,7 +84,7 @@ export default function Support() {
              
 
                 <div>
-                  <label class="block text-sm font-medium text-gray-600 mt-2 lg:mt-0">
+                  <label class="block text-sm font-extrabold text-white mt-2 lg:mt-0 ">
                     Name
                   </label>
                   <input
@@ -98,13 +96,13 @@ export default function Support() {
                     })}
                   />
                   {errors.name?.type === "required" && (
-                    <p class="text-red-600"> the Name is required</p>
+                    <p class="text-red-500 font-extrabold"> the Name is required</p>
                   )}
                 </div>
 
               
                 <div>
-                  <label class="block text-sm font-medium text-gray-600 mt-2 lg:mt-0">
+                  <label class="block text-sm  font-extrabold mt-2 lg:mt-0 text-white">
                     Email
                   </label>
                   <input
@@ -119,25 +117,25 @@ export default function Support() {
                     })}
                   />
                   {errors.email?.type === "pattern" && (
-                    <p class="text-red-600">The email format is incorrect</p>
+                    <p class="text-red-500 font-extrabold">The email format is incorrect</p>
                   )}
                   {errors.email?.type === "required" && (
-                    <p class="text-red-600"> the email is required</p>
+                    <p class="text-red-500 font-extrabold"> the email is required</p>
                   )}
                   {errors.email?.type === "maxLength" && (
-                    <p class="text-red-600">
+                    <p class="text-red-500 font-extrabold">
                       the maximum capacity of characters allowed is 50
                     </p>
                   )}
                   {errors.email?.type === "minLength" && (
-                    <p class="text-red-600">wrong email</p>
+                    <p class="text-red-500 font-extrabold">wrong email</p>
                   )}
                 </div>
 
                 <div></div>
 
                 <div>
-                  <label class="block text-sm font-medium text-gray-600 mt-2 lg:mt-0">
+                  <label class="block text-sm font-extrabold text-white mt-2 lg:mt-0">
                     Description:{" "}
                   </label>
                   <textarea
@@ -149,7 +147,7 @@ export default function Support() {
                     })}
                   />
                   {errors.description?.type === "required" && (
-                    <p class="text-red-600"> the description is required</p>
+                    <p class="text-red-500 font-extrabold"> the description is required</p>
                   )}
                 </div>
 
