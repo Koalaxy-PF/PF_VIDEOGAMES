@@ -18,6 +18,7 @@ const loginUser = require("./authRoutes/login");
 const getUsers = require("./userRoutes/get");
 const updateUser = require("./userRoutes/put");
 const deleteUser = require("./userRoutes/delete");
+const changeIsAdmin = require("./userRoutes/changeAdmin")
 
 const getCart = require("./cartsRoutes/get");
 const addProduct = require("./cartsRoutes/post");
@@ -74,6 +75,7 @@ router.use("/auth", loginUser);
 router.use("/users", getUsers);
 router.use("/users", updateUser);
 router.use("/users", deleteUser);
+router.use("/users/isadmin", changeIsAdmin)
 
 /* *************************  routes PAYPAL   **************************************** */
 router.use("/order", order);
