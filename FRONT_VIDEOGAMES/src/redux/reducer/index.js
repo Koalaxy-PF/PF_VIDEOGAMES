@@ -25,13 +25,8 @@ import {
   GET_USERS,
   LOGOUT,
   GET_ORDER_ID,
-<<<<<<< HEAD
   UPDATE_GAME,
   GET_DETAIL
-=======
-  GET_REVIEWS,
-  ADD_REVIEW,
->>>>>>> 43ac23bdf9479a5fd8802c3b5a209de9c210fc01
 } from "../actions/actions";
 
 const initialState = {
