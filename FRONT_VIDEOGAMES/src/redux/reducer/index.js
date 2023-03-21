@@ -26,6 +26,7 @@ import {
   LOGOUT,
   GET_ORDER_ID,
   GET_REVIEWS,
+  ADD_REVIEW,
 } from "../actions/actions";
 
 const initialState = {
@@ -40,6 +41,7 @@ const initialState = {
   WishList: [],
   dataSupport: {},
   library: [],
+  Reviews: [],
 };
 
 function rootReducer(state = initialState, action) {
@@ -311,7 +313,12 @@ function rootReducer(state = initialState, action) {
         ...state,
         dataSupport: action.payload,
       };
-     
+
+    case GET_REVIEWS:
+      return {
+        ...state,
+        Reviews: action.payload,
+      }
 
     default: {
       return state;
