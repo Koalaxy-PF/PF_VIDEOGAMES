@@ -15,6 +15,7 @@ const deleteProducts = require("./productRoutes/delete");
 
 const registerUser = require("./authRoutes/register");
 const loginUser = require("./authRoutes/login");
+const loginGithub = require("./authRoutes/loginGithub");
 const resetPassword = require("./authRoutes/resetPassword");
 const getUsers = require("./userRoutes/get");
 const updateUser = require("./userRoutes/put");
@@ -50,8 +51,7 @@ const getReview = require('./reviewRoutes/get');
 const updateReview = require('./reviewRoutes/put');
 const deleteReview = require('./reviewRoutes/delete');
 
-const postContactus = require("./contactus/post.js")
-const getContactus = require('./contactus/get.js')
+
 
 
 const getallOrders = require('./orderRoutes/getAll.js')
@@ -78,6 +78,7 @@ router.use("/products", deleteProducts);
 /* *************************  routes USER   **************************************** */
 router.use("/auth", registerUser);
 router.use("/auth", loginUser);
+router.use("/auth", loginGithub);
 router.use("/auth", resetPassword);
 router.use("/users", getUsers);
 router.use("/users", updateUser);
