@@ -18,13 +18,12 @@ router.get("/", async (req, res) => {
           },
         },
       });
-      console.log(response);
 
       const productName = response.map((product) => {
         return {
           img: product.img,
           name: product.name,
-          genre:  product.genre,
+          genre: product.genre,
           MinRequirements: product.MinRequirements,
           RecommendRequirements: product.RecommendRequirements,
           calification: product.calification,
