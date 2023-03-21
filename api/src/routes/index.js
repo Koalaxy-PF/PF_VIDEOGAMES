@@ -42,15 +42,12 @@ const payOrderM = require("./mercadopago/payOrder");
 const libraryget = require("./libraryRoutes/get");
 
 
-const postContactus = require("./contactus/post.js");
-const getContactus = require("./contactus/get.js");
-
 const postReview = require('./reviewRoutes/post');
 const getReview = require('./reviewRoutes/get');
 const updateReview = require('./reviewRoutes/put');
 const deleteReview = require('./reviewRoutes/delete');
 
-const postContactus = require('./contactus/post.js');
+const postContactus = require("./contactus/post.js")
 const getContactus = require('./contactus/get.js')
 
 
@@ -125,7 +122,6 @@ router.use("/contactus", getContactus);
 
 router.use("/contactus", postContactus);
 
-router.use("/contactus", postContactus)
 
 /* *************************  routes ORDERS   **************************************** */
 router.use("/orderDetail", getallOrders)

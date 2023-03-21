@@ -1,6 +1,9 @@
 import React ,{useEffect}from "react";
 import { useSelector, useDispatch } from "react-redux";
-import {GetUsers} from "../../../redux/actions/actions";
+import Swal from "sweetalert2";
+import {GetUsers , DeleteUserDashBoard} from "../../../redux/actions/actions";
+import Delete from "../../../assets/icons/delete.png"
+
 
 export default function CardUserDashBoard(){
 
@@ -11,6 +14,20 @@ export default function CardUserDashBoard(){
     useEffect(() => {
         dispatch(GetUsers());
       }, [dispatch]); 
+
+    const DeleteUser = (id) =>{
+
+        dispatch(DeleteUserDashBoard( users.id)).then((resp) => {
+            Swal.fire({
+                icon: 'sucess',
+                title: resp.data.message,
+                text: 'El usuario se eliminó!',
+        })
+        })
+    }
+
+   
+
 
     return(
         <div>
@@ -35,6 +52,11 @@ export default function CardUserDashBoard(){
                         <div class='w-[200px] bg-white'>
                         <h5 class='mr-[100px] text-[15px] w-[200px] font-bold'>{e.username}</h5>
                         </div>
+
+                        <button className="item-center justify-between flex" onClick={() => DeleteUser(e.id) }>
+                        <img  class= " z-10  my-auto h-9 mt-8 text-center item-center justify-center"src = {Delete}/>
+                        </button>
+                
 
                     </div> 
 
