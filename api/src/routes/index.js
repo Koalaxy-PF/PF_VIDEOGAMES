@@ -51,9 +51,6 @@ const getReview = require('./reviewRoutes/get');
 const updateReview = require('./reviewRoutes/put');
 const deleteReview = require('./reviewRoutes/delete');
 
-
-
-
 const getallOrders = require('./orderRoutes/getAll.js')
 const getOrderById = require('./orderRoutes/getById.js')
 const getOrderByUsername = require('./orderRoutes/getByUsername')
