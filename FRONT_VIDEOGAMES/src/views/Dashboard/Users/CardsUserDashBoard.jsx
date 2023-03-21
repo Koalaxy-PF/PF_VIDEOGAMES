@@ -1,7 +1,7 @@
 import React ,{useEffect}from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Swal from "sweetalert2";
-import {GetUsers , DeleteUserDashBoard, PutUserAdminDashBoard, PutUserBanDashBoard} from "../../../redux/actions/actions";
+import {GetUsers , DeleteUserDashBoard, PutUserAdminDashBoard, PutUserBanDashBoard, CleanUsers} from "../../../redux/actions/actions";
 //importo las imagenes de Assets
 import Delete from "../../../assets/icons/delete.png"
 import Admin from "../../../assets/icons/admin.png"
@@ -16,7 +16,8 @@ export default function CardUserDashBoard(){
 
     useEffect(() => {
         dispatch(GetUsers());
-      }, []); 
+        dispatch(CleanUsers())
+      }, [dispatch]); 
 
     const DeleteUser = (id) =>{
 

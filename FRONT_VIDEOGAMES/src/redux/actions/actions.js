@@ -19,7 +19,8 @@ export const POST_WISH_LIST = "POST_WISH_LIST";
 export const POST_SUPPORT = "POST_SUPPORT";
 export const UPDATE_GAME = 'UPDATE_GAME';
 export const GET_DETAIL = 'GET_DETAIL'
-
+export const GET_REVIEWS = "GET_REVIEWS";
+export const ADD_REVIEW = "ADD_REVIEW";
 // RUTAS PARA LA AUTENTICACIÓN
 
 export const REGISTER_SUCESS = "REGISTER_SUCESS";
@@ -45,6 +46,8 @@ export const GET_USERS = "GET_USERS"
 // DASHBOARD
 
 export const PUT_PRODUCT_DASH = "PUT_PRODUCT_DASH"
+
+export const CLEAN_USERS = "CLEAN_USERS"
 
 // ACCIONES PARA LA AUTENTICACIÓN
 
@@ -415,6 +418,14 @@ export function DeleteProductCartLocalStorage(idProduct){
           return axios.put(`http://localhost:3000/users/ban/${idUser}`)
       }
     }
+
+    export function CleanUsers(){
+
+      return{
+          type: CLEAN_USERS,
+          payload: []
+      }
+  }
 
     // ÓRDENES DE PAGO
 
