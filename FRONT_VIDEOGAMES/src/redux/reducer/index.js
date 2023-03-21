@@ -25,8 +25,13 @@ import {
   GET_USERS,
   LOGOUT,
   GET_ORDER_ID,
+<<<<<<< HEAD
   UPDATE_GAME,
   GET_DETAIL
+=======
+  GET_REVIEWS,
+  ADD_REVIEW,
+>>>>>>> 43ac23bdf9479a5fd8802c3b5a209de9c210fc01
 } from "../actions/actions";
 
 const initialState = {
@@ -41,7 +46,7 @@ const initialState = {
   WishList: [],
   dataSupport: {},
   library: [],
-  order: [],
+  Reviews: [],
 };
 
 function rootReducer(state = initialState, action) {
@@ -325,15 +330,16 @@ function rootReducer(state = initialState, action) {
         dataSupport: action.payload,
       };
 
-      case GET_ORDER_ID:
-
-      console.log("datos:", action.payload);
-
+    case GET_REVIEWS:
       return {
         ...state,
-        order: action.payload,
+        Reviews: action.payload,
       }
-     
+    
+    case ADD_REVIEW:
+      return {
+        ...state,
+      }
 
     default: {
       return state;
