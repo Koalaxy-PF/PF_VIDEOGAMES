@@ -45,7 +45,7 @@ export default function ShoppingCart(){
           dispatch(getInCart(User.user.id));
       }
 
-        const DeleteProduct = (id) => {
+        const DeleteProduct = (id, name) => {
 
             if(window.localStorage.getItem('info-token')){
                 dispatch(DeleteProductCart(id, User.user.id)).then((resp) => {
@@ -64,7 +64,7 @@ export default function ShoppingCart(){
             }
 
             else{
-                dispatch(DeleteProductCartLocalStorage(id)).then(() => {
+                dispatch(DeleteProductCartLocalStorage(name)).then(() => {
                     dispatch(setAllCart());
                 })
             }
@@ -122,7 +122,7 @@ export default function ShoppingCart(){
                                                         </td>
 
                                                         <ty>
-                                                        <button onClick={() => DeleteProduct(e.id) }>
+                                                        <button onClick={() => DeleteProduct(e.id, e.name) }>
                                                          <img  class= " z-10  my-auto h-9 mt-8 text-center "src = {Trash}/>
                                                         </button>
                                                         </ty>

@@ -96,7 +96,7 @@ function rootReducer(state = initialState, action) {
       const carrito = JSON.parse(window.localStorage.getItem("carrito-ls"));
 
       for (let i = 0; i < carrito.productcarts.length; i++) {
-        if (action.payload === carrito.productcarts[i].id) {
+        if (action.payload === carrito.productcarts[i].name) {
           carrito.total = carrito.total - carrito.productcarts[i].price;
           carrito.productcarts.splice(i, 1);
           i--;

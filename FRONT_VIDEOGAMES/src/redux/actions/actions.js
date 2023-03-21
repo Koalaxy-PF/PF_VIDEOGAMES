@@ -249,11 +249,11 @@ export function PutProductDash(idProduct){
   }
 }
 
-export function DeleteProductCartLocalStorage(idProduct){
+export function DeleteProductCartLocalStorage(NameProduct){
     return async function(dispatch){
         dispatch({
           type: DELETE_PRODUCT_CART_LOCAL_STORAGE,
-          payload: idProduct,
+          payload: NameProduct,
         })
       }
     }
