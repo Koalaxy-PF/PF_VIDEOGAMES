@@ -19,6 +19,7 @@ const resetPassword = require("./authRoutes/resetPassword");
 const getUsers = require("./userRoutes/get");
 const updateUser = require("./userRoutes/put");
 const deleteUser = require("./userRoutes/delete");
+const changeIsAdmin = require("./userRoutes/changeAdmin")
 
 const getCart = require("./cartsRoutes/get");
 const addProduct = require("./cartsRoutes/post");
@@ -41,7 +42,7 @@ const libraryget = require("./libraryRoutes/get");
 
 const postContactus = require("./contactus/post.js");
 const getContactus = require("./contactus/get.js");
-=======
+
 const postReview = require('./reviewRoutes/post');
 const getReview = require('./reviewRoutes/get');
 const updateReview = require('./reviewRoutes/put');
@@ -79,6 +80,7 @@ router.use("/auth", resetPassword);
 router.use("/users", getUsers);
 router.use("/users", updateUser);
 router.use("/users", deleteUser);
+router.use("/users/isadmin", changeIsAdmin)
 
 /* *************************  routes PAYPAL   **************************************** */
 router.use("/order", order);
@@ -116,7 +118,7 @@ router.use("/reviews/delete", deleteReview);
 router.use("/contactus", getContactus);
 
 router.use("/contactus", postContactus);
-=======
+
 router.use("/contactus", postContactus)
 
 /* *************************  routes ORDERS   **************************************** */
