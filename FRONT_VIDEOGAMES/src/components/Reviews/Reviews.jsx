@@ -34,7 +34,7 @@ export default function Reviews({id}){
             userId: User.user.id
         })
     }
-    },[])
+    },[dispatch])
 
     const handleClick = (e) => {
         setReview({

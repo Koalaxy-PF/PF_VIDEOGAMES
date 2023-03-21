@@ -319,6 +319,11 @@ function rootReducer(state = initialState, action) {
         ...state,
         Reviews: action.payload,
       }
+    
+    case ADD_REVIEW:
+      return {
+        ...state,
+      }
 
     default: {
       return state;
