@@ -17,14 +17,10 @@ export const GET_GAME = "GET_GAME";
 export const GET_WISH_LIST = "GET_WISH_LIST";
 export const POST_WISH_LIST = "POST_WISH_LIST";
 export const POST_SUPPORT = "POST_SUPPORT";
-<<<<<<< HEAD
 export const UPDATE_GAME = 'UPDATE_GAME';
 export const GET_DETAIL = 'GET_DETAIL'
-=======
 export const GET_REVIEWS = "GET_REVIEWS";
 export const ADD_REVIEW = "ADD_REVIEW";
->>>>>>> 43ac23bdf9479a5fd8802c3b5a209de9c210fc01
-
 // RUTAS PARA LA AUTENTICACIÓN
 
 export const REGISTER_SUCESS = "REGISTER_SUCESS";
@@ -50,6 +46,8 @@ export const GET_USERS = "GET_USERS"
 // DASHBOARD
 
 export const PUT_PRODUCT_DASH = "PUT_PRODUCT_DASH"
+
+export const CLEAN_USERS = "CLEAN_USERS"
 
 // ACCIONES PARA LA AUTENTICACIÓN
 
@@ -401,11 +399,33 @@ export function DeleteProductCartLocalStorage(idProduct){
       }
     }
 
+    ///DashBoard Users
+
     export function DeleteUserDashBoard(idUser){
       return async function(dispatch){
-            return axios.delete(`http://localhost:3000/users/?id=${idUser}`)
+            return axios.delete(`http://localhost:3000/users/${idUser}`)
           }
     }
+
+    export function PutUserAdminDashBoard(idUser){
+      return async function(dispatch){
+          return axios.put(`http://localhost:3000/users/isadmin/${idUser}`)
+      }
+    }
+
+    export function PutUserBanDashBoard(idUser){
+      return async function(dispatch){
+          return axios.put(`http://localhost:3000/users/ban/${idUser}`)
+      }
+    }
+
+    export function CleanUsers(){
+
+      return{
+          type: CLEAN_USERS,
+          payload: []
+      }
+  }
 
     // ÓRDENES DE PAGO
 
