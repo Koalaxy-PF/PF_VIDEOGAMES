@@ -4,9 +4,10 @@ import { useParams } from "react-router-dom";
 import Footer from "../../components/Footer/Footer";
 import NavBar from "../../components/Navbar/Navbar";
 import Sidebar from "../../components/SideBar/Sidebar";
-import { Clean, GetGameById, PostWishList } from "../../redux/actions/actions";
+import { Clean, GetGameById, GetReviews, PostWishList } from "../../redux/actions/actions";
 import FavIcon from "../../assets/icons/corazon.png"
 import CartIcon from "../../assets/icons/carrito-de-compras.png"
+import Reviews from "../../components/Reviews/Reviews";
 
 const Details = () => {
     
@@ -15,10 +16,11 @@ const Details = () => {
     const dispatch = useDispatch();
     const vgDetail = useSelector((state) => state.details);
 
+    console.log(vgDetail, 'detail');
+
     function addWishList(e){
         PostWishList(id)
       }
-
     useEffect(() => {
         dispatch(GetGameById(id))
         return () => {
@@ -39,11 +41,12 @@ const Details = () => {
             {
                 
                 vgDetail ? 
-                <div className='flex flex-row bg-gray-100 w-screen h-full justify-start'>
+                <div>
+                <div className='flex flex-row bg-gray-100 w-screen  justify-start'>
                     <div className="w-1/2 h-250">
                         <img className='w-4/5 m-10 rounded-md shadow-md' src={vgDetail.img} alt="img not found" ></img>
                     </div>
-                    <div className="flex items-start w-1/2 h-250 flex-col flex-nowrap justify-start m-10">    
+                    <div className="flex items-start w-1/2 h-[340px] flex-col flex-nowrap justify-start m-10">    
                         <div className='flex flex-col justify-start bg-white rounded-md shadow-md w-5/6 h-full'>
                             <div className="m-5">
                                 <h1 className='text-4xl font-extrabold text-gray-900 ml-0 ' > {vgDetail.name} </h1>
@@ -106,21 +109,19 @@ const Details = () => {
                                 
                             </div>
                         </div>
-                    {/* <div className=" ">
-                        <h1 className="flex flex-col flex-wrap ml-0 text-3xl">Normal Price:  ${vgDetail.price} </h1>
-                        {
-                            vgDetail.discount > 0 ? <h1>Discount: {vgDetail.discount}% <h1>Discount Price: {vgDetail.price - (vgDetail.price * vgDetail.discount/100)} </h1></h1>
-                            : <div></div>
-                        }
-                        <h1> Stock: {vgDetail.stock} </h1>
-                        <h1 className="font-semibold">Requeriments:  </h1>
-                        <p> {vgDetail.MinRequirements} </p>
-                        <p> {vgDetail.RecommendRequirements} </p>
-
-
-                    </div> */}
+                    
                     </div>
-                </div> : 
+                    
+                </div>
+                <div className="bg-gray-100">
+                    <h1 className="text-gray-900 ml-5" >Reviews</h1>
+                    <Reviews
+                    id={id}
+                    />
+                </div>
+                
+                </div>
+                : 
                     <div>
                         <h1>Loading</h1>
                     </div>
