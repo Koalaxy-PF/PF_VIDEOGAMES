@@ -8,11 +8,13 @@ import Footer from "../../components/Footer/Footer";
 import Swal from "sweetalert2";
 import Trash from "../../assets/icons/trashCan.png"
 import Error from '../../assets/Error/Cart/EmptyCart.png'
+import { useState } from "react";
 
 export default function ShoppingCart(){
 
     const allCart = useSelector((state) => state.AllCart);
     const User = useSelector((state) => state.user);
+    const [paymentMethod, setPaymentMethod] = useState('');
     const dispatch = useDispatch();
     
     useEffect(() => {
@@ -29,20 +31,52 @@ export default function ShoppingCart(){
         
     }, []); 
 
-    const handleClick = (e, id) => {
+    const handleClick = (e) => {
 
         e.preventDefault();
 
-        // LÓGICA PARA CONDICIONAR SI SE VA POR PAYPAL O MERCADOPAGO.
-        
-        dispatch(PostPaypal(id)).then((response) => {
-            window.open(response.data.links[1].href, '_blank')
-        })
-          .catch((error) => {
-            // manejar errores
-          });
+        // EL USUARIO NO ESTÁ VALIDADO, NO PUEDE COMPRAR.
 
-          dispatch(getInCart(User.user.id));
+        if(Object.keys(User).length === 0){
+            return Swal.fire({
+                icon: 'error',
+                title: 'Something went wrong!',
+                text: 'You have to log in to buy',
+            })
+        }
+
+        else{
+
+            if(paymentMethod === ""){
+                return Swal.fire({
+                    icon: 'warning',
+                    title: 'Something went wrong!',
+                    text: 'Please select a payment method',
+                })
+            }
+            
+            // LÓGICA PARA CONDICIONAR SI SE VA POR PAYPAL O MERCADOPAGO.
+
+            if(paymentMethod === "Mercado Pago"){
+                return Swal.fire({
+                    icon: 'error',
+                    title: 'Something went wrong!',
+                    text: 'En proceso!',
+                })
+            }
+
+            if(paymentMethod === "PayPal"){
+                dispatch(PostPaypal(User.user.id)).then((response) => {
+                    window.open(response.data.links[1].href, '_blank')
+                })
+                  .catch((error) => {
+                    // manejar errores
+                  });
+        
+                  dispatch(getInCart(User.user.id));
+            }
+
+        }        
       }
 
         const DeleteProduct = (id, name) => {
@@ -153,14 +187,17 @@ export default function ShoppingCart(){
                             <h1 className="mt-6 text-3xl font-extrabold text-white" >Total: {allCart.total} </h1>
                         }
 
-                            <select className="px-3 mt-8 bg-green-400 text-white py-3 rounded-xl border-2 border-white text-xl text-center hover:bg-transparent hover:text-black">
-                                <option selected hidden > Payment method </option>
-                                <option>PayPal</option>
-                                <option>Mercado Pago</option>
-                            </select>
+                        <select
+                            className="px-3 mt-8 bg-gray-400 text-black py-3 rounded-xl border-2 border-white text-xl text-center"
+                            onChange={(e) => setPaymentMethod(e.target.value)} value={paymentMethod}>
+                            
+                            <option selected hidden > Payment method </option>
+                            <option>PayPal</option>
+                            <option>Mercado Pago</option>
+                        </select>
 
-                            <button className="px-3 mt-4 bg-green-600 text-white py-3 rounded-xl border-2 border-white text-xl text-center hover:bg-transparent hover:text-black"
-                                onClick={(e) => handleClick(e, User.user.id)}>Buy</button>
+                            <button className="px-3 mt-4 bg-gray-400 text-black py-3 rounded-xl border-2 border-white text-xl text-center"
+                                onClick={(e) => handleClick(e)}>Buy</button>
                          </div>
 
                             {/* Marina */}

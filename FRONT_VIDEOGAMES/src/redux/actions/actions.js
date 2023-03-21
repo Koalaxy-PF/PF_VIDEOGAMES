@@ -37,8 +37,11 @@ export const DELETE_PRODUCT_CART_LOCAL_STORAGE = 'DELETE_PRODUCT_CART_LOCAL_STOR
 // RUTAS PARA LAS ORDENES DE PAGO
 
 export const GET_ORDER_ID = 'GET_ORDER_ID'
-
 export const GET_USERS = "GET_USERS"
+
+// RUTA PARA OBTENER LA LIBRERÍA
+
+export const GET_PRODUCTS_LIBRARY = 'GET_PRODUCTS_LIBRARY'
 
 // DASHBOARD
 
@@ -362,6 +365,18 @@ export function DeleteProductCartLocalStorage(NameProduct){
     export function ResetPassword(email){
       return async function(){
         return await axios.put('http://localhost:3000/auth/resetPassword', email)
+      }
+    }
+
+    // TRAER LOS PRODUCTOS DE LA BIBLIOTECA
+
+    export function GetProductsLibrary(id){
+      return async function(dispatch){
+        let json = await axios.get(`http://localhost:3000/orderDetail/${id}`);
+        dispatch({
+          type: GET_PRODUCTS_LIBRARY,
+          payload: json.data,
+        })
       }
     }
     

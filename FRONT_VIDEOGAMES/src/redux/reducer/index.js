@@ -24,7 +24,8 @@ import {
   PUT_PRODUCT_DASH,
   GET_USERS,
   LOGOUT,
-  GET_ORDER_ID
+  GET_ORDER_ID,
+  GET_PRODUCTS_LIBRARY
 } from "../actions/actions";
 
 const initialState = {
@@ -44,6 +45,7 @@ const initialState = {
 
 function rootReducer(state = initialState, action) {
   switch (action.type) {
+
     // - - - AUTENTICACIÓN - - -
 
     case LOGIN_SUCESS:
@@ -319,6 +321,13 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         order: action.payload,
+      }
+
+      case GET_PRODUCTS_LIBRARY:
+
+      return {
+        ...state,
+        library: action.payload,
       }
      
 
