@@ -401,6 +401,12 @@ export function DeleteProductCartLocalStorage(idProduct){
       }
     }
 
+    export function DeleteUserDashBoard(idUser){
+      return async function(dispatch){
+            return axios.delete(`http://localhost:3000/users/?id=${idUser}`)
+          }
+    }
+
     // ÓRDENES DE PAGO
 
     export function GetOrderByID(id){

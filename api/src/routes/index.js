@@ -42,6 +42,7 @@ const payOrderM = require("./mercadopago/payOrder");
 const libraryget = require("./libraryRoutes/get");
 
 
+<<<<<<< HEAD
 
 const postContactus = require("./contactus/post.js");
 const getContactus = require("./contactus/get.js");
@@ -51,6 +52,8 @@ const getContactus = require("./contactus/get.js");
 // const getContactus = require("./contactus/get.js");
 // =======
 //>>>>>>> cb8b9dc9f9149a09d35f6c645ca5e2392afb3619
+=======
+>>>>>>> 8be71fb8f51ddd88c49be7929cab3743311052cf
 const postReview = require('./reviewRoutes/post');
 const getReview = require('./reviewRoutes/get');
 const updateReview = require('./reviewRoutes/put');
@@ -131,7 +134,6 @@ router.use("/contactus", getContactus);
 
 router.use("/contactus", postContactus);
 
-router.use("/contactus", postContactus)
 
 /* *************************  routes ORDERS   **************************************** */
 router.use("/orderDetail", getallOrders)
