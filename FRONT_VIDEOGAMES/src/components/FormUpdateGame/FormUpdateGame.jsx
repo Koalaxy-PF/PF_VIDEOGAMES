@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams,  useNavigate  } from "react-router-dom";
 //import {Link} from "react-router-dom";
 //import validate from "./validators.jsx";
 import img from '../../assets/create/KoalaForm2.png'
 import { GetGenres, GetDetail, UpdateGame, PutProductDash} from "../../redux/actions/actions";
 
-const validateForm = (input) => {
+/* const validateForm = (input) => {
   const error = {};
   if(!input.name.length) error.name = <h3>Name is required</h3>
   if(!input.price.length) error.price = <h3>Price is required</h3>
@@ -21,18 +21,17 @@ const validateForm = (input) => {
   if(!input.genre.length) error.genre = <h3>Genre is required</h3>
 
   return error;
-}
+} */
 
 export default function FormUpdateGame() {
+  
   const dispatch = useDispatch();
   const { id } = useParams();
   const genre = useSelector((state) => state.Genres);
   const games = useSelector((state) => state.GamesCopy);
   const getGamesId = useSelector((state) => state.details);
+  const navigate = useNavigate()
   const [error, setError] = useState({});
-
-
-
 
 
   const [input, setInput] = useState({
@@ -42,12 +41,12 @@ export default function FormUpdateGame() {
     img: "",
     comments: "",
     calification: "",
-    company:"",
+    company:[],
     released: "",
     minRequeriments: "",
     recommendRequeriments: "",
     description: "",
-    genre: "",
+    genre: [],
   });
 
 
@@ -56,15 +55,30 @@ export default function FormUpdateGame() {
     dispatch(GetGenres())
   }, [id]);
 
-
-
-
-
-
   
+  useEffect(() => {
+    setInput({
+       name: getGamesId.name,
+       stock: getGamesId.stock,
+       price: getGamesId.price,
+       img: getGamesId.img,
+       comments: getGamesId.comments,
+       calification: getGamesId.calification,
+       company: getGamesId.company,
+       released: getGamesId.released,
+       minRequeriment: getGamesId.minRequeriment,
+       recommendRequeriments: getGamesId.recommendRequeriments,
+       description:getGamesId.description ,
+       genre: getGamesId.genre
+
+      })
+  },[getGamesId])
+
+
 
 
   function handleInputChange(e){
+    e.preventDefault()
     setInput({
       ...input,
       [e.target.name]: e.target.value
@@ -73,29 +87,35 @@ export default function FormUpdateGame() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    if (
+  /*   if (
       !input.name 
     ) {
       console.log("El input", input);
       return alert("Complete all required fields");
-    }
+    } */
     dispatch(PutProductDash(id,input)) ;
     alert("Game Modified");
     console.log(input);
     setInput({
-      name: "",
-      stock: "",
-      price: "",
-      img: "",
-      genre: "",
+      name: getGamesId.name,
+       stock: getGamesId.stock,
+       price: getGamesId.price,
+       img: getGamesId.img,
+       comments: getGamesId.comments,
+       calification: getGamesId.calification,
+       company: getGamesId.company,
+       released: getGamesId.released,
+       minRequeriment: getGamesId.minRequeriment,
+       recommendRequeriments: getGamesId.recommendRequeriments,
+       description:getGamesId.description ,
+       genre: getGamesId.genre
+     
+     
     });
+    navigate("/Games")
   }
 
 
-
-
-
- 
 
 
   return (
@@ -238,7 +258,7 @@ export default function FormUpdateGame() {
 
           <div class='my-4 mr-20 flex justify-center'>
             <label class='text-white relative right-[3px] left-[30px]'><ion-icon name="trophy-outline"></ion-icon></label>
-            <select name="genre" class='rounded-md w-[320px] relative left-[35px]' required onChange = {
+            <select name="genre" class='rounded-md w-[320px] relative left-[35px]' onChange = {
               (e) => handleInputChange(e)}>
                 <option value="">Select Genre</option>
                 {
