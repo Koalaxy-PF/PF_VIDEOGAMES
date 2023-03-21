@@ -28,8 +28,8 @@ import {
   UPDATE_GAME,
   GET_DETAIL,
   GET_REVIEWS,
-  ADD_REVIEW
-  
+  ADD_REVIEW,
+  CLEAN_USERS
 } from "../actions/actions";
 
 const initialState = {
@@ -337,6 +337,12 @@ function rootReducer(state = initialState, action) {
     case ADD_REVIEW:
       return {
         ...state,
+      }
+
+    case CLEAN_USERS:
+      return{
+        ...state,
+        users: action.payload,
       }
 
     default: {
