@@ -27,17 +27,22 @@ export const LOGIN_FAIL = "LOGIN_FAIL";
 export const LOGOUT = "LOGOUT";
 export const SET_MESSAGE = "SET_MESSAGE";
 
-// CARRITO, BASE DE DATOS
+// RUTAS PARA EL CARRITO
 
 export const GET_ALL_CART = 'GET_ALL_CART'
 export const DELETE_PRODUCT_CART = 'DELETE_PRODUCT_CART'
-
-// CARRITO, LOCAL STORAGE
-
 export const GET_ALL_CART_LOCAL_STORAGE = 'GET_ALL_CART_LOCAL_STORAGE'
 export const DELETE_PRODUCT_CART_LOCAL_STORAGE = 'DELETE_PRODUCT_CART_LOCAL_STORAGE'
 
+// RUTAS PARA LAS ORDENES DE PAGO
+
+export const GET_ORDER_ID = 'GET_ORDER_ID'
+
 export const GET_USERS = "GET_USERS"
+
+// DASHBOARD
+
+export const PUT_PRODUCT_DASH = "PUT_PRODUCT_DASH"
 
 // ACCIONES PARA LA AUTENTICACIÓN
 
@@ -204,13 +209,6 @@ export function DeleteWishListProduct(payload){
   };
 }
 
-// ACTIONS - MÉTODOS DE PAGO
-
-export function PostPaypal(id){
-    return async function(){
-        return  axios.post(`http://localhost:3000/order/${id}`);
-    }
-}
 
 // ACCIONES DEL CARRITO DE COMPRAS
 
@@ -240,21 +238,27 @@ export function postInCart(payload) {
 }
 
 export function DeleteProductCart(idProduct){
-    return async function(dispatch){
+  return async function(dispatch){
         return axios.delete(`http://localhost:3000/cart/delete/?productCardId=${idProduct}`)
+      }
     }
+
+export function PutProductDash(idProduct){
+  return async function(dispatch){
+      return axios.put(`http://localhost:3000/products/update/${idProduct}`)
+  }
 }
 
 export function DeleteProductCartLocalStorage(idProduct){
     return async function(dispatch){
         dispatch({
-            type: DELETE_PRODUCT_CART_LOCAL_STORAGE,
-            payload: idProduct,
+          type: DELETE_PRODUCT_CART_LOCAL_STORAGE,
+          payload: idProduct,
         })
+      }
     }
-}
 
-// ACTIONS - LOCAL STORAGE
+    // ACTIONS - LOCAL STORAGE
 
   //action que trae todos los juegos
   export function GetUsers(){
@@ -266,43 +270,43 @@ export function DeleteProductCartLocalStorage(idProduct){
       });
     }
   }
-
-export function postInCartLocalStorage(obj){
-
+  
+  export function postInCartLocalStorage(obj){
+    
     if(window.localStorage.getItem('carrito-ls')){
-
-        const objeto = JSON.parse(window.localStorage.getItem('carrito-ls'));
-
-        // MODIFICAMOS EL TOTAL DE PRODUCTOS EN EL CARRITO Y SU VALOR TOTAL
-
-        for(let i=0; i<objeto.products.length; i++){
-            p.push(objeto.products[i]);
-        }
+      
+      const objeto = JSON.parse(window.localStorage.getItem('carrito-ls'));
+      
+      // MODIFICAMOS EL TOTAL DE PRODUCTOS EN EL CARRITO Y SU VALOR TOTAL
+      
+      for(let i=0; i<objeto.products.length; i++){
+        p.push(objeto.products[i]);
+      }
 
         p.push(obj);
         objeto.products = p;
         window.localStorage.setItem('carrito-ls', JSON.stringify(objeto));
 
         return 'El producto se agregó con éxito a su carrito';
-    }
-    
-    else{
-
+      }
+      
+      else{
+        
         const objeto = {
-            total: 1,
-            price: obj.price,
-            products: [obj],
+          total: 1,
+          price: obj.price,
+          products: [obj],
         }
-
+        
         window.localStorage.setItem('carrito-ls', JSON.stringify(objeto));
-
+        
         return 'El producto se agregó con éxito a su carrito';
-
-    }
+        
+      }
   }
 
-
-    //ACTION SUPPORT
+  
+  //ACTION SUPPORT
 
     export const postSupport = (data) => (dispatch) => {
       return AuthService.Support(data);
@@ -317,10 +321,39 @@ export function postInCartLocalStorage(obj){
       };
     };
 
-    export const LogOut = () => {
+    // CERRAR SESIÓN - (LOGOUT)
+    
+    export function LogOut(){
       return async function(dispatch){
         dispatch({
           type: LOGOUT,
         })
       }
     }
+
+    // MÉTODOS DE PAGO (PAYPAL - MERCADOPAGO)
+    
+    export function PostPaypal(id){
+      return async function(){
+        return axios.post(`http://localhost:3000/order/${id}`)
+      }
+    }
+
+    export function PostMercadoPago(id){
+      return async function(){
+        return axios.post(`http://localhost:3000/payment/${id}`)
+      }
+    }
+
+    // ÓRDENES DE PAGO
+
+    export function GetOrderByID(id){
+      return async function(dispatch){
+        let json = await axios.get(`http://localhost:3000/orderDetail/${id}`)
+        dispatch({
+          type: GET_ORDER_ID,
+          payload: json.data,
+        })
+      }
+    }
+    
