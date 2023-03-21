@@ -21,7 +21,7 @@ export const UPDATE_GAME = 'UPDATE_GAME';
 export const GET_DETAIL = 'GET_DETAIL'
 export const GET_REVIEWS = "GET_REVIEWS";
 export const ADD_REVIEW = "ADD_REVIEW";
->>>>>>> 43ac23bdf9479a5fd8802c3b5a209de9c210fc01
+//>>>>>>> 43ac23bdf9479a5fd8802c3b5a209de9c210fc01
 
 // RUTAS PARA LA AUTENTICACIÓN
 
