@@ -370,10 +370,24 @@ export function DeleteProductCartLocalStorage(idProduct){
       }
     }
 
+    ///DashBoard Users
+
     export function DeleteUserDashBoard(idUser){
       return async function(dispatch){
-            return axios.delete(`http://localhost:3000/users/?id=${idUser}`)
+            return axios.delete(`http://localhost:3000/users/${idUser}`)
           }
+    }
+
+    export function PutUserAdminDashBoard(idUser){
+      return async function(dispatch){
+          return axios.put(`http://localhost:3000/users/isadmin/${idUser}`)
+      }
+    }
+
+    export function PutUserBanDashBoard(idUser){
+      return async function(dispatch){
+          return axios.put(`http://localhost:3000/users/ban/${idUser}`)
+      }
     }
 
     // ÓRDENES DE PAGO

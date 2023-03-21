@@ -1,8 +1,11 @@
 import React ,{useEffect}from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Swal from "sweetalert2";
-import {GetUsers , DeleteUserDashBoard} from "../../../redux/actions/actions";
+import {GetUsers , DeleteUserDashBoard, PutUserAdminDashBoard, PutUserBanDashBoard} from "../../../redux/actions/actions";
+//importo las imagenes de Assets
 import Delete from "../../../assets/icons/delete.png"
+import Admin from "../../../assets/icons/admin.png"
+import Ban from "../../../assets/icons/Ban.png"
 
 
 export default function CardUserDashBoard(){
@@ -13,15 +16,37 @@ export default function CardUserDashBoard(){
 
     useEffect(() => {
         dispatch(GetUsers());
-      }, [dispatch]); 
+      }, []); 
 
     const DeleteUser = (id) =>{
 
-        dispatch(DeleteUserDashBoard( users.id)).then((resp) => {
+        dispatch(DeleteUserDashBoard( id)).then((resp) => {
             Swal.fire({
                 icon: 'sucess',
                 title: resp.data.message,
-                text: 'El usuario se eliminó!',
+                text: 'the user was deleted!',
+        })
+        })
+    }
+
+    const AdminUser = (id) =>{
+
+        dispatch(PutUserAdminDashBoard( id)).then((resp) => {
+            Swal.fire({
+                icon: 'sucess',
+                title: resp.data.message,
+                text: 'Assigned the user as administrator!',
+        })
+        })
+    }
+
+    const BanUser = (id) =>{
+
+        dispatch(PutUserBanDashBoard( id)).then((resp) => {
+            Swal.fire({
+                icon: 'sucess',
+                title: resp.data.message,
+                text: 'has banned the user!',
         })
         })
     }
@@ -54,7 +79,15 @@ export default function CardUserDashBoard(){
                         </div>
 
                         <button className="item-center justify-between flex" onClick={() => DeleteUser(e.id) }>
-                        <img  class= " z-10  my-auto h-9 mt-8 text-center item-center justify-center"src = {Delete}/>
+                        <img  class= " z-9  my-auto h-8 m-7 text-center item-center justify-center"src = {Delete}/>
+                        </button>
+
+                        <button className="item-center justify-between flex" onClick={() => AdminUser(e.id)} >
+                        <img  class= " z-9  my-auto h-8 m-7 text-center item-center justify-center"src = {Admin}/>
+                        </button>
+
+                        <button className="item-center justify-between flex" onClick={() => BanUser(e.id)} >
+                        <img  class= " z-9  my-auto h-8 m-7 text-center item-center justify-center"src = {Ban}/>
                         </button>
                 
 
