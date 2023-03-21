@@ -17,6 +17,8 @@ export const GET_GAME = "GET_GAME";
 export const GET_WISH_LIST = "GET_WISH_LIST";
 export const POST_WISH_LIST = "POST_WISH_LIST";
 export const POST_SUPPORT = "POST_SUPPORT";
+export const UPDATE_GAME = 'UPDATE_GAME';
+export const GET_DETAIL = 'GET_DETAIL'
 
 // RUTAS PARA LA AUTENTICACIÓN
 
@@ -99,6 +101,16 @@ export function GetGameById(id) {
   };
 }
 
+export function GetDetail(id) {
+  return async function(dispatch) {
+      const json = await axios(`http://localhost:3000/products/${id}`);
+      return dispatch({
+          type: GET_DETAIL,
+          payload: json.data
+      });
+  };
+};
+
 
 //action que trae todos los generos
 export function GetGenres() {
@@ -126,6 +138,22 @@ export function PostGame(payload) {
   var json = axios.post(`http://localhost:3000/products`, payload);
   return { type: POST_GAME, payload: json };
 }
+
+export function DeleteGame(idGame){
+  return async function(dispatch){
+      return axios.delete(`http://localhost:3000/products/${idGame}`)
+  }
+}
+
+export function UpdateGame(id, payload) {
+  return async function(dispatch) {
+      const json = await axios.put(`http://localhost:3000/products/update/${id}`, payload);
+      return dispatch({
+          type: UPDATE_GAME,
+          payload: json.data
+      });
+  };
+};
 
 //action que filtra por genero...
 export function FilterGenres(payload) {
