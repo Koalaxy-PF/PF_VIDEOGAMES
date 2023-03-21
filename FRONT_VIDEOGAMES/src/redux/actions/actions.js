@@ -17,6 +17,8 @@ export const GET_GAME = "GET_GAME";
 export const GET_WISH_LIST = "GET_WISH_LIST";
 export const POST_WISH_LIST = "POST_WISH_LIST";
 export const POST_SUPPORT = "POST_SUPPORT";
+export const GET_REVIEWS = "GET_REVIEWS";
+export const ADD_REVIEW = "ADD_REVIEW";
 
 // RUTAS PARA LA AUTENTICACIÓN
 
@@ -320,6 +322,29 @@ export function DeleteProductCartLocalStorage(idProduct){
         });
       };
     };
+
+    // ACTIONS REVIEWS
+
+    export function GetReviews (obj) {
+      return async function(dispatch){
+        let json = axios.get(`http://localhost:3000/reviews`, obj)
+        dispatch({
+          type: GET_REVIEWS,
+          payload: json.data
+        })
+      }
+    }
+
+    export function AddReview(payload){
+      return async function (dispatch) {
+          const json = axios.post(`http://localhost:3000/reviews`, payload)
+          dispatch({
+            type: ADD_REVIEW,
+            payload: json.data
+          })
+        
+      }
+    }
 
     // CERRAR SESIÓN - (LOGOUT)
     
