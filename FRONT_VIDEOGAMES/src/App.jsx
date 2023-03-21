@@ -20,6 +20,8 @@ import Support from "./views/Support/Support"
 import Games from "./views/Dashboard/Games/Games"
 import Profile from "./views/Profile/Profile"
 import DashBoardUser from "./views/Dashboard/Users/DashBoardUser"
+import Update from "./views/Dashboard/Update/Update"
+import FormUpdateGame from "./components/FormUpdateGame/FormUpdateGame"
 
 export default function App(){
 
@@ -53,7 +55,7 @@ export default function App(){
         <Route exact path="/Games" element={<Games/>} />
         <Route exact path="/Profile" element={<Profile/>} />
         <Route exact path="/Dashboard/users" element={<DashBoardUser/>} />
-        <Route exact path="/Update" element={<Update/>} />
+        <Route exact path="/Update/:id" element={<FormUpdateGame/>} />
       </Routes>
     </div>
   );

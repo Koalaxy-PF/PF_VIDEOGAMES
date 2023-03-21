@@ -24,7 +24,9 @@ import {
   PUT_PRODUCT_DASH,
   GET_USERS,
   LOGOUT,
-  GET_ORDER_ID
+  GET_ORDER_ID,
+  UPDATE_GAME,
+  GET_DETAIL
 } from "../actions/actions";
 
 const initialState = {
@@ -122,6 +124,17 @@ function rootReducer(state = initialState, action) {
         Games: action.payload,
         GamesCopy: action.payload,
       };
+
+    case GET_DETAIL:
+      return{
+        ...state,
+        details: action.payload
+      }
+
+    case UPDATE_GAME:
+        return {
+            ...state
+        }
 
     // case GET_GAME:
     //     return {

@@ -110,7 +110,7 @@ export default function CreateGame() {
       stock: 1,
       price: "",
       img: "",
-      genre: [],
+      genre: [],    
     });
   }
 

@@ -2,6 +2,7 @@ import React, { useEffect, dis } from "react";
 import { useDispatch } from "react-redux";
 import { GetGames, DeleteGame } from "../../../redux/actions/actions";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 
 
@@ -39,7 +40,7 @@ const DeleteGameId = (id) => {
     <h5 class='text-[12px]'>${price}</h5>
     </div>
     <div class='flex'>
-    <span class='mr-[30px] text-[20px]'><ion-icon name="create"></ion-icon></span>
+    <Link to={`/Update/${id}`}><span class='mr-[30px] text-[20px]'><ion-icon name="create"></ion-icon></span></Link>
     <button className='close text-[20px]' onClick={(e)=>DeleteGameId(id)}><ion-icon name="trash-bin-outline"></ion-icon></button>
     {}
     </div>

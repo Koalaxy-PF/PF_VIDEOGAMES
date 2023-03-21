@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 //import {Link} from "react-router-dom";
 //import validate from "./validators.jsx";
 import img from '../../assets/create/KoalaForm2.png'
-import Footer from "../../components/Footer/Footer";
-import NavBar from "../../components/Navbar/Navbar";
-import Sidebar from "../../components/SideBar/Sidebar";
-import { GetGames, PutProductDash,  GetGenres } from "../../redux/actions/actions";
-import validate from "./validators";
+import { GetGenres, GetDetail, UpdateGame, PutProductDash} from "../../redux/actions/actions";
 
 const validateForm = (input) => {
   const error = {};
@@ -28,12 +25,13 @@ const validateForm = (input) => {
 
 export default function FormUpdateGame() {
   const dispatch = useDispatch();
+  const { id } = useParams();
   const genre = useSelector((state) => state.Genres);
+  const games = useSelector((state) => state.GamesCopy);
+  const getGamesId = useSelector((state) => state.details);
+  const [error, setError] = useState({});
 
-  useEffect(() => {
-    dispatch(GetGames());
-    dispatch(GetGenres())
-  },[dispatch]);
+
 
 
 
@@ -52,7 +50,15 @@ export default function FormUpdateGame() {
     genre: "",
   });
 
-  const [error, setError] = useState({});
+
+  useEffect(() => {
+    dispatch(GetDetail(id));
+    dispatch(GetGenres())
+  }, [id]);
+
+
+
+
 
 
   
@@ -63,34 +69,25 @@ export default function FormUpdateGame() {
       ...input,
       [e.target.name]: e.target.value
     });
-
-    setError(validateForm({
-      ...input,
-      [e.target.name]: e.target.value
-    }))
   };
 
   function handleSubmit(e) {
     e.preventDefault();
     if (
-      !input.name ||
-      !input.stock ||
-      !input.price ||
-      //!input.img ||
-      !input.genre
+      !input.name 
     ) {
       console.log("El input", input);
       return alert("Complete all required fields");
     }
-    PutProductDash(input);
+    dispatch(PutProductDash(id,input)) ;
     alert("Game Modified");
     console.log(input);
     setInput({
       name: "",
-      stock: 1,
+      stock: "",
       price: "",
       img: "",
-      genre: [],
+      genre: "",
     });
   }
 
@@ -107,7 +104,7 @@ export default function FormUpdateGame() {
             <div class=' relative bg-gray-300 '>
         {/* <h1 class='text-5xl pt-[50px] bg-[#5E9FA3] mx-[380px] py-[50px] mt-[20px] rounded-lg text-white relative right-[20px]'>Create Game</h1> */}
         <img class='justify-center m-auto relative h-85 z-10 w-[600px] top-[20px] ' src={img} alt="" />
-        <form onSubmit={(e) => handleSubmit(e)} class=' relative bottom-[60px] bg-[#5E9FA3] justify-center w-[530px] m-auto pt-[55px] pb-20 text-center'>
+        <form onSubmit={handleSubmit} class=' relative bottom-[60px] bg-[#5E9FA3] justify-center w-[530px] m-auto pt-[55px] pb-20 text-center'>
           <div>
           <div class='my-4 mr-20 flex justify-center'>
             <label class='text-white relative right-[3px] left-[30px]'><ion-icon name="clipboard-outline"></ion-icon></label>{" "}
@@ -253,7 +250,7 @@ export default function FormUpdateGame() {
           </div>
 
           <div class='justify-center text-center'>
-            <button class='text-white relative top-[40px] hover:text-blue border border-white border-solid p-[10px]' type="submit">Game Modified</button>
+            <button class='text-white relative top-[40px] hover:text-blue border border-white border-solid p-[10px]' type="submit">Update Game</button>
           </div>
           </div>
 
