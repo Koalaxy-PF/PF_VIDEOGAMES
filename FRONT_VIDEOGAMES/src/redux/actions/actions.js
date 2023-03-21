@@ -356,4 +356,12 @@ export function DeleteProductCartLocalStorage(NameProduct){
         })
       }
     }
+
+    // RESETEAR CONTRASEÑA DE USUARIOS REGISTRADOS
+
+    export function ResetPassword(email){
+      return async function(){
+        return await axios.put('http://localhost:3000/auth/resetPassword', email)
+      }
+    }
     

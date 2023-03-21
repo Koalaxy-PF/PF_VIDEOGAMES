@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {useForm} from 'react-hook-form';
 import logo from '../../assets/icons/koalaLogo.png';
 import koala from '../../assets/login/koala_login3.png'
-import { Login, Login_OK} from '../../redux/actions/actions'
+import { Login, Login_OK, ResetPassword} from '../../redux/actions/actions'
 import { useNavigate } from 'react-router-dom'
 import {Link} from 'react-router-dom'
 import Swal from 'sweetalert2'
@@ -15,6 +15,36 @@ export default function LoginForm(){
     const [showPwd, setShowPwd] = useState(false)
     const dispatch = useDispatch();
     const navigate = useNavigate();
+
+    const ForgotPassword = (e) => {
+
+        Swal.fire({
+            title: 'Submit your email',
+            input: 'text',
+            inputAttributes: {
+              autocapitalize: 'off'
+            },
+            showCancelButton: true,
+            confirmButtonText: 'Cool',
+            showLoaderOnConfirm: true,
+            preConfirm: (login) => {
+                dispatch(ResetPassword({email: login})).then((resp) => {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Congrulations!',
+                        text: resp.data,
+                      })
+                }).catch((err) => {
+                    console.log(err)
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error!',
+                        text: 'Error!'
+                      })
+                })
+            }
+        })
+    }
 
     const onSubmit = (data) => {
         dispatch(Login(data)).then((response) => {
@@ -88,11 +118,15 @@ export default function LoginForm(){
                                     {errors.password?.type === 'required' && <p class='mt-[10px] text-center text-base text-white font-extrabold '>Please enter a password</p>}
                                 </div>
                             </div>
+                                <div onClick={() => ForgotPassword()}>
+                                    <h1 className='text-blue-400 underline text-lg text-end mr-2 cursor-pointer'>Forgot Password?</h1>
+                                </div>
                             <div>
                                 <button class='mt-4 w-full py-3 bg-gray-900 text-white' type='submit'>Login</button>
                             </div>
                         </form>
                     </div>
+
                 </div>
             </div>
         </div>
