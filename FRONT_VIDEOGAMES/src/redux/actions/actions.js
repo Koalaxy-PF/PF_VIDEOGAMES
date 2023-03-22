@@ -362,9 +362,9 @@ export function DeleteProductCartLocalStorage(NameProduct){
 
     // REVIEWS
 
-    export function GetReviews (obj) {
+    export function GetReviews(productId){
       return async function(dispatch){
-        let json = axios.get(`http://localhost:3000/reviews`, obj)
+        let json = await axios.get(`http://localhost:3000/reviews/?productId=${productId}`)
         dispatch({
           type: GET_REVIEWS,
           payload: json.data
@@ -374,12 +374,7 @@ export function DeleteProductCartLocalStorage(NameProduct){
 
     export function AddReview(payload){
       return async function (dispatch) {
-          const json = axios.post(`http://localhost:3000/reviews`, payload)
-          dispatch({
-            type: ADD_REVIEW,
-            payload: json.data
-          })
-        
+        return await axios.post(`http://localhost:3000/reviews`, payload)
       }
     }
 

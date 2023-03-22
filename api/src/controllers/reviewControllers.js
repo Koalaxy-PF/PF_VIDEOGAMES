@@ -7,6 +7,7 @@ const getAllReviews = async() => {
         const resultOfAll  = await all.map(e => {
             return {
                 userId: e.userId,
+                img: e.img,
                 productId: e.productId,
                 calification: e.calification,
                 comment: e.comment
@@ -29,6 +30,7 @@ const getReviewByUserId  = async(userId) => {
         const resultAllByUserId = await allById.map(e=>{
             return {
                 userId: e.userId,
+                img: e.img,
                 productId: e.productId,
                 calification: e.calification,
                 comment: e.comment
@@ -50,6 +52,9 @@ const getReviewByProductId = async(productId) => {
         const resultAllByProductId = await allByProductId.map(e=>{
             return {
                 userId: e.userId,
+                img: e.img,
+                name: e.name,
+                last_name: e.last_name,
                 productId: e.productId,
                 calification: e.calification,
                 comment: e.comment

@@ -29,7 +29,6 @@ import {
   UPDATE_GAME,
   GET_DETAIL,
   GET_REVIEWS,
-  ADD_REVIEW,
   CLEAN_USERS
 } from "../actions/actions";
 
@@ -45,7 +44,7 @@ const initialState = {
   WishList: [],
   dataSupport: {},
   library: [],
-  Reviews: [],
+  reviews: [],
 };
 
 function rootReducer(state = initialState, action) {
@@ -331,14 +330,12 @@ function rootReducer(state = initialState, action) {
       };
 
     case GET_REVIEWS:
+
+      console.log("elementos:" , action.payload);
+
       return {
         ...state,
-        Reviews: action.payload,
-      }
-    
-    case ADD_REVIEW:
-      return {
-        ...state,
+        reviews: action.payload,
       }
 
       case GET_PRODUCTS_LIBRARY:

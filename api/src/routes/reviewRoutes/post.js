@@ -5,7 +5,7 @@ const  {  Productlibrary, Library, User }  = require("../../db");
 
 
 router.post("/", async (req, res) => {
-    const { userId, productId, calification, comment } = req.body;
+    const { userId, img, name, last_name, productId, calification, comment } = req.body;
 
     const user = await User.findOne({
         where: { id: userId}
@@ -17,7 +17,7 @@ router.post("/", async (req, res) => {
     });
 
     if(library === null){
-        return res.status(401).send({message: 'You have to buy the game to add a review'});
+        return res.status(400).send({message: 'You have to buy the game to add a review'});
     }
 
     const findProduct = await library.productlibraries?.find(e => e.productId == productId);
@@ -26,6 +26,9 @@ router.post("/", async (req, res) => {
         try {
             let newComment = await Review.create({
                 userId,
+                img,
+                name,
+                last_name,
                 productId,
                 calification,
                 comment
@@ -35,7 +38,7 @@ router.post("/", async (req, res) => {
             console.log(error)
         }
     }else{
-        res.status(401).send('Comment only those who bought the game! Sorry.')
+        res.status(400).send('Comment only those who bought the game! Sorry.')
     }
 
 })

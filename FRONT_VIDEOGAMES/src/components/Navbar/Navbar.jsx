@@ -17,13 +17,13 @@ export default function NavBar(){
 
   const [theme, setTheme] = useState(localStorage.getItem('theme') ? localStorage.getItem("theme") : "system");
   const element = document.documentElement;
+  const darkQuery = window.matchMedia("(prefers-color-scheme: dark)");
+
   const dispatch = useDispatch();
-  const [change, setChange] = useState(null);
   const navigate = useNavigate();
   
   const User = useSelector((state) => state.user)
 
-  
   const iconComponents = [
     {
       text: 'light',
@@ -52,9 +52,29 @@ export default function NavBar(){
       
       default:
         window.localStorage.removeItem('theme');
+        onWindowMatch();
         break;    
     }
   }, [theme])
+
+  darkQuery.addEventListener("change", (e) => {
+    if(!("theme") in localStorage){
+      if(e.matches){
+        element.classList.add("dark");
+      }else{
+        element.classList.remove("dark");
+      }
+    }
+  })
+
+  function onWindowMatch(){
+    if(localStorage.theme === "dark"  || (!("theme" in localStorage) && darkQuery.matches)){
+      element.classList.add("dark");
+    }else{
+      element.classList.remove("dark");
+    }
+  }
+  onWindowMatch();
 
   const handleLogOut = () => {
     dispatch(LogOut());
@@ -68,7 +88,7 @@ export default function NavBar(){
 
             <div class="flex item-center text-black">
               <Link to= "/Home">
-                <img  class= "h-12 item-center text-center" src={theme === "dark" ? `${koalaWhite}` : `${koala}` }/> 
+                <img  class= "h-12 item-center text-center" src={ (theme === "dark" ) ? `${koalaWhite}` : `${koala}` }/> 
               </Link>
             </div>
 
@@ -79,7 +99,7 @@ export default function NavBar(){
                   iconComponents?.map((element) => {
                     return (
                     <button onClick={() => setTheme(element.text)} key={element.text} 
-                            className={`w-8 h-8 text-gray-900 text-xl m-1 rounded-full mt-2 ${theme === element.text && "text-amber-400"}`}>
+                            className={`w-8 h-8 text-gray-900 text-xl m-1 rounded-full mt-2 ${theme === element.text && "text-amber-500"}`}>
                       {element.icon}
                     </button>
                     )
