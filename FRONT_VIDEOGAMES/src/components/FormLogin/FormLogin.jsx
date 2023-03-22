@@ -115,6 +115,8 @@ export default function LoginForm(){
                                     <a class="block lg:inline-block lg:mt-0 " onClick={() => setShowPwd(!showPwd)}> <img  class= " z-6 inset-y-0 my-auto h-6 active:bg-gray-600 active:rounded-full"src = {seePassword}/> </a>
                                 </div>
                                     {errors.password?.type === 'minLength' && <p class='mt-[10px] text-center text-base text-white font-extrabold '>The password must have at least 3 characters</p>}
+                                    {errors.password?.type === 'pattern' && <p class='mt-[10px] text-white  text-base font-extrabold'>the password at least one digit, at least one lower case and at least one upper case.</p>}
+                                    {errors.password?.type === 'maxLength' && <p class=' mt-[10px] text-white  text-base font-extrabold'>must have a maximum of 16 characters</p>}
                                     {errors.password?.type === 'required' && <p class='mt-[10px] text-center text-base text-white font-extrabold '>Please enter a password</p>}
                                 </div>
                             </div>
@@ -126,7 +128,6 @@ export default function LoginForm(){
                             </div>
                         </form>
                     </div>
-
                 </div>
             </div>
         </div>
