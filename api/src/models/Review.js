@@ -7,6 +7,18 @@ module.exports = (sequelize) => {
             type:DataTypes.INTEGER,
             allowNull: false,
         },
+        img: {
+            type: DataTypes.TEXT,
+            allowNull: false,
+        },
+        name: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        last_name: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
         calification: {
             type: DataTypes.INTEGER,
             allowNull: false,

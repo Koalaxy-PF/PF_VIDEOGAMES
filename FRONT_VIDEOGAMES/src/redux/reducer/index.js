@@ -25,10 +25,10 @@ import {
   GET_USERS,
   LOGOUT,
   GET_ORDER_ID,
+  GET_PRODUCTS_LIBRARY,
   UPDATE_GAME,
   GET_DETAIL,
   GET_REVIEWS,
-  ADD_REVIEW,
   CLEAN_USERS
 } from "../actions/actions";
 
@@ -44,11 +44,12 @@ const initialState = {
   WishList: [],
   dataSupport: {},
   library: [],
-  Reviews: [],
+  reviews: [],
 };
 
 function rootReducer(state = initialState, action) {
   switch (action.type) {
+
     // - - - AUTENTICACIÓN - - -
 
     case LOGIN_SUCESS:
@@ -101,7 +102,7 @@ function rootReducer(state = initialState, action) {
       const carrito = JSON.parse(window.localStorage.getItem("carrito-ls"));
 
       for (let i = 0; i < carrito.productcarts.length; i++) {
-        if (action.payload === carrito.productcarts[i].id) {
+        if (action.payload === carrito.productcarts[i].name) {
           carrito.total = carrito.total - carrito.productcarts[i].price;
           carrito.productcarts.splice(i, 1);
           i--;
@@ -329,16 +330,21 @@ function rootReducer(state = initialState, action) {
       };
 
     case GET_REVIEWS:
+
+      console.log("elementos:" , action.payload);
+
       return {
         ...state,
-        Reviews: action.payload,
-      }
-    
-    case ADD_REVIEW:
-      return {
-        ...state,
+        reviews: action.payload,
       }
 
+      case GET_PRODUCTS_LIBRARY:
+
+        return {
+          ...state,
+          library: action.payload,
+      }
+     
     case CLEAN_USERS:
       return{
         ...state,

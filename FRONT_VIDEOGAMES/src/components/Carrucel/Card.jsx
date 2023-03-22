@@ -67,8 +67,10 @@ export default function Card({img, id, name, price, genre, calification}){
 
                 // COMPROBAMOS QUE EL PRODUCTO NO ESTÉ YA EN EL CARRITO. 
 
+                console.log("producto, datos:", obj);
+
                 for(let i=0; i<objeto.productcarts.length; i++){
-                    if(obj.id === objeto.productcarts[i].id) {
+                    if(obj.name === objeto.productcarts[i].name) {
                         return Swal.fire({
                             icon: 'error',
                             title: 'Something has gone wrong!',

@@ -6,6 +6,7 @@ const { transporter } = require("../../emailer");
 const router = Router();
 
 router.put("/resetPassword", async (req, res) => {
+  
   const { email } = req.body;
   const user = await User.findOne({ where: { email: email } });
 

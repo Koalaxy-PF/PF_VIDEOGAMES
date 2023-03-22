@@ -5,10 +5,6 @@ import logo from '../../../assets/icons/koalaLogo.png';
 import { Link } from "react-router-dom";
 import SearchBar from "../../../components/SearchBar/SearchBar";
 
-
-
-
-
 export default function Games() {
   return (
     <div class='grid grid-cols-6 min-h-screen overflow-y-hidden '>
