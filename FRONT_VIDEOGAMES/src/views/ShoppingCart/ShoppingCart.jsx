@@ -152,7 +152,7 @@ export default function ShoppingCart(){
                                                         </td>
 
                                                         <td>
-                                                            <h2 className="mt-6 text-xl font-extrabold text-white">  ${e.price}</h2>  
+                                                            <h2 className="mt-6 text-xl font-extrabold text-white"> $ {e.price}</h2>  
                                                         </td>
 
                                                         <ty>
@@ -180,11 +180,9 @@ export default function ShoppingCart(){
 
                         </div>
 
-                         {/* Marina adentro de un  */}
-
                         <div  className=" text-center flex h-full flex-1 flex-col mx-8 mt-4" >
                         {
-                            <h1 className="mt-6 text-3xl font-extrabold text-white" >Total: {allCart.total} </h1>
+                            <h1 className="mt-6 text-3xl font-extrabold text-white" >Total: ${allCart.total} </h1>
                         }
 
                         <select
@@ -193,14 +191,13 @@ export default function ShoppingCart(){
                             
                             <option selected hidden > Payment method </option>
                             <option>PayPal</option>
-                            <option>Mercado Pago</option>
                         </select>
 
                             <button className="px-3 mt-4 bg-gray-400 text-black py-3 rounded-xl border-2 border-white text-xl text-center"
                                 onClick={(e) => handleClick(e)}>Buy</button>
                          </div>
 
-                            {/* Marina */}
+                         
                  </div>
 
                     }

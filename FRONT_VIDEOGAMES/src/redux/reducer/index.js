@@ -140,12 +140,6 @@ function rootReducer(state = initialState, action) {
             ...state
         }
 
-    // case GET_GAME:
-    //     return {
-    //         ...state,
-    //         Games: action.payload,
-    // }
-
     case POST_GAME:
       return {
         ...state,

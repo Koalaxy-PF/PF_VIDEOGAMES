@@ -185,7 +185,7 @@ export default function Card({img, id, name, price, genre, calification}){
 
                 <a>
                     <div>
-                        <button className="text-blue-500" onClick={(e) => AddToWL(e)} ><ion-icon name="heart"></ion-icon></button>
+                        <button className="text-blue-500 mt-1" onClick={(e) => AddToWL(e)} ><ion-icon name="heart"></ion-icon></button>
                     </div>
                 </a>
 
