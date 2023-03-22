@@ -4,7 +4,7 @@ import { useParams,  useNavigate  } from "react-router-dom";
 //import {Link} from "react-router-dom";
 //import validate from "./validators.jsx";
 import img from '../../assets/create/KoalaForm2.png'
-import { GetGenres, GetDetail, UpdateGame, PutProductDash} from "../../redux/actions/actions";
+import { GetGenres, GetDetail, UpdateGame} from "../../redux/actions/actions";
 
 /* const validateForm = (input) => {
   const error = {};
@@ -93,7 +93,7 @@ export default function FormUpdateGame() {
       console.log("El input", input);
       return alert("Complete all required fields");
     } */
-    dispatch(PutProductDash(id,input)) ;
+    dispatch(UpdateGame(id,input)) ;
     alert("Game Modified");
     console.log(input);
     setInput({
