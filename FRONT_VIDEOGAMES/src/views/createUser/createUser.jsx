@@ -157,7 +157,7 @@ export default function CreateUser(){
 
                 <div class='text-center lg:text-left flex justify-center'>
                   <img class='h-12 w-auto m-auto lg:m-0' src={logo} alt="" />
-                  <h2 class='mt-6 text-3xl font-extrabold text-gray-900 text-white'>Create User</h2>
+                  <h2 class='mt-6 text-3xl font-extrabold  text-white'>Create User</h2>
                 </div>
               
                 <div class='mt-6'>
@@ -168,7 +168,7 @@ export default function CreateUser(){
 
 
                       <div >
-                        <label class='block text-base text-gray-600 mt-2 lg:mt-0 text-white font-extrabold'>Username: </label>
+                        <label class='block text-base  mt-2 lg:mt-0 text-white font-extrabold'>Username: </label>
                         <input  class='mt-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'  placeholder='Username'  
                           type="text" {...register('username' , {
                           required: true,
@@ -185,7 +185,7 @@ export default function CreateUser(){
                       </div> */}
 
                       <div >
-                      <label class='block text-base font-extrabold text-gray-600 mt-2 lg:mt-0 text-white'>Email</label>
+                      <label class='block text-base font-extrabold  mt-2 lg:mt-0 text-white'>Email</label>
                             <input type="text" class='mt-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'  placeholder='Email'  {...register('email', {
                                 pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/i,
                                 required: true,
@@ -229,7 +229,7 @@ export default function CreateUser(){
                       </div> */}
 
                       <div >
-                        <label class='block text-base font-extrabold text-gray-500 mt-2 lg:mt-0 text-white '>Password: </label>
+                        <label class='block text-base font-extrabold mt-2 lg:mt-0 text-white '>Password: </label>
 
                           <div className="  flex item-center justify-between flex-wrap bg-white mt-2 shadow appearance-none  p-4 rounded w-full py-2 px-3 text-gray-700 leading-tight ">
                               <input  placeholder='Password ' className="  focus:outline-none"
@@ -265,7 +265,7 @@ export default function CreateUser(){
                       </div>
 
                       <div >
-                        <label class='block text-base font-extrabold text-gray-500 mt-2 lg:mt-0 text-white'>Date: </label>
+                        <label class='block text-base font-extrabold  mt-2 lg:mt-0 text-white'>Date: </label>
                         <input  class='mt-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' placeholder='date'
                       
                           type="date" {...register('date', {
