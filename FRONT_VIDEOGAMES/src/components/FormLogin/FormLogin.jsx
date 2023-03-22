@@ -38,8 +38,8 @@ export default function LoginForm(){
                     console.log(err)
                     Swal.fire({
                         icon: 'error',
-                        title: 'Error!',
-                        text: 'Error!'
+                        title: 'Something went wrong',
+                        text: err.response.data.message,
                       })
                 })
             }
@@ -47,6 +47,9 @@ export default function LoginForm(){
     }
 
     const onSubmit = (data) => {
+
+        console.log("1")
+
         dispatch(Login(data)).then((response) => {
             dispatch(Login_OK(response.data)).then(() => {
                 Swal.fire({
@@ -58,10 +61,9 @@ export default function LoginForm(){
                   }).then((result) => {
                     if (result.isConfirmed) {
                       navigate("/home");
-                      console.log(response)
-                      info
                     }})})
             }).catch((err) => {
+                console.log(err)
                 Swal.fire({
                   tittle: '¡Ops! There is a problem',
                   text: err.response.data.message,
@@ -103,7 +105,7 @@ export default function LoginForm(){
                                     {errors.email?.type === 'pattern' && <p class='mt-[10px] text-center text-base text-white font-extrabold '>Please enter a correct email format </p>}
                                 </div>
                                 <div>
-                                <label for="password" class='block text-sm text-base text-white font-extrabold  mt-2 lg:mt-0'>Password</label>
+                                <label for="password" class='block text-base text-white font-extrabold  mt-2 lg:mt-0'>Password</label>
                                 <div class='flex item-center justify-between flex-wrap bg-white mt-2 shadow appearance-none  p-4 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none'>
                                 <input class=' focus:shadow-outline focus:outline-none' placeholder='Password' 
                                     type={showPwd ? "text" : "password"} {...register('password', {

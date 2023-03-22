@@ -220,7 +220,7 @@ export default function Details(){
                         })
                     }
 
-                    <div className="flex flex-col mx-auto max-w-xl p-8 shadow-sm rounded-xl lg:p-12 bg-gray-900 text-gray-100">
+                    <div className="flex flex-col mx-auto mb-5 max-w-xl p-8 shadow-sm rounded-xl lg:p-10 bg-slate-900 text-gray-100">
 	                    <div className="flex flex-col items-center w-full">
 		                    <h2 className="text-3xl font-semibold text-center">Your opinion matters!</h2>
 
@@ -248,14 +248,19 @@ export default function Details(){
 		                    </div>
 
 		                    <div className="flex flex-col w-full">
-			                    <textarea rows="3" placeholder="Message..." className="p-4 rounded-md resize-none dark:text-gray-100 dark:bg-gray-900"
+			                    <textarea rows="3" placeholder="Message..." className="p-4 rounded-md resize-none text-slate-100 bg-gray-700"
                                 value={text} onChange={handleOnChange}></textarea>
-			                        <button type="button" onClick={() => handleSubmit()} className="py-4 my-8 font-semibold rounded-md text-gray-900 bg-violet-400">Submit</button>
+			                        <button type="button" onClick={() => handleSubmit()} className="py-4  my-4 font-semibold rounded-md text-black bg-amber-400
+                                    hover:bg-amber-500">Submit</button>
 		                    </div>
 	                    </div>
                     </div>
+
                 </div>
             </div>
+                    <div className='w-full'>
+                        <Footer/>
+                    </div>
         </div>
     )
 }
