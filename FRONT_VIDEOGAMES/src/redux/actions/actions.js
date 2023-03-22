@@ -17,8 +17,7 @@ export const GET_GAME = "GET_GAME";
 export const GET_WISH_LIST = "GET_WISH_LIST";
 export const POST_WISH_LIST = "POST_WISH_LIST";
 export const POST_SUPPORT = "POST_SUPPORT";
-export const GET_REVIEWS = "GET_REVIEWS";
-export const ADD_REVIEW = "ADD_REVIEW";
+
 
 // RUTAS PARA LA AUTENTICACIÓN
 
@@ -45,12 +44,16 @@ export const GET_USERS = "GET_USERS"
 
 export const GET_PRODUCTS_LIBRARY = 'GET_PRODUCTS_LIBRARY'
 
-// DASHBOARD
+// RUTAS PARA EL PANEL DE ADMINISTRADOR
 
 export const PUT_PRODUCT_DASH = "PUT_PRODUCT_DASH"
 
-// ACCIONES PARA LA AUTENTICACIÓN
+// RUTAS PARA LAS REVIEWS
 
+export const GET_REVIEWS = "GET_REVIEWS"
+export const ADD_REVIEW = "ADD_REVIEW"
+
+// ACCIONES PARA LA AUTENTICACIÓN
 
 
 export const Register = (data) => (dispatch) => {
@@ -326,7 +329,7 @@ export function DeleteProductCartLocalStorage(NameProduct){
       };
     };
 
-    // ACTIONS REVIEWS
+    // REVIEWS
 
     export function GetReviews (obj) {
       return async function(dispatch){

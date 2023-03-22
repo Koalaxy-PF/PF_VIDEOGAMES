@@ -16,9 +16,11 @@ router.post("/", async (req, res) => {
         include: { model: Productlibrary}
     });
 
+    if(library === null){
+        return res.status(401).send({message: 'You have to buy the game to add a review'});
+    }
+
     const findProduct = await library.productlibraries?.find(e => e.productId == productId);
-
-
 
     if(findProduct){
         try {
@@ -28,12 +30,12 @@ router.post("/", async (req, res) => {
                 calification,
                 comment
             })
-            res.status(200).send(newComment)
+            res.status(200).send({message: 'The review was added successfully'})
         } catch (error) {
             console.log(error)
         }
     }else{
-        res.status(400).send('Comment only those who bought the game! Sorry.')
+        res.status(401).send('Comment only those who bought the game! Sorry.')
     }
 
 })
