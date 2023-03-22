@@ -118,7 +118,7 @@ export default function ShoppingCart(){
                                                         </td>
 
                                                         <td>
-                                                            <h2 className="mt-6 text-xl font-extrabold text-white">  ${e.totalValue}</h2>  
+                                                            <h2 className="mt-6 text-xl font-extrabold text-white">  ${e.price}</h2>  
                                                         </td>
 
                                                         <ty>
