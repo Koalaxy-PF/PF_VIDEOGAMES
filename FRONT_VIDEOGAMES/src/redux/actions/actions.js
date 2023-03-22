@@ -17,11 +17,9 @@ export const GET_GAME = "GET_GAME";
 export const GET_WISH_LIST = "GET_WISH_LIST";
 export const POST_WISH_LIST = "POST_WISH_LIST";
 export const POST_SUPPORT = "POST_SUPPORT";
+
 export const UPDATE_GAME = 'UPDATE_GAME';
 export const GET_DETAIL = 'GET_DETAIL'
-export const GET_REVIEWS = "GET_REVIEWS";
-export const ADD_REVIEW = "ADD_REVIEW";
-//>>>>>>> 43ac23bdf9479a5fd8802c3b5a209de9c210fc01
 
 // RUTAS PARA LA AUTENTICACIÓN
 
@@ -42,17 +40,25 @@ export const DELETE_PRODUCT_CART_LOCAL_STORAGE = 'DELETE_PRODUCT_CART_LOCAL_STOR
 // RUTAS PARA LAS ORDENES DE PAGO
 
 export const GET_ORDER_ID = 'GET_ORDER_ID'
-
 export const GET_USERS = "GET_USERS"
 
-// DASHBOARD
+// RUTA PARA OBTENER LA LIBRERÍA
+
+export const GET_PRODUCTS_LIBRARY = 'GET_PRODUCTS_LIBRARY'
+
+// RUTAS PARA EL PANEL DE ADMINISTRADOR
 
 export const PUT_PRODUCT_DASH = "PUT_PRODUCT_DASH"
 
+// RUTAS PARA LAS REVIEWS
 export const CLEAN_USERS = "CLEAN_USERS"
 
 // ACCIONES PARA LA AUTENTICACIÓN
 
+export const GET_REVIEWS = "GET_REVIEWS"
+export const ADD_REVIEW = "ADD_REVIEW"
+
+// ACCIONES PARA LA AUTENTICACIÓN
 
 
 export const Register = (data) => (dispatch) => {
@@ -282,11 +288,11 @@ export function PutProductDash(idProduct){
   }
 }
 
-export function DeleteProductCartLocalStorage(idProduct){
+export function DeleteProductCartLocalStorage(NameProduct){
     return async function(dispatch){
         dispatch({
           type: DELETE_PRODUCT_CART_LOCAL_STORAGE,
-          payload: idProduct,
+          payload: NameProduct,
         })
       }
     }
@@ -354,11 +360,11 @@ export function DeleteProductCartLocalStorage(idProduct){
       };
     };
 
-    // ACTIONS REVIEWS
+    // REVIEWS
 
-    export function GetReviews (obj) {
+    export function GetReviews(productId){
       return async function(dispatch){
-        let json = axios.get(`http://localhost:3000/reviews`, obj)
+        let json = await axios.get(`http://localhost:3000/reviews/?productId=${productId}`)
         dispatch({
           type: GET_REVIEWS,
           payload: json.data
@@ -368,12 +374,7 @@ export function DeleteProductCartLocalStorage(idProduct){
 
     export function AddReview(payload){
       return async function (dispatch) {
-          const json = axios.post(`http://localhost:3000/reviews`, payload)
-          dispatch({
-            type: ADD_REVIEW,
-            payload: json.data
-          })
-        
+        return await axios.post(`http://localhost:3000/reviews`, payload)
       }
     }
 
@@ -440,4 +441,25 @@ export function DeleteProductCartLocalStorage(idProduct){
         })
       }
     }
+
+    // RESETEAR CONTRASEÑA DE USUARIOS REGISTRADOS
+
+    export function ResetPassword(email){
+      return async function(){
+        return await axios.put('http://localhost:3000/auth/resetPassword', email)
+      }
+    }
+
+    // TRAER LOS PRODUCTOS DE LA BIBLIOTECA
+
+    export function GetProductsLibrary(id){
+      return async function(dispatch){
+        let json = await axios.get(`http://localhost:3000/orderDetail/${id}`);
+        dispatch({
+          type: GET_PRODUCTS_LIBRARY,
+          payload: json.data,
+        })
+      }
+    }
+    
     
