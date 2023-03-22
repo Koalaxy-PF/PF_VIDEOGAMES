@@ -25,8 +25,11 @@ import {
   GET_USERS,
   LOGOUT,
   GET_ORDER_ID,
+  GET_PRODUCTS_LIBRARY,
+  UPDATE_GAME,
+  GET_DETAIL,
   GET_REVIEWS,
-  ADD_REVIEW,
+  CLEAN_USERS
 } from "../actions/actions";
 
 const initialState = {
@@ -41,11 +44,12 @@ const initialState = {
   WishList: [],
   dataSupport: {},
   library: [],
-  Reviews: [],
+  reviews: [],
 };
 
 function rootReducer(state = initialState, action) {
   switch (action.type) {
+
     // - - - AUTENTICACIÓN - - -
 
     case LOGIN_SUCESS:
@@ -98,7 +102,7 @@ function rootReducer(state = initialState, action) {
       const carrito = JSON.parse(window.localStorage.getItem("carrito-ls"));
 
       for (let i = 0; i < carrito.productcarts.length; i++) {
-        if (action.payload === carrito.productcarts[i].id) {
+        if (action.payload === carrito.productcarts[i].name) {
           carrito.total = carrito.total - carrito.productcarts[i].price;
           carrito.productcarts.splice(i, 1);
           i--;
@@ -124,6 +128,17 @@ function rootReducer(state = initialState, action) {
         Games: action.payload,
         GamesCopy: action.payload,
       };
+
+    case GET_DETAIL:
+      return{
+        ...state,
+        details: action.payload
+      }
+
+    case UPDATE_GAME:
+        return {
+            ...state
+        }
 
     // case GET_GAME:
     //     return {
@@ -315,14 +330,25 @@ function rootReducer(state = initialState, action) {
       };
 
     case GET_REVIEWS:
+
+      console.log("elementos:" , action.payload);
+
       return {
         ...state,
-        Reviews: action.payload,
+        reviews: action.payload,
       }
-    
-    case ADD_REVIEW:
-      return {
+
+      case GET_PRODUCTS_LIBRARY:
+
+        return {
+          ...state,
+          library: action.payload,
+      }
+     
+    case CLEAN_USERS:
+      return{
         ...state,
+        users: action.payload,
       }
 
     default: {

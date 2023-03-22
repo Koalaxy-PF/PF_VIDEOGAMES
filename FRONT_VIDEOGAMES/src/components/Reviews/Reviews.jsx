@@ -10,8 +10,6 @@ export default function Reviews({id}){
     const User = useSelector((state) => state.user);
     const dispatch = useDispatch();
 
-    console.log(arrReview, 'rv');
-
     const initialState = {
         userId: "",
         productId: id,
@@ -27,13 +25,16 @@ export default function Reviews({id}){
     }
 
     useEffect(() =>{
-    dispatch(GetReviews(obj))
-    if(User.user.id){
-        setReview({
-            ...review,
-            userId: User.user.id
-        })
-    }
+
+        dispatch(GetReviews(obj))
+
+        if(User.user.id){
+            setReview({
+                ...review,
+                userId: User.user.id
+            })
+        }
+        
     },[dispatch])
 
     const handleClick = (e) => {
