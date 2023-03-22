@@ -64,7 +64,7 @@ export default function NavBar(){
 
     return(
         <div className="">
-          <div class="flex item-center justify-between bg-slate-100 py-3 px-2 dark:bg-[#17202A]">
+          <div class="flex item-center justify-between bg-transparent py-3 px-2 dark:bg-transparent">
 
             <div class="flex item-center text-black">
               <Link to= "/Home">

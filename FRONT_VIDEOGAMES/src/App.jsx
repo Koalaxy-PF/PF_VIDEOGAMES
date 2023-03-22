@@ -35,7 +35,7 @@ export default function App(){
   
 
   return (
-    <div className="App">
+    <div className="bg-cover bg-scroll bg-[url('assets/backgrounds/nebulosa.jpg')]  " >
       <Routes>
         <Route exact path="/" element={<ReturnLandingPage />} />
         <Route exact path="/home" element={<Home />} />

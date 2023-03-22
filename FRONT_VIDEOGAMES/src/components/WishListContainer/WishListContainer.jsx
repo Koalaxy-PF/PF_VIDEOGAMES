@@ -35,7 +35,7 @@ export default function Cards(){
 }
 
   return (        
-    <div className="grid bg-gray-100 content-start w-full pt-2">  
+    <div className="grid bg-transparent content-start w-full pt-2">  
 
       {
         WishListGames.length === 0 ?

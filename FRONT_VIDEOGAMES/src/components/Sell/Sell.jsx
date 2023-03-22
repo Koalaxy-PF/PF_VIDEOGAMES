@@ -71,7 +71,7 @@ const pagination = pagesNumber =>{
   }
   
   return (
-    <div className="w-full h-100vh " style={{backgroundImage: `url('https://www.xtrafondos.com/descargar.php?id=4047&resolucion=3840x2400')`, backgroundSize: 'cover'}}>
+    <div className="w-full h-100vh ">
       <div className="w-100vh mx-10 mt-4">
           <div className='inline-flex mb-4'> 
             <SearchBar />

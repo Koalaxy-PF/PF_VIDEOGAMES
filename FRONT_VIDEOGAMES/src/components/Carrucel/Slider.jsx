@@ -41,7 +41,7 @@ export default function Slider2({data, tittle}){
       <div className='max-w-[calc(100vw-6rem)] mb-6'>
 
         <div>
-            <h1 className="text-2xl ml-4 mb-2 mt-8 font-extrabold leading-none text-left  text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-500">{tittle}</h1>
+            <h1 className="text-2xl ml-4 mb-2 mt-8 font-bold leading-none text-left  text-cyan-300 drop-shadow-2xl bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-500">{tittle}</h1>
       
             <Slider {...settings}>
                 {data.map((el,index) => <Card key={index} id={el.id} img={el.img} name={el.name} price={el.price} genre={el.genre} calification={el.calification} />)}

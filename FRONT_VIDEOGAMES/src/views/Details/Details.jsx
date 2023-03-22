@@ -37,12 +37,15 @@ const Details = () => {
             </div>
             
             <div className='flex w-full h-full'>
+                <div className="flex flex-row">
+
                 <Sidebar />
+                </div>
             {
                 
                 vgDetail ? 
-                <div>
-                <div className='flex flex-row bg-gray-100 w-screen  justify-start'>
+                <div className="">
+                <div className='flex flex-row  w-screen  justify-start'>
                     <div className="w-1/2 h-250">
                         <img className='w-4/5 m-10 rounded-md shadow-md' src={vgDetail.img} alt="img not found" ></img>
                     </div>
@@ -113,7 +116,7 @@ const Details = () => {
                     </div>
                     
                 </div>
-                <div className="bg-gray-100">
+                <div className="">
                     <h1 className="text-gray-900 ml-5" >Reviews</h1>
                     <Reviews
                     id={id}

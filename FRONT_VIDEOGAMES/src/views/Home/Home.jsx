@@ -289,11 +289,11 @@ export default function Home(){
 
           <div className='flex flex-row'>
 
-            <div className='bg-slate-900'>
+            <div className= "">
               <Sidebar />
             </div>
          
-            <div class="bg-cover bg-no-repeat" style={{backgroundImage: `url('https://www.xtrafondos.com/descargar.php?id=4047&resolucion=3840x2400')`, backgroundSize: 'cover'}}>
+            <div class="bg-transparent" >
   <Slider2 data={Tendencias} tittle={"NEWS AND TRENDS"} />
   <Slider2 data={vendidos} tittle={"BEST SELLERS"} />
   <Slider2 data={data} tittle={"BEST GAMES OF FEBRUARY"} />

@@ -151,10 +151,10 @@ export default function Card({img, id, name, price, genre, calification}){
     }
     
     return(
-        <div class="w-full max-w-sm bg-gray-100 shadow-xl shadow-slate-700 mb-1 dark:bg-[#17202A] duration-300">
+        <div class="w-full max-w-sm bg-gray-100 shadow-xl rounded-xl drop-shadow-xl mb-1 dark:bg-purple-900 duration-300">
 
         <Link to={`/products/${id}`}>
-            <img className=" h-[150px] w-full object-cover " src={img} alt="product image" />
+            <img className=" h-[150px] w-full object-cover rounded-t-xl " src={img} alt="product image" />
         </Link>
     
         <div class="px-2 pb-4 mt-2">
