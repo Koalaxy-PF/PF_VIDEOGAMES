@@ -102,7 +102,7 @@ export default function ShoppingCart(){
 
                                     <div className="col-12">
 
-                                            <table className="table-light hover m-0 bg-none inline-flex   w-full relative box-border border-4 border-green-200 "> 
+                                            <table className="table-light table hover m-0 bg-none inline-flex   w-full relative box-border border-4 border-green-200 "> 
 
                                                 <tbody className="w-full relative mt-6 bg-auto  ">                         
                                                         {allCart.productcarts?.map( (e , index) =>{
