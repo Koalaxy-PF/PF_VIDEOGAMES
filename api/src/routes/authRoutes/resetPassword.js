@@ -8,41 +8,42 @@ const router = Router();
 router.put("/resetPassword", async (req, res) => {
   
   const { email } = req.body;
+  const user = await User.findOne({ where: { email: email } });
 
   try {
-    const user = await User.findOne({ where: { email: email } });
-    const username = user.username;
-
-    //Desencripto la contraseña
-    const decryptPassword = CryptoJS.AES.decrypt(
-      user.password,
-      process.env.SECRET_KEY_CRYPTO
-    );
-    decryptPassword.toString(CryptoJS.enc.Utf8);
-
-    let result = "";
-    const characters =
-      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    const charactersLength = characters.length;
-    for (let i = 0; i < charactersLength; i++) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength));
-    }
-
-    const password = result.substring(0, 10);
-
-    await User.update(
-      {
-        password: CryptoJS.AES.encrypt(
-          password,
-          process.env.SECRET_KEY_CRYPTO
-        ).toString(),
-      },
-      { where: { email: email } }
-    );
-
     if (!user) {
       return res.status(401).send({ message: "Email no exist" });
     } else {
+      const username = user.username;
+
+      const decryptPassword = CryptoJS.AES.decrypt(
+        user.password,
+        process.env.SECRET_KEY_CRYPTO
+      );
+      decryptPassword.toString(CryptoJS.enc.Utf8);
+
+      let result = "";
+      const characters =
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+      const charactersLength = characters.length;
+      for (let i = 0; i < charactersLength; i++) {
+        result += characters.charAt(
+          Math.floor(Math.random() * charactersLength)
+        );
+      }
+
+      const password = result.substring(0, 10);
+
+      await User.update(
+        {
+          password: CryptoJS.AES.encrypt(
+            password,
+            process.env.SECRET_KEY_CRYPTO
+          ).toString(),
+        },
+        { where: { email: email } }
+      );
+
       await transporter.sendMail({
         from: 'Koalaxy Company" <koalaxygames@gmail.com>', // sender address
         to: email, // list of receivers
