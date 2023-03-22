@@ -35,7 +35,7 @@ export default function Cards(){
 }
 
   return (        
-    <div className="grid bg-gray-100 content-start w-full pt-2">  
+    <div className="grid content-start w-full pt-2" style={{backgroundImage: `url('https://www.xtrafondos.com/descargar.php?id=4047&resolucion=3840x2400')`, backgroundSize: 'cover'}}>  
 
       {
         WishListGames.length === 0 ?

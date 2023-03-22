@@ -9,11 +9,24 @@ router.put('/:id',  /* verifyToken, */ async(req,res)=>{
     const { id } = req.params;
 
         try {
-            const banUser = await User.update(
-                { is_banned: true },
-                { where: { id: id} }
-            )
-            res.send('User has been banned')
+            const user = await User.findOne({
+                where: { id: id }
+            })
+            if(user.is_banned === false){
+                const banUser = await User.update(
+                    { is_banned: true },
+                    { where: { id: id} }
+                )
+                res.send('User has been banned')
+            }else{
+                const unbanUser = await User.update(
+                    { is_banned: false },
+                    { where: { id: id} }
+                )
+                res.send('User has been unbanned')
+            }
+
+
         } catch (err) {
             console.log(err)
         }

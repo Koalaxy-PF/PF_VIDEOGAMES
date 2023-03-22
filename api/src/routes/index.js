@@ -15,6 +15,7 @@ const deleteProducts = require("./productRoutes/delete");
 
 const registerUser = require("./authRoutes/register");
 const loginUser = require("./authRoutes/login");
+const loginGithub = require("./authRoutes/loginGithub");
 const resetPassword = require("./authRoutes/resetPassword");
 const getUsers = require("./userRoutes/get");
 const updateUser = require("./userRoutes/put");
@@ -73,6 +74,7 @@ router.use("/products", deleteProducts);
 /* *************************  routes USER   **************************************** */
 router.use("/auth", registerUser);
 router.use("/auth", loginUser);
+router.use("/auth", loginGithub);
 router.use("/auth", resetPassword);
 router.use("/users", getUsers);
 router.use("/users", updateUser);
