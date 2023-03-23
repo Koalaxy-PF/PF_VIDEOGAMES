@@ -73,7 +73,6 @@ export default function LoginForm(){
               })
     }
         
-
     return(
         <div class='min-height-full flex  justify-center'style={{backgroundImage: `url('https://www.xtrafondos.com/descargar.php?id=4047&resolucion=3840x2400')`, backgroundSize: 'cover'}} >
             <div class='hidden lg:block relative h-full'>
@@ -109,7 +108,7 @@ export default function LoginForm(){
                                 <div class='flex item-center justify-between flex-wrap bg-white mt-2 shadow appearance-none  p-4 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none'>
                                 <input class=' focus:shadow-outline focus:outline-none' placeholder='Password' 
                                     type={showPwd ? "text" : "password"} {...register('password', {
-                                     pattern: /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/ ,
+                                     pattern: /^[a-zA-Z]{8,16}$/ ,
                                      required: true,
                                      maxLength: 16,
                                      minLength: 8
@@ -117,7 +116,7 @@ export default function LoginForm(){
                                     <a class="block lg:inline-block lg:mt-0 " onClick={() => setShowPwd(!showPwd)}> <img  class= " z-6 inset-y-0 my-auto h-6 active:bg-gray-600 active:rounded-full"src = {seePassword}/> </a>
                                 </div>
                                     {errors.password?.type === 'minLength' && <p class='mt-[10px] text-center text-base text-white font-extrabold '>The password must have at least 3 characters</p>}
-                                    {errors.password?.type === 'pattern' && <p class='mt-[10px] text-white  text-base font-extrabold'>the password at least one digit, at least one lower case and at least one upper case.</p>}
+                                    {errors.password?.type === 'pattern' && <p class='mt-[10px] text-white  text-base font-extrabold'>Only lowercase and uppercase letters are accepted.</p>}
                                     {errors.password?.type === 'maxLength' && <p class=' mt-[10px] text-white  text-base font-extrabold'>must have a maximum of 16 characters</p>}
                                     {errors.password?.type === 'required' && <p class='mt-[10px] text-center text-base text-white font-extrabold '>Please enter a password</p>}
                                 </div>
