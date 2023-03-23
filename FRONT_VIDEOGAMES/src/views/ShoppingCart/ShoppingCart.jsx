@@ -152,7 +152,7 @@ export default function ShoppingCart(){
                                                         </td>
 
                                                         <td>
-                                                            <h2 className="mt-6 text-xl font-extrabold text-white"> $ {e.price}</h2>  
+                                                            {User.length != 0 ? <h2 className="mt-6 text-xl font-extrabold text-white"> $ {e.priceProduct}</h2> : <h2 className="mt-6 text-xl font-extrabold text-white"> $ {e.price}</h2>   }
                                                         </td>
 
                                                         <ty>
