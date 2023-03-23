@@ -1,4 +1,4 @@
-import React ,{useEffect}from "react";
+import React ,{useEffect , useState}from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Swal from "sweetalert2";
 import {GetUsers , DeleteUserDashBoard, PutUserAdminDashBoard, PutUserBanDashBoard, CleanUsers} from "../../../redux/actions/actions";
@@ -14,6 +14,10 @@ export default function CardUserDashBoard(){
     const dispatch = useDispatch();
     const allUsers = useSelector((state) => state.users);
 
+    const  [refrescar, setRefrescar] = useState(false) 
+
+
+
     useEffect(() => {
         dispatch(GetUsers());
         dispatch(CleanUsers())
@@ -27,7 +31,10 @@ export default function CardUserDashBoard(){
                 title: resp.data.message,
                 text: 'the user was deleted!',
         })
+        }).then(() => {
+            dispatch(GetUsers());
         })
+        
     }
 
     const AdminUser = (id) =>{
@@ -38,7 +45,10 @@ export default function CardUserDashBoard(){
                 title: resp.data.message,
                 text: 'Assigned the user as administrator!',
         })
+        }).then(() => {
+            dispatch(GetUsers());
         })
+     
     }
 
     const BanUser = (id) =>{
@@ -49,7 +59,11 @@ export default function CardUserDashBoard(){
                 title: resp.data.message,
                 text: 'has banned the user!',
         })
+        }).then(() => {
+            dispatch(GetUsers());
         })
+
+      
     }
 
    

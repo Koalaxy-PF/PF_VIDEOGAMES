@@ -107,12 +107,15 @@ export default function CreateUser(){
 
   const genre = ['male', 'female']
 
+
+
   const onSubmit = (data) => {
+
     dispatch(Register(data)).then((response) => {
       Swal.fire({
-        title: '¡Buen trabajo!',
-        text: response.data.message,
         icon: 'success',
+        title: 'Congratulations!',
+        text: response.data.message,
         confirmButtonColor: '#3085d6',
         confirmButtonText: 'Continuar'
       }).then((result) => {
@@ -252,7 +255,7 @@ export default function CreateUser(){
 
                       <div >
                         <label class='block text-base font-extrabold  mt-2 lg:mt-0 text-white'>Image: </label>
-                        <input  class='mt-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' placeholder='img'
+                        <input class='mt-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' placeholder='img'
                       
                           type="text"  {...register('img', {
                             required: true,

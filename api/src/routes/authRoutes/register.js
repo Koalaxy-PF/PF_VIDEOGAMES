@@ -17,9 +17,9 @@ router.post('/register', async(req,res)=>{
   
     if (existingUser) {
       if (existingUser.username === username) {
-        return res.status(400).send({ message: "El nombre de usuario ya está en uso" });
+        return res.status(409).send({ message: "The username is already taken" });
       } else if (existingUser.email === email) {
-        return res.status(400).send({ message: "El correo electrónico ya está en uso" });
+        return res.status(409).send({ message: "Email is already in use" });
       }
     }
   
@@ -46,7 +46,7 @@ router.post('/register', async(req,res)=>{
         <br>Koalaxy Team.<br>
         <p/>`, // html body
     });
-    res.status(200).send({ message: "El usuario se ha registrado correctamente" });
+    res.status(200).send({ message: "The user was registered successfully" });
   });
 
 

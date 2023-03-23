@@ -21,6 +21,7 @@ router.get("/", async (req, res) => {
 
       const productName = response.map((product) => {
         return {
+          id: product.id,
           img: product.img,
           name: product.name,
           genre: product.genre,

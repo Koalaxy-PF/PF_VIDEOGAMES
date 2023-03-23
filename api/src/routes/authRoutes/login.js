@@ -14,16 +14,19 @@ router.post('/login', async(req,res)=> {
         if (!user) {
             return res.status(401).send({message: "Email is invalid"});
         }
-        if(user.is_banned){
-            return res.status(401).send({message: "You are banned. Please contact with support channel"});
-        }
-
+        
         const decryptPassword = CryptoJS.AES.decrypt(user.password, process.env.SECRET_KEY_CRYPTO);
         const originalPassword = decryptPassword.toString(CryptoJS.enc.Utf8);
 
         if (originalPassword !== password) {
             return res.status(401).send({message: "The password is invalid"});
         }
+
+        if(user.is_banned){
+            return res.status(400).send({message: "You are banned. Please contact with support channel"});
+        }
+
+
 
         const accessToken = jwt.sign(
             {id: user.id, is_admin: user.is_admin},
