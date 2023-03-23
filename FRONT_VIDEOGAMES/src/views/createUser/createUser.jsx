@@ -234,7 +234,7 @@ export default function CreateUser(){
                               <input  placeholder='Password ' className="  focus:outline-none"
                         
                         type={showPwd ? "text" : "password"} {...register('password', {
-                            pattern: /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/ ,
+                            pattern: /^[a-zA-Z]{8,16}$/ ,
                             required: true,
                             maxLength: 16,
                             minLength: 8
