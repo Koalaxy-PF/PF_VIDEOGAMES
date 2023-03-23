@@ -6,7 +6,6 @@ const { transporter } = require("../../emailer");
 const router = Router();
 
 router.put("/resetPassword", async (req, res) => {
-  
   const { email } = req.body;
   const user = await User.findOne({ where: { email: email } });
 
@@ -23,7 +22,8 @@ router.put("/resetPassword", async (req, res) => {
       decryptPassword.toString(CryptoJS.enc.Utf8);
 
       let result = "";
-      const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+      const characters =
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";
       const charactersLength = characters.length;
       for (let i = 0; i < charactersLength; i++) {
         result += characters.charAt(
@@ -31,7 +31,7 @@ router.put("/resetPassword", async (req, res) => {
         );
       }
 
-      const password = result.substring(0, 10);
+      const password = result.substring(0, 9) + 5;
 
       await User.update(
         {
