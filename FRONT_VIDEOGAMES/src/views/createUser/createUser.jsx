@@ -111,12 +111,11 @@ export default function CreateUser(){
 
   const onSubmit = (data) => {
 
-
     dispatch(Register(data)).then((response) => {
       Swal.fire({
+        icon: 'success',
         title: 'Congratulations!',
         text: response.data.message,
-        icon: 'success',
         confirmButtonColor: '#3085d6',
         confirmButtonText: 'Continuar'
       }).then((result) => {

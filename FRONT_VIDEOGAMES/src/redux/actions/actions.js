@@ -17,9 +17,12 @@ export const GET_GAME = "GET_GAME";
 export const GET_WISH_LIST = "GET_WISH_LIST";
 export const POST_WISH_LIST = "POST_WISH_LIST";
 export const POST_SUPPORT = "POST_SUPPORT";
+export const GET_USERS = "GET_USERS"
 
 export const UPDATE_GAME = 'UPDATE_GAME';
 export const GET_DETAIL = 'GET_DETAIL'
+export const CLEAN_USERS = "CLEAN_USERS"
+
 
 // RUTAS PARA LA AUTENTICACIÓN
 
@@ -40,7 +43,6 @@ export const DELETE_PRODUCT_CART_LOCAL_STORAGE = 'DELETE_PRODUCT_CART_LOCAL_STOR
 // RUTAS PARA LAS ORDENES DE PAGO
 
 export const GET_ORDER_ID = 'GET_ORDER_ID'
-export const GET_USERS = "GET_USERS"
 
 // RUTA PARA OBTENER LA LIBRERÍA
 
@@ -51,14 +53,9 @@ export const GET_PRODUCTS_LIBRARY = 'GET_PRODUCTS_LIBRARY'
 export const PUT_PRODUCT_DASH = "PUT_PRODUCT_DASH"
 
 // RUTAS PARA LAS REVIEWS
-export const CLEAN_USERS = "CLEAN_USERS"
-
-// ACCIONES PARA LA AUTENTICACIÓN
 
 export const GET_REVIEWS = "GET_REVIEWS"
 export const ADD_REVIEW = "ADD_REVIEW"
-
-// ACCIONES PARA LA AUTENTICACIÓN
 
 
 export const Register = (data) => (dispatch) => {
