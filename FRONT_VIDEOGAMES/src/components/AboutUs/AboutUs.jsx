@@ -7,6 +7,7 @@ import {icons} from '../../assets/about/icons.js'
 
 export default function AboutUs(){
 
+	//cambio para corregir 
   
   return (
     <div class="bg-cover bg-no-repeat" style={{backgroundImage: `url('https://www.xtrafondos.com/descargar.php?id=4047&resolucion=3840x2400')`, backgroundSize: 'cover'}}>
