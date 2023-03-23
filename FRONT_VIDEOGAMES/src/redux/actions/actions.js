@@ -451,7 +451,7 @@ export function DeleteProductCartLocalStorage(NameProduct){
 
     export function GetProductsLibrary(id){
       return async function(dispatch){
-        let json = await axios.get(`http://localhost:3000/orderDetail/${id}`);
+        let json = await axios.get(`http://localhost:3000/library/${id}`);
         dispatch({
           type: GET_PRODUCTS_LIBRARY,
           payload: json.data,
