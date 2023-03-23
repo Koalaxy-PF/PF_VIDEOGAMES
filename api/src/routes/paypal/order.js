@@ -9,7 +9,7 @@ const router = Router();
 
 router.post("/:id", async (req, res) => {
   const { id } = req.params;
-  const responseCarrito = await axios.get(`http://localhost:3000/cart/${id}`);
+  const responseCarrito = await axios.get(`https://apikoalaxy-production.up.railway.app/cart/${id}`);
 
   const price = responseCarrito.data.total;
   /*  const price = req.body.total */

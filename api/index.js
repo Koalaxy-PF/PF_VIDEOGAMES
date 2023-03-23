@@ -6,6 +6,7 @@ const {
 } = require("./src/controllers/apidatos");
 const { jsonGames } = require("./src/JSON/JsonOfVideogame");
 
+
 conn.sync({ force: true }).then(() => {
   // si tenes en true, renueva la base de datos
 
