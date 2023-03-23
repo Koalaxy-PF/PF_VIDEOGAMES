@@ -46,7 +46,7 @@ export default function Dashboard() {
         </div>
       </div>
 
-      <div class='justify-center text-center bg-white py-[20px] rounded w-[500px]'>
+      {/* <div class='justify-center text-center bg-white py-[20px] rounded w-[500px]'>
         <div class='flex justify-around'>
         <h1 class='relative right-[48px] font-bold text-[20px]'>Users</h1>
         <span class='relative left-[60px]'><ion-icon name="people"></ion-icon>50</span>
@@ -89,7 +89,7 @@ export default function Dashboard() {
         <div>
           <button class='py-[10px] px-[10px] mt-[20px] rounded border-blue-900 border-[1px]'>See all the users</button>
         </div>
-      </div>
+      </div> */}
         </div>
       </div>
     </div>
