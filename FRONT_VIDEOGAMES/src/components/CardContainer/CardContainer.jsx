@@ -76,7 +76,7 @@ const  HandlerFilterTypeFerCompany = (e) =>{
 }
 
   return (
-    <div class='bg-gray-200 overflow-x-hidden flex flex-wrap justify-center'>
+    <div class='bg-gray-200 overflow-x-hidden flex flex-wrap justify-center' >
           
       {currentGames?.map((product) => {
         return (

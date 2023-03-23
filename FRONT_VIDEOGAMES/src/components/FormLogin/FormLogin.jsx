@@ -2,58 +2,91 @@ import React, {useEffect, useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {useForm} from 'react-hook-form';
 import logo from '../../assets/icons/koalaLogo.png';
-import koala from '../../assets/login/koala_login.jpg'
-import { Login, Login_OK} from '../../redux/actions/actions'
+import koala from '../../assets/login/koala_login3.png'
+import { Login, Login_OK, ResetPassword} from '../../redux/actions/actions'
 import { useNavigate } from 'react-router-dom'
 import {Link} from 'react-router-dom'
 import Swal from 'sweetalert2'
-
+import seePassword from "../../assets/icons/seePassword.png";
 
 export default function LoginForm(){
 
     const {register, formState:{errors}, handleSubmit}= useForm();
+    const [showPwd, setShowPwd] = useState(false)
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
+    const ForgotPassword = (e) => {
+
+        Swal.fire({
+            title: 'Submit your email',
+            input: 'text',
+            inputAttributes: {
+              autocapitalize: 'off'
+            },
+            showCancelButton: true,
+            confirmButtonText: 'Cool',
+            showLoaderOnConfirm: true,
+            preConfirm: (login) => {
+                dispatch(ResetPassword({email: login})).then((resp) => {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Congrulations!',
+                        text: resp.data,
+                      })
+                }).catch((err) => {
+                    console.log(err)
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Something went wrong',
+                        text: err.response.data.message,
+                      })
+                })
+            }
+        })
+    }
+
     const onSubmit = (data) => {
+
+        console.log("1")
+
         dispatch(Login(data)).then((response) => {
             dispatch(Login_OK(response.data)).then(() => {
                 Swal.fire({
-                    title: '¡Bienvenido!',
-                    text: 'Usuario validado correctamente',
                     icon: 'success',
+                    title: '¡Welcome!',
+                    text: 'User validated successfully',
                     confirmButtonColor: '#3085d6',
-                    confirmButtonText: 'Continuar'
+                    confirmButtonText: 'Continue'
                   }).then((result) => {
                     if (result.isConfirmed) {
                       navigate("/home");
-                      console.log(response)
-                      info
                     }})})
             }).catch((err) => {
+                console.log(err)
                 Swal.fire({
-                  tittle: '¡Ops! Hay un problema',
+                  tittle: '¡Ops! There is a problem',
                   text: err.response.data.message,
                   icon: "error",
-                  confirmButtonText: "Continuar"
+                  confirmButtonText: "Continue"
                 })
               })
     }
         
 
     return(
-        <div class='min-height-full flex bg-gray-200 justify-center'>
+        <div class='min-height-full flex  justify-center'style={{backgroundImage: `url('https://www.xtrafondos.com/descargar.php?id=4047&resolucion=3840x2400')`, backgroundSize: 'cover'}} >
             <div class='hidden lg:block relative h-full'>
-                <img class='w-[750px] object-cover' src={koala} alt="" />
+                <img class='w-[810px] object-cover' src={koala} alt="" />
             </div>
             <div class='flex flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 mx-auto xl:px-24'>
                 <div class='mx-auto w-full max-w-sm lg:max-w-lg lg:w-[100rem] justify-center'>
                     <div class='text-center lg:text-left justify-center'>
                         <img class='h-12 w-auto m-auto  justify-center' src={logo} alt="" />
-                        <h2 class='mt-6 text-3xl font-extrabold text-gray-900 text-center'>Login with your account</h2>
-                        <p class='mt-2 text-sm text-gray-600 text-center'>
-                            No tienes cuenta ?
-                            <Link to='/CreateUser' class='font-medium text-sky-600 hover:text-sky-200 pl-[5px]'>Regístrate ahora</Link>
+                        <h2 class='mt-6 text-3xl font-extrabold text-white text-center'>Login with your account</h2>
+                        <p class='mt-2 text-base text-white font-extrabold  text-center'>
+                            You don't have an account ?
+                            <Link to='/CreateUser' class='font-medium text-sky-600 hover:text-sky-200 pl-[5px]'>Register now</Link>
                         </p>
                     </div>
 
@@ -61,26 +94,37 @@ export default function LoginForm(){
                         <form onSubmit={handleSubmit(onSubmit)} class='space-y-1'>
                             <div class='grid grid-cols-1 lg:grid-cols-2 lg:gap-3'>
                                 <div>
-                                    <label class='block text-sm font-medium text-gray-600 mt-2 lg:mt-0'>Email</label>
+                                    <label class='block text-sm text-base text-white font-extrabold mt-2 lg:mt-0 '>Email</label>
                                     <input type="text" class='mt-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' placeholder='Email' {...register('email',{
                                         required: true,
                                         minLength: 3,
                                         pattern: /\S+@\S+\.\S+/
                                     })} />
-                                    {errors.email?.type === 'required' && <p class='mt-[10px] text-center'>Please enter an email</p>}
-                                    {errors.email?.type === 'minLength' && <p class='mt-[10px] text-center'>The email must have at least 3 characters</p>}
-                                    {errors.email?.type === 'pattern' && <p class='mt-[10px] text-center'>Please enter a correct email format </p>}
+                                    {errors.email?.type === 'required' && <p class='mt-[10px] text-center text-base text-white font-extrabold '>Please enter an email</p>}
+                                    {errors.email?.type === 'minLength' && <p class='mt-[10px] text-center text-base text-white font-extrabold '>The email must have at least 3 characters</p>}
+                                    {errors.email?.type === 'pattern' && <p class='mt-[10px] text-center text-base text-white font-extrabold '>Please enter a correct email format </p>}
                                 </div>
                                 <div>
-                                <label for="password" class='block text-sm font-medium text-gray-600 mt-2 lg:mt-0'>Password</label>
-                                    <input type="password" class='mt-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' placeholder='Password' {...register('password', {
-                                        required: true,
-                                        minLength: 6
+                                <label for="password" class='block text-base text-white font-extrabold  mt-2 lg:mt-0'>Password</label>
+                                <div class='flex item-center justify-between flex-wrap bg-white mt-2 shadow appearance-none  p-4 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none'>
+                                <input class=' focus:shadow-outline focus:outline-none' placeholder='Password' 
+                                    type={showPwd ? "text" : "password"} {...register('password', {
+                                     pattern: /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/ ,
+                                     required: true,
+                                     maxLength: 16,
+                                     minLength: 8
                                     })} />
-                                    {errors.password?.type === 'minLength' && <p class='mt-[10px] text-center'>The password must have at least 3 characters</p>}
-                                    {errors.password?.type === 'required' && <p class='mt-[10px] text-center'>Please enter a password</p>}
+                                    <a class="block lg:inline-block lg:mt-0 " onClick={() => setShowPwd(!showPwd)}> <img  class= " z-6 inset-y-0 my-auto h-6 active:bg-gray-600 active:rounded-full"src = {seePassword}/> </a>
+                                </div>
+                                    {errors.password?.type === 'minLength' && <p class='mt-[10px] text-center text-base text-white font-extrabold '>The password must have at least 3 characters</p>}
+                                    {errors.password?.type === 'pattern' && <p class='mt-[10px] text-white  text-base font-extrabold'>the password at least one digit, at least one lower case and at least one upper case.</p>}
+                                    {errors.password?.type === 'maxLength' && <p class=' mt-[10px] text-white  text-base font-extrabold'>must have a maximum of 16 characters</p>}
+                                    {errors.password?.type === 'required' && <p class='mt-[10px] text-center text-base text-white font-extrabold '>Please enter a password</p>}
                                 </div>
                             </div>
+                                <div onClick={() => ForgotPassword()}>
+                                    <h1 className='text-blue-400 underline text-lg text-end mr-2 cursor-pointer'>Forgot Password?</h1>
+                                </div>
                             <div>
                                 <button class='mt-4 w-full py-3 bg-gray-900 text-white' type='submit'>Login</button>
                             </div>

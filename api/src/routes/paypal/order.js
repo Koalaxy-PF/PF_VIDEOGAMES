@@ -9,8 +9,9 @@ const router = Router();
 
 router.post("/:id", async (req, res) => {
   const { id } = req.params;
-  const response = await axios.get(`http://localhost:3000/cart/${id}`);
-  const price = response.data.total;
+  const responseCarrito = await axios.get(`http://localhost:3000/cart/${id}`);
+
+  const price = responseCarrito.data.total;
   /*  const price = req.body.total */
   // cuando se cree el front para correr este http, cambiar para que lleguen los datos desde el body.
   try {
@@ -22,14 +23,14 @@ router.post("/:id", async (req, res) => {
             currency_code: "USD",
             value: price,
           },
-          description: "Digital product",
         },
       ],
       application_context: {
         brand_name: "Koalaxy",
         landing_page: "NO_PREFERENCE",
         user_action: "PAY_NOW",
-        return_url: `http://localhost:3000/pay-order`,
+        return_url:
+          "http://localhost:3000/pay-order/" + responseCarrito.data.id,
         cancel_url: `http://localhost:5173/home`,
       },
     };
@@ -58,6 +59,7 @@ router.post("/:id", async (req, res) => {
     const response = await axios.post(
       `${PAYPAL_API_TEST}/v2/checkout/orders`,
       order,
+
       {
         headers: {
           Authorization: `Bearer ${access_token}`,
@@ -65,7 +67,8 @@ router.post("/:id", async (req, res) => {
       }
     );
     /*  console.log(response.data); */
-    res.json(response.data);
+
+    res.status(200).json(response.data);
   } catch (error) {
     console.log(error.message);
     return res.status(500).json("algo salio mal");

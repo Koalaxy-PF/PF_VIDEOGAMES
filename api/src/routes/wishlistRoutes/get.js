@@ -21,9 +21,9 @@ router.get('/:id', async(req,res) => {
                 ],
             order: [[Productwish, "createdAt", "DESC"]],
             });
-               res.send(wishlist)
+               res.status(200).send(wishlist)
     } catch (err) { 
-        console.log(err)
+        res.status(401).send({ "message": err})
     }
 })
 

@@ -1,69 +1,87 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import Card from "../Card/Card";
-import { Link } from "react-router-dom";
-import { Fragment } from "react";
-import SearchBar from "../SearchBar/SearchBar";
-import { GetWishList, PostWishList, GetGames} from "../../redux/actions/actions";
-import Pagination from "../Pagination/Pagination";
+import { GetWishList, PostWishList, GetGames, DeleteWishListProduct} from "../../redux/actions/actions";
 import WishListCard from "../WishListCard/WishListCard";
+import Swal from "sweetalert2";
+import Error from '../../assets/Error/Wishlist/EmptyW.png'
 
+export default function Cards(){
 
-export default function Cards() {
-const WishListGames = useSelector((state) => state.WishList);
-const [gamesPerPage, setGamesPerPage] = useState(8);
-const dispatch = useDispatch();
-const[currentPage,setCurrentPage] =useState(1) 
-const indexLastGame = currentPage * gamesPerPage;
-const indexFirstGame = indexLastGame - gamesPerPage;
-const currentGames = WishListGames.slice(indexFirstGame, indexLastGame)
+  const WishListGames = useSelector((state) => state.WishList);
+  const User = useSelector((state) => state.user)
+  const dispatch = useDispatch();
 
-function addWishList(e){
-  PostWishList(id)
+  useEffect(() => {
+    dispatch(GetWishList(User.user.id))
+  },[])   
+
+  const DeleteFromWL = (id) => {
+
+    dispatch(DeleteWishListProduct(id)).then((response) =>{
+        Swal.fire({
+            icon: 'Success',
+            title: response.data.message,
+            text: 'El producto se eliminó!',
+    }).then(() => {
+        dispatch(GetWishList(User.user.id))
+    })
+    }).catch((response) => {
+        Swal.fire({
+            icon: 'error',
+            title: response.message,
+            text: 'El producto no se eliminó!',
+   })})
 }
-
-const pagination = pagesNumber =>{
-  setCurrentPage(pagesNumber)
-  window.scrollTo(0,0)
-}
-
-useEffect(() => {
-  dispatch(GetGames());
-}, [dispatch]);  
-
-
-
-console.log(currentGames);
 
   return (        
-    <div>  
-      {currentGames?.map((product) => {
+    <div className="grid content-start w-full pt-2" style={{backgroundImage: `url('https://www.xtrafondos.com/descargar.php?id=4047&resolucion=3840x2400')`, backgroundSize: 'cover'}}>  
+
+      {
+        WishListGames.length === 0 ?
+
+        <div>
+          <img src={Error} className="w-1/3 mx-auto" alt="" />
+        </div>
+
+        :
+
+        WishListGames.productwishes.length === 0 ?
+
+          <div>
+            <img src={Error} className="w-1/3 mx-auto" alt="" />
+          </div>
+
+          :
+
+        WishListGames.productwishes?.map((product, index) => {
         return (
-          <Fragment key={product.id}>
-        
-            <Link to={"/products/" + product.id}>
-              <div>
+          <div key={product.id}>
+              <div className="mx-4 my-1">
               <WishListCard
+                id={product.id}
+                key={index}
                 img={product.img}
                 name={product.name}
                 calification={product.calification}
-                price={product.price}
-                /* stock={product.stock} */
+                price={product.priceProduct}
                 genre={product.genre} 
               />
               </div>
-            </Link>
-          </Fragment>
+              <div>
+                <button onClick={() => DeleteFromWL(product.id)} >Delete</button>
+              </div>
+          </div>
         );
       })} 
+      
        <div className="flex flex-nowrap justify-center w-full flex-row my-3">
-        <Pagination 
+        {/* <Pagination 
           allGames={WishListGames.length}
           gamesPerPage={gamesPerPage}
           pagination={pagination}
           currentPage={currentPage}
-        />
+        /> */}
        </div>
     </div>
   );

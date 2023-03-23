@@ -19,8 +19,8 @@ pago esta registrado, y los datos. Esto sirve por si nos preguntan si el pago se
 
 MercadoPago:
 
-Ruta: Metodo Post, "http://localhost:3000/payment" ---> con solo hacer la peticion te llega por medio de la key "init_point" el enlace de la orden de compra.
-La ruta no va a cambiar, solamente hay que cambiar los datos de prueba por la informacion del body.
+Ruta: Metodo Post, "http://localhost:3000/payment/:id" ---> con solo hacer la peticion te llega por medio de la key "sandbox_init_point" el enlace de la orden de compra.
+
 
 Credenciales para probar el pago:
 
