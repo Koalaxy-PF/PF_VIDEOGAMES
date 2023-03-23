@@ -1,8 +1,8 @@
 import axios from 'axios'
 
-const API_URL = "http://localhost:3000/auth/"
+const API_URL = "https://apikoalaxy-production.up.railway.app/auth/"
 
-const API_URL2 = "http://localhost:3000/contactus/create"
+const API_URL2 = "https://apikoalaxy-production.up.railway.app/contactus/create"
 
 class AuthService{
 
