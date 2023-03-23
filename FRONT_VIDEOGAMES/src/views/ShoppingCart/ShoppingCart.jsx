@@ -84,9 +84,9 @@ export default function ShoppingCart(){
             if(window.localStorage.getItem('info-token')){
                 dispatch(DeleteProductCart(id, User.user.id)).then((resp) => {
                     Swal.fire({
-                        icon: 'sucess',
+                        icon: 'success',
                         title: resp.data.message,
-                        text: 'El producto se eliminó!',
+                        text: 'The product is removed',
                 }).then(() => {
                     dispatch(getInCart(User.user.id));
                 })}).catch((resp) => {

@@ -31,7 +31,7 @@ export default function QA() {
 			<details>
 				<summary className="py-2 outline-none cursor-pointer focus:underline">What payment methods do we have?</summary>
 				<div className="px-4 pb-4">
-					<p>Validated users can buy using PayPal or MercadoPago.</p>
+					<p>Validated users can buy using PayPal.</p>
 				</div>
 			</details>
 
