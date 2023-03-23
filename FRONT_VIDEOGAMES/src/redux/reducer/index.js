@@ -104,7 +104,7 @@ function rootReducer(state = initialState, action) {
 
       for (let i = 0; i < carrito.productcarts.length; i++) {
         if (action.payload === carrito.productcarts[i].name) {
-          carrito.totalValue = carrito.total - carrito.productcarts[i].price;
+          carrito.total = carrito.total - carrito.productcarts[i].priceProduct;
           carrito.productcarts.splice(i, 1);
           i--;
         }

@@ -17,7 +17,7 @@ export default function Card({img, id, name, price, genre, calification}){
         
         // COMPROBAMOS SI EL USUARIO ESTÁ VALIDADO O NO
 
-        if(Object.entries(User).length === 0){
+        if(Object.keys(User).length === 0){
 
             // USUARIO NO ESTÁ VALIDADO
 
@@ -81,7 +81,7 @@ export default function Card({img, id, name, price, genre, calification}){
         
                 // MODIFICAMOS EL TOTAL DE PRODUCTOS EN EL CARRITO Y SU VALOR TOTAL
         
-                objeto.total = objeto.total + obj.price   // TOTAL DE ELEMENTOS
+                objeto.total = objeto.total + obj.priceProduct   // TOTAL DE ELEMENTOS
         
                 for(let i=0; i<objeto.productcarts.length; i++){
                     p.push(objeto.productcarts[i]);
@@ -103,7 +103,7 @@ export default function Card({img, id, name, price, genre, calification}){
                 // EL CARRITO ESTÁ VACÍO Y SE METERÁ EL PRIMER PRODUCTO. 
         
                 const objeto = {
-                    totalValue: obj.price,
+                    total: obj.priceProduct,
                     productcarts: [obj],
                 }
         
