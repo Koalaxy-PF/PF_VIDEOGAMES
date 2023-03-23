@@ -25,7 +25,7 @@ export default function Card({img, id, name, price, genre, calification}){
                 id: id,
                 img: img,
                 name: name,
-                price: price,
+                priceProduct: price,
             }
 
             PostInCartLocal(obj);
@@ -103,7 +103,7 @@ export default function Card({img, id, name, price, genre, calification}){
                 // EL CARRITO ESTÁ VACÍO Y SE METERÁ EL PRIMER PRODUCTO. 
         
                 const objeto = {
-                    total: obj.price,
+                    totalValue: obj.price,
                     productcarts: [obj],
                 }
         

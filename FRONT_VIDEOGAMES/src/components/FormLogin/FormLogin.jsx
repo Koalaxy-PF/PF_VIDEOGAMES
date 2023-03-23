@@ -53,9 +53,9 @@ export default function LoginForm(){
         dispatch(Login(data)).then((response) => {
             dispatch(Login_OK(response.data)).then(() => {
                 Swal.fire({
+                    icon: 'success',
                     title: '¡Welcome!',
                     text: 'User validated successfully',
-                    icon: 'success',
                     confirmButtonColor: '#3085d6',
                     confirmButtonText: 'Continue'
                   }).then((result) => {
