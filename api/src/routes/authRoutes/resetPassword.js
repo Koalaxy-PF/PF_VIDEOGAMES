@@ -23,8 +23,7 @@ router.put("/resetPassword", async (req, res) => {
       decryptPassword.toString(CryptoJS.enc.Utf8);
 
       let result = "";
-      const characters =
-        "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+      const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
       const charactersLength = characters.length;
       for (let i = 0; i < charactersLength; i++) {
         result += characters.charAt(
