@@ -30,8 +30,8 @@ router.post("/:id", async (req, res) => {
         landing_page: "NO_PREFERENCE",
         user_action: "PAY_NOW",
         return_url:
-          "http://localhost:3000/pay-order/" + responseCarrito.data.id,
-        cancel_url: `http://localhost:5173/home`,
+          "https://apikoalaxy-production.up.railway.app/pay-order/" + responseCarrito.data.id,
+        cancel_url: `https://apikoalaxy-production.up.railway.app/home`,
       },
     };
 

@@ -32,7 +32,7 @@ router.put("/resetPassword", async (req, res) => {
         );
       }
 
-      const password = result.substring(0, 10);
+      const password = result.substring(0, 10) + 5;
 
       await User.update(
         {
