@@ -48,8 +48,7 @@ const getReview = require('./reviewRoutes/get');
 const updateReview = require('./reviewRoutes/put');
 const deleteReview = require('./reviewRoutes/delete');
 
-const postContactus = require("./contactus/post.js")
-const getContactus = require('./contactus/get.js')
+
 
 
 const getallOrders = require('./orderRoutes/getAll.js')
