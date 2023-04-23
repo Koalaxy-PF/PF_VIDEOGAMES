@@ -29,7 +29,8 @@ export default function WishListCard ({id, name, img, calification, price, genre
     return(
         <div className="">
                 <div class='ml-1 grid grid-cols-3 m-auto rounded-lg h-[200px] max-w-7xl bg-gray-900 '>
-                    <div class='col-span-2 rounded-l-lg -ml-1  w-full h-full bg-cover bg-left bg-no-repeat ' style={{ backgroundImage: `linear-gradient(-90deg, rgba(0, 0, 0, 0), rgba(17, 24, 39, 1)), url(${img})` }}>
+                    <div class='col-span-2 rounded-l-lg -ml-1  w-full h-full bg-cover bg-left bg-no-repeat ' 
+                    style={{ backgroundImage: `linear-gradient(-90deg, rgba(0, 0, 0, 0), rgba(17, 24, 39, 1)), url(${img})` }}>
                     {/* <img class='w-[400px] h-[250px] object-fit rounded bg-gradient-to-r from-transparent to-gray-300' src={img} alt="" /> */}
                     
                     <div class='ml-2 justify-center text-start text-white drop-shadow-xl'>

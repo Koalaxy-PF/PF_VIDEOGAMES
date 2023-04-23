@@ -24,7 +24,12 @@ import {
   PUT_PRODUCT_DASH,
   GET_USERS,
   LOGOUT,
-  GET_ORDER_ID
+  GET_ORDER_ID,
+  GET_PRODUCTS_LIBRARY,
+  UPDATE_GAME,
+  GET_DETAIL,
+  GET_REVIEWS,
+  CLEAN_USERS
 } from "../actions/actions";
 
 const initialState = {
@@ -39,11 +44,13 @@ const initialState = {
   WishList: [],
   dataSupport: {},
   library: [],
+  reviews: [],
   order: [],
 };
 
 function rootReducer(state = initialState, action) {
   switch (action.type) {
+
     // - - - AUTENTICACIÓN - - -
 
     case LOGIN_SUCESS:
@@ -96,8 +103,8 @@ function rootReducer(state = initialState, action) {
       const carrito = JSON.parse(window.localStorage.getItem("carrito-ls"));
 
       for (let i = 0; i < carrito.productcarts.length; i++) {
-        if (action.payload === carrito.productcarts[i].id) {
-          carrito.total = carrito.total - carrito.productcarts[i].price;
+        if (action.payload === carrito.productcarts[i].name) {
+          carrito.total = carrito.total - carrito.productcarts[i].priceProduct;
           carrito.productcarts.splice(i, 1);
           i--;
         }
@@ -123,11 +130,16 @@ function rootReducer(state = initialState, action) {
         GamesCopy: action.payload,
       };
 
-    // case GET_GAME:
-    //     return {
-    //         ...state,
-    //         Games: action.payload,
-    // }
+    case GET_DETAIL:
+      return{
+        ...state,
+        details: action.payload
+      }
+
+    case UPDATE_GAME:
+        return {
+            ...state
+        }
 
     case POST_GAME:
       return {
@@ -312,15 +324,34 @@ function rootReducer(state = initialState, action) {
         dataSupport: action.payload,
       };
 
-      case GET_ORDER_ID:
+    case GET_REVIEWS:
 
-      console.log("datos:", action.payload);
+      console.log("elementos:" , action.payload);
+
+      return {
+        ...state,
+        reviews: action.payload,
+      }
+
+      case GET_PRODUCTS_LIBRARY:
+
+        return {
+          ...state,
+          library: action.payload,
+      }
+     
+    case CLEAN_USERS:
+      return{
+        ...state,
+        users: action.payload,
+      }
+
+    case GET_ORDER_ID:
 
       return {
         ...state,
         order: action.payload,
       }
-     
 
     default: {
       return state;

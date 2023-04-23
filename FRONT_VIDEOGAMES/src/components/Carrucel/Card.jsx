@@ -17,7 +17,7 @@ export default function Card({img, id, name, price, genre, calification}){
         
         // COMPROBAMOS SI EL USUARIO ESTÁ VALIDADO O NO
 
-        if(Object.entries(User).length === 0){
+        if(Object.keys(User).length === 0){
 
             // USUARIO NO ESTÁ VALIDADO
 
@@ -25,7 +25,7 @@ export default function Card({img, id, name, price, genre, calification}){
                 id: id,
                 img: img,
                 name: name,
-                price: price,
+                priceProduct: price,
             }
 
             PostInCartLocal(obj);
@@ -67,8 +67,10 @@ export default function Card({img, id, name, price, genre, calification}){
 
                 // COMPROBAMOS QUE EL PRODUCTO NO ESTÉ YA EN EL CARRITO. 
 
+                console.log("producto, datos:", obj);
+
                 for(let i=0; i<objeto.productcarts.length; i++){
-                    if(obj.id === objeto.productcarts[i].id) {
+                    if(obj.name === objeto.productcarts[i].name) {
                         return Swal.fire({
                             icon: 'error',
                             title: 'Something has gone wrong!',
@@ -79,7 +81,7 @@ export default function Card({img, id, name, price, genre, calification}){
         
                 // MODIFICAMOS EL TOTAL DE PRODUCTOS EN EL CARRITO Y SU VALOR TOTAL
         
-                objeto.total = objeto.total + obj.price   // TOTAL DE ELEMENTOS
+                objeto.total = objeto.total + obj.priceProduct   // TOTAL DE ELEMENTOS
         
                 for(let i=0; i<objeto.productcarts.length; i++){
                     p.push(objeto.productcarts[i]);
@@ -101,7 +103,7 @@ export default function Card({img, id, name, price, genre, calification}){
                 // EL CARRITO ESTÁ VACÍO Y SE METERÁ EL PRIMER PRODUCTO. 
         
                 const objeto = {
-                    total: obj.price,
+                    total: obj.priceProduct,
                     productcarts: [obj],
                 }
         
@@ -183,7 +185,7 @@ export default function Card({img, id, name, price, genre, calification}){
 
                 <a>
                     <div>
-                        <button className="text-blue-500" onClick={(e) => AddToWL(e)} ><ion-icon name="heart"></ion-icon></button>
+                        <button className="text-blue-500 mt-1" onClick={(e) => AddToWL(e)} ><ion-icon name="heart"></ion-icon></button>
                     </div>
                 </a>
 

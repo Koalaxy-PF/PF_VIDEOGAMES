@@ -5,9 +5,6 @@ import logo from '../../../assets/icons/koalaLogo.png';
 import { Link } from "react-router-dom";
 import SearchBar from "../../../components/SearchBar/SearchBar";
 
-
-
-
 export default function Games() {
   return (
     <div class='grid grid-cols-6 min-h-screen overflow-y-hidden '>
@@ -24,10 +21,6 @@ export default function Games() {
         <Link to='/CreateGame'><div class='flex items-center relative left-[190px]'>
         <span class='text-[30px] relative top-[2px] text-blue-700'><ion-icon name="add-circle"></ion-icon></span>
         <p class='ml-[2px] font-bold'>Create new game</p>
-        </div></Link>
-        <Link to='/UpdateGame'><div class='flex items-center relative left-[190px]'>
-        <span class='text-[30px] relative top-[2px] text-blue-700'><ion-icon name="add-circle"></ion-icon></span>
-        <p class='ml-[2px] font-bold'>Update game</p>
         </div></Link>
         </div>
         <div class='text-center'>

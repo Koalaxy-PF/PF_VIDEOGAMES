@@ -4,11 +4,17 @@ const bodyParser = require("body-parser");
 const morgan = require("morgan");
 const routes = require("./routes/index.js");
 const cors = require("cors");
+const passport = require("passport");
+const { strategyGithub } = require('./routes/configGithubAuth'); //no borrar!
+
 
 require("./db.js");
 
 const app = express();
 app.name = "API";
+
+app.use(passport.initialize());
+
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));

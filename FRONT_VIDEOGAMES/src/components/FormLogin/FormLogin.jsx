@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {useForm} from 'react-hook-form';
 import logo from '../../assets/icons/koalaLogo.png';
 import koala from '../../assets/login/koala_login3.png'
-import { Login, Login_OK} from '../../redux/actions/actions'
+import { Login, Login_OK, ResetPassword} from '../../redux/actions/actions'
 import { useNavigate } from 'react-router-dom'
 import {Link} from 'react-router-dom'
 import Swal from 'sweetalert2'
@@ -16,22 +16,54 @@ export default function LoginForm(){
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
+    const ForgotPassword = (e) => {
+
+        Swal.fire({
+            title: 'Submit your email',
+            input: 'text',
+            inputAttributes: {
+              autocapitalize: 'off'
+            },
+            showCancelButton: true,
+            confirmButtonText: 'Cool',
+            showLoaderOnConfirm: true,
+            preConfirm: (login) => {
+                dispatch(ResetPassword({email: login})).then((resp) => {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Congrulations!',
+                        text: resp.data,
+                      })
+                }).catch((err) => {
+                    console.log(err)
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Something went wrong',
+                        text: err.response.data.message,
+                      })
+                })
+            }
+        })
+    }
+
     const onSubmit = (data) => {
+
+        console.log("1")
+
         dispatch(Login(data)).then((response) => {
             dispatch(Login_OK(response.data)).then(() => {
                 Swal.fire({
+                    icon: 'success',
                     title: '¡Welcome!',
                     text: 'User validated successfully',
-                    icon: 'success',
                     confirmButtonColor: '#3085d6',
                     confirmButtonText: 'Continue'
                   }).then((result) => {
                     if (result.isConfirmed) {
                       navigate("/home");
-                      console.log(response)
-                      info
                     }})})
             }).catch((err) => {
+                console.log(err)
                 Swal.fire({
                   tittle: '¡Ops! There is a problem',
                   text: err.response.data.message,
@@ -73,7 +105,7 @@ export default function LoginForm(){
                                     {errors.email?.type === 'pattern' && <p class='mt-[10px] text-center text-base text-white font-extrabold '>Please enter a correct email format </p>}
                                 </div>
                                 <div>
-                                <label for="password" class='block text-sm text-base text-white font-extrabold  mt-2 lg:mt-0'>Password</label>
+                                <label for="password" class='block text-base text-white font-extrabold  mt-2 lg:mt-0'>Password</label>
                                 <div class='flex item-center justify-between flex-wrap bg-white mt-2 shadow appearance-none  p-4 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none'>
                                 <input class=' focus:shadow-outline focus:outline-none' placeholder='Password' 
                                     type={showPwd ? "text" : "password"} {...register('password', {
@@ -85,9 +117,14 @@ export default function LoginForm(){
                                     <a class="block lg:inline-block lg:mt-0 " onClick={() => setShowPwd(!showPwd)}> <img  class= " z-6 inset-y-0 my-auto h-6 active:bg-gray-600 active:rounded-full"src = {seePassword}/> </a>
                                 </div>
                                     {errors.password?.type === 'minLength' && <p class='mt-[10px] text-center text-base text-white font-extrabold '>The password must have at least 3 characters</p>}
+                                    {errors.password?.type === 'pattern' && <p class='mt-[10px] text-white  text-base font-extrabold'>the password at least one digit, at least one lower case and at least one upper case.</p>}
+                                    {errors.password?.type === 'maxLength' && <p class=' mt-[10px] text-white  text-base font-extrabold'>must have a maximum of 16 characters</p>}
                                     {errors.password?.type === 'required' && <p class='mt-[10px] text-center text-base text-white font-extrabold '>Please enter a password</p>}
                                 </div>
                             </div>
+                                <div onClick={() => ForgotPassword()}>
+                                    <h1 className='text-blue-400 underline text-lg text-end mr-2 cursor-pointer'>Forgot Password?</h1>
+                                </div>
                             <div>
                                 <button class='mt-4 w-full py-3 bg-gray-900 text-white' type='submit'>Login</button>
                             </div>
